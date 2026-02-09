@@ -32,6 +32,7 @@ export const EnhancedMarkdownRenderer = ({ content, heroImage }: EnhancedMarkdow
           
           switch (componentType) {
             case 'KEY_TAKEAWAY':
+              if (!data.content) return null;
               return (
                 <div key={index} className="my-6">
                   <KeyTakeaway title={data.title}>
@@ -41,6 +42,7 @@ export const EnhancedMarkdownRenderer = ({ content, heroImage }: EnhancedMarkdow
               );
               
             case 'DID_YOU_KNOW':
+              if (!data.fact) return null;
               return (
                 <div key={index} className="my-6">
                   <DidYouKnow fact={data.fact} />
@@ -48,6 +50,7 @@ export const EnhancedMarkdownRenderer = ({ content, heroImage }: EnhancedMarkdow
               );
               
             case 'STEP_BLOCK':
+              if (!data.steps || !Array.isArray(data.steps) || data.steps.length === 0) return null;
               return (
                 <div key={index} className="my-6">
                   <StepBlock steps={data.steps} title={data.title} />
@@ -55,6 +58,7 @@ export const EnhancedMarkdownRenderer = ({ content, heroImage }: EnhancedMarkdow
               );
               
             case 'FLIP_CARDS':
+              if (!data.cards || !Array.isArray(data.cards) || data.cards.length === 0) return null;
               return (
                 <div key={index} className="my-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
                   {data.cards.map((card: { front: string; back: string }, cardIndex: number) => (
@@ -64,6 +68,7 @@ export const EnhancedMarkdownRenderer = ({ content, heroImage }: EnhancedMarkdow
               );
               
             case 'COMPARISON_TABLE':
+              if (!data.items || !Array.isArray(data.items) || data.items.length === 0) return null;
               return (
                 <div key={index} className="my-6">
                   <ComparisonTable
@@ -74,6 +79,7 @@ export const EnhancedMarkdownRenderer = ({ content, heroImage }: EnhancedMarkdow
               );
               
             case 'DEFINITION':
+              if (!(data.term || data.word) || !data.definition) return null;
               return (
                 <TermDefinition
                   key={index}
@@ -82,7 +88,10 @@ export const EnhancedMarkdownRenderer = ({ content, heroImage }: EnhancedMarkdow
                 />
               );
 
-            case 'ALERT':
+            case 'ALERT': {
+              const message = data.message || data.content;
+              if (!message && !data.title) return null;
+
               const icons = {
                 warning: AlertTriangle,
                 info: Info,
@@ -104,12 +113,14 @@ export const EnhancedMarkdownRenderer = ({ content, heroImage }: EnhancedMarkdow
                     <CardContent className="px-4 py-4 sm:px-6 sm:py-5">
                       <div className="flex flex-col items-center text-center space-y-3">
                         <Icon className={`h-5 w-5 flex-shrink-0 ${iconColor}`} />
-                        <p className="text-foreground text-sm sm:text-base break-words leading-relaxed w-full">{data.message}</p>
+                        {data.title && <h4 className={`font-semibold ${iconColor} text-sm sm:text-base mb-1 text-center`}>{data.title}</h4>}
+                        {message && <p className="text-foreground text-sm sm:text-base break-words leading-relaxed w-full">{message}</p>}
                       </div>
                     </CardContent>
                   </Card>
                 </div>
               );
+            }
               
             default:
               return null;
@@ -157,7 +168,7 @@ export const EnhancedMarkdownRenderer = ({ content, heroImage }: EnhancedMarkdow
                 </CardContent>
               </Card>
             ),
-            code: ({ node, inline, ...props }: any) => 
+            code: ({ inline, ...props }: React.ComponentPropsWithoutRef<'code'> & { inline?: boolean }) =>
               inline ? (
                 <code className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono text-primary" {...props} />
               ) : (
