@@ -38,8 +38,6 @@ export const PointsHistory = () => {
     return '⭐';
   };
 
-  const currentMonth = new Date().toLocaleString('default', { month: 'long' });
-
   if (loading) {
     return (
       <Card className="p-4 animate-pulse">
@@ -52,13 +50,13 @@ export const PointsHistory = () => {
     <Card className="p-4 sm:p-6 border-primary/20">
       <div className="flex items-center gap-2 mb-4">
         <Clock className="w-5 h-5 text-primary" />
-        <h3 className="font-semibold text-foreground">{currentMonth} Points History</h3>
+        <h3 className="font-semibold text-foreground">Points History</h3>
       </div>
 
       {history.length === 0 ? (
         <div className="text-center py-8 text-muted-foreground">
           <Star className="w-12 h-12 mx-auto mb-2 opacity-50" />
-          <p>No points earned yet this month.</p>
+          <p>No points earned yet.</p>
           <p className="text-sm">Complete activities to earn points!</p>
         </div>
       ) : (

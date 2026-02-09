@@ -4,6 +4,7 @@ import { useAuth } from "@/components/auth/AuthProvider";
 import { useProgress } from "@/components/progress/ProgressProvider";
 import { useSubscription } from "@/hooks/useSubscription";
 import { useAchievementSounds } from "@/hooks/useAchievementSounds";
+import { useBadges } from "@/hooks/useBadges";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -81,6 +82,7 @@ export const EnhancedDashboard = () => {
   const { courseProgress } = useProgress();
   const { subscription, loading: subLoading, hasAccess, isTrialing, checkSubscription } = useSubscription();
   const { soundEnabled, toggleSound } = useAchievementSounds();
+  const { getAllBadgesWithStatus } = useBadges();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const [quizStats, setQuizStats] = useState<QuizStats>({
@@ -173,16 +175,49 @@ export const EnhancedDashboard = () => {
     if (!user) return;
 
     try {
-      const { data: attempts, error } = await supabase
+      // Fetch quiz attempts
+      const { data: attempts, error: quizError } = await supabase
         .from('quiz_attempts')
         .select('*, quizzes(title, course_id, module_id)')
         .eq('user_id', user.id)
         .order('created_at', { ascending: false })
         .limit(10);
 
-      if (error) throw error;
+      if (quizError) throw quizError;
 
-      setRecentActivity(attempts || []);
+      // Fetch significant point earnings (module/course completions)
+      const { data: points, error: pointsError } = await supabase
+        .from('user_points')
+        .select('*')
+        .eq('user_id', user.id)
+        .in('action_type', ['module_completion', 'course_completion', 'tutorial_completed', 'quiz_passed'])
+        .order('created_at', { ascending: false })
+        .limit(10);
+
+      if (pointsError) throw pointsError;
+
+      // Combine and format activity
+      const combinedActivity = [
+        ...(attempts?.map(a => ({
+          id: a.id,
+          type: 'quiz',
+          title: a.quizzes?.title || 'Quiz',
+          score: a.score,
+          passed: a.passed,
+          created_at: a.created_at
+        })) || []),
+        ...(points?.filter(p => p.action_type !== 'quiz_passed').map(p => ({
+          id: p.id,
+          type: 'points',
+          action_type: p.action_type,
+          points: p.points,
+          created_at: p.created_at,
+          metadata: p.metadata
+        })) || [])
+      ].sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
+      .slice(0, 10);
+
+      setRecentActivity(combinedActivity);
     } catch (error) {
       console.error('Error loading recent activity:', error);
     }
@@ -200,10 +235,10 @@ export const EnhancedDashboard = () => {
       monday.setDate(now.getDate() + mondayOffset);
       monday.setHours(0, 0, 0, 0);
 
-      // Fetch quiz attempts from this week
+      // Fetch quiz attempts from this week with time_taken
       const { data: quizAttempts, error: quizError } = await supabase
         .from('quiz_attempts')
-        .select('created_at')
+        .select('created_at, time_taken')
         .eq('user_id', user.id)
         .gte('created_at', monday.toISOString());
 
@@ -229,19 +264,26 @@ export const EnhancedDashboard = () => {
         dayEnd.setHours(23, 59, 59, 999);
         const dayEndTime = dayEnd.getTime();
 
-        // Count quizzes completed on this day
-        const quizzes = quizAttempts?.filter(attempt => {
+        // Calculate quiz time on this day (in minutes)
+        const dayQuizzes = quizAttempts?.filter(attempt => {
           const d = new Date(attempt.created_at).getTime();
           return d >= dayStart && d <= dayEndTime;
-        }).length || 0;
+        });
+
+        const quizMinutes = Math.round((dayQuizzes?.reduce((sum, q) => sum + (q.time_taken || 0), 0) || 0) / 60);
 
         // Count module completions on this day (from user_points)
-        const modules = modulePoints?.filter(point => {
+        const modulesCount = modulePoints?.filter(point => {
           const d = new Date(point.created_at).getTime();
           return d >= dayStart && d <= dayEndTime;
         }).length || 0;
 
-        return { day, modules, quizzes };
+        // Estimate 10 minutes per completed module
+        const moduleMinutes = modulesCount * 10;
+
+        const totalMinutes = quizMinutes + moduleMinutes;
+
+        return { day, minutes: totalMinutes, modules: modulesCount, quizzes: dayQuizzes?.length || 0 };
       });
 
       setWeeklyProgress(weekData);
@@ -271,6 +313,13 @@ export const EnhancedDashboard = () => {
         .eq('user_id', user.id)
         .order('created_at', { ascending: true });
 
+      // Fetch all module completions for study time calculation
+      const { data: modulePoints } = await supabase
+        .from('user_points')
+        .select('created_at')
+        .eq('user_id', user.id)
+        .eq('action_type', 'module_completion');
+
       // Calculate highest score
       const highestScore = quizzes?.reduce((max, q) => Math.max(max, q.score), 0) || 0;
       
@@ -288,22 +337,32 @@ export const EnhancedDashboard = () => {
         improvementTrend = Math.round(secondHalfAvg - firstHalfAvg);
       }
 
-      // Calculate best day from activity
+      // Calculate best day from activity (quizzes + module completions)
       const dayCount: Record<string, number> = {};
       quizzes?.forEach(q => {
         const day = new Date(q.created_at).toLocaleDateString('en-US', { weekday: 'long' });
         dayCount[day] = (dayCount[day] || 0) + 1;
       });
+      modulePoints?.forEach(m => {
+        const day = new Date(m.created_at).toLocaleDateString('en-US', { weekday: 'long' });
+        dayCount[day] = (dayCount[day] || 0) + 1;
+      });
       const bestDay = Object.entries(dayCount).sort((a, b) => b[1] - a[1])[0]?.[0] || 'No data';
 
-      // Calculate total time from quiz time_taken (in seconds)
-      const totalSeconds = quizzes?.reduce((sum, q) => sum + (q.time_taken || 0), 0) || 0;
+      // Calculate total quiz time (in seconds)
+      const totalQuizSeconds = quizzes?.reduce((sum, q) => sum + (q.time_taken || 0), 0) || 0;
+
+      // Add estimated module time (10 minutes per module)
+      const totalModuleSeconds = (modulePoints?.length || 0) * 10 * 60;
+
+      const totalSeconds = totalQuizSeconds + totalModuleSeconds;
       const hours = Math.floor(totalSeconds / 3600);
       const minutes = Math.floor((totalSeconds % 3600) / 60);
       const totalStudyTime = `${hours}h ${minutes}m`;
 
-      // Average session time
-      const avgSeconds = quizzes?.length ? totalSeconds / quizzes.length : 0;
+      // Average session time (using total activities)
+      const totalActivities = (quizzes?.length || 0) + (modulePoints?.length || 0);
+      const avgSeconds = totalActivities ? totalSeconds / totalActivities : 0;
       const avgMinutes = Math.round(avgSeconds / 60);
       const averageSession = `${avgMinutes} minutes`;
 
@@ -400,47 +459,17 @@ export const EnhancedDashboard = () => {
   }, [user]);
 
   const getAchievements = () => {
-    const achievements = [];
-    
-    if (completedCourses >= 1) {
-      achievements.push({
-        title: "First Course Complete",
-        description: "Completed your first course",
-        icon: Trophy,
-        earned: true,
-        date: "2024-01-15"
-      });
-    }
-    
-    if (quizStats.passedQuizzes >= 5) {
-      achievements.push({
-        title: "Quiz Master",
-        description: "Passed 5 quizzes",
-        icon: Brain,
-        earned: true,
-        date: "2024-01-18"
-      });
-    }
-    
-    if (quizStats.averageScore >= 90) {
-      achievements.push({
-        title: "High Achiever",
-        description: "Average quiz score above 90%",
-        icon: Star,
-        earned: true,
-        date: "2024-01-20"
-      });
-    }
-    
-    achievements.push({
-      title: "DeFi Master",
-      description: "Complete all 4 courses",
-      icon: Award,
-      earned: completedCourses >= 4,
-      date: completedCourses >= 4 ? "2024-01-25" : null
-    });
-
-    return achievements;
+    const allBadges = getAllBadgesWithStatus();
+    return allBadges.map(badge => ({
+      title: badge.name,
+      description: badge.description,
+      icon: badge.type.includes('streak') ? Zap :
+            badge.type.includes('quiz') ? Brain :
+            badge.type.includes('course') || badge.type.includes('graduate') ? Trophy :
+            badge.type.includes('master') ? Award : Star,
+      earned: badge.earned,
+      date: badge.earnedAt ? new Date(badge.earnedAt).toLocaleDateString() : null
+    }));
   };
 
   const getCoursesByProgress = () => {
@@ -724,20 +753,31 @@ export const EnhancedDashboard = () => {
         <Card className="p-4 sm:p-6 mb-6 md:mb-8 w-full overflow-x-auto">
           <h3 className="text-base sm:text-lg font-consciousness font-semibold mb-3 sm:mb-4">Weekly Learning Activity</h3>
           <div className="grid grid-cols-7 gap-2 sm:gap-4 min-w-[280px]">
-            {weeklyProgress.map((day, index) => (
-              <div key={index} className="text-center">
-                <p className="text-sm font-medium mb-2">{day.day}</p>
-                <div className="space-y-1">
-                  <div className="h-8 bg-primary/20 rounded flex items-end justify-center">
-                    <div 
-                      className="bg-primary rounded-b w-full"
-                      style={{ height: `${(day.modules / 4) * 100}%` }}
-                    />
+            {weeklyProgress.map((day, index) => {
+              // Goal is 60 minutes per day
+              const percentage = Math.min((day.minutes / 60) * 100, 100);
+              return (
+                <div key={index} className="text-center">
+                  <p className="text-sm font-medium mb-2">{day.day}</p>
+                  <div className="space-y-1">
+                    <div className="h-16 bg-primary/10 rounded flex items-end justify-center overflow-hidden">
+                      <div
+                        className="bg-primary transition-all duration-500 w-full"
+                        style={{ height: `${percentage}%` }}
+                      />
+                    </div>
+                    <p className="text-xs font-medium text-foreground">{day.minutes}m</p>
                   </div>
-                  <p className="text-xs text-muted-foreground">{day.modules}m</p>
                 </div>
-              </div>
-            ))}
+              );
+            })}
+          </div>
+          <div className="mt-4 flex items-center gap-4 text-xs text-muted-foreground justify-center sm:justify-start">
+            <div className="flex items-center gap-1">
+              <div className="w-2 h-2 rounded-full bg-primary" />
+              <span>Goal: 60m / day</span>
+            </div>
+            <span>• Estimated 10m per module</span>
           </div>
         </Card>
 
@@ -952,30 +992,47 @@ export const EnhancedDashboard = () => {
               </div>
               <div className="space-y-4">
                 {recentActivity.length > 0 ? (
-                  recentActivity.map((activity) => (
-                    <div key={activity.id} className="flex items-center gap-3 p-3 bg-muted/20 rounded-lg">
-                      <div className={`p-2 rounded-full ${
-                        activity.passed ? "bg-awareness/20 text-awareness" : "bg-destructive/20 text-destructive"
-                      }`}>
-                        {activity.passed ? (
-                          <CheckCircle2 className="w-4 h-4" />
+                  recentActivity.map((activity) => {
+                    const isQuiz = activity.type === 'quiz';
+                    return (
+                      <div key={activity.id} className="flex items-center gap-3 p-3 bg-muted/20 rounded-lg">
+                        <div className={`p-2 rounded-full ${
+                          isQuiz
+                            ? (activity.passed ? "bg-awareness/20 text-awareness" : "bg-destructive/20 text-destructive")
+                            : "bg-primary/20 text-primary"
+                        }`}>
+                          {isQuiz ? (
+                            activity.passed ? <CheckCircle2 className="w-4 h-4" /> : <Brain className="w-4 h-4" />
+                          ) : (
+                            <Star className="w-4 h-4" />
+                          )}
+                        </div>
+                        <div className="flex-1">
+                          <p className="font-consciousness text-foreground text-sm sm:text-base">
+                            {isQuiz ? (
+                              `${activity.passed ? "Passed" : "Attempted"} quiz: ${activity.title}`
+                            ) : (
+                              activity.action_type === 'module_completion' ? 'Completed a learning module' :
+                              activity.action_type === 'course_completion' ? 'Successfully completed a course' :
+                              activity.action_type === 'tutorial_completed' ? 'Finished a tutorial' : 'Earned points'
+                            )}
+                          </p>
+                          <p className="text-xs text-muted-foreground">
+                            {new Date(activity.created_at).toLocaleDateString()} • {new Date(activity.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                          </p>
+                        </div>
+                        {isQuiz ? (
+                          <Badge variant={activity.passed ? "default" : "destructive"} className="text-xs">
+                            {activity.score}%
+                          </Badge>
                         ) : (
-                          <Brain className="w-4 h-4" />
+                          <Badge variant="secondary" className="text-xs bg-awareness/20 text-awareness border-awareness/30">
+                            +{activity.points}
+                          </Badge>
                         )}
                       </div>
-                      <div className="flex-1">
-                        <p className="font-consciousness text-foreground">
-                          {activity.passed ? "Passed" : "Attempted"} quiz: {activity.quizzes?.title || "Unknown Quiz"}
-                        </p>
-                        <p className="text-xs text-muted-foreground">
-                          Score: {activity.score}% • {new Date(activity.created_at).toLocaleDateString()}
-                        </p>
-                      </div>
-                      <Badge variant={activity.passed ? "default" : "destructive"} className="text-xs">
-                        {activity.score}%
-                      </Badge>
-                    </div>
-                  ))
+                    );
+                  })
                 ) : (
                   <p className="text-center text-muted-foreground font-consciousness py-8">
                     No recent activity. Start learning to see your progress here!

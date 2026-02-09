@@ -197,9 +197,8 @@ export const usePoints = () => {
         .from('user_points')
         .select('*')
         .eq('user_id', user.id)
-        .eq('month_year', getCurrentMonth())
         .order('created_at', { ascending: false })
-        .limit(50);
+        .limit(100);
 
       if (error) throw error;
       return data as PointTransaction[] || [];

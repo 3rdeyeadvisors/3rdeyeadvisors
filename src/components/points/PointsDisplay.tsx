@@ -66,7 +66,7 @@ export const PointsDisplay = ({ compact = false }: PointsDisplayProps) => {
               </span>
             </div>
             <div className="text-xs text-muted-foreground">
-              of 2,000
+              of {rank?.total_users ? rank.total_users.toLocaleString() : '...'}
             </div>
           </div>
           
