@@ -93,6 +93,22 @@
   /* We're always in cosmic dark mode - this is the way */
 }
 
+/* Fix for 100vh on mobile browsers */
+@supports (height: 100dvh) {
+  :root {
+    --vh: 100dvh;
+  }
+}
+@supports not (height: 100dvh) {
+  :root {
+    --vh: 100vh;
+  }
+}
+
+.min-h-screen-dynamic {
+  min-height: var(--vh);
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -100,6 +116,10 @@
 
 body {
   @apply bg-background text-foreground overflow-x-hidden;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 }
 

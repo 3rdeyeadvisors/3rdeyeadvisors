@@ -186,8 +186,11 @@ export const EnhancedMarkdownRenderer = ({ content, heroImage }: EnhancedMarkdow
         <div className="w-full mb-8 rounded-lg overflow-hidden -mx-4 sm:-mx-6">
           <img 
             src={heroImage} 
-            alt="Course module hero" 
+            alt="Course module hero content"
             className="w-full h-auto object-cover max-h-[400px]"
+            width={1200}
+            height={400}
+            loading="eager"
           />
         </div>
       )}

@@ -64,10 +64,11 @@ const VaultAccess = () => {
               <div className="w-full max-w-[200px] aspect-square rounded-lg overflow-hidden border border-primary/20">
                 <img 
                   src={nftImage} 
-                  alt="3EA Earth Access NFT"
+                  alt="3EA Earth Access NFT membership key"
                   width={200}
                   height={200}
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
               

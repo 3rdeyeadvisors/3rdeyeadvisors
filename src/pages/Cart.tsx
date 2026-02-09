@@ -183,7 +183,7 @@ const CartItem = ({ item }: { item: any }) => {
             {item.image ? (
               <img 
                 src={item.image} 
-                alt={item.title}
+                alt={`${item.title} product image`}
                 width={80}
                 height={80}
                 className="w-full h-full object-cover"

@@ -1,9 +1,10 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/components/auth/AuthProvider';
 import { useSubscription } from '@/hooks/useSubscription';
 import { useSingleFoundingMemberStatus } from '@/hooks/useFoundingMemberStatus';
 import { useToast } from '@/hooks/use-toast';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 
 export type VoteType = 'yes' | 'no';
 
@@ -34,9 +35,8 @@ export const useRoadmapVotes = () => {
   const { subscription } = useSubscription();
   const { isFoundingMember, loading: foundingLoading } = useSingleFoundingMemberStatus(user?.id);
   const { toast } = useToast();
+  const queryClient = useQueryClient();
   
-  const [items, setItems] = useState<RoadmapItem[]>([]);
-  const [loading, setLoading] = useState(true);
   const [voting, setVoting] = useState<string | null>(null);
 
   // Determine vote weight based on membership
@@ -63,10 +63,10 @@ export const useRoadmapVotes = () => {
     return 'none';
   }, [isFounder, subscription?.plan]);
 
-  // Fetch all roadmap items with vote counts (privacy-safe: no user_id exposure)
-  const fetchItems = useCallback(async () => {
-    setLoading(true);
-    try {
+  // 1. Query for roadmap items
+  const { data: items = [], isLoading: itemsLoading, refetch: refreshItems } = useQuery({
+    queryKey: ['roadmap-items', user?.id],
+    queryFn: async () => {
       // Fetch roadmap items
       const { data: itemsData, error: itemsError } = await supabase
         .from('roadmap_items')
@@ -75,14 +75,14 @@ export const useRoadmapVotes = () => {
 
       if (itemsError) throw itemsError;
 
-      // Fetch aggregate vote counts from secure view (no user_id exposed)
+      // Fetch aggregate vote counts from secure view
       const { data: voteCounts, error: voteCountsError } = await supabase
         .from('roadmap_vote_counts')
         .select('*');
 
       if (voteCountsError) throw voteCountsError;
 
-      // Fetch only the current user's votes for UI highlighting (RLS enforced)
+      // Fetch current user's votes
       const { data: userVotes, error: userVotesError } = user
         ? await supabase
             .from('roadmap_votes')
@@ -92,22 +92,20 @@ export const useRoadmapVotes = () => {
 
       if (userVotesError) throw userVotesError;
 
-      // Create lookup maps for efficient processing
-      const voteCountsMap = new Map(
-        (voteCounts || []).map((vc: { roadmap_item_id: string; yes_votes: number; no_votes: number }) => [
+      const voteCountsMap = new Map<string, { yes: number, no: number }>(
+        (voteCounts || []).map((vc) => [
           vc.roadmap_item_id,
           { yes: vc.yes_votes, no: vc.no_votes }
         ])
       );
 
-      const userVoteMap = new Map(
-        (userVotes || []).map((v: { roadmap_item_id: string; vote_type: string }) => [
+      const userVoteMap = new Map<string, VoteType>(
+        (userVotes || []).map((v) => [
           v.roadmap_item_id,
           v.vote_type as VoteType
         ])
       );
 
-      // Process items with vote counts
       const processedItems: RoadmapItem[] = (itemsData || []).map((item) => {
         const counts = voteCountsMap.get(item.id) || { yes: 0, no: 0 };
         const userVoteType = userVoteMap.get(item.id) || null;
@@ -118,7 +116,7 @@ export const useRoadmapVotes = () => {
           description: item.description,
           status: item.status,
           created_at: item.created_at,
-          voting_ends_at: (item as any).voting_ends_at || null,
+          voting_ends_at: (item as { voting_ends_at?: string | null }).voting_ends_at || null,
           yes_votes: counts.yes,
           no_votes: counts.no,
           net_votes: counts.yes - counts.no,
@@ -126,20 +124,9 @@ export const useRoadmapVotes = () => {
         };
       });
 
-      // Sort by net vote count (descending)
-      processedItems.sort((a, b) => b.net_votes - a.net_votes);
-      setItems(processedItems);
-    } catch (error) {
-      console.error('Error fetching roadmap items:', error);
-      toast({
-        title: 'Error',
-        description: 'Failed to load roadmap items',
-        variant: 'destructive',
-      });
-    } finally {
-      setLoading(false);
-    }
-  }, [user, toast]);
+      return processedItems.sort((a, b) => b.net_votes - a.net_votes);
+    },
+  });
 
   // Check if voting is still open for an item
   const isVotingOpen = useCallback((item: RoadmapItem): boolean => {
@@ -148,175 +135,120 @@ export const useRoadmapVotes = () => {
     return new Date(item.voting_ends_at) > new Date();
   }, []);
 
-  // Cast a vote (yes or no)
-  const castVote = useCallback(
-    async (roadmapItemId: string, voteType: VoteType) => {
-      if (!user) {
-        toast({
-          title: 'Sign in required',
-          description: 'Please sign in to vote on roadmap items',
-          variant: 'destructive',
-        });
-        return false;
-      }
+  // 2. Mutation for casting a vote
+  const castVoteMutation = useMutation({
+    mutationFn: async ({ roadmapItemId, voteType }: { roadmapItemId: string, voteType: VoteType }) => {
+      if (!user) throw new Error('Sign in required');
+      if (!canVote()) throw new Error('Annual subscription required');
 
-      if (!canVote()) {
-        toast({
-          title: 'Annual subscription required',
-          description:
-            'Only Annual subscribers and Founding 33 members can vote on the roadmap',
-          variant: 'destructive',
-        });
-        return false;
-      }
-
-      // Check if voting is still open
       const item = items.find(i => i.id === roadmapItemId);
-      if (item && !isVotingOpen(item)) {
-        toast({
-          title: 'Voting closed',
-          description: 'Voting has ended for this feature',
-          variant: 'destructive',
-        });
-        return false;
-      }
+      if (item && !isVotingOpen(item)) throw new Error('Voting closed');
 
-      setVoting(roadmapItemId);
-      try {
-        const voteWeight = getVoteWeight();
+      const voteWeight = getVoteWeight();
+      const existingVote = item?.user_vote_type;
 
-        // Check if user already has a vote
-        const existingVote = item?.user_vote_type;
+      if (existingVote === voteType) return { alreadyVoted: true };
 
-        // If clicking the same vote type, skip - no change needed
-        if (existingVote === voteType) {
-          toast({
-            title: 'Already voted',
-            description: `You already voted ${voteType === 'yes' ? 'Yes' : 'No'}`,
-          });
-          setVoting(null);
-          return true;
-        }
-
-        if (existingVote) {
-          // Update existing vote type
-          const { error } = await supabase
-            .from('roadmap_votes')
-            .update({ vote_type: voteType })
-            .eq('roadmap_item_id', roadmapItemId)
-            .eq('user_id', user.id);
-
-          if (error) throw error;
-
-          toast({
-            title: 'Vote updated',
-            description: `Changed to ${voteType === 'yes' ? 'support' : 'oppose'}`,
-          });
-        } else {
-          // Insert new vote
-          const { error } = await supabase.from('roadmap_votes').insert({
-            roadmap_item_id: roadmapItemId,
-            user_id: user.id,
-            vote_weight: voteWeight,
-            vote_type: voteType,
-          });
-
-          if (error) {
-            if (error.code === '23505') {
-              // Unique constraint violation - already voted
-              toast({
-                title: 'Already voted',
-                description: 'You have already voted for this feature',
-                variant: 'destructive',
-              });
-            } else {
-              throw error;
-            }
-            return false;
-          }
-
-          // Award points for voting (only on new vote)
-          try {
-            await supabase.rpc('award_user_points', {
-              _user_id: user.id,
-              _points: 15,
-              _action_type: 'roadmap_vote',
-              _action_id: roadmapItemId,
-              _metadata: { item_title: item?.title, vote_type: voteType }
-            });
-          } catch (pointsError) {
-            console.error('Error awarding points for vote:', pointsError);
-            // Don't fail the vote if points fail
-          }
-
-          toast({
-            title: 'Vote cast! +15 points',
-            description: `Your ${voteType === 'yes' ? 'support' : 'opposition'} (${voteWeight}x power) has been recorded`,
-          });
-        }
-
-        // Refresh items
-        await fetchItems();
-        return true;
-      } catch (error) {
-        console.error('Error casting vote:', error);
-        toast({
-          title: 'Error',
-          description: 'Failed to cast vote',
-          variant: 'destructive',
-        });
-        return false;
-      } finally {
-        setVoting(null);
-      }
-    },
-    [user, canVote, getVoteWeight, fetchItems, toast, items, isVotingOpen]
-  );
-
-  // Remove a vote
-  const removeVote = useCallback(
-    async (roadmapItemId: string) => {
-      if (!user) return false;
-
-      setVoting(roadmapItemId);
-      try {
+      if (existingVote) {
         const { error } = await supabase
           .from('roadmap_votes')
-          .delete()
+          .update({ vote_type: voteType })
           .eq('roadmap_item_id', roadmapItemId)
           .eq('user_id', user.id);
-
+        if (error) throw error;
+        return { updated: true };
+      } else {
+        const { error } = await supabase.from('roadmap_votes').insert({
+          roadmap_item_id: roadmapItemId,
+          user_id: user.id,
+          vote_weight: voteWeight,
+          vote_type: voteType,
+        });
         if (error) throw error;
 
-        toast({
-          title: 'Vote removed',
-          description: 'Your vote has been removed',
-        });
-
-        await fetchItems();
-        return true;
-      } catch (error) {
-        console.error('Error removing vote:', error);
-        toast({
-          title: 'Error',
-          description: 'Failed to remove vote',
-          variant: 'destructive',
-        });
-        return false;
-      } finally {
-        setVoting(null);
+        // Award points
+        try {
+          await supabase.rpc('award_user_points', {
+            _user_id: user.id,
+            _points: 15,
+            _action_type: 'roadmap_vote',
+            _action_id: roadmapItemId,
+            _metadata: { item_title: item?.title, vote_type: voteType }
+          });
+        } catch (e) {
+          console.error('Error awarding points:', e);
+        }
+        return { created: true };
       }
     },
-    [user, fetchItems, toast]
-  );
+    onSuccess: (result) => {
+      if (result.alreadyVoted) {
+        toast({ title: 'Already voted' });
+      } else if (result.updated) {
+        toast({ title: 'Vote updated' });
+      } else if (result.created) {
+        toast({ title: 'Vote cast! +15 points' });
+      }
+      queryClient.invalidateQueries({ queryKey: ['roadmap-items', user?.id] });
+      queryClient.invalidateQueries({ queryKey: ['roadmap-vote-counts'] });
+    }
+  });
 
-  useEffect(() => {
-    fetchItems();
-  }, [fetchItems]);
+  const castVote = useCallback(async (roadmapItemId: string, voteType: VoteType) => {
+    try {
+      setVoting(roadmapItemId);
+      await castVoteMutation.mutateAsync({ roadmapItemId, voteType });
+      return true;
+    } catch (error) {
+      toast({
+        title: 'Error',
+        description: error instanceof Error ? error.message : 'Failed to cast vote',
+        variant: 'destructive',
+      });
+      return false;
+    } finally {
+      setVoting(null);
+    }
+  }, [castVoteMutation, toast]);
+
+  // 3. Mutation for removing a vote
+  const removeVoteMutation = useMutation({
+    mutationFn: async (roadmapItemId: string) => {
+      if (!user) return;
+      const { error } = await supabase
+        .from('roadmap_votes')
+        .delete()
+        .eq('roadmap_item_id', roadmapItemId)
+        .eq('user_id', user.id);
+      if (error) throw error;
+    },
+    onSuccess: () => {
+      toast({ title: 'Vote removed' });
+      queryClient.invalidateQueries({ queryKey: ['roadmap-items', user?.id] });
+      queryClient.invalidateQueries({ queryKey: ['roadmap-vote-counts'] });
+    }
+  });
+
+  const removeVote = useCallback(async (roadmapItemId: string) => {
+    try {
+      setVoting(roadmapItemId);
+      await removeVoteMutation.mutateAsync(roadmapItemId);
+      return true;
+    } catch (error) {
+      toast({
+        title: 'Error',
+        description: 'Failed to remove vote',
+        variant: 'destructive',
+      });
+      return false;
+    } finally {
+      setVoting(null);
+    }
+  }, [removeVoteMutation, toast]);
 
   return {
     items,
-    loading: loading || foundingLoading,
+    loading: itemsLoading || foundingLoading,
     voting,
     canVote: canVote(),
     votingTier: getVotingTier(),
@@ -324,7 +256,7 @@ export const useRoadmapVotes = () => {
     isVotingOpen,
     castVote,
     removeVote,
-    refreshItems: fetchItems,
+    refreshItems,
   };
 };
 

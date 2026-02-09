@@ -73,9 +73,11 @@ const CryptoCard = ({ crypto, isRecommended = false }: { crypto: CryptoData; isR
         <div className="flex flex-col sm:flex-row items-center gap-2">
           <img 
             src={crypto.image} 
-            alt={crypto.name} 
+            alt={`${crypto.name} icon`}
             className="w-10 h-10 sm:w-8 sm:h-8 rounded-full"
             loading="lazy"
+            width={32}
+            height={32}
           />
           <div className="text-center sm:text-left">
             <div className="flex items-center justify-center sm:justify-start gap-1.5">

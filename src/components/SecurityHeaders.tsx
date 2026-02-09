@@ -17,15 +17,15 @@ const SecurityHeaders = () => {
       cspMeta.content = [
         "default-src 'self'",
         // Scripts: allow self, CDNs, and inline (required for React)
-        "script-src 'self' 'unsafe-inline' https://unpkg.com https://esm.sh https://*.stripe.com https://js.stripe.com",
+        "script-src 'self' 'unsafe-inline' https://unpkg.com https://esm.sh https://*.stripe.com https://js.stripe.com https://www.googletagmanager.com https://www.google-analytics.com https://analytics.tiktok.com",
         // Styles: allow self, Google Fonts, and inline (required for Tailwind/styled-components)
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
         // Images: allow common sources
-        "img-src 'self' data: https: blob:",
+        "img-src 'self' data: https: blob: https://www.google-analytics.com https://analytics.tiktok.com",
         // Fonts: Google Fonts
         "font-src 'self' https://fonts.gstatic.com data:",
         // Connections: Supabase, Stripe, and other APIs
-        "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.resend.com https://*.stripe.com https://api.stripe.com https://*.thirdweb.com https://*.ethereum.org https://*.infura.io https://*.alchemy.com",
+        "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.resend.com https://*.stripe.com https://api.stripe.com https://*.thirdweb.com https://*.ethereum.org https://*.infura.io https://*.alchemy.com https://www.google-analytics.com https://stats.g.doubleclick.net",
         // Frames: allow Stripe for payment processing
         "frame-src 'self' https://*.stripe.com https://js.stripe.com",
         // Prevent clickjacking

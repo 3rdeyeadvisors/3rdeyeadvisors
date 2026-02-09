@@ -82,7 +82,15 @@ const Earn = lazy(() => import("./pages/Earn"));
 const ReferralTerms = lazy(() => import("./pages/ReferralTerms"));
 const Roadmap = lazy(() => import("./pages/Roadmap"));
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5, // 5 minutes
+      refetchOnWindowFocus: true,
+      retry: 1,
+    },
+  },
+});
 
 // Loading component for Suspense
 const PageLoader = () => (

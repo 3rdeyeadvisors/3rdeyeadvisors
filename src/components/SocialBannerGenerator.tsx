@@ -187,6 +187,8 @@ export const SocialBannerGenerator = () => {
               src={generatedImage} 
               alt="3EA Social Share Banner - 3rdeyeadvisors wordmark"
               className="w-full h-auto"
+              width={1792}
+              height={1024}
             />
           </div>
           

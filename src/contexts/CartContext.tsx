@@ -13,8 +13,8 @@ export interface CartItem {
   color?: string;
   size?: string;
   image?: string;
-  variants?: any[];
-  images?: any[];
+  variants?: unknown[];
+  images?: unknown[];
 }
 
 interface CartState {
@@ -139,22 +139,42 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     itemCount: 0
   });
 
-  // Load cart from localStorage on mount
+  // Load cart from localStorage on mount and handle cross-tab sync
   useEffect(() => {
-    const savedCart = localStorage.getItem('shopping-cart');
-    if (savedCart) {
-      try {
-        const parsedCart = JSON.parse(savedCart);
-        dispatch({ type: 'LOAD_CART', payload: parsedCart });
-      } catch (error) {
-        console.error('Error loading cart from localStorage:', error);
+    const loadCart = () => {
+      const savedCart = localStorage.getItem('shopping-cart');
+      if (savedCart) {
+        try {
+          const parsedCart = JSON.parse(savedCart);
+          dispatch({ type: 'LOAD_CART', payload: parsedCart });
+        } catch (error) {
+          console.error('Error loading cart from localStorage:', error);
+        }
       }
-    }
+    };
+
+    loadCart();
+
+    // Listen for changes in other tabs
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === 'shopping-cart') {
+        loadCart();
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
   }, []);
 
   // Save cart to localStorage whenever it changes
   useEffect(() => {
-    localStorage.setItem('shopping-cart', JSON.stringify(state.items));
+    const currentSaved = localStorage.getItem('shopping-cart');
+    const newStateStr = JSON.stringify(state.items);
+
+    // Only update if actually different to avoid infinite loops with storage event
+    if (currentSaved !== newStateStr) {
+      localStorage.setItem('shopping-cart', newStateStr);
+    }
   }, [state.items]);
 
   const addItem = (item: Omit<CartItem, 'quantity'>) => {

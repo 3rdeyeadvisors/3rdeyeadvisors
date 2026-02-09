@@ -616,6 +616,9 @@ const SpottingScamsTutorial = () => {
             src={scamHero} 
             alt="Cybersecurity shield protecting against cryptocurrency scams, phishing, and fraud" 
             className="w-full h-48 md:h-64 object-cover"
+            width={1200}
+            height={400}
+            loading="eager"
           />
         </div>
 

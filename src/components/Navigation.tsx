@@ -135,7 +135,7 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo/Brand */}
-          <Link to="/" className="flex items-center gap-2 group" aria-label="3rdeyeadvisors home">
+          <Link to="/" className="flex items-center gap-2 group min-h-[44px]" aria-label="3rdeyeadvisors home">
             <div className="text-lg md:text-xl font-consciousness font-bold text-primary whitespace-nowrap group-hover:text-primary-glow transition-all duration-300">
               3rdeyeadvisors
             </div>
@@ -148,7 +148,7 @@ const Navigation = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`text-sm font-consciousness transition-all duration-cosmic hover:text-primary whitespace-nowrap ${
+                  className={`text-sm font-consciousness transition-all duration-cosmic hover:text-primary whitespace-nowrap min-h-[44px] flex items-center px-2 ${
                     isActive(item.path)
                       ? "text-primary font-medium"
                       : "text-muted-foreground"

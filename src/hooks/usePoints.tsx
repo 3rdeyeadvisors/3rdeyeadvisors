@@ -1,6 +1,7 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useCallback } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/components/auth/AuthProvider';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 
 // Point values for different actions
 export const POINT_VALUES = {
@@ -57,26 +58,19 @@ interface UserRank {
 
 export const usePoints = () => {
   const { user } = useAuth();
-  const [totalPoints, setTotalPoints] = useState(0);
-  const [rank, setRank] = useState<UserRank | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [todayPoints, setTodayPoints] = useState(0);
+  const queryClient = useQueryClient();
 
   // Get current month in YYYY-MM format
   const getCurrentMonth = () => {
     return new Date().toISOString().slice(0, 7);
   };
 
-  // Load user's current points and rank
-  const loadPoints = useCallback(async () => {
-    if (!user) {
-      setTotalPoints(0);
-      setRank(null);
-      setLoading(false);
-      return;
-    }
+  // 1. Query for User Points and Rank
+  const { data: pointsData, isLoading: pointsLoading, refetch: refreshPoints } = useQuery({
+    queryKey: ['user-points', user?.id],
+    queryFn: async () => {
+      if (!user) return null;
 
-    try {
       // Get user's monthly total
       const { data: monthlyData } = await supabase
         .from('user_points_monthly')
@@ -85,19 +79,9 @@ export const usePoints = () => {
         .eq('month_year', getCurrentMonth())
         .maybeSingle();
 
-      setTotalPoints(monthlyData?.total_points || 0);
-
       // Get user's rank using database function
       const { data: rankData } = await supabase
         .rpc('get_user_points_rank', { _user_id: user.id });
-
-      if (rankData && rankData.length > 0) {
-        setRank({
-          total_points: rankData[0].total_points,
-          rank: rankData[0].rank,
-          total_users: rankData[0].total_users,
-        });
-      }
 
       // Get today's points
       const today = new Date().toISOString().slice(0, 10);
@@ -109,35 +93,32 @@ export const usePoints = () => {
         .lte('created_at', `${today}T23:59:59`);
 
       const todayTotal = todayData?.reduce((sum, p) => sum + p.points, 0) || 0;
-      setTodayPoints(todayTotal);
 
-    } catch (error) {
-      console.error('Error loading points:', error);
-    } finally {
-      setLoading(false);
-    }
-  }, [user]);
+      return {
+        totalPoints: monthlyData?.total_points || 0,
+        rank: rankData && rankData.length > 0 ? {
+          total_points: rankData[0].total_points,
+          rank: rankData[0].rank,
+          total_users: rankData[0].total_users,
+        } : null,
+        todayPoints: todayTotal
+      };
+    },
+    enabled: !!user,
+  });
 
-  useEffect(() => {
-    loadPoints();
-  }, [loadPoints]);
+  // 2. Mutation for awarding points
+  const awardPointsMutation = useMutation({
+    mutationFn: async ({ actionType, actionId, metadata }: {
+      actionType: PointActionType,
+      actionId?: string,
+      metadata?: Record<string, unknown>
+    }) => {
+      if (!user) throw new Error('User not authenticated');
 
-  // Award points for an action
-  const awardPoints = useCallback(async (
-    actionType: PointActionType,
-    actionId?: string,
-    metadata?: Record<string, any>
-  ): Promise<{ success: boolean; pointsAwarded: number; message: string }> => {
-    if (!user) {
-      return { success: false, pointsAwarded: 0, message: 'User not authenticated' };
-    }
+      const basePoints = POINT_VALUES[actionType];
+      if (!basePoints) throw new Error('Invalid action type');
 
-    const basePoints = POINT_VALUES[actionType];
-    if (!basePoints) {
-      return { success: false, pointsAwarded: 0, message: 'Invalid action type' };
-    }
-
-    try {
       const { data, error } = await supabase.rpc('award_user_points', {
         _user_id: user.id,
         _points: basePoints,
@@ -146,107 +127,98 @@ export const usePoints = () => {
         _metadata: metadata || {},
       });
 
-      if (error) {
-        console.error('Error awarding points:', error);
-        return { success: false, pointsAwarded: 0, message: error.message };
-      }
+      if (error) throw error;
+      return data?.[0];
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['user-points', user?.id] });
+      queryClient.invalidateQueries({ queryKey: ['points-history', user?.id] });
+    }
+  });
 
-      const result = data?.[0];
-      if (result?.success) {
-        // Refresh points
-        await loadPoints();
-        return { 
-          success: true, 
-          pointsAwarded: result.points_awarded, 
-          message: result.message 
-        };
-      }
-
+  const awardPoints = useCallback(async (
+    actionType: PointActionType,
+    actionId?: string,
+    metadata?: Record<string, unknown>
+  ) => {
+    try {
+      const result = await awardPointsMutation.mutateAsync({ actionType, actionId, metadata });
+      return {
+        success: result?.success || false,
+        pointsAwarded: result?.points_awarded || 0,
+        message: result?.message || ''
+      };
+    } catch (error) {
       return { 
         success: false, 
         pointsAwarded: 0, 
-        message: result?.message || 'Failed to award points' 
+        message: error instanceof Error ? error.message : 'Error awarding points'
       };
-
-    } catch (error) {
-      console.error('Error awarding points:', error);
-      return { success: false, pointsAwarded: 0, message: 'Error awarding points' };
     }
-  }, [user, loadPoints]);
+  }, [awardPointsMutation]);
 
-  // Check and award daily login points
-  const checkDailyLogin = useCallback(async (): Promise<{ 
-    alreadyLoggedIn: boolean; 
-    pointsAwarded: number 
-  }> => {
-    if (!user) {
-      return { alreadyLoggedIn: true, pointsAwarded: 0 };
-    }
+  // 3. Mutation for daily login check
+  const checkDailyLoginMutation = useMutation({
+    mutationFn: async () => {
+      if (!user) return { already_logged_in: true, points_awarded: 0 };
 
-    try {
       const { data, error } = await supabase.rpc('check_daily_login', {
         _user_id: user.id,
       });
 
-      if (error) {
-        console.error('Error checking daily login:', error);
-        return { alreadyLoggedIn: true, pointsAwarded: 0 };
-      }
-
-      const result = data?.[0];
+      if (error) throw error;
+      return data?.[0];
+    },
+    onSuccess: (result) => {
       if (result && !result.already_logged_in) {
-        await loadPoints();
-        return { 
-          alreadyLoggedIn: false, 
-          pointsAwarded: result.points_awarded 
-        };
+        queryClient.invalidateQueries({ queryKey: ['user-points', user?.id] });
       }
+    }
+  });
 
-      return { alreadyLoggedIn: true, pointsAwarded: 0 };
-
+  const checkDailyLogin = useCallback(async () => {
+    try {
+      const result = await checkDailyLoginMutation.mutateAsync();
+      return {
+        alreadyLoggedIn: result?.already_logged_in || false,
+        pointsAwarded: result?.points_awarded || 0
+      };
     } catch (error) {
-      console.error('Error checking daily login:', error);
       return { alreadyLoggedIn: true, pointsAwarded: 0 };
     }
-  }, [user, loadPoints]);
+  }, [checkDailyLoginMutation]);
 
-  // Get point history
-  const getPointHistory = useCallback(async (limit = 50): Promise<PointTransaction[]> => {
-    if (!user) return [];
-
-    try {
+  // 4. Query for point history
+  const { data: pointHistory = [], isLoading: historyLoading } = useQuery({
+    queryKey: ['points-history', user?.id],
+    queryFn: async () => {
+      if (!user) return [];
       const { data, error } = await supabase
         .from('user_points')
         .select('*')
         .eq('user_id', user.id)
         .eq('month_year', getCurrentMonth())
         .order('created_at', { ascending: false })
-        .limit(limit);
+        .limit(50);
 
       if (error) throw error;
-      return data || [];
+      return data as PointTransaction[] || [];
+    },
+    enabled: !!user,
+  });
 
-    } catch (error) {
-      console.error('Error fetching point history:', error);
-      return [];
-    }
-  }, [user]);
-
-  // Get leaderboard
-  const getLeaderboard = useCallback(async (limit = 10): Promise<LeaderboardEntry[]> => {
-    try {
+  // 5. Query for leaderboard
+  const { data: leaderboard = [], isLoading: leaderboardLoading } = useQuery({
+    queryKey: ['points-leaderboard'],
+    queryFn: async () => {
       const { data, error } = await supabase.rpc('get_points_leaderboard', {
-        _limit: limit,
+        _limit: 10,
       });
 
       if (error) throw error;
-      return data || [];
-
-    } catch (error) {
-      console.error('Error fetching leaderboard:', error);
-      return [];
-    }
-  }, []);
+      return data as LeaderboardEntry[] || [];
+    },
+  });
 
   // Get days remaining in month
   const getDaysRemaining = () => {
@@ -282,17 +254,21 @@ export const usePoints = () => {
   };
 
   return {
-    totalPoints,
-    rank,
-    loading,
-    todayPoints,
+    totalPoints: pointsData?.totalPoints || 0,
+    rank: pointsData?.rank || null,
+    loading: pointsLoading,
+    todayPoints: pointsData?.todayPoints || 0,
     awardPoints,
     checkDailyLogin,
-    getPointHistory,
-    getLeaderboard,
+    getPointHistory: async () => pointHistory, // Keep backward compatibility if needed
+    getLeaderboard: async () => leaderboard,
+    pointHistory,
+    leaderboard,
+    historyLoading,
+    leaderboardLoading,
     getDaysRemaining,
     getActionDisplayName,
-    refreshPoints: loadPoints,
+    refreshPoints,
     POINT_VALUES,
   };
 };

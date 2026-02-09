@@ -10,6 +10,7 @@ import { PullToRefreshIndicator } from "./ui/pull-to-refresh";
 import { useIsMobile } from "@/hooks/use-mobile";
 import useScrollToTop from "@/hooks/useScrollToTop";
 import { useAchievementSounds } from "@/hooks/useAchievementSounds";
+import { useRealtimeSync } from "@/hooks/useRealtimeSync";
 
 interface LayoutProps {
   children: ReactNode;
@@ -19,6 +20,9 @@ interface LayoutProps {
 const STANDALONE_ROUTES = ['/rosa-birthday'];
 
 const Layout = ({ children }: LayoutProps) => {
+  // Initialize real-time synchronization for all pages
+  useRealtimeSync();
+
   const location = useLocation();
   const queryClient = useQueryClient();
   const isMobile = useIsMobile();

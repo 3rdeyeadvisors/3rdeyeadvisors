@@ -55,6 +55,8 @@ export const SocialPreviewChecker = () => {
               src={socialImage} 
               alt="Current social share preview"
               className="w-full max-w-lg mx-auto rounded border"
+              width={1200}
+              height={630}
             />
           </div>
           <div className="text-sm text-muted-foreground">

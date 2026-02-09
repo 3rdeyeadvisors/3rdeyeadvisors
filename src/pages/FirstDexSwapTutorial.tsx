@@ -499,6 +499,9 @@ const FirstDexSwapTutorial = () => {
             src={dexSwapHero} 
             alt="Decentralized exchange interface showing token swap functionality and liquidity pools" 
             className="w-full h-48 md:h-64 object-cover"
+            width={1200}
+            height={400}
+            loading="eager"
           />
         </div>
 
