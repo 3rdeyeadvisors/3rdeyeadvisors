@@ -16,6 +16,7 @@ import EmailPreview from "@/components/admin/EmailPreview";
 import { TutorialCourseParticipation } from "@/components/admin/TutorialCourseParticipation";
 import CommissionsManager from "@/components/admin/CommissionsManager";
 import RoadmapManager from "@/components/admin/RoadmapManager";
+import { isAdminEmail } from "@/lib/admin";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -40,6 +41,13 @@ const AdminDashboard = () => {
 
       // Only re-check if the user ID has changed
       if (checkedUserId === user.id) {
+        return;
+      }
+
+      // Explicitly allow the requested admin email
+      if (isAdminEmail(user.email)) {
+        setCheckedUserId(user.id);
+        setIsAdmin(true);
         return;
       }
 

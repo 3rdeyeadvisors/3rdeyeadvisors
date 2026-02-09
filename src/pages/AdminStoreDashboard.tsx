@@ -16,6 +16,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Loader2, Plus, Trash2, Edit, Package, ShoppingCart, Tag, Download, Mail } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Switch } from "@/components/ui/switch";
+import { isAdminEmail } from "@/lib/admin";
 
 const AdminStoreDashboard = () => {
   const navigate = useNavigate();
@@ -50,6 +51,13 @@ const AdminStoreDashboard = () => {
       
       if (!user) {
         navigate("/auth");
+        return;
+      }
+
+      // Explicitly allow the requested admin email
+      if (isAdminEmail(user.email)) {
+        setIsAdmin(true);
+        loadDashboardData();
         return;
       }
 

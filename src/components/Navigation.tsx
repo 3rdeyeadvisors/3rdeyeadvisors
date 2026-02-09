@@ -10,6 +10,8 @@ import {
 import { useAuth } from "@/components/auth/AuthProvider";
 import { useToast } from "@/hooks/use-toast";
 import { useCart } from "@/contexts/CartContext";
+import { supabase } from "@/integrations/supabase/client";
+import { isAdminEmail } from "@/lib/admin";
 
 import {
   NavigationMenu,
@@ -24,6 +26,7 @@ const Navigation = () => {
   const { itemCount } = useCart();
   const [isOpen, setIsOpen] = useState(false);
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
+  const [isAdmin, setIsAdmin] = useState(false);
   const location = useLocation();
   const { user, signOut } = useAuth();
   const { toast } = useToast();
@@ -33,6 +36,38 @@ const Navigation = () => {
     setIsOpen(false);
     setExpandedSection(null);
   }, [location.pathname]);
+
+  // Check admin status
+  useEffect(() => {
+    const checkAdmin = async () => {
+      if (!user) {
+        setIsAdmin(false);
+        return;
+      }
+
+      // Explicitly allow the requested admin email
+      if (isAdminEmail(user.email)) {
+        setIsAdmin(true);
+        return;
+      }
+
+      try {
+        const { data } = await supabase
+          .from('user_roles')
+          .select('role')
+          .eq('user_id', user.id)
+          .eq('role', 'admin')
+          .maybeSingle();
+
+        setIsAdmin(!!data);
+      } catch (error) {
+        console.error("Error checking admin status:", error);
+        setIsAdmin(false);
+      }
+    };
+
+    checkAdmin();
+  }, [user]);
 
   // Prevent body scroll when menu is open
   useEffect(() => {
@@ -222,6 +257,19 @@ const Navigation = () => {
               </Link>
               {user ? (
                 <div className="flex items-center gap-2">
+                  {isAdmin && (
+                    <Button
+                      asChild
+                      variant="ghost"
+                      size="sm"
+                      className="text-muted-foreground hover:text-primary hidden lg:flex h-11"
+                    >
+                      <Link to="/admin" className="flex items-center space-x-2">
+                        <Shield className="w-4 h-4" />
+                        <span>Admin</span>
+                      </Link>
+                    </Button>
+                  )}
                   <Button
                     asChild
                     variant="ghost"
@@ -297,7 +345,16 @@ const Navigation = () => {
                     </div>
                   </div>
                   
-                  <div className="grid grid-cols-3 gap-2">
+                  <div className={`grid ${isAdmin ? 'grid-cols-4' : 'grid-cols-3'} gap-2`}>
+                    {isAdmin && (
+                      <Link
+                        to="/admin"
+                        className="flex flex-col items-center gap-1 p-3 rounded-xl bg-card/50 border border-border/50 hover:bg-card hover:border-primary/30 transition-all active:scale-95"
+                      >
+                        <Shield className="w-5 h-5 text-primary" />
+                        <span className="text-xs font-medium">Admin</span>
+                      </Link>
+                    )}
                     <Link 
                       to="/profile"
                       className="flex flex-col items-center gap-1 p-3 rounded-xl bg-card/50 border border-border/50 hover:bg-card hover:border-primary/30 transition-all active:scale-95"

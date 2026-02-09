@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { Loader2 } from 'lucide-react';
+import { isAdminEmail } from '@/lib/admin';
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
@@ -39,6 +40,13 @@ const ProtectedRoute = ({
       }
 
       try {
+        // Explicitly allow the requested admin email
+        if (isAdminEmail(user.email)) {
+          setHasRole(true);
+          setRoleCheckDone(true);
+          return;
+        }
+
         const { data: roles, error } = await supabase
           .from('user_roles')
           .select('role')

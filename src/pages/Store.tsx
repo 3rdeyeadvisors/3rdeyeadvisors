@@ -11,6 +11,7 @@ import { MerchandiseCard } from "@/components/store/MerchandiseCard";
 import { NFTStoreCard } from "@/components/store/NFTStoreCard";
 import { usePullToRefresh } from "@/hooks/usePullToRefresh";
 import { PullToRefreshIndicator } from "@/components/ui/pull-to-refresh";
+import { isAdminEmail } from "@/lib/admin";
 
 type StoreCategory = 'merchandise' | 'digital';
 
@@ -111,6 +112,12 @@ const Store = () => {
     const checkAdminRole = async () => {
       if (!user) {
         setIsAdmin(false);
+        return;
+      }
+
+      // Explicitly allow the requested admin email
+      if (isAdminEmail(user.email)) {
+        setIsAdmin(true);
         return;
       }
 
