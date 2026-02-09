@@ -23,6 +23,8 @@ export const POINT_VALUES = {
   discussion_reply: 10,
   rate_course: 20,
   roadmap_vote: 15, // Points for voting on roadmap items
+  mini_game_win: 15,
+  iq_test_completed: 50,
   
   // Referral points
   referral_signup: 50,

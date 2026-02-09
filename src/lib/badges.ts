@@ -107,6 +107,46 @@ export const BADGE_DEFINITIONS: Record<string, BadgeDefinition> = {
     color: 'text-yellow-400',
     bgColor: 'bg-yellow-400/20',
   },
+  cognitive_initiate: {
+    type: 'cognitive_initiate',
+    name: 'Cognitive Initiate',
+    description: 'Started your first mini-game',
+    icon: Brain,
+    color: 'text-blue-400',
+    bgColor: 'bg-blue-400/20',
+  },
+  memory_master: {
+    type: 'memory_master',
+    name: 'Memory Master',
+    description: 'Reached a high level in Memory Match',
+    icon: Star,
+    color: 'text-green-400',
+    bgColor: 'bg-green-400/20',
+  },
+  reflex_pro: {
+    type: 'reflex_pro',
+    name: 'Reflex Pro',
+    description: 'Achieved sub-250ms reaction time',
+    icon: Zap,
+    color: 'text-yellow-400',
+    bgColor: 'bg-yellow-400/20',
+  },
+  iq_certified: {
+    type: 'iq_certified',
+    name: 'IQ Certified',
+    description: 'Completed the cognitive IQ assessment',
+    icon: Award,
+    color: 'text-purple-400',
+    bgColor: 'bg-purple-400/20',
+  },
+  brain_power_max: {
+    type: 'brain_power_max',
+    name: 'Maximum Potential',
+    description: 'Reached the daily point cap for cognitive training',
+    icon: Crown,
+    color: 'text-orange-400',
+    bgColor: 'bg-orange-400/20',
+  },
 };
 
 export type BadgeType = keyof typeof BADGE_DEFINITIONS;
