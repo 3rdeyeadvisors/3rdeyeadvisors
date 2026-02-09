@@ -81,6 +81,7 @@ const VaultWithdrawalTutorial = lazy(() => import("./pages/VaultWithdrawalTutori
 const Earn = lazy(() => import("./pages/Earn"));
 const ReferralTerms = lazy(() => import("./pages/ReferralTerms"));
 const Roadmap = lazy(() => import("./pages/Roadmap"));
+const MiniGames = lazy(() => import("./pages/MiniGames"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -193,6 +194,7 @@ const AnimatedRoutes = () => {
         <Route path="/earn" element={<PageTransition><Earn /></PageTransition>} />
         <Route path="/referral-terms" element={<PageTransition><ReferralTerms /></PageTransition>} />
         <Route path="/roadmap" element={<PageTransition><Roadmap /></PageTransition>} />
+        <Route path="/mini-games" element={<PageTransition><MiniGames /></PageTransition>} />
         <Route path="/vault-access" element={<PageTransition><VaultAccess /></PageTransition>} />
         <Route path="/vault-deposit-guide" element={<PageTransition><VaultDepositTutorial /></PageTransition>} />
         <Route path="/vault-withdrawal-guide" element={<PageTransition><VaultWithdrawalTutorial /></PageTransition>} />

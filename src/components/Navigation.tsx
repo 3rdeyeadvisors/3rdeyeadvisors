@@ -5,7 +5,7 @@ import {
   Menu, X, LogIn, LogOut, User, ShoppingCart, ChevronDown, 
   BookOpen, BarChart3, Package, FileText, MoreHorizontal, Gift, 
   Home, Lightbulb, Vault, GraduationCap, Newspaper, FolderOpen,
-  Mail, Shield, Scale, Map
+  Mail, Shield, Scale, Map, Brain
 } from "lucide-react";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { useToast } from "@/hooks/use-toast";
@@ -89,6 +89,7 @@ const Navigation = () => {
     { path: "/tutorials", label: "Tutorials", external: false },
     { path: "/blog", label: "Blog", external: false },
     { path: "/resources", label: "Resources", external: false },
+    { path: "/mini-games", label: "Mini Games", external: false },
     { path: "/raffles", label: "Raffles", external: false },
     { path: "/earn", label: "Earn", external: false },
     { path: "/vault-access", label: "Vault", external: false },
@@ -117,6 +118,7 @@ const Navigation = () => {
       items: [
         { path: "/courses", label: "Courses", icon: BookOpen },
         { path: "/tutorials", label: "Tutorials", icon: GraduationCap },
+        { path: "/mini-games", label: "Mini Games", icon: Brain },
         { path: "/blog", label: "Blog", icon: Newspaper },
         { path: "/resources", label: "Resources", icon: FolderOpen },
       ]
