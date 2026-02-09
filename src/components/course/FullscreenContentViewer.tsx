@@ -192,6 +192,8 @@ export const FullscreenContentViewer: React.FC<FullscreenContentViewerProps> = (
     if (contentRef.current) {
       contentRef.current.scrollTop = 0;
     }
+    // Also show UI when navigating to new content to provide feedback
+    setShowUI(true);
   }, [currentIndex]);
 
   useEffect(() => {

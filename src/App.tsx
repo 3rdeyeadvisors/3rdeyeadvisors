@@ -104,9 +104,20 @@ const PageLoader = () => (
 const AnimatedRoutes = () => {
   const location = useLocation();
   
+  // Use a stable key for course module navigation to prevent remounting and maintain state (like fullscreen)
+  const getStableKey = () => {
+    if (location.pathname.startsWith('/courses/') && location.pathname.includes('/module/')) {
+      const parts = location.pathname.split('/');
+      // Return key as /courses/:id/module for all modules in same course
+      // This prevents the entire Routes tree from remounting when navigating between modules
+      return parts.slice(0, 4).join('/');
+    }
+    return location.pathname;
+  };
+
   return (
     <Suspense fallback={<PageLoader />}>
-      <Routes location={location} key={location.pathname}>
+      <Routes location={location} key={getStableKey()}>
         <Route path="/" element={<PageTransition><Index /></PageTransition>} />
         <Route path="/philosophy" element={<PageTransition><Philosophy /></PageTransition>} />
         <Route path="/courses" element={<PageTransition><Courses /></PageTransition>} />
