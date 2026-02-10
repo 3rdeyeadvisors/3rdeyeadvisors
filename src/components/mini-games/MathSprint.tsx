@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Timer, Zap, CheckCircle2, XCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useAchievementSounds } from '@/hooks/useAchievementSounds';
 
 interface Problem {
   text: string;
@@ -10,12 +11,19 @@ interface Problem {
 }
 
 export const MathSprint: React.FC<{ onComplete: (score: number) => void }> = ({ onComplete }) => {
+  const { playCorrectAnswer, playWrongAnswer } = useAchievementSounds();
   const [problem, setProblem] = useState<Problem | null>(null);
   const [userInput, setUserInput] = useState('');
   const [timeLeft, setTimeLeft] = useState(30);
   const [score, setScore] = useState(0);
   const [gameState, setGameState] = useState<'idle' | 'playing' | 'finished'>('idle');
   const [feedback, setFeedback] = useState<'correct' | 'wrong' | null>(null);
+  const scoreRef = useRef(0);
+  const onCompleteRef = useRef(onComplete);
+
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
 
   const generateProblem = useCallback(() => {
     const operators = ['+', '-', '*'];
@@ -50,25 +58,35 @@ export const MathSprint: React.FC<{ onComplete: (score: number) => void }> = ({ 
   useEffect(() => {
     let timer: NodeJS.Timeout;
     if (gameState === 'playing' && timeLeft > 0) {
-      timer = setInterval(() => setTimeLeft(t => t - 1), 1000);
-    } else if (timeLeft === 0 && gameState === 'playing') {
-      setGameState('finished');
-      onComplete(Math.min(25, score * 2));
+      timer = setInterval(() => {
+        setTimeLeft(t => {
+          if (t <= 1) {
+            setGameState('finished');
+            onCompleteRef.current(scoreRef.current * 2);
+            return 0;
+          }
+          return t - 1;
+        });
+      }, 1000);
     }
     return () => clearInterval(timer);
-  }, [gameState, timeLeft, score, onComplete]);
+  }, [gameState]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!problem || !userInput) return;
 
     if (parseInt(userInput) === problem.answer) {
-      setScore(s => s + 1);
+      const newScore = score + 1;
+      setScore(newScore);
+      scoreRef.current = newScore;
       setFeedback('correct');
+      playCorrectAnswer();
       setTimeout(() => setFeedback(null), 400);
       generateProblem();
     } else {
       setFeedback('wrong');
+      playWrongAnswer();
       setTimeout(() => setFeedback(null), 400);
       setUserInput('');
     }
@@ -106,7 +124,12 @@ export const MathSprint: React.FC<{ onComplete: (score: number) => void }> = ({ 
         )}
 
         {gameState === 'playing' && problem && (
-          <form onSubmit={handleSubmit} className="flex flex-col items-center gap-6 w-full px-8">
+          <motion.form
+            onSubmit={handleSubmit}
+            className="flex flex-col items-center gap-6 w-full px-8"
+            animate={feedback === 'wrong' ? { x: [-10, 10, -10, 10, 0] } : {}}
+            transition={{ duration: 0.4 }}
+          >
             <div className="text-5xl font-bold font-mono tracking-tighter">{problem.text} = ?</div>
             <Input
               autoFocus
@@ -116,7 +139,7 @@ export const MathSprint: React.FC<{ onComplete: (score: number) => void }> = ({ 
               className="text-center text-3xl h-16 bg-background/50 border-primary/30 focus:border-primary"
               placeholder="Answer"
             />
-          </form>
+          </motion.form>
         )}
 
         {gameState === 'finished' && (

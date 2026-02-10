@@ -15,7 +15,14 @@ import { ReactionTime } from '@/components/mini-games/ReactionTime';
 import { PatternSequence } from '@/components/mini-games/PatternSequence';
 import { MathSprint } from '@/components/mini-games/MathSprint';
 import { IQTest } from '@/components/mini-games/IQTest';
+import { CognitiveScience } from '@/components/mini-games/CognitiveScience';
 import { supabase } from '@/integrations/supabase/client';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { useAuth } from '@/components/auth/AuthProvider';
 
 const DAILY_CAP = 100;
@@ -29,7 +36,8 @@ const GAMES = [
     color: 'text-blue-500',
     bgColor: 'bg-blue-500/10',
     component: MemoryMatch,
-    category: 'Memory'
+    category: 'Memory',
+    benefit: 'Improves hippocampal function and visual-spatial recall.'
   },
   {
     id: 'reflex',
@@ -39,7 +47,8 @@ const GAMES = [
     color: 'text-yellow-500',
     bgColor: 'bg-yellow-500/10',
     component: ReactionTime,
-    category: 'Reflexes'
+    category: 'Reflexes',
+    benefit: 'Sharpens neural transmission speed and motor response.'
   },
   {
     id: 'pattern',
@@ -49,7 +58,8 @@ const GAMES = [
     color: 'text-green-500',
     bgColor: 'bg-green-500/10',
     component: PatternSequence,
-    category: 'Focus'
+    category: 'Focus',
+    benefit: 'Trains prefrontal cortex for sequence and pattern recognition.'
   },
   {
     id: 'math',
@@ -59,7 +69,8 @@ const GAMES = [
     color: 'text-red-500',
     bgColor: 'bg-red-500/10',
     component: MathSprint,
-    category: 'Agility'
+    category: 'Agility',
+    benefit: 'Enhances fluid intelligence and mental arithmetic speed.'
   },
   {
     id: 'iq',
@@ -69,7 +80,8 @@ const GAMES = [
     color: 'text-purple-500',
     bgColor: 'bg-purple-500/10',
     component: IQTest,
-    category: 'General IQ'
+    category: 'General IQ',
+    benefit: 'Comprehensive evaluation of logical and spatial reasoning.'
   }
 ];
 
@@ -81,6 +93,7 @@ const MiniGames = () => {
   const [activeGame, setActiveGame] = useState<string | null>(null);
   const [dailyMiniGamePoints, setDailyMiniGamePoints] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [showAnalytics, setShowAnalytics] = useState(false);
 
   useEffect(() => {
     const fetchDailyPoints = async () => {
@@ -103,7 +116,7 @@ const MiniGames = () => {
     fetchDailyPoints();
   }, [user]);
 
-  const handleGameComplete = async (score: number) => {
+  const handleGameComplete = async (scoreOrIq: number, possibleScore?: number) => {
     if (!user) return;
 
     // Award cognitive initiate badge on first play
@@ -113,17 +126,22 @@ const MiniGames = () => {
     }
 
     if (activeGame === 'iq') {
-      await awardPoints('iq_test_completed', 'iq_assessment');
+      const iq = scoreOrIq;
+      const score = possibleScore || 0;
+      // For IQ test, we use a fixed point value but track the score in metadata
+      await awardPoints('iq_test_completed', 'iq_assessment', { iq, score });
       if (!hasBadge('iq_certified')) {
         await awardBadge('iq_certified');
       }
       playSuccess();
     } else {
+      const score = scoreOrIq;
       // Handle daily cap
       if (dailyMiniGamePoints < DAILY_CAP) {
         const pointsToAward = Math.min(score, DAILY_CAP - dailyMiniGamePoints);
         if (pointsToAward > 0) {
-          await awardPoints('mini_game_win', `game_${activeGame}`, { score });
+          // Pass performance-based score as pointsOverride
+          await awardPoints('mini_game_win', `game_${activeGame}`, { score }, pointsToAward);
           setDailyMiniGamePoints(prev => prev + pointsToAward);
           playPointsEarned();
 
@@ -176,35 +194,50 @@ const MiniGames = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {GAMES.map((game, idx) => (
-                <motion.div
-                  key={game.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.1 }}
-                >
-                  <Card
-                    className="group relative overflow-hidden h-full border-border/50 hover:border-primary/50 transition-all duration-300 cursor-pointer hover:shadow-[0_0_20px_rgba(var(--primary),0.1)]"
-                    onClick={() => setActiveGame(game.id)}
+              <TooltipProvider>
+                {GAMES.map((game, idx) => (
+                  <motion.div
+                    key={game.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: idx * 0.1 }}
                   >
-                    <div className="p-6">
-                      <div className={`w-12 h-12 rounded-2xl ${game.bgColor} ${game.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                        <game.icon className="w-6 h-6" />
-                      </div>
-                      <div className="mb-4">
-                        <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{game.category}</span>
-                        <h3 className="text-xl font-bold mt-1 group-hover:text-primary transition-colors">{game.title}</h3>
-                      </div>
-                      <p className="text-muted-foreground text-sm line-clamp-2 mb-6">
-                        {game.description}
-                      </p>
-                      <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all">
-                        Launch Exercise
-                      </Button>
-                    </div>
-                  </Card>
-                </motion.div>
-              ))}
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Card
+                          className="group relative overflow-hidden h-full border-border/50 hover:border-primary/50 transition-all duration-300 cursor-pointer hover:shadow-[0_0_20px_rgba(var(--primary),0.1)]"
+                          onClick={() => setActiveGame(game.id)}
+                        >
+                          <div className="p-6">
+                            <div className={`w-12 h-12 rounded-2xl ${game.bgColor} ${game.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                              <game.icon className="w-6 h-6" />
+                            </div>
+                            <div className="mb-4">
+                              <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{game.category}</span>
+                              <h3 className="text-xl font-bold mt-1 group-hover:text-primary transition-colors">{game.title}</h3>
+                            </div>
+                            <p className="text-muted-foreground text-sm line-clamp-2 mb-6">
+                              {game.description}
+                            </p>
+                            <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                              Launch Exercise
+                            </Button>
+                          </div>
+                        </Card>
+                      </TooltipTrigger>
+                      <TooltipContent side="bottom" className="max-w-xs p-4 bg-card border-primary/20">
+                        <div className="flex items-center gap-2 mb-1">
+                          <Activity className="w-4 h-4 text-primary" />
+                          <span className="font-bold">Cognitive Benefit</span>
+                        </div>
+                        <p className="text-xs text-muted-foreground">
+                          {game.benefit}
+                        </p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </motion.div>
+                ))}
+              </TooltipProvider>
             </div>
 
             <Card className="p-8 border-dashed border-2 border-primary/20 bg-primary/5">
@@ -219,9 +252,28 @@ const MiniGames = () => {
                     working memory, and problem-solving efficiency. For maximum benefit, train for at least 15 minutes daily.
                   </p>
                 </div>
-                <Button variant="outline" size="lg" disabled>View Analytics (Coming Soon)</Button>
+                <Button
+                  variant={showAnalytics ? "default" : "outline"}
+                  size="lg"
+                  onClick={() => setShowAnalytics(!showAnalytics)}
+                >
+                  {showAnalytics ? "Hide Analytics" : "View Performance Dashboard"}
+                </Button>
               </div>
             </Card>
+
+            <AnimatePresence>
+              {showAnalytics && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="overflow-hidden"
+                >
+                  <CognitiveScience />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
         ) : (
           <motion.div

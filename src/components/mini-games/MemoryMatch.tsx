@@ -3,6 +3,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Brain, RefreshCw } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useAchievementSounds } from '@/hooks/useAchievementSounds';
 
 interface MemoryCard {
   id: number;
@@ -14,6 +15,7 @@ interface MemoryCard {
 const SYMBOLS = ['🧠', '⚡', '🔬', '🌌', '🧬', '🧪', '🔭', '🛡️'];
 
 export const MemoryMatch: React.FC<{ onComplete: (score: number) => void }> = ({ onComplete }) => {
+  const { playCorrectAnswer, playWrongAnswer, playClick, playSuccess } = useAchievementSounds();
   const [cards, setCards] = useState<MemoryCard[]>([]);
   const [flippedCards, setFlippedCards] = useState<number[]>([]);
   const [moves, setMoves] = useState(0);
@@ -41,6 +43,7 @@ export const MemoryMatch: React.FC<{ onComplete: (score: number) => void }> = ({
   const handleCardClick = (id: number) => {
     if (flippedCards.length === 2 || cards[id].isFlipped || cards[id].isMatched || isWon) return;
 
+    playClick();
     const newFlipped = [...flippedCards, id];
     setFlippedCards(newFlipped);
 
@@ -53,6 +56,7 @@ export const MemoryMatch: React.FC<{ onComplete: (score: number) => void }> = ({
       const [first, second] = newFlipped;
 
       if (cards[first].symbol === cards[second].symbol) {
+        playCorrectAnswer();
         newCards[first].isMatched = true;
         newCards[second].isMatched = true;
         setCards(newCards);
@@ -60,10 +64,12 @@ export const MemoryMatch: React.FC<{ onComplete: (score: number) => void }> = ({
 
         if (newCards.every(c => c.isMatched)) {
           setIsWon(true);
+          playSuccess();
           const score = Math.max(10, 100 - moves);
           onComplete(score);
         }
       } else {
+        playWrongAnswer();
         setTimeout(() => {
           newCards[first].isFlipped = false;
           newCards[second].isFlipped = false;

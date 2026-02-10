@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import { useAchievementSounds } from '@/hooks/useAchievementSounds';
 
 const COLORS = [
   { id: 0, color: 'bg-red-500', glow: 'shadow-[0_0_20px_#ef4444]' },
@@ -10,11 +11,13 @@ const COLORS = [
 ];
 
 export const PatternSequence: React.FC<{ onComplete: (score: number) => void }> = ({ onComplete }) => {
+  const { playCorrectAnswer, playWrongAnswer, playClick } = useAchievementSounds();
   const [sequence, setSequence] = useState<number[]>([]);
   const [userSequence, setUserSequence] = useState<number[]>([]);
   const [activeButton, setActiveButton] = useState<number | null>(null);
   const [gameState, setGameState] = useState<'idle' | 'showing' | 'playing' | 'gameOver'>('idle');
   const [level, setLevel] = useState(0);
+  const [isError, setIsError] = useState(false);
 
   const startNextLevel = useCallback((currentSequence: number[]) => {
     const nextColor = Math.floor(Math.random() * 4);
@@ -39,6 +42,7 @@ export const PatternSequence: React.FC<{ onComplete: (score: number) => void }> 
   const handleButtonClick = (id: number) => {
     if (gameState !== 'playing') return;
 
+    playClick();
     setActiveButton(id);
     setTimeout(() => setActiveButton(null), 200);
 
@@ -47,13 +51,17 @@ export const PatternSequence: React.FC<{ onComplete: (score: number) => void }> 
 
     if (id !== sequence[newUserSequence.length - 1]) {
       setGameState('gameOver');
+      setIsError(true);
+      playWrongAnswer();
       const score = Math.max(10, level * 5);
       onComplete(score);
+      setTimeout(() => setIsError(false), 500);
       return;
     }
 
     if (newUserSequence.length === sequence.length) {
       setLevel(l => l + 1);
+      playCorrectAnswer();
       setTimeout(() => startNextLevel(sequence), 1000);
     }
   };
@@ -67,7 +75,11 @@ export const PatternSequence: React.FC<{ onComplete: (score: number) => void }> 
     <div className="flex flex-col items-center gap-8 p-4 w-full max-w-md mx-auto">
       <div className="text-2xl font-consciousness text-primary">Level: {level}</div>
 
-      <div className="grid grid-cols-2 gap-4 w-full aspect-square">
+      <motion.div
+        className="grid grid-cols-2 gap-4 w-full aspect-square"
+        animate={isError ? { x: [-10, 10, -10, 10, 0] } : {}}
+        transition={{ duration: 0.4 }}
+      >
         {COLORS.map((item) => (
           <motion.div
             key={item.id}
@@ -78,7 +90,7 @@ export const PatternSequence: React.FC<{ onComplete: (score: number) => void }> 
             }`}
           />
         ))}
-      </div>
+      </motion.div>
 
       <div className="text-center h-12 flex items-center justify-center">
         {gameState === 'idle' && (

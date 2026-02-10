@@ -111,15 +111,16 @@ export const usePoints = () => {
 
   // 2. Mutation for awarding points
   const awardPointsMutation = useMutation({
-    mutationFn: async ({ actionType, actionId, metadata }: {
+    mutationFn: async ({ actionType, actionId, metadata, pointsOverride }: {
       actionType: PointActionType,
       actionId?: string,
-      metadata?: Record<string, unknown>
+      metadata?: Record<string, unknown>,
+      pointsOverride?: number
     }) => {
       if (!user) throw new Error('User not authenticated');
 
-      const basePoints = POINT_VALUES[actionType];
-      if (!basePoints) throw new Error('Invalid action type');
+      const basePoints = pointsOverride ?? POINT_VALUES[actionType];
+      if (basePoints === undefined) throw new Error('Invalid action type');
 
       const { data, error } = await supabase.rpc('award_user_points', {
         _user_id: user.id,
@@ -141,10 +142,16 @@ export const usePoints = () => {
   const awardPoints = useCallback(async (
     actionType: PointActionType,
     actionId?: string,
-    metadata?: Record<string, unknown>
+    metadata?: Record<string, unknown>,
+    pointsOverride?: number
   ) => {
     try {
-      const result = await awardPointsMutation.mutateAsync({ actionType, actionId, metadata });
+      const result = await awardPointsMutation.mutateAsync({
+        actionType,
+        actionId,
+        metadata,
+        pointsOverride
+      });
       return {
         success: result?.success || false,
         pointsAwarded: result?.points_awarded || 0,
