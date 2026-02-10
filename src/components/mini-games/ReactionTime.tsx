@@ -2,8 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Zap, Clock, AlertCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useAchievementSounds } from '@/hooks/useAchievementSounds';
 
 export const ReactionTime: React.FC<{ onComplete: (score: number) => void }> = ({ onComplete }) => {
+  const { playSuccess, playWrongAnswer, playClick } = useAchievementSounds();
   const [gameState, setGameState] = useState<'idle' | 'waiting' | 'ready' | 'clicked' | 'tooEarly'>('idle');
   const [startTime, setStartTime] = useState<number>(0);
   const [reactionTime, setReactionTime] = useState<number | null>(null);
@@ -24,16 +26,19 @@ export const ReactionTime: React.FC<{ onComplete: (score: number) => void }> = (
     if (gameState === 'waiting') {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
       setGameState('tooEarly');
+      playWrongAnswer();
     } else if (gameState === 'ready') {
       const endTime = Date.now();
       const diff = endTime - startTime;
       setReactionTime(diff);
       setGameState('clicked');
+      playSuccess();
 
       // Points based on reaction time: < 250ms is excellent
       const points = Math.max(10, Math.floor(5000 / diff));
       onComplete(Math.min(25, points));
     } else if (gameState === 'clicked' || gameState === 'tooEarly' || gameState === 'idle') {
+      playClick();
       startTest();
     }
   };

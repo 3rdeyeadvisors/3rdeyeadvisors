@@ -6,6 +6,7 @@ import { Brain, Award, Share2, Mail, CheckCircle2, Loader2 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion';
 import { shareResultsViaEmail } from '@/lib/email';
 import { useAuth } from '@/components/auth/AuthProvider';
+import { useAchievementSounds } from '@/hooks/useAchievementSounds';
 import { toast } from 'sonner';
 
 interface IQQuestion {
@@ -127,18 +128,21 @@ const QUESTIONS: IQQuestion[] = [
 
 export const IQTest: React.FC<{ onComplete: (iq: number, score: number) => void }> = ({ onComplete }) => {
   const { user } = useAuth();
+  const { playClick, playSuccess } = useAchievementSounds();
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
   const [isFinished, setIsFinished] = useState(false);
   const [isSending, setIsSending] = useState(false);
 
   const handleAnswer = (optionIndex: number) => {
+    playClick();
     const newAnswers = [...answers, optionIndex];
     setAnswers(newAnswers);
 
     if (currentStep < QUESTIONS.length - 1) {
       setCurrentStep(currentStep + 1);
     } else {
+      playSuccess();
       calculateResult(newAnswers);
     }
   };
