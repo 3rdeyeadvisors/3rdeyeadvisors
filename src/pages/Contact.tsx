@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, MessageSquare, Send, Globe, Twitter, Github } from "lucide-react";
+import { Mail, MessageSquare, Send, Globe, Twitter } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import NewsletterSignup from "@/components/NewsletterSignup";
@@ -298,16 +298,6 @@ const Contact = () => {
                   </a>
                 </Button>
                 
-                <Button 
-                  variant="outline" 
-                  className="w-full justify-start font-consciousness"
-                  asChild
-                >
-                  <a href="https://github.com/3rdeyeadvisors" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                    <Github className="w-4 h-4 mr-3" />
-                    Open Source Resources
-                  </a>
-                </Button>
               </div>
             </Card>
 

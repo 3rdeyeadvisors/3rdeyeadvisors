@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Mail, Github, Instagram } from 'lucide-react';
+import { Mail, Instagram } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -25,7 +25,6 @@ const Footer = () => {
   const socialLinks = [
     { icon: Mail, href: 'mailto:info@the3rdeyeadvisors.com', label: 'Email' },
     { icon: Instagram, href: 'https://instagram.com/3rdeyeadvisors', label: 'Instagram' },
-    { icon: Github, href: 'https://github.com/3rdeyeadvisors', label: 'GitHub' },
   ];
 
   return (
