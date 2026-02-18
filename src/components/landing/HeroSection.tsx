@@ -2,8 +2,10 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { BookOpen, Users, ArrowDown } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
+import { useGalaxySounds } from '@/hooks/useGalaxySounds';
 
 const HeroSection = () => {
+  const { playPing, playDeepHum } = useGalaxySounds();
   const scrollToContent = () => {
     window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
   };
@@ -30,38 +32,39 @@ const HeroSection = () => {
 
       <div className="relative z-10 container mx-auto px-6 text-center">
         <AnimatedSection animation="fade-up" delay={0}>
-          <span className="inline-block text-xs md:text-sm uppercase tracking-[0.3em] text-primary font-medium mb-4 md:mb-6">
-            DeFi Education Platform
+          <span className="inline-block text-xs md:text-sm uppercase tracking-[0.4em] text-primary font-semibold mb-4 md:mb-6">
+            Institutional DeFi Intelligence
           </span>
         </AnimatedSection>
 
         <AnimatedSection animation="fade-up" delay={100}>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-consciousness font-bold text-foreground mb-4 md:mb-6 leading-[1.15] tracking-tight max-w-4xl mx-auto">
-            Master DeFi Security and Decentralized Finance{' '}
-            <span className="bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
-              Without the Hype!
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-consciousness font-bold text-foreground mb-4 md:mb-8 leading-[1.1] tracking-tighter max-w-5xl mx-auto">
+            Advanced Blockchain Education for the{' '}
+            <span className="bg-gradient-to-r from-white via-primary to-primary bg-clip-text text-transparent">
+              Modern Financial Firm.
             </span>
           </h1>
         </AnimatedSection>
 
         <AnimatedSection animation="fade-up" delay={200}>
-          <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground font-consciousness mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed">
-            Understand how decentralized systems really work. No hype, no noise, no confusion.
+          <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground font-consciousness mb-10 md:mb-12 max-w-3xl mx-auto leading-relaxed opacity-90">
+            Empowering institutional and professional investors with deep-tech insights into decentralized protocols. Rigorous, research-driven, and strictly hype-free.
           </p>
         </AnimatedSection>
 
         <AnimatedSection animation="fade-up" delay={300}>
-          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center">
             <Link to="/courses">
               <Button 
                 size="lg" 
-                className="group relative overflow-hidden bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-consciousness min-w-[200px]"
+                onMouseEnter={playDeepHum}
+                onClick={playPing}
+                className="group relative overflow-hidden bg-white text-black hover:bg-white/90 px-10 py-7 text-lg font-semibold min-w-[240px] rounded-none transition-all duration-300 shadow-2xl"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   <BookOpen className="w-5 h-5" />
-                  Start Learning Free
+                  Access Research
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-glow to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </Button>
             </Link>
             
@@ -69,24 +72,15 @@ const HeroSection = () => {
               <Button 
                 variant="outline"
                 size="lg" 
-                className="group border-border hover:border-primary/50 hover:bg-primary/5 px-8 py-6 text-lg font-consciousness min-w-[200px]"
+                onMouseEnter={playDeepHum}
+                onClick={playPing}
+                className="group border-white/20 hover:border-white/40 hover:bg-white/5 px-10 py-7 text-lg font-semibold min-w-[240px] rounded-none backdrop-blur-sm transition-all duration-300"
               >
                 <Users className="w-5 h-5 mr-2" />
-                Join the Movement
+                Institutional Onboarding
               </Button>
             </Link>
           </div>
-        </AnimatedSection>
-
-        {/* Scroll indicator */}
-        <AnimatedSection animation="fade-up" delay={400}>
-          <button
-            onClick={scrollToContent}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground hover:text-primary transition-colors group"
-            aria-label="Scroll to content"
-          >
-            <ArrowDown className="w-6 h-6 animate-bounce" />
-          </button>
         </AnimatedSection>
       </div>
     </section>

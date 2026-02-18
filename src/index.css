@@ -6,29 +6,29 @@
 
 @layer base {
   :root {
-    /* Core cosmic backgrounds */
-    --background: 222 84% 4.9%;
+    /* Core professional backgrounds - Pure Black for a firm look */
+    --background: 0 0% 0%;
     --foreground: 0 0% 98%;
 
-    /* Card and surface colors */
-    --card: 217 32% 8%;
+    /* Card and surface colors - Sophisticated dark tones */
+    --card: 240 10% 3.9%;
     --card-foreground: 0 0% 95%;
 
-    --popover: 217 32% 6%;
+    --popover: 240 10% 2%;
     --popover-foreground: 0 0% 95%;
 
-    /* Electric primary - cosmic blue */
-    --primary: 217 91% 60%;
-    --primary-foreground: 222 84% 4.9%;
-    --primary-glow: 217 91% 70%;
+    /* Professional primary - Deep electric blue */
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --primary-glow: 221.2 83.2% 63.3%;
 
     /* Deep secondary - system dark */
-    --secondary: 217 32% 12%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
 
-    /* Muted cosmic tones - high contrast for accessibility */
-    --muted: 217 32% 10%;
-    --muted-foreground: 215 15% 90%;
+    /* Muted professional tones */
+    --muted: 240 3.7% 10%;
+    --muted-foreground: 240 5% 64.9%;
 
     /* Success/positive states */
     --success: 142 76% 36%;
@@ -38,10 +38,10 @@
     --warning: 38 92% 50%;
     --warning-foreground: 0 0% 98%;
 
-    /* Consciousness accent - electric purple */
-    --accent: 271 91% 65%;
-    --accent-foreground: 0 0% 98%;
-    --accent-glow: 271 91% 75%;
+    /* Professional accent - clean silver/blue */
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent-glow: 210 40% 100%;
 
     /* Awareness highlight - cosmic green */
     --awareness: 142 76% 36%;
@@ -57,15 +57,15 @@
     --input: 217 32% 15%;
     --ring: 217 91% 60%;
 
-    /* Cosmic gradients */
-    --gradient-cosmic: linear-gradient(135deg, hsl(var(--background)), hsl(217 32% 8%));
-    --gradient-consciousness: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--accent)));
+    /* Professional gradients */
+    --gradient-cosmic: linear-gradient(135deg, hsl(var(--background)), hsl(240 10% 5%));
+    --gradient-consciousness: linear-gradient(45deg, hsl(var(--primary)), hsl(240 10% 20%));
     --gradient-awareness: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--awareness)));
     
-    /* System shadows with cosmic glow */
-    --shadow-cosmic: 0 10px 40px -10px hsl(var(--primary) / 0.3);
-    --shadow-consciousness: 0 0 30px hsl(var(--accent) / 0.4);
-    --shadow-awareness: 0 5px 20px hsl(var(--awareness) / 0.3);
+    /* System shadows with professional depth */
+    --shadow-cosmic: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+    --shadow-consciousness: 0 0 30px rgba(255, 255, 255, 0.05);
+    --shadow-awareness: 0 5px 20px hsl(var(--awareness) / 0.2);
 
     /* Transitions */
     --transition-cosmic: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);

@@ -1,5 +1,6 @@
 // Landing page components barrel export
 export { default as FloatingParticles } from './FloatingParticles';
+export { default as GalaxyBackground } from './GalaxyBackground';
 export { default as AnimatedSection } from './AnimatedSection';
 export { default as GlowCard } from './GlowCard';
 export { default as CounterAnimation } from './CounterAnimation';
