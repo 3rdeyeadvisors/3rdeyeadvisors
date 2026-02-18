@@ -45,7 +45,7 @@ const FeaturesSection = () => {
             Core Competencies
           </span>
           <h2 className="text-2xl md:text-4xl lg:text-5xl font-consciousness font-bold text-foreground mb-6">
-            Institutional Capabilities
+            Elite DeFi Capabilities
           </h2>
           <p className="text-base md:text-lg text-muted-foreground font-consciousness max-w-3xl mx-auto opacity-80">
             Providing the technical foundation and strategic intelligence required for sophisticated decentralized finance operations.

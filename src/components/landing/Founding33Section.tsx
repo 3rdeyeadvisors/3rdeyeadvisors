@@ -113,7 +113,7 @@ const Founding33Section = ({ totalSpots = 33, claimedSpots: initialClaimed = 0 }
   return (
     <section className="py-12 md:py-16 lg:py-24 relative overflow-hidden">
       {/* Premium background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-amber-950/20 via-background to-background pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-amber-950/10 via-background/40 to-background/60 pointer-events-none" />
       
       {/* Subtle glow effect */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />

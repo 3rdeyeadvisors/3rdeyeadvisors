@@ -38,7 +38,7 @@ const Index = () => {
         }}
       />
       
-      <div className="min-h-screen bg-background relative">
+      <div className="min-h-screen relative">
         {/* Galaxy background */}
         <GalaxyBackground />
         

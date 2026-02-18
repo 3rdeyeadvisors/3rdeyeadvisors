@@ -13,7 +13,7 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-[70vh] md:min-h-[80vh] lg:min-h-[85vh] flex items-center justify-center overflow-hidden pt-12 md:pt-16 lg:pt-20">
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/40 to-background" />
       
       {/* Subtle grid pattern */}
       <div 
@@ -33,7 +33,7 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-6 text-center">
         <AnimatedSection animation="fade-up" delay={0}>
           <span className="inline-block text-xs md:text-sm uppercase tracking-[0.4em] text-primary font-semibold mb-4 md:mb-6">
-            Institutional DeFi Intelligence
+            Institutional-Grade DeFi Intelligence for All
           </span>
         </AnimatedSection>
 
@@ -41,14 +41,14 @@ const HeroSection = () => {
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-consciousness font-bold text-foreground mb-4 md:mb-8 leading-[1.1] tracking-tighter max-w-5xl mx-auto">
             Advanced Blockchain Education for the{' '}
             <span className="bg-gradient-to-r from-white via-primary to-primary bg-clip-text text-transparent">
-              Modern Financial Firm.
+              Modern Financial Era.
             </span>
           </h1>
         </AnimatedSection>
 
         <AnimatedSection animation="fade-up" delay={200}>
           <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground font-consciousness mb-10 md:mb-12 max-w-3xl mx-auto leading-relaxed opacity-90">
-            Empowering institutional and professional investors with deep-tech insights into decentralized protocols. Rigorous, research-driven, and strictly hype-free.
+            Empowering individuals, families, and corporations with institutional-grade insights into decentralized protocols. Rigorous, research-driven, and strictly hype-free.
           </p>
         </AnimatedSection>
 
@@ -77,7 +77,7 @@ const HeroSection = () => {
                 className="group border-white/20 hover:border-white/40 hover:bg-white/5 px-10 py-7 text-lg font-semibold min-w-[240px] rounded-none backdrop-blur-sm transition-all duration-300"
               >
                 <Users className="w-5 h-5 mr-2" />
-                Institutional Onboarding
+                Access Platform
               </Button>
             </Link>
           </div>

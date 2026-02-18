@@ -26,12 +26,12 @@ const InstitutionalSection = () => {
           
           {/* Headline */}
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            Partnerships & Advisory Services
+            Specialized Advisory & Institutional Services
           </h2>
           
           {/* Partnership Body */}
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-            Are you a school, law firm, or financial institution looking to onboard your team or students to the world of DeFi? We offer bulk licensing and custom certification programs.
+            Beyond our core platform, we offer schools, law firms, and financial institutions custom onboarding, bulk licensing, and specialized advisory services.
           </p>
 
           {/* Digital Asset Reserves Section */}

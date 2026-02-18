@@ -41,7 +41,7 @@ const WhoIsThisForSection = () => {
             Who Is This For?
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Our platform is designed for anyone ready to take control of their financial future.
+            Our platform is designed for individuals, families, institutions and corporations ready to take control of their financial future.
           </p>
         </AnimatedSection>
 
