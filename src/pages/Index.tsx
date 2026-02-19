@@ -18,9 +18,9 @@ const Index = () => {
   return (
     <>
       <SEO 
-        title="Master DeFi Education & Cryptocurrency Knowledge"
-        description="Build your financial understanding with comprehensive DeFi education. Learn decentralized finance, crypto fundamentals, and blockchain protocols through practical courses and tutorials."
-        keywords="DeFi education, crypto training, blockchain courses, decentralized finance, cryptocurrency learning"
+        title="Everything Your Financial Advisor Won't Tell You"
+        description="3rdeyeadvisors teaches complete beginners how to understand and use decentralized finance. Plain language. No hype. No gatekeeping. Used by individuals, families, financial advisors, and law firms."
+        keywords="DeFi education, crypto for beginners, decentralized finance, blockchain basics, financial advisor crypto, cryptocurrency learning"
         url="https://www.the3rdeyeadvisors.com/"
         type="website"
         schema={{

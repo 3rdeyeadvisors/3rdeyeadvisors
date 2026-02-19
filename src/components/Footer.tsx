@@ -45,7 +45,7 @@ const Footer = () => {
                 <li key={link.label}>
                   <Link
                     to={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors font-consciousness min-h-[44px] flex items-center"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors font-body min-h-[44px] flex items-center"
                   >
                     {link.label}
                   </Link>
@@ -64,7 +64,7 @@ const Footer = () => {
                 <li key={link.label}>
                   <Link
                     to={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors font-consciousness min-h-[44px] flex items-center"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors font-body min-h-[44px] flex items-center"
                   >
                     {link.label}
                   </Link>
@@ -83,7 +83,7 @@ const Footer = () => {
                 <li key={link.label}>
                   <Link
                     to={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors font-consciousness min-h-[44px] flex items-center"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors font-body min-h-[44px] flex items-center"
                   >
                     {link.label}
                   </Link>

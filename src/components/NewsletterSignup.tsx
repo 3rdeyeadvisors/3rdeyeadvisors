@@ -116,10 +116,10 @@ const NewsletterSignup = ({ variant = "default", className = "" }: NewsletterSig
           
           <div>
             <h3 className="text-2xl font-consciousness font-bold text-foreground mb-3">
-              Expand Your DeFi Consciousness
+              Get the DeFi moves your advisor is missing
             </h3>
             <p className="text-muted-foreground font-consciousness leading-relaxed">
-              Get exclusive insights, market analysis, and educational content delivered to your inbox.
+              Weekly insights, plain language breakdowns, and platform updates. No hype. Unsubscribe anytime.
             </p>
           </div>
 
@@ -174,10 +174,10 @@ const NewsletterSignup = ({ variant = "default", className = "" }: NewsletterSig
           
           <div>
             <h3 className="text-xl font-consciousness font-bold text-foreground mb-2">
-              Stay Updated with DeFi Insights
+              Stay ahead of the curve
             </h3>
             <p className="text-muted-foreground font-consciousness">
-              Get weekly insights and educational content directly to your inbox.
+              Weekly DeFi education, platform updates, and insights delivered to your inbox.
             </p>
           </div>
 
