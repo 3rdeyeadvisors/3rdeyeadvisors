@@ -577,7 +577,7 @@ export const DefiCharts = () => {
           </div>
         </CardHeader>
         <CardContent className="pt-4">
-          <ResponsiveContainer width="100%" height={320}>
+          <ResponsiveContainer width="100%" height={isDesktop ? 320 : 250}>
             <AreaChart data={data.historicalData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
               <defs>
                 <linearGradient id="marketTrendGradient" x1="0" y1="0" x2="0" y2="1">
@@ -888,7 +888,7 @@ export const DefiCharts = () => {
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-center gap-8 w-full max-w-2xl mx-auto">
               {/* Chart Container with center label */}
               <div className="relative flex justify-center flex-shrink-0">
-                <div className="w-[180px] h-[180px]">
+                <div className="w-[180px] h-[180px] md:w-[220px] md:h-[220px]">
                   <ResponsiveContainer width="100%" height="100%">
                     <PieChart>
                       <Pie
@@ -966,37 +966,64 @@ export const DefiCharts = () => {
           <CardDescription>Detailed metrics for top DeFi protocols</CardDescription>
         </CardHeader>
         <CardContent>
-          {/* Desktop Table */}
-          <div className="hidden md:block overflow-x-auto">
-            <table className="w-full border-collapse">
-              <thead>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse block md:table">
+              <thead className="hidden md:table-header-group">
                 <tr className="border-b">
-                  <th className="text-left py-2 px-4">Protocol</th>
-                  <th className="text-right py-2 px-4">TVL</th>
-                  <th className="text-right py-2 px-4">1D Change</th>
-                  <th className="text-right py-2 px-4">7D Change</th>
-                  <th className="text-right py-2 px-4">Category</th>
+                  <th className="text-left py-4 px-4 font-consciousness text-sm">Protocol</th>
+                  <th className="text-right py-4 px-4 font-consciousness text-sm">TVL</th>
+                  <th className="text-right py-4 px-4 font-consciousness text-sm">1D Change</th>
+                  <th className="text-right py-4 px-4 font-consciousness text-sm">7D Change</th>
+                  <th className="text-right py-4 px-4 font-consciousness text-sm">Category</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="block md:table-row-group">
                 {data.protocols.slice(0, 8).map((protocol, index) => (
-                  <tr key={protocol.id} className="border-b hover:bg-muted/50">
-                    <td className="py-2 px-4">
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-sm font-bold text-primary">
-                          {index + 1}
+                  <tr key={protocol.id} className="border-b border-white/5 md:border-white/10 hover:bg-white/5 transition-colors block md:table-row mb-4 md:mb-0 p-4 md:p-0 rounded-2xl md:rounded-none bg-white/2 md:bg-transparent">
+                    <td className="py-2 md:py-4 px-0 md:px-4 block md:table-cell">
+                      <div className="flex items-center justify-between md:justify-start gap-3">
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 rounded-full bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-sm font-bold text-violet-400">
+                            {index + 1}
+                          </div>
+                          <span className="font-consciousness font-semibold text-white">{protocol.name}</span>
                         </div>
-                        <span className="font-medium">{protocol.name}</span>
+                        <Badge
+                          variant="outline"
+                          className="text-[10px] md:hidden"
+                          style={{
+                            borderColor: getProtocolColor(protocol.category),
+                            color: getProtocolColor(protocol.category),
+                            backgroundColor: `${getProtocolColor(protocol.category)}10`
+                          }}
+                        >
+                          {protocol.category}
+                        </Badge>
                       </div>
                     </td>
-                    <td className="text-right py-2 px-4 font-mono">{formatCurrency(protocol.tvl)}</td>
-                    <td className={`text-right py-2 px-4 font-mono ${protocol.change_1d >= 0 ? 'text-awareness' : 'text-destructive'}`}>
-                      {protocol.change_1d >= 0 ? '+' : ''}{protocol.change_1d.toFixed(2)}%
+                    <td className="py-2 md:py-4 px-0 md:px-4 block md:table-cell">
+                      <div className="flex justify-between md:justify-end items-center">
+                        <span className="text-xs text-white/40 md:hidden font-body">TVL</span>
+                        <span className="font-mono font-medium text-white">{formatCurrency(protocol.tvl)}</span>
+                      </div>
                     </td>
-                    <td className={`text-right py-2 px-4 font-mono ${protocol.change_7d >= 0 ? 'text-awareness' : 'text-destructive'}`}>
-                      {protocol.change_7d >= 0 ? '+' : ''}{protocol.change_7d.toFixed(2)}%
+                    <td className="py-2 md:py-4 px-0 md:px-4 block md:table-cell">
+                      <div className="flex justify-between md:justify-end items-center">
+                        <span className="text-xs text-white/40 md:hidden font-body">1D Change</span>
+                        <span className={`font-mono font-medium ${protocol.change_1d >= 0 ? 'text-awareness' : 'text-destructive'}`}>
+                          {protocol.change_1d >= 0 ? '+' : ''}{protocol.change_1d.toFixed(2)}%
+                        </span>
+                      </div>
                     </td>
-                    <td className="text-right py-2 px-4">
+                    <td className="py-2 md:py-4 px-0 md:px-4 block md:table-cell">
+                      <div className="flex justify-between md:justify-end items-center">
+                        <span className="text-xs text-white/40 md:hidden font-body">7D Change</span>
+                        <span className={`font-mono font-medium ${protocol.change_7d >= 0 ? 'text-awareness' : 'text-destructive'}`}>
+                          {protocol.change_7d >= 0 ? '+' : ''}{protocol.change_7d.toFixed(2)}%
+                        </span>
+                      </div>
+                    </td>
+                    <td className="py-2 md:py-4 px-0 md:px-4 hidden md:table-cell text-right">
                       <Badge 
                         variant="outline" 
                         className="text-xs"
@@ -1013,51 +1040,6 @@ export const DefiCharts = () => {
               </tbody>
             </table>
           </div>
-          
-          {/* Mobile Carousel */}
-          <MobileCarouselWrapper>
-            {data.protocols.slice(0, 8).map((protocol, index) => (
-              <div key={protocol.id} className="p-3 rounded-lg border bg-card">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-2">
-                    <div className="w-6 h-6 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-xs font-bold text-primary">
-                      {index + 1}
-                    </div>
-                    <span className="font-medium truncate">{protocol.name}</span>
-                  </div>
-                  <Badge 
-                    variant="outline" 
-                    className="text-xs flex-shrink-0"
-                    style={{ 
-                      borderColor: getProtocolColor(protocol.category),
-                      color: getProtocolColor(protocol.category),
-                      backgroundColor: `${getProtocolColor(protocol.category)}10`
-                    }}
-                  >
-                    {protocol.category}
-                  </Badge>
-                </div>
-                <div className="grid grid-cols-3 gap-2 text-sm">
-                  <div className="text-center">
-                    <div className="text-xs text-muted-foreground">TVL</div>
-                    <div className="font-mono font-medium">{formatCurrency(protocol.tvl)}</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-xs text-muted-foreground">24h</div>
-                    <div className={`font-mono font-medium ${protocol.change_1d >= 0 ? 'text-awareness' : 'text-destructive'}`}>
-                      {protocol.change_1d >= 0 ? '+' : ''}{protocol.change_1d.toFixed(1)}%
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-xs text-muted-foreground">7d</div>
-                    <div className={`font-mono font-medium ${protocol.change_7d >= 0 ? 'text-awareness' : 'text-destructive'}`}>
-                      {protocol.change_7d >= 0 ? '+' : ''}{protocol.change_7d.toFixed(1)}%
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </MobileCarouselWrapper>
         </CardContent>
       </Card>
     </div>

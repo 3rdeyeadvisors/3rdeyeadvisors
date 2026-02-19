@@ -19,14 +19,16 @@ const Subscription = () => {
   const [checkoutLoading, setCheckoutLoading] = useState<'monthly' | 'annual' | null>(null);
   const [portalLoading, setPortalLoading] = useState(false);
 
-  // Auto-trigger checkout if user came from auth with a plan parameter
   useEffect(() => {
-    const planFromUrl = searchParams.get('plan') as 'monthly' | 'annual' | null;
-    if (planFromUrl && user && session && !hasAccess && !subLoading) {
-      setSearchParams({});
-      handleSubscribe(planFromUrl);
+    const planParam = searchParams.get('plan') as 'monthly' | 'annual' | null;
+    if (planParam && user && session && !hasAccess && !subLoading && (planParam === 'monthly' || planParam === 'annual')) {
+      // Small delay to ensure the page has mounted
+      const timer = setTimeout(() => {
+        handleSubscribe(planParam);
+      }, 500);
+      return () => clearTimeout(timer);
     }
-  }, [user, session, hasAccess, subLoading, searchParams]);
+  }, [user, session, hasAccess, subLoading]);
 
   const handleSubscribe = async (plan: 'monthly' | 'annual') => {
     if (!user || !session) {
@@ -97,8 +99,8 @@ const Subscription = () => {
   return (
     <>
       <SEO
-        title="Subscription: 3rdeyeadvisors"
-        description="Subscribe to 3rdeyeadvisors for full access to DeFi courses, tutorials, and premium content. Start your 14-day free trial today."
+        title="Subscription"
+        description="Subscribe to 3rdeyeadvisors for full access to DeFi courses, tutorials, and premium content. Start your 14 day free trial today."
         keywords="defi subscription, crypto education, blockchain courses, defi membership"
       />
 
@@ -109,7 +111,7 @@ const Subscription = () => {
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-5">
               <Sparkles className="w-4 h-4 text-primary flex-shrink-0" />
               <span className="text-sm font-medium text-primary">
-                {user && !hasAccess && !trialExpired ? 'Your Free Trial is Active!' : '14-Day Free Trial'}
+                {user && !hasAccess && !trialExpired ? 'Your Free Trial is Active!' : '14 Day Free Trial'}
               </span>
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-5">
@@ -357,7 +359,7 @@ const Subscription = () => {
                   How does the free trial work?
                 </h3>
                 <p className="text-foreground/70 text-sm leading-relaxed">
-                  Your 14-day trial starts immediately when you create an account: no payment required. You get full access to all content during your trial.
+                  Your 14 day trial starts immediately when you create an account: no payment required. You get full access to all content during your trial.
                 </p>
               </div>
               <div className="p-5 md:p-6 bg-card rounded-xl border border-border">

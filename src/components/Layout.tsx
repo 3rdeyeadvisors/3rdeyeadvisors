@@ -70,7 +70,7 @@ const Layout = ({ children }: LayoutProps) => {
       />
       <div className="min-h-screen bg-gradient-cosmic flex flex-col">
         <Navigation />
-        <main className="pt-[calc(4rem+env(safe-area-inset-top))] md:pt-[calc(5rem+env(safe-area-inset-top))] flex-1">
+        <main className="pt-16 md:pt-20 flex-1">
           <AnimatePresence mode="wait">
             {children}
           </AnimatePresence>

@@ -87,7 +87,7 @@ const ReferralTerms = () => {
                 </CardHeader>
                 <ul className="list-disc pl-6 text-foreground/80 space-y-3">
                   <li>
-                    <strong>Payment Schedule:</strong> Approved commissions are paid out within 7-10 business days 
+                    <strong>Payment Schedule:</strong> Approved commissions are paid out within 7 to 10 business days
                     of being marked as approved by our team.
                   </li>
                   <li>
@@ -151,7 +151,7 @@ const ReferralTerms = () => {
                   <li>
                     <strong>Pending Commissions:</strong> If your participation is terminated due to violation 
                     of Program rules, all pending commissions will be forfeited. If termination is not due to 
-                    a violation, we will pay out any earned commissions within 7-10 business days.
+                    a violation, we will pay out any earned commissions within 7 to 10 business days.
                   </li>
                   <li>
                     <strong>Program Discontinuation:</strong> We reserve the right to discontinue the Program 

@@ -27,7 +27,6 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { DesktopOnlyNotice } from "@/components/DesktopOnlyNotice";
 import { TutorialHeader } from "@/components/course/TutorialHeader";
 import { StepNavigation } from "@/components/course/StepNavigation";
 import { useAuth } from "@/components/auth/AuthProvider";
@@ -267,12 +266,12 @@ const DefiCalculatorsTutorial = () => {
           {
             practice: "Start Small",
             reason: "Learn with amounts you can afford to lose",
-            action: "Begin with $100-500 positions"
+            action: "Begin with $100 to 500 positions"
           },
           {
             practice: "Diversify",
             reason: "Don't put all funds in one pool or protocol",
-            action: "Spread across 3-5 different strategies"
+            action: "Spread across 3 to 5 different strategies"
           },
           {
             practice: "Monitor Regularly",

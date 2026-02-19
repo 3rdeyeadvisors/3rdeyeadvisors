@@ -211,7 +211,7 @@ const Tutorials = () => {
   return (
     <>
       <SEO 
-        title="DeFi Tutorials | 3rdeyeadvisors"
+        title="DeFi Tutorials"
         description="Step-by-step tutorials covering DeFi, cryptocurrency, and blockchain education. Learn wallet setup, DEX trading, yield farming, and more."
         keywords="DeFi tutorials, crypto guides, blockchain education, DeFi how-to"
         url="https://the3rdeyeadvisors.com/tutorials"

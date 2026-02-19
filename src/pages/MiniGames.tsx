@@ -193,7 +193,7 @@ const MiniGames = () => {
               </Card>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               <TooltipProvider>
                 {GAMES.map((game, idx) => (
                   <motion.div
@@ -219,7 +219,7 @@ const MiniGames = () => {
                             <p className="text-muted-foreground text-sm line-clamp-2 mb-6">
                               {game.description}
                             </p>
-                            <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                            <Button variant="outline" className="w-full min-h-[44px] group-hover:bg-primary group-hover:text-primary-foreground transition-all">
                               Launch Exercise
                             </Button>
                           </div>
@@ -255,6 +255,7 @@ const MiniGames = () => {
                 <Button
                   variant={showAnalytics ? "default" : "outline"}
                   size="lg"
+                  className="min-h-[44px]"
                   onClick={() => setShowAnalytics(!showAnalytics)}
                 >
                   {showAnalytics ? "Hide Analytics" : "View Performance Dashboard"}

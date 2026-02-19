@@ -272,7 +272,7 @@ const EmailPreview = () => {
           <div style="background: #FEF3C7; padding: 20px; border-radius: 8px; border-left: 4px solid #F59E0B; margin: 30px 0;">
             <h3 style="color: #92400E; margin-top: 0; font-size: 18px;">📬 Next Steps</h3>
             <p style="font-size: 16px; line-height: 1.6; margin-bottom: 0; color: #78350F;">
-              Our team will contact you directly within 24-48 hours to arrange delivery of your prize. Please check your email inbox (and spam folder) for our message.
+              Our team will contact you directly within 24 to 48 hours to arrange delivery of your prize. Please check your email inbox (and spam folder) for our message.
             </p>
           </div>
           

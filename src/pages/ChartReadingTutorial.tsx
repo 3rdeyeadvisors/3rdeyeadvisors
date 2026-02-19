@@ -8,7 +8,6 @@ import { toast } from 'sonner';
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { DesktopOnlyNotice } from "@/components/DesktopOnlyNotice";
 import { TutorialHeader } from "@/components/course/TutorialHeader";
 import { StepNavigation } from "@/components/course/StepNavigation";
 
@@ -205,10 +204,10 @@ const ChartReadingTutorial = () => {
             
             <Card className="p-4">
               <h4 className="font-semibold mb-2">RSI (Relative Strength Index)</h4>
-              <p className="text-sm text-muted-foreground mb-2">Measures overbought/oversold conditions (0-100)</p>
+              <p className="text-sm text-muted-foreground mb-2">Measures overbought/oversold conditions (0 to 100)</p>
               <div className="flex flex-wrap gap-2">
                 <Badge variant="destructive" className="whitespace-nowrap">Oversold: &lt;30</Badge>
-                <Badge variant="secondary" className="whitespace-nowrap">Neutral: 30-70</Badge>
+                <Badge variant="secondary" className="whitespace-nowrap">Neutral: 30 to 70</Badge>
                 <Badge variant="destructive" className="whitespace-nowrap">Overbought: &gt;70</Badge>
               </div>
             </Card>
@@ -319,7 +318,7 @@ const ChartReadingTutorial = () => {
             <h4 className="font-semibold mb-2">Position Sizing</h4>
             <div className="space-y-3">
               <div className="p-3 border rounded">
-                <h5 className="font-medium text-sm">Risk Per Trade: 1-2% of Portfolio</h5>
+                <h5 className="font-medium text-sm">Risk Per Trade: 1 to 2% of Portfolio</h5>
                 <p className="text-xs text-muted-foreground">Never risk more than you can afford to lose on a single trade</p>
               </div>
               <div className="p-3 border rounded">

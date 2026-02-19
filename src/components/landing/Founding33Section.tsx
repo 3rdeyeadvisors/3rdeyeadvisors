@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, Crown, Loader2, Flame, Lock } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
@@ -21,7 +21,6 @@ interface SpotsData {
 const Founding33Section = ({ totalSpots = 33, claimedSpots: initialClaimed = 0 }: Founding33SectionProps) => {
   const { user, session } = useAuth();
   const navigate = useNavigate();
-  const location = useLocation();
   const [isLoading, setIsLoading] = useState(false);
   const [spotsData, setSpotsData] = useState<SpotsData>({
     total: totalSpots,
@@ -50,25 +49,6 @@ const Founding33Section = ({ totalSpots = 33, claimedSpots: initialClaimed = 0 }
     fetchSpots();
   }, []);
 
-  // Handle success/cancel query params
-  useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const founding33Status = params.get('founding33');
-    
-    if (founding33Status === 'success') {
-      toast.success('🎉 Welcome to the Founding 33! Check your email for confirmation.', {
-        duration: 8000,
-      });
-      // Clear the query param
-      navigate('/', { replace: true });
-    } else if (founding33Status === 'canceled') {
-      toast.info('Checkout was canceled. Your spot is still available!', {
-        duration: 5000,
-      });
-      navigate('/', { replace: true });
-    }
-  }, [location.search, navigate]);
-
   const spotsRemaining = spotsData.remaining;
   const percentageClaimed = (spotsData.claimed / spotsData.total) * 100;
   const isSoldOut = spotsRemaining <= 0;
@@ -81,7 +61,12 @@ const Founding33Section = ({ totalSpots = 33, claimedSpots: initialClaimed = 0 }
 
     setIsLoading(true);
     try {
-      const { data, error } = await supabase.functions.invoke('create-founding33-checkout');
+      const { data, error } = await supabase.functions.invoke('create-founding33-checkout', {
+        body: {
+          successUrl: `${window.location.origin}/checkout/success?type=founding33`,
+          cancelUrl: `${window.location.origin}/checkout/cancel`,
+        },
+      });
       
       if (error) {
         throw new Error(error.message || 'Failed to create checkout session');

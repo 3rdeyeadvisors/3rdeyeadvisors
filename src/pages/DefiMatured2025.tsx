@@ -139,7 +139,7 @@ const DefiMatured2025 = () => {
                   <strong className="text-foreground font-semibold">Ethereum's Dencun upgrade</strong> (March 2024) introduced proto-danksharding, significantly reducing transaction costs on Layer 2 networks. According to <strong className="text-foreground font-semibold">L2Beat</strong>, transaction fees on leading L2s like <strong className="text-foreground font-semibold">Arbitrum, Optimism, and Base</strong> dropped by over 90% following the upgrade.
                 </p>
                 <p className="text-foreground/90 leading-relaxed">
-                  These improvements have made DeFi more practical for everyday users and smaller transactions, removing one of the primary barriers to adoption during the 2021-2022 bull market.
+                  These improvements have made DeFi more practical for everyday users and smaller transactions, removing one of the primary barriers to adoption during the 2021 to 2022 bull market.
                 </p>
               </section>
 

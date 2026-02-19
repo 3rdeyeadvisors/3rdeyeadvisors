@@ -35,7 +35,7 @@ export const CryptoDisclaimer = ({ onAccept, onDecline }: CryptoDisclaimerProps)
               <li>All transactions are processed through your external wallet (MetaMask, Coinbase, etc.)</li>
               <li>Purchases are made using cryptocurrency, not through this app's payment system</li>
               <li>You are solely responsible for managing your private keys and wallet security</li>
-              <li>Blockchain transactions are irreversible - there are no refunds</li>
+              <li>Blockchain transactions are irreversible: there are no refunds</li>
             </ul>
           </div>
 
@@ -47,7 +47,7 @@ export const CryptoDisclaimer = ({ onAccept, onDecline }: CryptoDisclaimerProps)
             <ul className="list-disc list-inside space-y-1 text-muted-foreground">
               <li>Enzyme Finance is an independent, third-party DeFi protocol</li>
               <li>Vault deposits and withdrawals occur on Enzyme's external platform</li>
-              <li>3EA does not custody your funds - you maintain full control</li>
+              <li>3EA does not custody your funds: you maintain full control</li>
               <li>Smart contract risks exist with any DeFi protocol</li>
             </ul>
           </div>
@@ -61,7 +61,7 @@ export const CryptoDisclaimer = ({ onAccept, onDecline }: CryptoDisclaimerProps)
               <li>Cryptocurrency investments are highly volatile and speculative</li>
               <li>Past performance does not guarantee future results</li>
               <li>You may lose some or all of your investment</li>
-              <li>This is not financial advice - consult a professional advisor</li>
+              <li>This is not financial advice: consult a professional advisor</li>
               <li>Only invest what you can afford to lose</li>
             </ul>
           </div>

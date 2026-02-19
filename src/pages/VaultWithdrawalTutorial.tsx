@@ -242,7 +242,7 @@ const VaultWithdrawalTutorial = () => {
               </div>
               <div className="flex items-start gap-2 md:gap-3">
                 <CheckCircle2 className="h-4 w-4 md:h-5 md:w-5 text-primary mt-0.5 shrink-0" />
-                <p className="text-sm md:text-base">Wait for the transaction to be confirmed on the blockchain (usually 1-3 minutes)</p>
+                <p className="text-sm md:text-base">Wait for the transaction to be confirmed on the blockchain (usually 1 to 3 minutes)</p>
               </div>
             </div>
 

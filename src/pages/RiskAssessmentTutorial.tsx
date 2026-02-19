@@ -10,7 +10,6 @@ import { toast } from 'sonner';
 import { KeyTakeaway } from "@/components/course/KeyTakeaway";
 import { DidYouKnow } from "@/components/course/DidYouKnow";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { DesktopOnlyNotice } from "@/components/DesktopOnlyNotice";
 import { useAuth } from "@/components/auth/AuthProvider";
 
 const RiskAssessmentTutorial = () => {
@@ -70,7 +69,7 @@ const RiskAssessmentTutorial = () => {
               <h4 className="font-semibold text-xs md:text-sm mb-2">1. Protocol Maturity</h4>
               <div className="flex flex-wrap gap-1.5 md:gap-2 justify-center sm:justify-start">
                 <Badge variant="destructive" className="text-[10px] md:text-xs whitespace-nowrap">New (&lt;6 months)</Badge>
-                <Badge variant="secondary" className="text-[10px] md:text-xs whitespace-nowrap">Established (6-24 months)</Badge>
+                <Badge variant="secondary" className="text-[10px] md:text-xs whitespace-nowrap">Established (6 to 24 months)</Badge>
                 <Badge variant="default" className="text-[10px] md:text-xs whitespace-nowrap">Mature (&gt;2 years)</Badge>
               </div>
             </div>
@@ -86,7 +85,7 @@ const RiskAssessmentTutorial = () => {
               <h4 className="font-semibold text-xs md:text-sm mb-2">3. Audit Status</h4>
               <div className="flex flex-wrap gap-1.5 md:gap-2 justify-center sm:justify-start">
                 <Badge variant="destructive" className="text-[10px] md:text-xs whitespace-nowrap">No audits</Badge>
-                <Badge variant="secondary" className="text-[10px] md:text-xs whitespace-nowrap">1-2 audits</Badge>
+                <Badge variant="secondary" className="text-[10px] md:text-xs whitespace-nowrap">1 to 2 audits</Badge>
                 <Badge variant="default" className="text-[10px] md:text-xs whitespace-nowrap">Multiple audits</Badge>
               </div>
             </div>

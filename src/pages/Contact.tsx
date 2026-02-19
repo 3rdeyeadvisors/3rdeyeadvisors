@@ -121,7 +121,7 @@ const Contact = () => {
           <div>
             <Card className="p-8 bg-card/60 border-border">
               <div className="flex items-center justify-center mb-4 md:mb-6 text-center">
-                <Mail className="hidden md:block w-6 h-6 text-primary shrink-0 mr-3" aria-hidden="true" />
+                <Mail className="w-6 h-6 text-primary shrink-0 mr-3" aria-hidden="true" />
                 <h2 className="text-2xl font-consciousness font-bold text-foreground text-center">
                   Get in Touch
                 </h2>
@@ -235,7 +235,7 @@ const Contact = () => {
             {/* About Section */}
             <Card className="p-8 bg-gradient-consciousness border-primary/20">
               <div className="flex items-center justify-center mb-4 md:mb-6 text-center">
-                <Globe className="hidden md:block w-6 h-6 text-foreground shrink-0 mr-3 drop-shadow-sm" aria-hidden="true" />
+                <Globe className="w-6 h-6 text-foreground shrink-0 mr-3 drop-shadow-sm" aria-hidden="true" />
                 <h2 className="text-2xl font-consciousness font-bold text-foreground text-center">
                   About 3rdeyeadvisors
                 </h2>

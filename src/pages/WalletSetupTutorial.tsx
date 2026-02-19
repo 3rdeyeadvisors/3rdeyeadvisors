@@ -35,7 +35,6 @@ import { TutorialHeader } from "@/components/course/TutorialHeader";
 import { StepNavigation } from "@/components/course/StepNavigation";
 import walletHeroImage from "@/assets/tutorials/wallet-setup-hero.jpg";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { DesktopOnlyNotice } from "@/components/DesktopOnlyNotice";
 
 const WalletSetupTutorial = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -395,7 +394,6 @@ const WalletSetupTutorial = () => {
         </div>
 
         {/* Desktop Only Notice for Mobile Users */}
-        {isMobile && <DesktopOnlyNotice feature="interactive tutorial steps and wallet setup guidance" />}
 
         {/* Step Navigation */}
         <div className="mb-6 md:mb-8">
@@ -507,7 +505,7 @@ const WalletSetupTutorial = () => {
                     </AlertDescription>
                   </Alert>
 
-                  <DidYouKnow fact="In 2024-2025, scammers created over 500 fake MetaMask websites. Always verify you're on the official metamask.io domain!" />
+                  <DidYouKnow fact="In 2024 to 2025, scammers created over 500 fake MetaMask websites. Always verify you're on the official metamask.io domain!" />
 
                   <StepBlock 
                     title="Installation Steps:"

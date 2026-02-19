@@ -33,7 +33,6 @@ import { useToast } from "@/hooks/use-toast";
 import { Link, useNavigate } from "react-router-dom";
 import SEO from "@/components/SEO";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { DesktopOnlyNotice } from "@/components/DesktopOnlyNotice";
 import { useAuth } from "@/components/auth/AuthProvider";
 
 const FirstDexSwapTutorial = () => {
@@ -124,7 +123,7 @@ const FirstDexSwapTutorial = () => {
           {
             name: "Ethereum Mainnet",
             symbol: "ETH",
-            fees: "High ($5-50+)",
+            fees: "High ($5 to 50+)",
             speed: "15 seconds",
             pros: ["Most tokens available", "Highest liquidity"],
             cons: ["Very expensive for small trades"],
@@ -133,7 +132,7 @@ const FirstDexSwapTutorial = () => {
           {
             name: "Polygon",
             symbol: "MATIC", 
-            fees: "Very Low ($0.01-0.10)",
+            fees: "Very Low ($0.01 to 0.10)",
             speed: "2 seconds",
             pros: ["Almost free trades", "Fast", "Many tokens"],
             cons: ["Need MATIC for gas", "Bridging required"],
@@ -171,10 +170,10 @@ const FirstDexSwapTutorial = () => {
               "Use the official Polygon bridge (wallet.polygon.technology)",
               "Connect your MetaMask wallet", 
               "Send a small amount of ETH to get MATIC",
-              "Wait 7-8 minutes for the bridge to complete"
+              "Wait 7 to 8 minutes for the bridge to complete"
             ],
-            cost: "Ethereum gas fee (~$5-20)",
-            time: "7-8 minutes"
+            cost: "Ethereum gas fee (~$5 to 20)",
+            time: "7 to 8 minutes"
           },
           {
             method: "Buy directly on exchange",
@@ -183,8 +182,8 @@ const FirstDexSwapTutorial = () => {
               "Withdraw to your MetaMask address on Polygon network",
               "Double-check you're withdrawing on Polygon network"
             ],
-            cost: "Exchange withdrawal fee (~$1-3)",
-            time: "5-10 minutes"
+            cost: "Exchange withdrawal fee (~$1 to 3)",
+            time: "5 to 10 minutes"
           },
           {
             method: "Use a faucet (free)",
@@ -195,7 +194,7 @@ const FirstDexSwapTutorial = () => {
               "Receive small amount of free MATIC"
             ],
             cost: "Free",
-            time: "1-2 minutes"
+            time: "1 to 2 minutes"
           }
         ]
       }
@@ -216,7 +215,7 @@ const FirstDexSwapTutorial = () => {
         },
         beginnerTips: [
           "Start with stablecoins (USDC, USDT) for predictable values",
-          "Trade small amounts first ($10-50) to learn",
+          "Trade small amounts first ($10 to 50) to learn",
           "Avoid obscure tokens with very low liquidity",
           "Check token addresses to avoid fake tokens"
         ],
@@ -317,7 +316,7 @@ const FirstDexSwapTutorial = () => {
           },
           {
             step: "Wait for confirmation",
-            description: "Usually 1-3 minutes on Polygon",
+            description: "Usually 1 to 3 minutes on Polygon",
             tip: "Don't close browser or disconnect wallet"
           }
         ],
@@ -473,11 +472,11 @@ const FirstDexSwapTutorial = () => {
           },
           {
             question: "What network should I use for my first DEX trade?",
-            answer: "We recommend Polygon network for beginners because of very low gas fees ($0.01-0.10), fast transactions (2 seconds), and wide token availability. You'll need a small amount of MATIC for gas fees."
+            answer: "We recommend Polygon network for beginners because of very low gas fees ($0.01 to 0.10), fast transactions (2 seconds), and wide token availability. You'll need a small amount of MATIC for gas fees."
           },
           {
             question: "How much should I trade for my first DEX swap?",
-            answer: "Start small with $10-50 for your first trade. This lets you learn the process without significant risk. Use stablecoins like USDC for predictable values, and always verify token addresses to avoid fake tokens."
+            answer: "Start small with $10 to 50 for your first trade. This lets you learn the process without significant risk. Use stablecoins like USDC for predictable values, and always verify token addresses to avoid fake tokens."
           }
         ]}
       />

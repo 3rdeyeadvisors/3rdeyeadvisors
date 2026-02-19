@@ -571,7 +571,7 @@ export const EnhancedDashboard = () => {
                         : isTrialing && subscription?.trialEnd
                         ? `Trial ends ${new Date(subscription.trialEnd).toLocaleDateString()}`
                         : `${subscription?.plan === 'annual' ? 'Annual' : 'Monthly'} plan`
-                      : 'Start your 14-day free trial today'}
+                      : 'Start your 14 day free trial today'}
                   </p>
                 </div>
               </div>

@@ -82,6 +82,8 @@ const Earn = lazy(() => import("./pages/Earn"));
 const ReferralTerms = lazy(() => import("./pages/ReferralTerms"));
 const Roadmap = lazy(() => import("./pages/Roadmap"));
 const MiniGames = lazy(() => import("./pages/MiniGames"));
+const CheckoutSuccess = lazy(() => import("./pages/CheckoutSuccess"));
+const CheckoutCancel = lazy(() => import("./pages/CheckoutCancel"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -209,6 +211,8 @@ const AnimatedRoutes = () => {
         <Route path="/vault-access" element={<PageTransition><VaultAccess /></PageTransition>} />
         <Route path="/vault-deposit-guide" element={<PageTransition><VaultDepositTutorial /></PageTransition>} />
         <Route path="/vault-withdrawal-guide" element={<PageTransition><VaultWithdrawalTutorial /></PageTransition>} />
+        <Route path="/checkout/success" element={<PageTransition><CheckoutSuccess /></PageTransition>} />
+        <Route path="/checkout/cancel" element={<PageTransition><CheckoutCancel /></PageTransition>} />
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
     </Suspense>
