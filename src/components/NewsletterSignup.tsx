@@ -107,66 +107,50 @@ const NewsletterSignup = ({ variant = "default", className = "" }: NewsletterSig
 
   return (
     <Card className={`p-8 bg-gradient-cosmic-subtle border-border/50 ${className}`}>
-      {variant === "cosmic" ? (
-        <div className="text-center space-y-6">
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-cosmic opacity-20 rounded-full blur-xl"></div>
-            <Mail className="w-16 h-16 text-primary mx-auto relative" />
-          </div>
-          
-          <div>
-            <h3 className="text-2xl font-consciousness font-bold text-foreground mb-3">
+      {variant === 'cosmic' ? (
+        <div className="relative overflow-hidden rounded-3xl border border-violet-500/20 bg-gradient-to-b from-violet-950/30 to-black p-8 md:p-12 text-center">
+          {/* Background glow */}
+          <div className="absolute inset-0 bg-gradient-to-b from-violet-500/5 to-transparent pointer-events-none" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-violet-500/10 rounded-full blur-[80px] pointer-events-none" />
+
+          <div className="relative z-10">
+            <div className="inline-flex items-center gap-2 border border-violet-500/30 bg-violet-500/10 rounded-full px-4 py-1.5 mb-6">
+              <Mail className="w-3.5 h-3.5 text-violet-400" />
+              <span className="font-body text-xs uppercase tracking-widest text-violet-300">Weekly Intelligence</span>
+            </div>
+
+            <h3 className="font-consciousness text-2xl md:text-3xl font-bold text-white mb-3">
               Get the DeFi moves your advisor is missing
             </h3>
-            <p className="text-muted-foreground font-consciousness leading-relaxed">
+            <p className="font-body text-white/50 mb-8 max-w-md mx-auto">
               Weekly insights, plain language breakdowns, and platform updates. No hype. Unsubscribe anytime.
             </p>
-          </div>
 
-          {isSubscribed ? (
-            <div className="text-center p-6 bg-primary/10 rounded-lg border border-primary/20">
-              <Check className="w-8 h-8 text-primary mx-auto mb-3" />
-              <p className="text-primary font-consciousness font-medium">
-                Welcome to the conscious investor community!
-              </p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <Input
-                type="text"
-                placeholder="Your name (optional)"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="h-12 font-consciousness"
-                disabled={isLoading}
-              />
-              <div className="flex gap-3">
-                <Input
+            {isSubscribed ? (
+              <div className="flex items-center justify-center gap-2 text-violet-400">
+                <Check className="w-5 h-5" />
+                <span className="font-body text-sm">You are in. Check your inbox.</span>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                <input
                   type="email"
-                  placeholder="Your email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 h-12 font-consciousness"
-                  disabled={isLoading}
+                  placeholder="your@email.com"
+                  className="flex-1 font-body text-sm bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-violet-500/50 transition-colors"
+                  required
                 />
-                <Button 
-                  type="submit" 
+                <button
+                  type="submit"
                   disabled={isLoading}
-                  variant="cosmic"
-                  className="h-12 px-8 font-consciousness"
+                  className="font-body text-sm font-medium bg-violet-600 hover:bg-violet-500 text-white px-6 py-3 rounded-xl transition-all disabled:opacity-50 whitespace-nowrap"
                 >
-                  {isLoading ? "Subscribing..." : "Subscribe"}
-                </Button>
-              </div>
-              
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <AlertCircle className="w-4 h-4" />
-                <span className="font-consciousness">
-                  No spam. Unsubscribe anytime. Your privacy is protected.
-                </span>
-              </div>
-            </form>
-          )}
+                  {isLoading ? 'Joining...' : 'Join Free'}
+                </button>
+              </form>
+            )}
+          </div>
         </div>
       ) : (
         <div className="text-center space-y-4">

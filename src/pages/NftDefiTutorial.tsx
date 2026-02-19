@@ -8,7 +8,6 @@ import { CheckCircle, Circle, Image, Coins, Lock, ArrowLeft, Zap, TrendingUp } f
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import { useIsMobile } from "@/hooks/use-mobile";
-import { DesktopOnlyNotice } from "@/components/DesktopOnlyNotice";
 import { TutorialHeader } from "@/components/course/TutorialHeader";
 import { StepNavigation } from "@/components/course/StepNavigation";
 import { useAuth } from "@/components/auth/AuthProvider";
@@ -107,7 +106,7 @@ const NftDefiTutorial = () => {
             <Card className="p-4">
               <h4 className="font-semibold mb-2">Key Considerations</h4>
               <ul className="text-sm space-y-1">
-                <li>• <strong>Loan-to-Value (LTV):</strong> Usually 30-50% of NFT floor price</li>
+                <li>• <strong>Loan-to-Value (LTV):</strong> Usually 30 to 50% of NFT floor price</li>
                 <li>• <strong>Interest rates:</strong> Typically higher than traditional DeFi</li>
                 <li>• <strong>Liquidation risk:</strong> NFT can be sold if you default</li>
                 <li>• <strong>Floor price volatility:</strong> NFT values can change rapidly</li>
@@ -363,15 +362,15 @@ const NftDefiTutorial = () => {
               <div className="space-y-2">
                 <div className="flex justify-between items-center p-2 border rounded">
                   <span className="text-sm">Conservative investor</span>
-                  <Badge variant="outline">2-5% in NFTs</Badge>
+                  <Badge variant="outline">2 to 5% in NFTs</Badge>
                 </div>
                 <div className="flex justify-between items-center p-2 border rounded">
                   <span className="text-sm">Moderate investor</span>
-                  <Badge variant="outline">5-10% in NFTs</Badge>
+                  <Badge variant="outline">5 to 10% in NFTs</Badge>
                 </div>
                 <div className="flex justify-between items-center p-2 border rounded">
                   <span className="text-sm">Aggressive investor</span>
-                  <Badge variant="outline">10-20% in NFTs</Badge>
+                  <Badge variant="outline">10 to 20% in NFTs</Badge>
                 </div>
               </div>
             </Card>

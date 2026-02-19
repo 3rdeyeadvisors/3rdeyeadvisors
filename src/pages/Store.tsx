@@ -367,7 +367,7 @@ const Store = () => {
                   Secure Payment Processing
                 </h3>
                 <p className="text-muted-foreground font-consciousness leading-relaxed">
-                  Merchandise is automatically fulfilled with 5-7 business day processing and shipping. We accept all major payment methods.
+                  Merchandise is automatically fulfilled with 5 to 7 business day processing and shipping. We accept all major payment methods.
                 </p>
               </div>
             </div>

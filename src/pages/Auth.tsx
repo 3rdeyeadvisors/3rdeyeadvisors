@@ -107,8 +107,13 @@ const Auth = () => {
     
     // Handle authenticated users - redirect only ONCE
     if (user && session && !hasRedirected.current) {
-      // If there's a plan parameter, auto-trigger Stripe checkout
-      if (plan && (plan === 'monthly' || plan === 'annual')) {
+      // After successful authentication, check for pending plan
+      const pendingPlan = sessionStorage.getItem('pending_plan');
+      if (pendingPlan) {
+        sessionStorage.removeItem('pending_plan');
+        navigate(`/subscription?plan=${pendingPlan}`);
+      } else if (plan && (plan === 'monthly' || plan === 'annual')) {
+        // If there's a plan parameter in the URL, auto-trigger Stripe checkout
         triggerCheckout(plan);
       } else {
         // Redirect to intended destination or dashboard

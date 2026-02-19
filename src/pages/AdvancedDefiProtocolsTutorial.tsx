@@ -19,7 +19,6 @@ import { useToast } from "@/hooks/use-toast";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/components/auth/AuthProvider";
-import { DesktopOnlyNotice } from "@/components/DesktopOnlyNotice";
 import { TutorialHeader } from "@/components/course/TutorialHeader";
 import { StepNavigation } from "@/components/course/StepNavigation";
 
@@ -47,7 +46,7 @@ const AdvancedDefiProtocolsTutorial = () => {
             description: "Sophisticated money markets with dynamic interest rates",
             protocols: ["Aave", "Compound", "Euler", "Iron Bank"],
             complexity: "Medium",
-            yields: "3-15% APY",
+            yields: "3 to 15% APY",
             risks: ["Liquidation risk", "Interest rate volatility", "Protocol risk"]
           },
           {
@@ -55,7 +54,7 @@ const AdvancedDefiProtocolsTutorial = () => {
             description: "Amplify returns using borrowed capital",
             protocols: ["Alpha Homora", "Gearbox", "Yearn V3", "Notional"],
             complexity: "High",
-            yields: "10-50% APY",
+            yields: "10 to 50% APY",
             risks: ["Liquidation risk", "Impermanent loss amplification", "Complex strategies"]
           },
           {
@@ -71,7 +70,7 @@ const AdvancedDefiProtocolsTutorial = () => {
             description: "Gain exposure to assets without holding them",
             protocols: ["Synthetix", "Mirror Protocol", "UMA", "Tokemak"],
             complexity: "High",
-            yields: "5-25% APY",
+            yields: "5 to 25% APY",
             risks: ["Depeg risk", "Oracle manipulation", "Collateral requirements"]
           }
         ],
@@ -79,22 +78,22 @@ const AdvancedDefiProtocolsTutorial = () => {
           conservative: {
             protocols: ["Aave", "Compound"],
             description: "Blue-chip lending with established track records",
-            allocation: "50-70% of DeFi portfolio"
+            allocation: "50 to 70% of DeFi portfolio"
           },
           moderate: {
             protocols: ["Yearn", "Convex", "Curve"],
             description: "Established yield strategies with moderate complexity",
-            allocation: "20-40% of DeFi portfolio"
+            allocation: "20 to 40% of DeFi portfolio"
           },
           aggressive: {
             protocols: ["Alpha Homora", "Ribbon", "Hegic"],
             description: "High-yield strategies with significant risks",
-            allocation: "5-15% of DeFi portfolio"
+            allocation: "5 to 15% of DeFi portfolio"
           },
           experimental: {
             protocols: ["New protocols", "Novel strategies"],
             description: "Cutting-edge DeFi with unproven track records",
-            allocation: "1-5% of DeFi portfolio"
+            allocation: "1 to 5% of DeFi portfolio"
           }
         }
       }
@@ -135,7 +134,7 @@ const AdvancedDefiProtocolsTutorial = () => {
             description: "Borrow against deposited collateral to increase exposure",
             example: "Deposit ETH → Borrow USDC → Buy more ETH → Repeat",
             riskLevel: "High",
-            maxLeverage: "3-5x",
+            maxLeverage: "3 to 5x",
             considerations: ["Liquidation price", "Gas costs", "Interest rate changes"]
           },
           {
@@ -143,7 +142,7 @@ const AdvancedDefiProtocolsTutorial = () => {
             description: "Profit from interest rate differences across protocols",
             example: "Borrow on Compound at 3% → Lend on Aave at 5%",
             riskLevel: "Medium",
-            profitability: "1-3% APY",
+            profitability: "1 to 3% APY",
             considerations: ["Rate volatility", "Gas costs", "Opportunity cost"]
           },
           {
@@ -515,7 +514,7 @@ const AdvancedDefiProtocolsTutorial = () => {
               "Earn lending rate + funding rate",
               "Market-neutral position"
             ],
-            targetYield: "8-20% APY",
+            targetYield: "8 to 20% APY",
             riskLevel: "Medium"
           },
           {
@@ -527,7 +526,7 @@ const AdvancedDefiProtocolsTutorial = () => {
               "Lock CVX for maximum boost",
               "Harvest and compound regularly"
             ],
-            targetYield: "10-30% APY",
+            targetYield: "10 to 30% APY",
             riskLevel: "Medium"
           },
           {
@@ -539,7 +538,7 @@ const AdvancedDefiProtocolsTutorial = () => {
               "Provide liquidity to stable pools",
               "Farm rewards with leverage"
             ],
-            targetYield: "15-40% APY",
+            targetYield: "15 to 40% APY",
             riskLevel: "High"
           }
         ],
@@ -547,19 +546,19 @@ const AdvancedDefiProtocolsTutorial = () => {
           {
             technique: "Transaction Batching",
             description: "Combine multiple operations in single transaction",
-            savings: "50-80% gas reduction",
+            savings: "50 to 80% gas reduction",
             tools: ["1inch", "Zapper", "DeFiSaver"]
           },
           {
             technique: "Layer 2 Strategies",
             description: "Use cheaper chains for frequent operations",
-            savings: "90-99% gas reduction",
+            savings: "90 to 99% gas reduction",
             considerations: ["Bridge costs", "Liquidity differences", "Protocol availability"]
           },
           {
             technique: "Timing Optimization",
             description: "Execute during low gas periods",
-            savings: "30-70% gas reduction",
+            savings: "30 to 70% gas reduction",
             tools: ["GasNow", "ETH Gas Station", "Gas price alerts"]
           }
         ]
@@ -578,7 +577,7 @@ const AdvancedDefiProtocolsTutorial = () => {
             description: "Bugs or exploits in protocol code",
             examples: ["Flash loan attacks", "Reentrancy bugs", "Oracle manipulation"],
             mitigation: ["Use audited protocols", "Diversify across protocols", "Monitor security updates"],
-            allocation: "Limit exposure to newer protocols to 10-20% of portfolio"
+            allocation: "Limit exposure to newer protocols to 10 to 20% of portfolio"
           },
           {
             category: "Liquidation Risk",
@@ -662,7 +661,7 @@ const AdvancedDefiProtocolsTutorial = () => {
               "Close risky positions",
               "Move to stablecoins if needed"
             ],
-            preparation: "Keep 10-20% in stablecoins for emergencies"
+            preparation: "Keep 10 to 20% in stablecoins for emergencies"
           },
           {
             scenario: "Protocol Exploit",
@@ -701,21 +700,21 @@ const AdvancedDefiProtocolsTutorial = () => {
             allocation: "70% Blue-chip protocols",
             protocols: ["Aave", "Compound", "Curve", "Uniswap"],
             strategies: ["Simple lending", "Stable LP", "Low-risk farming"],
-            targetAPY: "5-12%",
+            targetAPY: "5 to 12%",
             riskLevel: "Low"
           },
           balanced: {
             allocation: "50% Blue-chip, 30% Established, 20% Growth",
             protocols: ["Aave", "Yearn", "Convex", "GMX", "Arbitrum ecosystem"],
             strategies: ["Diversified lending", "Yield optimization", "L2 farming"],
-            targetAPY: "8-20%",
+            targetAPY: "8 to 20%",
             riskLevel: "Medium"
           },
           aggressive: {
             allocation: "30% Blue-chip, 40% Established, 20% Growth, 10% Experimental",
             protocols: ["Full spectrum", "New protocols", "Leveraged strategies"],
             strategies: ["Leveraged farming", "Options", "New protocol farming"],
-            targetAPY: "15-50%",
+            targetAPY: "15 to 50%",
             riskLevel: "High"
           }
         },
@@ -723,7 +722,7 @@ const AdvancedDefiProtocolsTutorial = () => {
           {
             dimension: "Protocol Diversification",
             rationale: "Reduce smart contract risk",
-            implementation: ["Max 20% in any protocol", "Use 5-10 different protocols"],
+            implementation: ["Max 20% in any protocol", "Use 5 to 10 different protocols"],
             monitoring: "Track protocol concentration monthly"
           },
           {
@@ -974,7 +973,7 @@ const AdvancedDefiProtocolsTutorial = () => {
                   <Alert>
                     <AlertTriangle className="h-4 w-4" />
                     <AlertDescription>
-                      <strong>Risk Spectrum Allocation:</strong> Conservative (50-70%), Moderate (20-40%), Aggressive (5-15%), Experimental (1-5%)
+                      <strong>Risk Spectrum Allocation:</strong> Conservative (50 to 70%), Moderate (20 to 40%), Aggressive (5 to 15%), Experimental (1 to 5%)
                     </AlertDescription>
                   </Alert>
                 </div>

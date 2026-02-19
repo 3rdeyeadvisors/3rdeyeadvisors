@@ -81,7 +81,7 @@ const LiquidStakingTokens2025 = () => {
                   The brilliance of LSTs lies in their triple value proposition:
                 </p>
                 <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-                  <li><strong className="text-foreground">Yield Generation:</strong> Earn native Ethereum staking rewards (4-6% APY) simply by holding the token.</li>
+                  <li><strong className="text-foreground">Yield Generation:</strong> Earn native Ethereum staking rewards (4 to 6% APY) simply by holding the token.</li>
                   <li><strong className="text-foreground">Liquidity Preservation:</strong> Unlike locked staking, LSTs can be traded, sold, or transferred instantly on any DEX.</li>
                   <li><strong className="text-foreground">Composability:</strong> Deploy your LSTs as collateral in lending protocols, liquidity pools, or yield farming strategies: stacking multiple yield sources simultaneously.</li>
                 </ul>

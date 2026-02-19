@@ -23,7 +23,6 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { DesktopOnlyNotice } from "@/components/DesktopOnlyNotice";
 import { TutorialHeader } from "@/components/course/TutorialHeader";
 import { StepNavigation } from "@/components/course/StepNavigation";
 import { useAuth } from "@/components/auth/AuthProvider";
@@ -58,7 +57,7 @@ const CrossChainBridgingTutorial = () => {
             description: "Lock tokens on source chain, mint wrapped versions on destination",
             examples: ["Polygon Bridge", "Arbitrum Bridge", "Avalanche Bridge"],
             security: "High",
-            speed: "Slow (7-30 min)",
+            speed: "Slow (7 to 30 min)",
             cost: "High gas fees",
             bestFor: "Large amounts, long-term positions"
           },
@@ -67,7 +66,7 @@ const CrossChainBridgingTutorial = () => {
             description: "Use liquidity pools on both chains for instant swaps",
             examples: ["Hop Protocol", "Across Protocol", "Connext"],
             security: "Medium-High",
-            speed: "Fast (1-5 min)",
+            speed: "Fast (1 to 5 min)",
             cost: "Medium fees",
             bestFor: "Medium amounts, quick transfers"
           },
@@ -76,7 +75,7 @@ const CrossChainBridgingTutorial = () => {
             description: "Third-party validators facilitate cross-chain transfers",
             examples: ["Multichain", "Synapse", "Stargate"],
             security: "Medium",
-            speed: "Medium (5-15 min)",
+            speed: "Medium (5 to 15 min)",
             cost: "Low-Medium fees",
             bestFor: "Various use cases, multiple chains"
           }
@@ -85,7 +84,7 @@ const CrossChainBridgingTutorial = () => {
           {
             name: "Ethereum Mainnet",
             symbol: "ETH",
-            fees: "Very High ($20-100+)",
+            fees: "Very High ($20 to 100+)",
             security: "Highest",
             ecosystem: "Largest DeFi ecosystem",
             bridgeTo: ["Polygon", "Arbitrum", "Optimism", "Avalanche"]
@@ -93,7 +92,7 @@ const CrossChainBridgingTutorial = () => {
           {
             name: "Polygon",
             symbol: "MATIC", 
-            fees: "Very Low ($0.01-0.10)",
+            fees: "Very Low ($0.01 to 0.10)",
             security: "High",
             ecosystem: "Growing DeFi, gaming",
             bridgeTo: ["Ethereum", "Arbitrum", "Avalanche", "BSC"]
@@ -101,7 +100,7 @@ const CrossChainBridgingTutorial = () => {
           {
             name: "Arbitrum",
             symbol: "ETH",
-            fees: "Low ($0.50-5)",
+            fees: "Low ($0.50 to 5)",
             security: "High",
             ecosystem: "Ethereum L2, full compatibility",
             bridgeTo: ["Ethereum", "Polygon", "Optimism"]
@@ -109,7 +108,7 @@ const CrossChainBridgingTutorial = () => {
           {
             name: "Avalanche",
             symbol: "AVAX",
-            fees: "Low ($0.25-2)",
+            fees: "Low ($0.25 to 2)",
             security: "High", 
             ecosystem: "High-performance DeFi",
             bridgeTo: ["Ethereum", "Polygon", "BSC"]
@@ -245,7 +244,7 @@ const CrossChainBridgingTutorial = () => {
             bridge: "Polygon Official Bridge",
             chains: "Ethereum ↔ Polygon",
             security: "Highest",
-            speed: "7-8 minutes",
+            speed: "7 to 8 minutes",
             fees: "Ethereum gas only",
             maxAmount: "Unlimited",
             pros: ["Most secure", "Official support", "No slippage"],
@@ -255,7 +254,7 @@ const CrossChainBridgingTutorial = () => {
             bridge: "Hop Protocol",
             chains: "Multi-chain (ETH, Polygon, Arbitrum, Optimism)",
             security: "High",
-            speed: "1-5 minutes",
+            speed: "1 to 5 minutes",
             fees: "Low-Medium",
             maxAmount: "Variable by liquidity",
             pros: ["Fast", "Multi-chain", "Good liquidity"],
@@ -265,7 +264,7 @@ const CrossChainBridgingTutorial = () => {
             bridge: "Across Protocol", 
             chains: "Multi-chain (ETH, Polygon, Arbitrum, Optimism)",
             security: "High",
-            speed: "1-4 minutes",
+            speed: "1 to 4 minutes",
             fees: "Low",
             maxAmount: "Variable by liquidity",
             pros: ["Very fast", "Low fees", "Good UX"],
@@ -275,7 +274,7 @@ const CrossChainBridgingTutorial = () => {
             bridge: "Stargate (LayerZero)",
             chains: "Multi-chain (10+ chains)",
             security: "Medium-High",
-            speed: "2-10 minutes",
+            speed: "2 to 10 minutes",
             fees: "Medium",
             maxAmount: "High",
             pros: ["Many chains", "Good liquidity", "Unified interface"],
@@ -285,7 +284,7 @@ const CrossChainBridgingTutorial = () => {
         selectionGuide: [
           {
             scenario: "First-time bridging",
-            recommendation: "Polygon Official Bridge with small amount ($10-50)",
+            recommendation: "Polygon Official Bridge with small amount ($10 to 50)",
             reason: "Maximum security for learning experience"
           },
           {
@@ -347,10 +346,10 @@ const CrossChainBridgingTutorial = () => {
               "Select source and destination chains", 
               "Choose token and enter amount",
               "Review estimated fees and time",
-              "Set slippage tolerance (0.5-2%)",
+              "Set slippage tolerance (0.5 to 2%)",
               "Double-check recipient address"
             ],
-            timeframe: "2-3 minutes"
+            timeframe: "2 to 3 minutes"
           },
           {
             phase: "Transaction Signing",
@@ -362,7 +361,7 @@ const CrossChainBridgingTutorial = () => {
               "Save transaction hash immediately",
               "Wait for first confirmation"
             ],
-            timeframe: "1-2 minutes"
+            timeframe: "1 to 2 minutes"
           },
           {
             phase: "Monitoring",
@@ -374,7 +373,7 @@ const CrossChainBridgingTutorial = () => {
               "Verify balance in destination wallet",
               "Save all transaction records"
             ],
-            timeframe: "1-30 minutes depending on bridge"
+            timeframe: "1 to 30 minutes depending on bridge"
           }
         ],
         troubleshooting: [
@@ -535,7 +534,7 @@ const CrossChainBridgingTutorial = () => {
               "Consider gas tokens for predictable cost management"
             ],
             tools: ["GasNow", "ETH Gas Station", "Gas fee trackers"],
-            savings: "30-70% on gas costs"
+            savings: "30 to 70% on gas costs"
           },
           {
             strategy: "Liquidity Timing",

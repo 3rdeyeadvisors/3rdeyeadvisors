@@ -15,6 +15,8 @@ const PricingSection = () => {
 
   const handleSubscribe = async (plan: 'monthly' | 'annual') => {
     if (!user || !session) {
+      // Save plan selection before redirecting to auth
+      sessionStorage.setItem('pending_plan', plan);
       navigate(`/auth?plan=${plan}`);
       return;
     }
@@ -22,7 +24,11 @@ const PricingSection = () => {
     setCheckoutLoading(plan);
     try {
       const { data, error } = await supabase.functions.invoke('create-subscription-checkout', {
-        body: { plan },
+        body: {
+          plan,
+          successUrl: `${window.location.origin}/checkout/success?plan=${plan}&type=subscription`,
+          cancelUrl: `${window.location.origin}/checkout/cancel`,
+        },
         headers: {
           Authorization: `Bearer ${session.access_token}`,
         },
@@ -48,7 +54,7 @@ const PricingSection = () => {
         <AnimatedSection className="text-center mb-8 md:mb-10 lg:mb-12">
           <span className="inline-flex items-center gap-2 text-xs md:text-sm uppercase tracking-[0.2em] text-primary font-medium mb-4 bg-primary/10 px-4 py-2 rounded-full">
             <Sparkles className="w-4 h-4" />
-            14-Day Free Trial
+            14 Day Free Trial
           </span>
           <h2 className="text-3xl md:text-5xl font-consciousness font-bold text-foreground mb-6">
             Start Your Journey Risk Free
@@ -104,7 +110,7 @@ const PricingSection = () => {
                       Processing...
                     </>
                   ) : (
-                    'Start 14-Day Free Trial'
+                    'Start 14 Day Free Trial'
                   )}
                 </Button>
               </div>
@@ -167,7 +173,7 @@ const PricingSection = () => {
                       Processing...
                     </>
                   ) : (
-                    'Start 14-Day Free Trial'
+                    'Start 14 Day Free Trial'
                   )}
                 </Button>
               </div>

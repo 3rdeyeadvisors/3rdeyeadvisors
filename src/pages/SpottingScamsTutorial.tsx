@@ -36,7 +36,6 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { DesktopOnlyNotice } from "@/components/DesktopOnlyNotice";
 import { useAuth } from "@/components/auth/AuthProvider";
 
 const SpottingScamsTutorial = () => {
@@ -722,7 +721,7 @@ const SpottingScamsTutorial = () => {
                     Over $4.6 billion was stolen through crypto scams in 2024. The vast majority could have been prevented with proper verification and security awareness.
                   </KeyTakeaway>
 
-                  <DidYouKnow fact="Phishing websites are the #1 scam method. Scammers created over 500 fake MetaMask sites in 2024-2025 by slightly changing URLs (like 'metamasc.io' or 'metamask.com')!" />
+                  <DidYouKnow fact="Phishing websites are the #1 scam method. Scammers created over 500 fake MetaMask sites in 2024 to 2025 by slightly changing URLs (like 'metamasc.io' or 'metamask.com')!" />
 
                   <Alert className="border-destructive/50 bg-destructive/10 p-3 md:p-4">
                     <AlertTriangle className="h-3 w-3 md:h-4 md:w-4 text-destructive mx-auto sm:mx-0" />

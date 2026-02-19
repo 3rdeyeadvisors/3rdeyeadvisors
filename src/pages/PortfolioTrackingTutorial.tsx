@@ -20,7 +20,6 @@ import { useToast } from "@/hooks/use-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { DesktopOnlyNotice } from "@/components/DesktopOnlyNotice";
 import { TutorialHeader } from "@/components/course/TutorialHeader";
 import { StepNavigation } from "@/components/course/StepNavigation";
 
@@ -161,7 +160,7 @@ const PortfolioTrackingTutorial = () => {
           <Alert>
             <AlertTriangle className="h-4 w-4" />
             <AlertDescription>
-              <strong>Pro Tip:</strong> Use 2-3 trackers! They each catch different protocols. Cross-reference for complete accuracy.
+              <strong>Pro Tip:</strong> Use 2 to 3 trackers! They each catch different protocols. Cross-reference for complete accuracy.
             </AlertDescription>
           </Alert>
         </div>

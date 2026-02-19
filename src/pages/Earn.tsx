@@ -641,7 +641,7 @@ const Earn = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
-                  Payouts are processed within 7-10 business days
+                  Payouts are processed within 7 to 10 business days
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />

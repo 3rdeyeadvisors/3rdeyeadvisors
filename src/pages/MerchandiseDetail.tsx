@@ -482,7 +482,7 @@ export default function MerchandiseDetail() {
                 <h3 className="font-consciousness font-semibold mb-2">Product Details</h3>
                 <ul className="text-sm text-muted-foreground space-y-1">
                   <li>• Premium eco-friendly materials</li>
-                  <li>• 5-7 business day processing and shipping</li>
+                  <li>• 5 to 7 business day processing and shipping</li>
                   <li>• Secure payment processing</li>
                   <li>• Free shipping</li>
                 </ul>

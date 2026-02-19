@@ -81,3 +81,14 @@
   animation: twinkle 8s ease-in-out infinite;
   animation-delay: 2s;
 }
+
+@layer utilities {
+  .mobile-typography-center {
+    @apply text-center md:text-left;
+  }
+
+  .min-h-screen-dynamic {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+}

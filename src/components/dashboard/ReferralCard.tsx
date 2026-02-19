@@ -211,7 +211,7 @@ export const ReferralCard = () => {
                 <p className="text-sm text-muted-foreground">
                   {activeRaffle 
                     ? `Share your referral link and earn bonus entries for "${activeRaffle.title}"`
-                    : "Share your referral link - bonus entries will be awarded when a raffle is active"
+                    : "Share your referral link: bonus entries will be awarded when a raffle is active"
                   }
                 </p>
               </div>

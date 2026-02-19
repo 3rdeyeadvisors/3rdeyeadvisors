@@ -3,9 +3,9 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { 
   Menu, X, LogIn, LogOut, User, ShoppingCart, ChevronDown, 
-  BookOpen, BarChart3, Package, FileText, MoreHorizontal, Gift, 
-  Home, Lightbulb, Vault, GraduationCap, Newspaper, FolderOpen,
-  Mail, Shield, Scale, Map, Brain
+  BookOpen, BarChart3, Package, Gift,
+  Lightbulb, Vault, GraduationCap, Newspaper, FolderOpen,
+  Mail, Map, Brain, Zap
 } from "lucide-react";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { useToast } from "@/hooks/use-toast";
@@ -13,28 +13,17 @@ import { useCart } from "@/contexts/CartContext";
 import { supabase } from "@/integrations/supabase/client";
 import { isAdminEmail } from "@/lib/admin";
 
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-
 const Navigation = () => {
   const { itemCount } = useCart();
   const [isOpen, setIsOpen] = useState(false);
-  const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const [isAdmin, setIsAdmin] = useState(false);
   const location = useLocation();
-  const { user, signOut } = useAuth();
+  const { user, signOut, session } = useAuth();
   const { toast } = useToast();
 
   // Close menu on route change
   useEffect(() => {
     setIsOpen(false);
-    setExpandedSection(null);
   }, [location.pathname]);
 
   // Check admin status
@@ -81,74 +70,6 @@ const Navigation = () => {
     };
   }, [isOpen]);
 
-  // Desktop navigation - main items
-  const mainNavItems = [
-    { path: "/", label: "Home", external: false },
-    { path: "/philosophy", label: "Philosophy", external: false },
-    { path: "/courses", label: "Courses", external: false },
-    { path: "/tutorials", label: "Tutorials", external: false },
-    { path: "/blog", label: "Blog", external: false },
-    { path: "/resources", label: "Resources", external: false },
-    { path: "/mini-games", label: "Mini Games", external: false },
-    { path: "/raffles", label: "Raffles", external: false },
-    { path: "/earn", label: "Earn", external: false },
-    { path: "/vault-access", label: "Vault", external: false },
-    { path: "/store", label: "Store", external: false },
-  ];
-
-  // Desktop navigation - dropdown items
-  const moreNavItems = [
-    { path: "/raffle-history", label: "Raffle History" },
-    { path: "/roadmap", label: "Roadmap" },
-    { path: "/analytics", label: "Analytics" },
-    { path: "/contact", label: "Contact" },
-  ];
-
-  // Mobile navigation - clean organized sections
-  const mobileNavSections = {
-    main: [
-      { path: "/", label: "Home", icon: Home },
-      { path: "/philosophy", label: "Philosophy", icon: Lightbulb },
-      { path: "/store", label: "Store", icon: Package },
-      { path: "/vault-access", label: "Vault Access", icon: Vault },
-    ],
-    learn: {
-      label: "Learn",
-      icon: GraduationCap,
-      items: [
-        { path: "/courses", label: "Courses", icon: BookOpen },
-        { path: "/tutorials", label: "Tutorials", icon: GraduationCap },
-        { path: "/mini-games", label: "Mini Games", icon: Brain },
-        { path: "/blog", label: "Blog", icon: Newspaper },
-        { path: "/resources", label: "Resources", icon: FolderOpen },
-      ]
-    },
-    community: {
-      label: "Community & More",
-      icon: Gift,
-      items: [
-        { path: "/raffles", label: "Raffles", icon: Gift },
-        { path: "/earn", label: "Earn", icon: Gift },
-        { path: "/raffle-history", label: "Raffle History", icon: BarChart3 },
-        { path: "/roadmap", label: "Roadmap", icon: Map },
-        { path: "/analytics", label: "Analytics", icon: BarChart3 },
-        { path: "/contact", label: "Contact", icon: Mail },
-      ]
-    },
-    legal: [
-      { path: "/privacy", label: "Privacy Policy", icon: Shield },
-      { path: "/terms", label: "Terms of Service", icon: Scale },
-    ]
-  };
-
-  const toggleSection = (section: string) => {
-    setExpandedSection(expandedSection === section ? null : section);
-  };
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
   const isActive = (path: string) => location.pathname === path;
 
   const handleSignOut = async () => {
@@ -167,372 +88,239 @@ const Navigation = () => {
     }
   };
 
+  const desktopNavItems = [
+    {
+      label: "Learn",
+      children: [
+        { path: "/courses", label: "Courses", description: "Structured DeFi courses from beginner to advanced" },
+        { path: "/tutorials", label: "Tutorials", description: "Hands-on step by step guides for real actions" },
+        { path: "/blog", label: "Blog", description: "Research, insights, and market analysis" },
+        { path: "/resources", label: "Resources", description: "PDFs, tools, and reference materials" },
+        { path: "/mini-games", label: "Brain Games", description: "Sharpen your thinking with cognitive challenges" },
+      ]
+    },
+    {
+      label: "Community",
+      children: [
+        { path: "/raffles", label: "Raffles", description: "Enter to win by completing educational tasks" },
+        { path: "/earn", label: "Earn", description: "Points, rewards, and referral commissions" },
+        { path: "/roadmap", label: "Roadmap", description: "Vote on what gets built next" },
+        { path: "/raffle-history", label: "Raffle History", description: "Past winners and prize distributions" },
+        { path: "/analytics", label: "Analytics", description: "Platform data and market insights" },
+      ]
+    },
+    { label: "Vault", path: "/vault-access" },
+    { label: "Store", path: "/store" },
+    { label: "Philosophy", path: "/philosophy" },
+  ];
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border pt-[env(safe-area-inset-top)]">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/8 pt-[env(safe-area-inset-top)]">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo/Brand */}
-          <Link to="/" className="flex items-center gap-2 group min-h-[44px]" aria-label="3rdeyeadvisors home">
-            <div className="text-lg md:text-xl font-consciousness font-bold text-primary whitespace-nowrap group-hover:text-primary-glow transition-all duration-300">
+          <Link to="/" className="flex items-center group transition-all duration-300" aria-label="3rdeyeadvisors home">
+            <span className="font-consciousness font-bold text-violet-400 text-lg group-hover:drop-shadow-[0_0_8px_rgba(167,139,250,0.4)] transition-all">
               3rdeyeadvisors
-            </div>
+            </span>
           </Link>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center justify-end flex-1 ml-8 gap-1 lg:gap-4 xl:gap-6">
-            <div className="flex items-center gap-4 lg:gap-6">
-              {mainNavItems.slice(0, 5).map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`text-sm font-body transition-all duration-cosmic hover:text-primary whitespace-nowrap min-h-[44px] flex items-center px-2 ${
-                    isActive(item.path)
-                      ? "text-primary font-medium"
-                      : "text-muted-foreground"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-            
-            {/* More Dropdown */}
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-sm font-body h-auto py-1 px-2 bg-transparent hover:bg-transparent data-[state=open]:bg-transparent">
-                    More
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[220px] gap-1 p-2 bg-popover shadow-xl">
-                      {/* Remaining main items */}
-                      {mainNavItems.slice(5).map((item) => (
-                        <li key={item.path}>
-                          <NavigationMenuLink asChild>
-                            <Link
-                              to={item.path}
-                              className={`block select-none space-y-1 rounded-md p-2.5 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground ${
-                                isActive(item.path) ? "bg-accent text-accent-foreground" : ""
-                              }`}
-                            >
-                              <div className="text-sm font-medium font-body">
-                                {item.label}
-                              </div>
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                      <div className="h-px bg-border my-1" />
-                      {/* Original more items */}
-                      {moreNavItems.map((item) => (
-                        <li key={item.path}>
-                          <NavigationMenuLink asChild>
-                            <Link
-                              to={item.path}
-                              className={`block select-none space-y-1 rounded-md p-2.5 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground ${
-                                isActive(item.path) ? "bg-accent text-accent-foreground" : ""
-                              }`}
-                            >
-                              <div className="text-sm font-medium font-body">
-                                {item.label}
-                              </div>
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
+          <div className="hidden md:flex items-center justify-center flex-1 mx-8 gap-1">
+            {desktopNavItems.map((item) => (
+              <div key={item.label} className="relative group px-1">
+                {item.children ? (
+                  <div className="flex items-center gap-1 px-3 py-2 rounded-xl text-sm font-consciousness font-medium text-white/70 group-hover:text-violet-400 group-hover:bg-white/5 transition-all cursor-default">
+                    {item.label}
+                    <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
 
-            <div className="flex items-center gap-2 ml-2 lg:ml-4 pl-4 border-l border-border/50">
-              <Link to="/cart" className="relative" aria-label={`View shopping cart with ${itemCount} items`}>
-                <Button variant="ghost" size="icon" className="relative h-11 w-11" aria-hidden="true">
-                  <ShoppingCart className="h-5 w-5" />
-                  {itemCount > 0 && (
-                    <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-[10px] rounded-full h-4 w-4 flex items-center justify-center font-bold">
-                      {itemCount}
-                    </span>
-                  )}
-                </Button>
-              </Link>
+                    {/* Dropdown Menu */}
+                    <div className="absolute top-full left-0 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
+                      <div className="w-64 bg-black/95 border border-white/10 rounded-2xl p-2 shadow-2xl shadow-violet-950/50 backdrop-blur-xl overflow-hidden">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.path}
+                            to={child.path}
+                            className={`flex flex-col p-3 rounded-xl transition-all hover:bg-white/5 group/item ${isActive(child.path) ? "bg-white/5" : ""}`}
+                          >
+                            <span className={`font-consciousness text-sm font-medium ${isActive(child.path) ? "text-violet-400" : "text-white group-hover/item:text-violet-400"}`}>
+                              {child.label}
+                            </span>
+                            <span className="font-body text-xs text-white/40 mt-0.5">
+                              {child.description}
+                            </span>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <Link
+                    to={item.path!}
+                    className={`px-3 py-2 rounded-xl text-sm font-consciousness font-medium transition-all ${
+                      isActive(item.path!)
+                        ? "text-violet-400 bg-white/5"
+                        : "text-white/70 hover:text-violet-400 hover:bg-white/5"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Right Side Actions */}
+          <div className="flex items-center gap-2 md:gap-4">
+            <Link to="/cart" className="relative p-2 text-white/70 hover:text-violet-400 transition-colors">
+              <ShoppingCart className="w-5 h-5" />
+              {itemCount > 0 && (
+                <span className="absolute top-1 right-1 bg-violet-600 text-white text-[10px] rounded-full h-4 w-4 flex items-center justify-center font-bold border border-black">
+                  {itemCount}
+                </span>
+              )}
+            </Link>
+
+            <div className="hidden md:flex items-center gap-3">
               {user ? (
-                <div className="flex items-center gap-2">
+                <>
                   {isAdmin && (
-                    <Button
-                      asChild
-                      variant="ghost"
-                      size="sm"
-                      className="text-muted-foreground hover:text-primary hidden lg:flex h-11"
-                    >
-                      <Link to="/admin" className="flex items-center space-x-2">
-                        <Shield className="w-4 h-4" />
-                        <span>Admin</span>
-                      </Link>
-                    </Button>
+                    <Link to="/admin">
+                      <Button variant="ghost" size="sm" className="font-consciousness text-white/60 hover:text-violet-400 hover:bg-white/5">
+                        Admin
+                      </Button>
+                    </Link>
                   )}
+                  <Link to="/profile">
+                    <Button variant="ghost" size="sm" className="font-consciousness text-white/60 hover:text-violet-400 hover:bg-white/5">
+                      Profile
+                    </Button>
+                  </Link>
                   <Button
-                    asChild
+                    onClick={handleSignOut}
                     variant="ghost"
                     size="sm"
-                    className="text-muted-foreground hover:text-primary hidden lg:flex h-11"
+                    className="font-consciousness text-red-400/70 hover:text-red-400 hover:bg-red-400/5"
                   >
-                    <Link to="/profile" className="flex items-center space-x-2">
-                      <User className="w-4 h-4" />
-                      <span>Profile</span>
-                    </Link>
+                    Sign Out
                   </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={handleSignOut}
-                    className="flex items-center space-x-2 h-11"
-                  >
-                    <LogOut className="w-4 h-4" />
-                    <span className="hidden lg:inline">Sign Out</span>
-                  </Button>
-                </div>
+                </>
               ) : (
-                <Button asChild variant="outline" size="sm" className="h-11">
-                  <Link to="/auth" className="flex items-center space-x-2">
-                    <LogIn className="w-4 h-4" />
-                    <span>Sign In</span>
-                  </Link>
-                </Button>
+                <Link to="/auth">
+                  <Button className="bg-violet-600 hover:bg-violet-500 text-white font-consciousness text-sm px-6 rounded-xl transition-all">
+                    Sign In
+                  </Button>
+                </Link>
               )}
             </div>
-          </div>
 
-          {/* Mobile Cart & Menu */}
-          <div className="md:hidden flex items-center space-x-2 ml-auto">
-            {/* Mobile Cart */}
-            <Link to="/cart" className="relative" aria-label={`View shopping cart with ${itemCount} items`}>
-              <Button variant="ghost" size="icon" className="relative" aria-hidden="true">
-                <ShoppingCart className="h-5 w-5" />
-                {itemCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                    {itemCount}
-                  </span>
-                )}
-              </Button>
-            </Link>
-            
             {/* Mobile menu button */}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleMenu}
-              aria-label="Toggle navigation menu"
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden p-2 text-white/70 hover:text-white transition-colors"
+              aria-label="Toggle menu"
             >
-              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </Button>
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
         </div>
+      </div>
 
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden fixed inset-x-0 top-[calc(4rem+env(safe-area-inset-top))] bottom-0 bg-background/95 backdrop-blur-lg border-t border-border z-40 animate-in slide-in-from-top-2 duration-200">
-            <div className="h-full overflow-y-auto pb-20">
-              {/* Account Section */}
-              {user ? (
-                <div className="p-4 border-b border-border/50 bg-gradient-to-b from-primary/5 to-transparent">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full flex items-center justify-center border border-primary/20">
-                      <User className="w-6 h-6 text-primary" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-foreground">Welcome back!</p>
-                      <p className="text-xs text-muted-foreground truncate">{user.email}</p>
-                    </div>
-                  </div>
-                  
-                  <div className={`grid ${isAdmin ? 'grid-cols-4' : 'grid-cols-3'} gap-2`}>
-                    {isAdmin && (
-                      <Link
-                        to="/admin"
-                        className="flex flex-col items-center gap-1 p-3 rounded-xl bg-card/50 border border-border/50 hover:bg-card hover:border-primary/30 transition-all active:scale-95"
-                      >
-                        <Shield className="w-5 h-5 text-primary" />
-                        <span className="text-xs font-medium">Admin</span>
-                      </Link>
-                    )}
-                    <Link 
-                      to="/profile"
-                      className="flex flex-col items-center gap-1 p-3 rounded-xl bg-card/50 border border-border/50 hover:bg-card hover:border-primary/30 transition-all active:scale-95"
-                    >
-                      <User className="w-5 h-5 text-primary" />
-                      <span className="text-xs font-medium">Profile</span>
-                    </Link>
-                    
-                    <Link 
-                      to="/cart"
-                      className="flex flex-col items-center gap-1 p-3 rounded-xl bg-card/50 border border-border/50 hover:bg-card hover:border-primary/30 transition-all active:scale-95 relative"
-                    >
-                      <ShoppingCart className="w-5 h-5 text-primary" />
-                      <span className="text-xs font-medium">Cart</span>
-                      {itemCount > 0 && (
-                        <span className="absolute top-1 right-1 bg-primary text-primary-foreground text-[10px] rounded-full h-4 w-4 flex items-center justify-center font-bold">
-                          {itemCount}
-                        </span>
-                      )}
-                    </Link>
-                    
-                    <button
-                      onClick={handleSignOut}
-                      className="flex flex-col items-center gap-1 p-3 rounded-xl bg-destructive/10 border border-destructive/20 hover:bg-destructive/20 transition-all active:scale-95"
-                    >
-                      <LogOut className="w-5 h-5 text-destructive" />
-                      <span className="text-xs font-medium text-destructive">Sign Out</span>
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                <div className="p-4 border-b border-border/50 bg-gradient-to-b from-primary/5 to-transparent">
-                  <div className="text-center space-y-3">
-                    <p className="text-sm font-medium text-foreground">Welcome to 3rdeyeadvisors</p>
-                    <Button asChild className="w-full">
-                      <Link to="/auth" className="flex items-center justify-center gap-2">
-                        <LogIn className="w-4 h-4" />
-                        <span>Sign In to Get Started</span>
-                      </Link>
-                    </Button>
-                  </div>
-                </div>
-              )}
-
-              {/* Main Navigation */}
-              <div className="p-4 space-y-6">
-                {/* Primary Links */}
-                <div className="space-y-1">
-                  {mobileNavSections.main.map((item) => (
-                    <Link
-                      key={item.path}
-                      to={item.path}
-                      className={`flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all active:scale-[0.98] ${
-                        isActive(item.path)
-                          ? "bg-primary/10 text-primary border border-primary/20"
-                          : "text-foreground hover:bg-muted/50"
-                      }`}
-                    >
-                      <item.icon className="w-5 h-5 flex-shrink-0" />
-                      <span className="font-medium">{item.label}</span>
-                    </Link>
-                  ))}
-                </div>
-
-                {/* Learn Section */}
-                <div className="space-y-2">
-                  <button
-                    onClick={() => toggleSection('learn')}
-                    aria-expanded={expandedSection === 'learn'}
-                    aria-controls="mobile-learn-section"
-                    className={`flex items-center justify-between w-full px-4 py-3.5 rounded-xl transition-all ${
-                      expandedSection === 'learn' 
-                        ? 'bg-primary/10 border border-primary/20' 
-                        : 'bg-muted/30 hover:bg-muted/50'
-                    }`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <GraduationCap className="w-5 h-5 text-primary" />
-                      <span className="font-medium">{mobileNavSections.learn.label}</span>
-                    </div>
-                    <ChevronDown className={`w-5 h-5 transition-transform duration-200 ${
-                      expandedSection === 'learn' ? 'rotate-180' : ''
-                    }`} />
-                  </button>
-                  
-                  <div
-                    id="mobile-learn-section"
-                    className={`overflow-hidden transition-all duration-200 ${
-                    expandedSection === 'learn' ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                  }`}>
-                    <div className="grid grid-cols-2 gap-2 pt-2">
-                      {mobileNavSections.learn.items.map((item) => (
-                        <Link
-                          key={item.path}
-                          to={item.path}
-                          className={`flex flex-col items-center gap-2 p-4 rounded-xl transition-all active:scale-95 ${
-                            isActive(item.path)
-                              ? "bg-primary/15 border border-primary/30"
-                              : "bg-card/50 border border-border/50 hover:border-primary/20"
-                          }`}
-                        >
-                          <item.icon className={`w-6 h-6 ${isActive(item.path) ? 'text-primary' : 'text-muted-foreground'}`} />
-                          <span className={`text-sm font-medium text-center ${isActive(item.path) ? 'text-primary' : ''}`}>
-                            {item.label}
-                          </span>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Community & More Section */}
-                <div className="space-y-2">
-                  <button
-                    onClick={() => toggleSection('community')}
-                    aria-expanded={expandedSection === 'community'}
-                    aria-controls="mobile-community-section"
-                    className={`flex items-center justify-between w-full px-4 py-3.5 rounded-xl transition-all ${
-                      expandedSection === 'community' 
-                        ? 'bg-primary/10 border border-primary/20' 
-                        : 'bg-muted/30 hover:bg-muted/50'
-                    }`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <Gift className="w-5 h-5 text-primary" />
-                      <span className="font-medium">{mobileNavSections.community.label}</span>
-                    </div>
-                    <ChevronDown className={`w-5 h-5 transition-transform duration-200 ${
-                      expandedSection === 'community' ? 'rotate-180' : ''
-                    }`} />
-                  </button>
-                  
-                  <div
-                    id="mobile-community-section"
-                    className={`overflow-hidden transition-all duration-200 ${
-                    expandedSection === 'community' ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                  }`}>
-                    <div className="grid grid-cols-2 gap-2 pt-2">
-                      {mobileNavSections.community.items.map((item) => (
-                        <Link
-                          key={item.path}
-                          to={item.path}
-                          className={`flex flex-col items-center gap-2 p-4 rounded-xl transition-all active:scale-95 ${
-                            isActive(item.path)
-                              ? "bg-primary/15 border border-primary/30"
-                              : "bg-card/50 border border-border/50 hover:border-primary/20"
-                          }`}
-                        >
-                          <item.icon className={`w-6 h-6 ${isActive(item.path) ? 'text-primary' : 'text-muted-foreground'}`} />
-                          <span className={`text-sm font-medium text-center ${isActive(item.path) ? 'text-primary' : ''}`}>
-                            {item.label}
-                          </span>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Legal Links */}
-                <div className="pt-4 border-t border-border/30">
-                  <div className="flex justify-center gap-4">
-                    {mobileNavSections.legal.map((item) => (
-                      <Link
-                        key={item.path}
-                        to={item.path}
-                        className="text-xs text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
+      {/* Mobile Navigation Overlay */}
+      <div
+        className={`fixed inset-0 top-[64px] bg-black/98 backdrop-blur-xl z-40 md:hidden transition-all duration-300 ${
+          isOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
+        }`}
+      >
+        <div className="h-full overflow-y-auto flex flex-col">
+          {/* User account strip */}
+          {user && (
+            <div className="flex items-center gap-3 p-4 mb-2 border-b border-white/8">
+              <div className="w-10 h-10 rounded-full bg-violet-500/20 border border-violet-500/30 flex items-center justify-center">
+                <User className="w-5 h-5 text-violet-400" />
+              </div>
+              <div>
+                <p className="font-body text-sm text-white">{user.email}</p>
+                <p className="font-body text-xs text-white/40">Member</p>
               </div>
             </div>
+          )}
+
+          {/* Primary action buttons */}
+          <div className="grid grid-cols-2 gap-3 p-4 mb-4">
+            <Link to="/courses" className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-violet-600/20 border border-violet-500/30 hover:bg-violet-600/30 transition-all active:scale-95">
+              <BookOpen className="w-6 h-6 text-violet-400" />
+              <span className="font-body text-sm text-white font-medium">Courses</span>
+            </Link>
+            <Link to="/tutorials" className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/8 transition-all active:scale-95">
+              <GraduationCap className="w-6 h-6 text-white/60" />
+              <span className="font-body text-sm text-white/80 font-medium">Tutorials</span>
+            </Link>
+            <Link to="/vault-access" className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/8 transition-all active:scale-95">
+              <Vault className="w-6 h-6 text-white/60" />
+              <span className="font-body text-sm text-white/80 font-medium">Vault</span>
+            </Link>
+            <Link to="/store" className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/8 transition-all active:scale-95">
+              <Package className="w-6 h-6 text-white/60" />
+              <span className="font-body text-sm text-white/80 font-medium">Store</span>
+            </Link>
           </div>
-        )}
+
+          {/* Full link list */}
+          <div className="px-4 space-y-1">
+            {[
+              { path: "/blog", label: "Blog", icon: Newspaper },
+              { path: "/resources", label: "Resources", icon: FolderOpen },
+              { path: "/mini-games", label: "Brain Games", icon: Brain },
+              { path: "/raffles", label: "Raffles", icon: Gift },
+              { path: "/earn", label: "Earn", icon: Zap },
+              { path: "/roadmap", label: "Roadmap", icon: Map },
+              { path: "/analytics", label: "Analytics", icon: BarChart3 },
+              { path: "/philosophy", label: "Philosophy", icon: Lightbulb },
+              { path: "/contact", label: "Contact", icon: Mail },
+            ].map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all active:scale-[0.98] font-body text-sm ${
+                  isActive(item.path)
+                    ? "bg-violet-500/15 text-violet-400 border border-violet-500/20"
+                    : "text-white/60 hover:text-white hover:bg-white/5"
+                }`}
+              >
+                <item.icon className="w-4 h-4 flex-shrink-0" />
+                {item.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Bottom auth actions */}
+          <div className="p-4 mt-4 border-t border-white/8">
+            {user ? (
+              <div className="grid grid-cols-2 gap-3">
+                <Link to="/profile" className="flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 border border-white/10 font-body text-sm text-white/80 hover:bg-white/8 transition-all">
+                  <User className="w-4 h-4" />
+                  Profile
+                </Link>
+                <button onClick={handleSignOut} className="flex items-center justify-center gap-2 py-3 rounded-xl bg-red-500/10 border border-red-500/20 font-body text-sm text-red-400 hover:bg-red-500/15 transition-all">
+                  <LogOut className="w-4 h-4" />
+                  Sign Out
+                </button>
+              </div>
+            ) : (
+              <Link to="/auth" className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-violet-600 hover:bg-violet-500 font-body text-sm text-white font-medium transition-all">
+                <LogIn className="w-4 h-4" />
+                Sign In to Get Started
+              </Link>
+            )}
+          </div>
+
+          {/* Legal links */}
+          <div className="flex justify-center gap-6 px-4 py-4">
+            <Link to="/privacy" className="font-body text-xs text-white/30 hover:text-white/50 transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="font-body text-xs text-white/30 hover:text-white/50 transition-colors">Terms of Service</Link>
+          </div>
+        </div>
       </div>
     </nav>
   );

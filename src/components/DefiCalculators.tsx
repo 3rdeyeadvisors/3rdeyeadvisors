@@ -151,7 +151,7 @@ const DefiCalculators = () => {
                       placeholder="10000"
                       value={yieldData.principal}
                       onChange={(e) => setYieldData({...yieldData, principal: e.target.value})}
-                      className="font-consciousness"
+                      className="font-consciousness text-base"
                     />
                   </div>
                   
@@ -165,7 +165,7 @@ const DefiCalculators = () => {
                       placeholder="12.5"
                       value={yieldData.apy}
                       onChange={(e) => setYieldData({...yieldData, apy: e.target.value})}
-                      className="font-consciousness"
+                      className="font-consciousness text-base"
                     />
                   </div>
                   
@@ -179,7 +179,7 @@ const DefiCalculators = () => {
                       placeholder="365"
                       value={yieldData.duration}
                       onChange={(e) => setYieldData({...yieldData, duration: e.target.value})}
-                      className="font-consciousness"
+                      className="font-consciousness text-base"
                     />
                   </div>
                 </div>
@@ -235,7 +235,7 @@ const DefiCalculators = () => {
                 </h3>
                 
                 <div className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <Label className="font-consciousness">Token 1 Amount</Label>
                       <Input
@@ -243,7 +243,7 @@ const DefiCalculators = () => {
                         placeholder="100"
                         value={liquidityData.token1Amount}
                         onChange={(e) => setLiquidityData({...liquidityData, token1Amount: e.target.value})}
-                        className="font-consciousness"
+                        className="font-consciousness text-base"
                       />
                     </div>
                     <div>
@@ -253,12 +253,12 @@ const DefiCalculators = () => {
                         placeholder="50"
                         value={liquidityData.token1Price}
                         onChange={(e) => setLiquidityData({...liquidityData, token1Price: e.target.value})}
-                        className="font-consciousness"
+                        className="font-consciousness text-base"
                       />
                     </div>
                   </div>
                   
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <Label className="font-consciousness">Token 2 Amount</Label>
                       <Input
@@ -266,7 +266,7 @@ const DefiCalculators = () => {
                         placeholder="5000"
                         value={liquidityData.token2Amount}
                         onChange={(e) => setLiquidityData({...liquidityData, token2Amount: e.target.value})}
-                        className="font-consciousness"
+                        className="font-consciousness text-base"
                       />
                     </div>
                     <div>
@@ -276,7 +276,7 @@ const DefiCalculators = () => {
                         placeholder="1"
                         value={liquidityData.token2Price}
                         onChange={(e) => setLiquidityData({...liquidityData, token2Price: e.target.value})}
-                        className="font-consciousness"
+                        className="font-consciousness text-base"
                       />
                     </div>
                   </div>
@@ -354,7 +354,7 @@ const DefiCalculators = () => {
                       placeholder="25000"
                       value={riskData.portfolioValue}
                       onChange={(e) => setRiskData({...riskData, portfolioValue: e.target.value})}
-                      className="font-consciousness"
+                      className="font-consciousness text-base"
                     />
                   </div>
                   
@@ -363,7 +363,7 @@ const DefiCalculators = () => {
                     <select 
                       value={riskData.riskTolerance}
                       onChange={(e) => setRiskData({...riskData, riskTolerance: e.target.value})}
-                      className="w-full p-2 border border-border rounded-md bg-background font-consciousness"
+                      className="w-full p-2 border border-border rounded-md bg-background font-consciousness text-base min-h-[44px]"
                     >
                       <option value="low">Conservative</option>
                       <option value="medium">Moderate</option>
@@ -378,7 +378,7 @@ const DefiCalculators = () => {
                       placeholder="5"
                       value={riskData.diversification}
                       onChange={(e) => setRiskData({...riskData, diversification: e.target.value})}
-                      className="font-consciousness"
+                      className="font-consciousness text-base"
                     />
                   </div>
                 </div>

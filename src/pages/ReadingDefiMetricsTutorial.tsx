@@ -22,7 +22,6 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { DesktopOnlyNotice } from "@/components/DesktopOnlyNotice";
 import { useAuth } from "@/components/auth/AuthProvider";
 
 const ReadingDefiMetricsTutorial = () => {
@@ -58,7 +57,7 @@ const ReadingDefiMetricsTutorial = () => {
             definition: "Trading volume or transaction value over time period",
             importance: "Shows protocol usage and revenue generation potential",
             calculation: "Sum of transaction values in specified timeframe",
-            goodRange: "TVL/Volume ratio between 0.1-10x depending on protocol type",
+            goodRange: "TVL/Volume ratio between 0.1 to 10x depending on protocol type",
             redFlags: ["Volume much higher than TVL", "Wash trading", "Bot activity"]
           },
           {
@@ -82,7 +81,7 @@ const ReadingDefiMetricsTutorial = () => {
           {
             protocolType: "Lending Protocols",
             keyMetrics: ["Utilization Rate", "Liquidation Ratio", "Bad Debt", "Interest Rate Spread"],
-            healthyRanges: ["70-85% utilization", "<5% liquidations", "Minimal bad debt"]
+            healthyRanges: ["70 to 85% utilization", "<5% liquidations", "Minimal bad debt"]
           },
           {
             protocolType: "DEXes",
@@ -163,7 +162,7 @@ const ReadingDefiMetricsTutorial = () => {
           {
             trend: "Steady Growth",
             interpretation: "Healthy adoption and confidence",
-            lookFor: "Consistent 10-30% monthly growth",
+            lookFor: "Consistent 10 to 30% monthly growth",
             concerns: "Unsustainable incentives driving growth"
           },
           {
@@ -365,7 +364,7 @@ const ReadingDefiMetricsTutorial = () => {
             definition: "Unique addresses interacting with protocol daily",
             importance: "Shows current adoption and engagement",
             calculation: "Count unique addresses per day",
-            benchmarks: ["DeFi protocols: 100-10,000+", "Major protocols: >1,000"],
+            benchmarks: ["DeFi protocols: 100 to 10,000+", "Major protocols: >1,000"],
             trends: "Look for consistent growth or stable high numbers"
           },
           {
@@ -373,8 +372,8 @@ const ReadingDefiMetricsTutorial = () => {
             definition: "Unique addresses interacting with protocol monthly",
             importance: "Shows broader user base and retention",
             calculation: "Count unique addresses per month",
-            benchmarks: ["Growing protocols: 1,000-100,000+"],
-            trends: "Should be 10-30x DAU for healthy engagement"
+            benchmarks: ["Growing protocols: 1,000 to 100,000+"],
+            trends: "Should be 10 to 30x DAU for healthy engagement"
           },
           {
             metric: "User Retention Rate",
@@ -601,31 +600,31 @@ const ReadingDefiMetricsTutorial = () => {
             category: "Technical Risk",
             weight: "30%",
             factors: ["Audit quality", "Code complexity", "Time in operation"],
-            scoring: "1-10 scale based on objective criteria"
+            scoring: "1 to 10 scale based on objective criteria"
           },
           {
             category: "Economic Risk",
             weight: "25%",
             factors: ["Revenue sustainability", "Token economics", "Market conditions"],
-            scoring: "1-10 scale based on financial metrics"
+            scoring: "1 to 10 scale based on financial metrics"
           },
           {
             category: "Governance Risk",
             weight: "20%",
             factors: ["Decentralization", "Participation", "Decision quality"],
-            scoring: "1-10 scale based on governance metrics"
+            scoring: "1 to 10 scale based on governance metrics"
           },
           {
             category: "Operational Risk",
             weight: "15%",
             factors: ["Team quality", "Development activity", "Community"],
-            scoring: "1-10 scale based on operational metrics"
+            scoring: "1 to 10 scale based on operational metrics"
           },
           {
             category: "External Risk",
             weight: "10%",
             factors: ["Regulatory environment", "Market conditions", "Competition"],
-            scoring: "1-10 scale based on external factors"
+            scoring: "1 to 10 scale based on external factors"
           }
         ]
       }
@@ -644,19 +643,19 @@ const ReadingDefiMetricsTutorial = () => {
               keyMetrics: ["User growth rate", "Feature development", "Team quality"],
               expectedPatterns: ["Rapid user growth", "High volatility", "Limited revenue"],
               riskFactors: ["Execution risk", "Product-market fit", "Competition"],
-              allocation: "5-10% of portfolio"
+              allocation: "5 to 10% of portfolio"
             },
             growth: {
               keyMetrics: ["Market share growth", "Revenue growth", "Ecosystem development"],
               expectedPatterns: ["Consistent growth", "Improving metrics", "Scaling challenges"],
               riskFactors: ["Scaling issues", "Competition", "Market saturation"],
-              allocation: "10-20% of portfolio"
+              allocation: "10 to 20% of portfolio"
             },
             mature: {
               keyMetrics: ["Market position", "Profitability", "Dividend/yield"],
               expectedPatterns: ["Stable metrics", "Predictable performance", "Value focus"],
               riskFactors: ["Disruption", "Regulation", "Innovation lag"],
-              allocation: "20-40% of portfolio"
+              allocation: "20 to 40% of portfolio"
             }
           }
         ],

@@ -226,10 +226,10 @@ DeFi wasn't created just because it could be built. It exists to solve **real pr
 ## Problem 1: High Fees 💸
 
 ### Traditional Finance
-• International wire transfers: $15-50+ per transaction
-• Currency exchange: 2-4% markup
-• Investment management: 1-2% annually
-• Credit card processing: 2-3% per transaction
+• International wire transfers: $15 to 50+ per transaction
+• Currency exchange: 2 to 4% markup
+• Investment management: 1 to 2% annually
+• Credit card processing: 2 to 3% per transaction
 
 ### DeFi Solution
 • Cross-border transfers: Often under $5
@@ -274,10 +274,10 @@ DeFi wasn't created just because it could be built. It exists to solve **real pr
 ## Problem 4: Speed & Efficiency ⏰
 
 ### Traditional System
-• Bank transfers: 1-3 business days
-• International transfers: 3-7 days
+• Bank transfers: 1 to 3 business days
+• International transfers: 3 to 7 days
 • Loan approvals: Days to weeks
-• Investment settlements: 2-3 days
+• Investment settlements: 2 to 3 days
 
 ### DeFi System
 • Most transactions: Seconds to minutes
@@ -303,13 +303,13 @@ DeFi exists because the current financial system was built decades ago and hasn'
                 question: "What is the typical cost range for international wire transfers in traditional finance?",
                 type: "single",
                 options: [
-                  "$1-5 per transaction",
-                  "$15-50+ per transaction",
-                  "$100-200 per transaction",
+                  "$1 to 5 per transaction",
+                  "$15 to 50+ per transaction",
+                  "$100 to 200 per transaction",
                   "Free in most cases"
                 ],
                 correctAnswers: [1],
-                explanation: "Traditional international wire transfers typically cost $15-50 or more per transaction, whereas DeFi cross-border transfers are often under $5.",
+                explanation: "Traditional international wire transfers typically cost $15 to 50 or more per transaction, whereas DeFi cross-border transfers are often under $5.",
                 points: 10
               },
               {
@@ -360,12 +360,12 @@ DeFi exists because the current financial system was built decades ago and hasn'
                 type: "single",
                 options: [
                   "Seconds to minutes",
-                  "1-2 hours",
-                  "3-7 days",
+                  "1 to 2 hours",
+                  "3 to 7 days",
                   "Instantly"
                 ],
                 correctAnswers: [2],
-                explanation: "Traditional international transfers typically take 3-7 days to complete, while DeFi transactions happen in seconds to minutes regardless of location.",
+                explanation: "Traditional international transfers typically take 3 to 7 days to complete, while DeFi transactions happen in seconds to minutes regardless of location.",
                 points: 10
               }
             ]
@@ -618,7 +618,7 @@ Think of a DEX like a **vending machine for crypto**:
 
 **For Lenders:**
 1. Deposit your crypto into the protocol
-2. Earn interest automatically (usually 2-15% annually)
+2. Earn interest automatically (usually 2 to 15% annually)
 3. Withdraw anytime (in most protocols)
 
 **For Borrowers:**
@@ -661,7 +661,7 @@ Think of a DEX like a **vending machine for crypto**:
 • Earn fees from people trading between those assets
 
 ### Benefits
-• **Earn trading fees** (usually 0.1-1% of each trade)
+• **Earn trading fees** (usually 0.1 to 1% of each trade)
 • **Additional rewards** (many protocols give bonus tokens)
 • **Help the ecosystem** (enable others to trade)
 
@@ -827,7 +827,7 @@ Before diving into DeFi, it's crucial to understand both the **real risks** and 
 **Reality**: Many DeFi protocols are actually **more transparent** than traditional finance because all transactions are public. The code is often open-source and audited by security firms.
 
 ### Myth 4: "You Need a Lot of Money to Start"
-**Reality**: You can start experimenting with as little as $10-50. Many protocols have no minimum deposits.
+**Reality**: You can start experimenting with as little as $10 to 50. Many protocols have no minimum deposits.
 
 ### Myth 5: "It's Bad for the Environment"
 **Reality**: While Bitcoin mining is energy-intensive, most DeFi runs on networks that use **99% less energy** than Bitcoin. Ethereum has switched to Proof-of-Stake, dramatically reducing its environmental impact.
@@ -841,7 +841,7 @@ Before diving into DeFi, it's crucial to understand both the **real risks** and 
 {
   "title": "Safe DeFi Getting Started Process",
   "steps": [
-    "Begin with $10-50 to learn the interfaces",
+    "Begin with $10 to 50 to learn the interfaces",
     "Use testnets when available (practice with fake money)",
     "Gradually increase amounts as you gain confidence",
     "Research protocols before using them",
@@ -932,12 +932,12 @@ With proper education, security practices, and gradual exposure, DeFi can be a v
                 type: "single",
                 options: [
                   "Invest all your savings immediately to maximize returns",
-                  "Start with $10-50 to learn, use testnets when available, and gradually increase amounts",
+                  "Start with $10 to 50 to learn, use testnets when available, and gradually increase amounts",
                   "Wait until you have at least $50,000 before trying DeFi",
                   "Only use DeFi if you have a computer science degree"
                 ],
                 correctAnswers: [1],
-                explanation: "The safest approach is to start small ($10-50), use testnets (practice with fake money) when available, and gradually increase amounts as you gain confidence and understanding.",
+                explanation: "The safest approach is to start small ($10 to 50), use testnets (practice with fake money) when available, and gradually increase amounts as you gain confidence and understanding.",
                 points: 10
               },
               {
@@ -1091,7 +1091,7 @@ Your wallet is your gateway to DeFi: it's like choosing the right bank, but more
 ### Ledger Nano S Plus / Nano X
 **Best for**: Security-conscious users with significant funds
 • **Pros**: Industry standard, supports 5,500+ cryptocurrencies
-• **Cons**: $80-150 cost, learning curve
+• **Cons**: $80 to 150 cost, learning curve
 • **DeFi Usage**: Connect to MetaMask for best DeFi experience
 • **Perfect if**: You have $5,000+ in crypto or prioritize maximum security
 
@@ -1108,7 +1108,7 @@ Your wallet is your gateway to DeFi: it's like choosing the right bank, but more
 1. **MetaMask or Trust Wallet** on your phone
 2. **Strong password** and biometric lock
 3. **Backup seed phrase** written down and stored safely
-4. **Start with small amounts** ($50-500)
+4. **Start with small amounts** ($50 to 500)
 
 ### Intermediate Setup (Better Security)  
 1. **Hardware wallet** for storage
@@ -1156,9 +1156,9 @@ Your wallet is your gateway to DeFi: it's like choosing the right bank, but more
 
 ## My Recommended Progression 📈
 
-### Week 1-2: Start Simple
+### Week 1 to 2: Start Simple
 • **Download MetaMask** or Trust Wallet
-• **Transfer $50-100** from an exchange
+• **Transfer $50 to 100** from an exchange
 • **Try basic DeFi** activities (swapping, providing liquidity)
 • **Learn the interface** and how transactions work
 
@@ -1272,7 +1272,7 @@ Your seed phrase (also called recovery phrase) is:
   "title": "Seed Phrase Storage by Amount",
   "items": [
     {
-      "traditional": "For Small Amounts ($100-$5,000): Paper backup, 2-3 copies in different locations, laminate for protection",
+      "traditional": "For Small Amounts ($100-$5,000): Paper backup, 2 to 3 copies in different locations, laminate for protection",
       "defi": "For Large Amounts ($5,000+): Metal backup plates, safety deposit box, geographic distribution, never all in one place"
     }
   ]
@@ -1664,7 +1664,7 @@ Security isn't a one-time setup: it's a daily practice. Here's how to build bull
 ### Computer/Phone Basics:
 ✅ **Keep OS updated**: install security patches immediately
 ✅ **Use antivirus software**: even on Mac
-✅ **Enable automatic locks**: 5-10 minute timeout
+✅ **Enable automatic locks**: 5 to 10 minute timeout
 ✅ **Use strong passwords**: unique for every account
 ✅ **Enable 2FA everywhere**: especially email and crypto accounts
 
@@ -1889,7 +1889,7 @@ This is where theory meets practice. Here's exactly how to interact with DeFi pr
 
 ### Before touching ANY DeFi protocol:
 
-#### Research Phase (20-30 minutes):
+#### Research Phase (20 to 30 minutes):
 • [ ] **Protocol audit status**: check for recent audits
 • [ ] **Team verification**: real names and backgrounds
 • [ ] **Community sentiment**: what are users saying?
@@ -1950,7 +1950,7 @@ This is where theory meets practice. Here's exactly how to interact with DeFi pr
 
 2. **Set slippage tolerance**:
   : 0.5% for stablecoins
-  : 1-3% for other tokens
+  : 1 to 3% for other tokens
   : Higher slippage = higher risk of loss
 
 3. **Check for warnings**:
@@ -1965,7 +1965,7 @@ This is where theory meets practice. Here's exactly how to interact with DeFi pr
   : Gas limit reasonable (usually 150k-300k)
   : Total fee acceptable
 3. **Confirm transaction**
-4. **Wait for confirmation** (1-5 minutes)
+4. **Wait for confirmation** (1 to 5 minutes)
 
 #### Step 6: Verification (2 minutes)
 1. **Check transaction status** on Etherscan
@@ -2195,7 +2195,7 @@ Your transaction has been pending for hours/days without confirming.
 1. Open MetaMask
 2. Find pending transaction
 3. Click "Speed Up"
-4. Increase gas price by 10-20%
+4. Increase gas price by 10 to 20%
 5. Confirm new transaction
 
 **Option B: Cancel Transaction**
@@ -2206,7 +2206,7 @@ Your transaction has been pending for hours/days without confirming.
 5. Try original transaction again with higher gas
 
 **Option C: Wait It Out**
-• Transactions eventually get dropped (24-48 hours)
+• Transactions eventually get dropped (24 to 48 hours)
 • Your funds remain safe during this time
 • Free but requires patience
 
@@ -2544,18 +2544,18 @@ The promise of "earning passive income" in DeFi is everywhere. But what does tha
 **What it is**: Locking up tokens to help secure a network
 **How you earn**: Network rewards for participation
 **Risk level**: Low to Medium
-**Typical returns**: 4-12% annually
+**Typical returns**: 4 to 12% annually
 
 **Example**: Staking ETH on Ethereum 2.0
 • Lock your ETH to help secure the network
-• Earn approximately 4-6% annually in ETH rewards
+• Earn approximately 4 to 6% annually in ETH rewards
 • Your ETH is locked but earning consistently
 
 ### 2. Liquidity Providing (Medium Risk)
 **What it is**: Providing tokens to trading pools
 **How you earn**: Transaction fees from traders
 **Risk level**: Medium
-**Typical returns**: 5-20% annually
+**Typical returns**: 5 to 20% annually
 
 **Example**: Providing USDC/ETH to Uniswap
 • You provide equal dollar amounts of USDC and ETH
@@ -2566,7 +2566,7 @@ The promise of "earning passive income" in DeFi is everywhere. But what does tha
 **What it is**: Moving funds to maximize returns across protocols
 **How you earn**: Lending, borrowing, and protocol incentives
 **Risk level**: Medium to High
-**Typical returns**: 8-30%+ annually
+**Typical returns**: 8 to 30%+ annually
 
 **Example**: Farming on Compound
 • Lend USDC to earn interest
@@ -2587,8 +2587,8 @@ The promise of "earning passive income" in DeFi is everywhere. But what does tha
 ## Risk vs Reward Reality Check ⚖️
 
 ### Low Risk = Lower Returns
-• **Staking ETH**: Predictable, but "only" 4-6%
-• **Stablecoin lending**: Safe, but "only" 3-8%
+• **Staking ETH**: Predictable, but "only" 4 to 6%
+• **Stablecoin lending**: Safe, but "only" 3 to 8%
 • **Established protocols**: Tested, but competitive rates
 
 ### High Risk = Higher Potential (and Higher Loss Potential)
@@ -2682,7 +2682,7 @@ The promise of "earning passive income" in DeFi is everywhere. But what does tha
 ### Step 3: Scale Gradually
 • Increase amounts as comfort and knowledge grow
 • Diversify across multiple strategies
-• Never put more than 5-10% of net worth in DeFi
+• Never put more than 5 to 10% of net worth in DeFi
 
 ### Step 4: Develop Systems
 • Regular portfolio reviews
@@ -2720,7 +2720,7 @@ The promise of "earning passive income" in DeFi is everywhere. But what does tha
 
 ### First Quarter:
 • Basic strategies working
-• 5-15% annual returns if conservative
+• 5 to 15% annual returns if conservative
 • Comfort with major protocols
 
 ### First Year:
@@ -2777,14 +2777,14 @@ This is probably the most important decision you'll make as a DeFi beginner. Bot
 #### Native Staking (Direct)
 **Examples**: Ethereum 2.0, Cardano, Polkadot
 • **Minimum**: Often 32 ETH ($50,000+) for Ethereum
-• **Returns**: 4-12% annually
+• **Returns**: 4 to 12% annually
 • **Lock-up**: 6 months to 2+ years
 • **Risk**: Protocol risk, slashing risk
 
 #### Liquid Staking (Through Protocols)
 **Examples**: Lido, Rocket Pool, Coinbase
 • **Minimum**: No minimum (can stake 0.01 ETH)
-• **Returns**: 3-10% annually (slightly lower due to fees)
+• **Returns**: 3 to 10% annually (slightly lower due to fees)
 • **Lock-up**: None (you get liquid tokens)
 • **Risk**: Protocol risk, smart contract risk
 
@@ -2822,19 +2822,19 @@ This is probably the most important decision you'll make as a DeFi beginner. Bot
 #### Liquidity Provision (LP)
 **How it works**: Provide equal dollar amounts of two tokens to a trading pool
 **Example**: $1,000 USDC + $1,000 worth of ETH → Earn fees from ETH/USDC trades
-**Returns**: 5-30% annually
+**Returns**: 5 to 30% annually
 **Risks**: Impermanent loss, token price volatility
 
 #### Lending Protocols
 **How it works**: Lend your tokens to borrowers through protocols
 **Example**: Lend USDC on Compound → Earn interest from borrowers
-**Returns**: 3-15% annually
+**Returns**: 3 to 15% annually
 **Risks**: Protocol risk, borrower default (rare)
 
 #### Leveraged Farming
 **How it works**: Borrow tokens to increase your farming position
 **Example**: Deposit ETH, borrow USDC, farm with both
-**Returns**: 20-100%+ annually
+**Returns**: 20 to 100%+ annually
 **Risks**: Liquidation, high complexity, gas costs
 
 ### Yield Farming Pros ✅
@@ -2857,8 +2857,8 @@ This is probably the most important decision you'll make as a DeFi beginner. Bot
 
 | Factor | Staking | Yield Farming |
 |--------|---------|---------------|
-| **Time Required** | 1 hour/month | 5-20 hours/month |
-| **Typical Returns** | 4-12% | 8-30%+ |
+| **Time Required** | 1 hour/month | 5 to 20 hours/month |
+| **Typical Returns** | 4 to 12% | 8 to 30%+ |
 | **Risk Level** | Low-Medium | Medium-High |
 | **Learning Curve** | Easy | Moderate-Hard |
 | **Initial Investment** | $100+ | $500+ (due to gas) |
@@ -2874,7 +2874,7 @@ This is probably the most important decision you'll make as a DeFi beginner. Bot
 • 60% ETH staking via Lido (liquid staking)
 • 40% USDC lending on Aave
 **Time commitment**: 2 hours/month checking performance
-**Expected return**: 6-8% annually
+**Expected return**: 6 to 8% annually
 **Risk**: Low
 
 ### Mike's Yield Farming Strategy ($10,000):
@@ -2884,7 +2884,7 @@ This is probably the most important decision you'll make as a DeFi beginner. Bot
 • 30% in ETH/USDC farming
 • 30% rotated between best opportunities
 **Time commitment**: 10 hours/month monitoring and adjusting
-**Expected return**: 15-25% annually
+**Expected return**: 15 to 25% annually
 **Risk**: Medium
 
 ## Which Approach Fits You? 🤔
@@ -2936,7 +2936,7 @@ This is probably the most important decision you'll make as a DeFi beginner. Bot
 • [ ] Verify smart contract addresses
 
 ### Week 3: Small Test
-• [ ] Start with $100-500 maximum
+• [ ] Start with $100 to 500 maximum
 • [ ] Choose one simple strategy
 • [ ] Document the process thoroughly
 • [ ] Track all transactions for taxes
@@ -3103,25 +3103,25 @@ Trading fees get distributed:
 ### 1. Stablecoin Pools (Lowest Risk)
 **Examples**: USDC/DAI, USDC/USDT
 **Risk**: Very low (both tokens track USD)
-**Returns**: 2-8% annually
+**Returns**: 2 to 8% annually
 **Best for**: Conservative investors
 
 ### 2. Token/Stablecoin Pools (Medium Risk)
 **Examples**: ETH/USDC, BTC/USDT
 **Risk**: Medium (impermanent loss possible)
-**Returns**: 5-20% annually
+**Returns**: 5 to 20% annually
 **Best for**: Balanced approach
 
 ### 3. Token/Token Pools (Higher Risk)
 **Examples**: ETH/BTC, UNI/LINK
 **Risk**: Higher (both tokens volatile)
-**Returns**: 10-40% annually
+**Returns**: 10 to 40% annually
 **Best for**: Experienced users
 
 ### 4. Exotic Pools (Highest Risk)
 **Examples**: New tokens, leveraged tokens
 **Risk**: Very high (tokens could go to zero)
-**Returns**: 20-200%+ or -100%
+**Returns**: 20 to 200%+ or -100%
 **Best for**: Speculation only
 
 ## The Impermanent Loss Concept 📉
@@ -3175,19 +3175,19 @@ When token prices move differently than when you provided liquidity, you might h
 • **Start with stablecoin pools** (USDC/DAI)
 • **Low risk, predictable returns**
 • **Learn the mechanics safely**
-• **Expected return**: 3-6% annually
+• **Expected return**: 3 to 6% annually
 
 ### For Moderate Risk:
 • **ETH/stablecoin pairs** (ETH/USDC)
 • **Balanced exposure** to crypto and stable value
 • **Good fee generation** from high volume
-• **Expected return**: 8-15% annually
+• **Expected return**: 8 to 15% annually
 
 ### For Higher Risk:
 • **Popular token pairs** (ETH/BTC, UNI/ETH)
 • **Higher potential returns** and higher volatility
 • **Requires market timing** skills
-• **Expected return**: 15-30%+ annually
+• **Expected return**: 15 to 30%+ annually
 
 ## Pool Selection Criteria ✅
 
@@ -3223,7 +3223,7 @@ When token prices move differently than when you provided liquidity, you might h
 ### Step 3: Calculate Amounts
 • Check current pool ratio
 • Prepare equal dollar amounts of both tokens
-• Account for gas fees (can be $50-200 on Ethereum)
+• Account for gas fees (can be $50 to 200 on Ethereum)
 
 ### Step 4: Provide Liquidity
 1. Go to chosen platform
@@ -3282,7 +3282,7 @@ When token prices move differently than when you provided liquidity, you might h
 
 ### Position Sizing:
 • Never put more than 10% of portfolio in one pool
-• Start with 1-5% until comfortable
+• Start with 1 to 5% until comfortable
 • Consider correlation between tokens
 
 ### Diversification:
@@ -3386,7 +3386,7 @@ The difference between successful DeFi investors and those who lose money isn't 
 
 #### Scoring System:
 • **6+ months live + $100M+ TVL**: Low risk
-• **3-6 months live + $10M+ TVL**: Medium risk
+• **3 to 6 months live + $10M+ TVL**: Medium risk
 • **<3 months live or <$10M TVL**: High risk
 
 ## Financial Risk Assessment 💰
@@ -3395,13 +3395,13 @@ The difference between successful DeFi investors and those who lose money isn't 
 
 #### For Liquidity Pools:
 **Maximum Impermanent Loss**: ~50% (when one token goes to zero)
-**Realistic IL range**: 2-20% for established tokens
+**Realistic IL range**: 2 to 20% for established tokens
 **Fee offset time**: How long to earn back potential IL?
 
 #### Example Calculation (ETH/USDC):
-• **Historical IL range**: 2-8% annually
+• **Historical IL range**: 2 to 8% annually
 • **Trading fee APR**: 12%
-• **Net expected return**: 4-10%
+• **Net expected return**: 4 to 10%
 • **Risk assessment**: Moderate (fees likely cover IL)
 
 ### For Lending/Borrowing:
@@ -3423,9 +3423,9 @@ The difference between successful DeFi investors and those who lose money isn't 
 ### Volatility Assessment:
 
 #### Historical Volatility Check:
-• **Low volatility**: Stablecoins (1-5% monthly swings)
-• **Medium volatility**: ETH, BTC (10-30% monthly swings)
-• **High volatility**: Altcoins (30-80% monthly swings)
+• **Low volatility**: Stablecoins (1 to 5% monthly swings)
+• **Medium volatility**: ETH, BTC (10 to 30% monthly swings)
+• **High volatility**: Altcoins (30 to 80% monthly swings)
 
 #### Correlation Analysis:
 • **Positively correlated**: ETH/altcoins (risk amplification)
@@ -3474,22 +3474,22 @@ The difference between successful DeFi investors and those who lose money isn't 
 
 ## Risk Scoring System 🎯
 
-### Overall Risk Score (1-10 scale):
+### Overall Risk Score (1 to 10 scale):
 
-#### Score 1-3 (Conservative):
+#### Score 1 to 3 (Conservative):
 • Multiple audits ✅
 • 6+ months live ✅
 • $100M+ TVL ✅
 • Known team ✅
 • Established tokens only ✅
 
-#### Score 4-6 (Moderate):
+#### Score 4 to 6 (Moderate):
 • At least one audit ✅
 • 3+ months live ✅
 • $10M+ TVL ✅
 • Some unknowns ⚠️
 
-#### Score 7-10 (Aggressive):
+#### Score 7 to 10 (Aggressive):
 • Limited or no audits 🚩
 • New protocol 🚩
 • Low TVL 🚩
@@ -3546,16 +3546,16 @@ The difference between successful DeFi investors and those who lose money isn't 
 ### Portfolio Context:
 
 #### Total DeFi Allocation Guidelines:
-• **Conservative investor**: 5-10% of portfolio
-• **Moderate investor**: 10-25% of portfolio
-• **Aggressive investor**: 25-50% of portfolio
+• **Conservative investor**: 5 to 10% of portfolio
+• **Moderate investor**: 10 to 25% of portfolio
+• **Aggressive investor**: 25 to 50% of portfolio
 • **Never exceed**: What you can afford to lose completely
 
 ## Due Diligence Checklist ✅
 
 ### Before Any Investment:
 
-#### Protocol Research (2-4 hours):
+#### Protocol Research (2 to 4 hours):
 • [ ] Read whitepaper/documentation
 • [ ] Check audit reports
 • [ ] Review GitHub activity
@@ -3563,7 +3563,7 @@ The difference between successful DeFi investors and those who lose money isn't 
 • [ ] Check team backgrounds
 • [ ] Read community discussions
 
-#### Financial Analysis (1-2 hours):
+#### Financial Analysis (1 to 2 hours):
 • [ ] Calculate expected returns
 • [ ] Model different scenarios
 • [ ] Assess maximum loss potential
@@ -3589,7 +3589,7 @@ The difference between successful DeFi investors and those who lose money isn't 
 • **Overall risk**: 2/10
 
 #### Return Calculation:
-• **Expected APR**: 4-6%
+• **Expected APR**: 4 to 6%
 • **Volatility**: Very low
 • **Maximum loss**: Near zero (excluding smart contract risk)
 • **Position size**: Up to 10% of portfolio
@@ -3604,10 +3604,10 @@ The difference between successful DeFi investors and those who lose money isn't 
 • **Overall risk**: 4/10
 
 #### Return Calculation:
-• **Expected APR**: 8-15%
+• **Expected APR**: 8 to 15%
 • **Volatility**: Medium
 • **Maximum loss**: ~20% (extreme impermanent loss)
-• **Position size**: 3-5% of portfolio
+• **Position size**: 3 to 5% of portfolio
 
 ### Example 3: Aggressive Play (New Protocol Farming)
 
@@ -3619,7 +3619,7 @@ The difference between successful DeFi investors and those who lose money isn't 
 • **Overall risk**: 8/10
 
 #### Return Calculation:
-• **Expected APR**: 30-100%+ (but highly uncertain)
+• **Expected APR**: 30 to 100%+ (but highly uncertain)
 • **Volatility**: Very high
 • **Maximum loss**: 100% (total loss possible)
 • **Position size**: 1% of portfolio maximum
@@ -3714,8 +3714,8 @@ The DeFi space can be overwhelming with hundreds of protocols. Here are the most
 ✅ **Good documentation**: extensive guides available
 
 #### What You Can Do:
-• **Lend USDC/DAI** for 3-6% APY (very low risk)
-• **Lend ETH/BTC** for 2-5% APY (low risk)
+• **Lend USDC/DAI** for 3 to 6% APY (very low risk)
+• **Lend ETH/BTC** for 2 to 5% APY (low risk)
 • **Borrow against collateral** (advanced feature)
 
 #### Getting Started:
@@ -3726,9 +3726,9 @@ The DeFi space can be overwhelming with hundreds of protocols. Here are the most
 5. Supply tokens and start earning immediately
 
 #### Typical Returns:
-• **Stablecoins**: 3-8% APY
-• **ETH**: 1-4% APY
-• **BTC**: 1-3% APY
+• **Stablecoins**: 3 to 8% APY
+• **ETH**: 1 to 4% APY
+• **BTC**: 1 to 3% APY
 
 ### 2. **Compound**: Simple Lending
 **Best for**: Set-and-forget lending with automatic compounding
@@ -3753,9 +3753,9 @@ The DeFi space can be overwhelming with hundreds of protocols. Here are the most
 5. Watch your balance grow automatically
 
 #### Typical Returns:
-• **USDC**: 2-6% APY + COMP rewards
-• **DAI**: 2-6% APY + COMP rewards
-• **ETH**: 1-4% APY + COMP rewards
+• **USDC**: 2 to 6% APY + COMP rewards
+• **DAI**: 2 to 6% APY + COMP rewards
+• **ETH**: 1 to 4% APY + COMP rewards
 
 ### 3. **Curve Finance**: Stablecoin Specialist
 **Best for**: Maximum returns on stablecoin trading with minimal impermanent loss
@@ -3780,8 +3780,8 @@ The DeFi space can be overwhelming with hundreds of protocols. Here are the most
 5. Stake LP tokens for additional CRV rewards
 
 #### Typical Returns:
-• **3pool (USDC/DAI/USDT)**: 5-15% APY
-• **Other stable pools**: 4-20% APY
+• **3pool (USDC/DAI/USDT)**: 5 to 15% APY
+• **Other stable pools**: 4 to 20% APY
 • **Plus CRV rewards**: Variable bonus
 
 ## Tier 2: Next Level (Moderate Complexity) ⚡
@@ -3808,9 +3808,9 @@ The DeFi space can be overwhelming with hundreds of protocols. Here are the most
 5. Monitor impermanent loss vs fees earned
 
 #### Typical Returns:
-• **ETH/USDC**: 5-15% APY (depending on volume)
-• **Stablecoin pairs**: 2-8% APY
-• **Volatile pairs**: 10-30% APY (higher risk)
+• **ETH/USDC**: 5 to 15% APY (depending on volume)
+• **Stablecoin pairs**: 2 to 8% APY
+• **Volatile pairs**: 10 to 30% APY (higher risk)
 
 ### 5. **SushiSwap**: Community-Driven DEX
 **Best for**: Higher yields through SUSHI token rewards
@@ -3834,9 +3834,9 @@ The DeFi space can be overwhelming with hundreds of protocols. Here are the most
 5. Stake LP tokens in "Farms" for SUSHI rewards
 
 #### Typical Returns:
-• **Base trading fees**: 5-15% APY
-• **Plus SUSHI rewards**: 5-25% additional APY
-• **Total**: Often 15-30% APY (variable based on SUSHI price)
+• **Base trading fees**: 5 to 15% APY
+• **Plus SUSHI rewards**: 5 to 25% additional APY
+• **Total**: Often 15 to 30% APY (variable based on SUSHI price)
 
 ### 6. **Yearn Finance**: Automated Yield Farming
 **Best for**: Hands-off yield optimization without active management
@@ -3860,20 +3860,20 @@ The DeFi space can be overwhelming with hundreds of protocols. Here are the most
 5. Check performance periodically
 
 #### Typical Returns:
-• **Stablecoin vaults**: 4-12% APY
-• **ETH strategies**: 5-18% APY
-• **Mixed strategies**: 6-20% APY
+• **Stablecoin vaults**: 4 to 12% APY
+• **ETH strategies**: 5 to 18% APY
+• **Mixed strategies**: 6 to 20% APY
 
 ## Platform-by-Platform Comparison 📊
 
 | Platform | Risk Level | Complexity | Typical APY | Best For |
 |----------|------------|------------|-------------|----------|
-| **Aave** | Low | Simple | 3-8% | Stable lending |
-| **Compound** | Low | Simple | 2-6% | Auto-compound |
-| **Curve** | Low-Med | Medium | 5-15% | Stablecoin LP |
-| **Uniswap** | Medium | Medium | 5-30% | Learning LP |
-| **SushiSwap** | Medium | Medium | 10-30% | Higher yields |
-| **Yearn** | Med-High | Simple | 4-20% | Automation |
+| **Aave** | Low | Simple | 3 to 8% | Stable lending |
+| **Compound** | Low | Simple | 2 to 6% | Auto-compound |
+| **Curve** | Low-Med | Medium | 5 to 15% | Stablecoin LP |
+| **Uniswap** | Medium | Medium | 5 to 30% | Learning LP |
+| **SushiSwap** | Medium | Medium | 10 to 30% | Higher yields |
+| **Yearn** | Med-High | Simple | 4 to 20% | Automation |
 
 ## Layer 2 Solutions for Lower Fees 🚀
 
@@ -3889,7 +3889,7 @@ The DeFi space can be overwhelming with hundreds of protocols. Here are the most
 • **Aave on Polygon**: same features, much cheaper
 • **SushiSwap on Polygon**: identical to mainnet
 • **Curve on Polygon**: stable swaps for cents
-• **Bridge cost**: $20-50 to move funds initially
+• **Bridge cost**: $20 to 50 to move funds initially
 
 #### **Arbitrum**:
 • **Uniswap V3**: full features available
@@ -3903,34 +3903,34 @@ The DeFi space can be overwhelming with hundreds of protocols. Here are the most
 • **1inch**: optimized trade routing
 • **Velodrome**: ve(3,3) tokenomics
 
-## Getting Started Strategy: The 30-60-90 Day Plan 📅
+## Getting Started Strategy: The 30 to 60 to 90 Day Plan 📅
 
-### Days 1-30: Foundation Building
+### Days 1 to 30: Foundation Building
 **Goal**: Learn basics with minimal risk
 
 • **Week 1**: Set up MetaMask, get familiar with interfaces
-• **Week 2**: Try Aave with $100-200 in USDC
+• **Week 2**: Try Aave with $100 to 200 in USDC
 • **Week 3**: Experiment with Compound lending
 • **Week 4**: Learn about Curve stablecoin pools
 
-**Total Investment**: $200-500 maximum
+**Total Investment**: $200 to 500 maximum
 **Expected Learning**: Platform navigation, gas fees, basic DeFi mechanics
 
-### Days 31-60: Expand Knowledge
+### Days 31 to 60: Expand Knowledge
 **Goal**: Try different strategies with slightly higher amounts
 
-• **Week 5-6**: Try Uniswap LP with ETH/USDC (small amount)
-• **Week 7-8**: Experiment with SushiSwap farming
+• **Week 5 to 6**: Try Uniswap LP with ETH/USDC (small amount)
+• **Week 7 to 8**: Experiment with SushiSwap farming
 • **Current positions**: Monitor and learn from first month
 
-**Total Investment**: $500-1,500 total
+**Total Investment**: $500 to 1,500 total
 **Expected Learning**: Impermanent loss, LP mechanics, comparing returns
 
-### Days 61-90: Develop Strategy
+### Days 61 to 90: Develop Strategy
 **Goal**: Find your preferred approach and scale appropriately
 
-• **Week 9-10**: Try Layer 2 solutions (Polygon or Arbitrum)
-• **Week 11-12**: Experiment with Yearn vaults or similar automation
+• **Week 9 to 10**: Try Layer 2 solutions (Polygon or Arbitrum)
+• **Week 11 to 12**: Experiment with Yearn vaults or similar automation
 • **Strategy**: Focus on what worked best from first 60 days
 
 **Total Investment**: Based on comfort level and results
@@ -4078,7 +4078,7 @@ Prove your knowledge of staking, yield farming, and liquidity pools.
         content: {
           text: `# Building Your First DeFi Portfolio: Starting Small, Thinking Big
 
-You don't need $10,000 or $100,000 to start building a meaningful DeFi portfolio. With as little as $100-500, you can begin learning portfolio management principles that will serve you whether you eventually manage $1,000 or $1,000,000.
+You don't need $10,000 or $100,000 to start building a meaningful DeFi portfolio. With as little as $100 to 500, you can begin learning portfolio management principles that will serve you whether you eventually manage $1,000 or $1,000,000.
 
 ## Portfolio Building Philosophy 🎯
 
@@ -4100,10 +4100,10 @@ Your first DeFi portfolio is primarily an **education vehicle** that happens to 
 ## Small Portfolio Strategies ($100-$1,000) 💰
 
 ### The Gas Fee Challenge:
-**Problem**: Ethereum gas fees can be $50-200 per transaction
+**Problem**: Ethereum gas fees can be $50 to 200 per transaction
 **Solution**: Structure your portfolio to minimize transactions
 
-### Strategy 1: The "Layer 2 Start" ($100-300)
+### Strategy 1: The "Layer 2 Start" ($100 to 300)
 
 #### Allocation:
 • **60% Polygon/Arbitrum stablecoin lending** (Aave)
@@ -4117,12 +4117,12 @@ Your first DeFi portfolio is primarily an **education vehicle** that happens to 
 ✅ **Educational value**: learn without high costs
 
 #### Getting Started:
-1. **Bridge $100 to Polygon** ($15-30 bridge cost)
+1. **Bridge $100 to Polygon** ($15 to 30 bridge cost)
 2. **$60 to Aave USDC lending** ($1 transaction)
 3. **$30 to SushiSwap USDC/DAI LP** ($2 in transactions)
 4. **$10 for experiments** and learning
 
-### Strategy 2: The "Single Protocol Focus" ($200-500)
+### Strategy 2: The "Single Protocol Focus" ($200 to 500)
 
 #### Allocation:
 • **80% in one main protocol** (e.g., Aave or Curve)
@@ -4140,7 +4140,7 @@ Your first DeFi portfolio is primarily an **education vehicle** that happens to 
 • **$40 for trying** other Aave features
 • **$20 for different** protocols entirely
 
-### Strategy 3: The "Stablecoin Maximizer" ($300-800)
+### Strategy 3: The "Stablecoin Maximizer" ($300 to 800)
 
 #### Allocation:
 • **40% Curve 3pool** (USDC/DAI/USDT)
@@ -4150,13 +4150,13 @@ Your first DeFi portfolio is primarily an **education vehicle** that happens to 
 
 #### Advantages:
 ✅ **Minimal impermanent loss**: all stablecoins
-✅ **Predictable returns**: 4-12% annually
+✅ **Predictable returns**: 4 to 12% annually
 ✅ **Low volatility stress**: focus on learning
 ✅ **Multiple strategies**: diversified approach
 
 ## Medium Portfolio Strategies ($1,000-$5,000) 📈
 
-### Strategy 4: The "Balanced Growth" ($1,000-2,500)
+### Strategy 4: The "Balanced Growth" ($1,000 to 2,500)
 
 #### Core Allocation (70%):
 • **25% ETH staking** (Lido or similar)
@@ -4174,7 +4174,7 @@ Your first DeFi portfolio is primarily an **education vehicle** that happens to 
 • **Opportunity fund** allows strategic risk-taking
 • **Diversified risk** across multiple strategies
 
-### Strategy 5: The "Layer 2 Native" ($1,500-4,000)
+### Strategy 5: The "Layer 2 Native" ($1,500 to 4,000)
 
 #### Polygon Focus (60%):
 • **30% Aave lending** (USDC, DAI, WETH)
@@ -4197,7 +4197,7 @@ Your first DeFi portfolio is primarily an **education vehicle** that happens to 
 
 ## Large Portfolio Strategies ($5,000+) 🚀
 
-### Strategy 6: The "Institutional Approach" ($5,000-20,000)
+### Strategy 6: The "Institutional Approach" ($5,000 to 20,000)
 
 #### Conservative Core (50%):
 • **20% ETH staking** (multiple validators/protocols)
@@ -4220,7 +4220,7 @@ Your first DeFi portfolio is primarily an **education vehicle** that happens to 
 • **No single position >10%** of portfolio
 • **No single protocol >25%** of portfolio
 • **Maximum 50%** in experimental strategies
-• **Keep 10-20%** for opportunities
+• **Keep 10 to 20%** for opportunities
 
 #### Correlation Management:
 • **Mix uncorrelated** assets (ETH + stables)
@@ -4301,7 +4301,7 @@ Your first DeFi portfolio is primarily an **education vehicle** that happens to 
 • Consider rebalancing needs
 • Update strategy if needed
 
-#### Quarterly Review (2-3 hours):
+#### Quarterly Review (2 to 3 hours):
 • Full strategy assessment
 • Tax planning considerations
 • Major allocation changes
@@ -4369,17 +4369,17 @@ Your first DeFi portfolio is primarily an **education vehicle** that happens to 
 
 ## Portfolio Evolution Path 📈
 
-### Phase 1: Learning ($100-500)
+### Phase 1: Learning ($100 to 500)
 **Focus**: Understanding basics
 **Strategy**: Simple, conservative
 **Goal**: Education over returns
 
-### Phase 2: Building ($500-2,000)  
+### Phase 2: Building ($500 to 2,000)
 **Focus**: Developing systems
 **Strategy**: Moderate diversification
 **Goal**: Consistent processes
 
-### Phase 3: Optimizing ($2,000-10,000)
+### Phase 3: Optimizing ($2,000 to 10,000)
 **Focus**: Risk-adjusted returns
 **Strategy**: Sophisticated allocation
 **Goal**: Sustainable profitability
@@ -4392,7 +4392,7 @@ Your first DeFi portfolio is primarily an **education vehicle** that happens to 
 ## Your First Portfolio Action Plan 🎯
 
 ### This Week:
-1. **Decide your starting** amount ($100-500)
+1. **Decide your starting** amount ($100 to 500)
 2. **Choose a strategy** from the options above
 3. **Set up tracking** system
 4. **Make your first** position
@@ -4566,7 +4566,7 @@ Managing a DeFi portfolio without proper tracking is like driving blindfolded. H
 
 ## Paid Portfolio Tracking Tools 💰
 
-### 1. **Rotki**: Best for Privacy ($120-300/year)
+### 1. **Rotki**: Best for Privacy ($120 to 300/year)
 
 #### Strengths:
 ✅ **Complete privacy**: runs locally
@@ -4583,7 +4583,7 @@ Managing a DeFi portfolio without proper tracking is like driving blindfolded. H
 
 #### Best For: Privacy-focused power users
 
-### 2. **Koinly**: Best for Tax Compliance ($50-180/year)
+### 2. **Koinly**: Best for Tax Compliance ($50 to 180/year)
 
 #### Strengths:
 ✅ **Excellent tax** preparation
@@ -4599,7 +4599,7 @@ Managing a DeFi portfolio without proper tracking is like driving blindfolded. H
 
 #### Best For: Tax compliance and reporting
 
-### 3. **TokenTax**: DeFi Specialist ($65-400/year)
+### 3. **TokenTax**: DeFi Specialist ($65 to 400/year)
 
 #### Strengths:
 ✅ **DeFi expertise**: understands complex transactions
@@ -4668,13 +4668,13 @@ Managing a DeFi portfolio without proper tracking is like driving blindfolded. H
 
 ### Step 1: Choose Your Approach (Week 1)
 
-#### For Beginners ($100-1,000):
+#### For Beginners ($100 to 1,000):
 **Recommended**: Zapper.fi + simple spreadsheet
 • Use Zapper for daily overview
 • Track major transactions in spreadsheet
 • Focus on learning rather than optimization
 
-#### For Intermediate ($1,000-10,000):
+#### For Intermediate ($1,000 to 10,000):
 **Recommended**: Koinly + detailed spreadsheet
 • Koinly for tax compliance
 • Spreadsheet for performance analysis
@@ -4700,7 +4700,7 @@ Managing a DeFi portfolio without proper tracking is like driving blindfolded. H
 3. **Set up** regular data collection
 4. **Test accuracy** with known values
 
-### Step 3: Establish Routines (Week 3-4)
+### Step 3: Establish Routines (Week 3 to 4)
 
 #### Daily (5 minutes):
 • Check overall portfolio value
@@ -4760,12 +4760,12 @@ Managing a DeFi portfolio without proper tracking is like driving blindfolded. H
 #### Conservative Portfolio:
 • **Primary**: 60/40 ETH/Stablecoin hold
 • **Secondary**: High-yield savings account
-• **Target**: Beat by 3-5% annually
+• **Target**: Beat by 3 to 5% annually
 
 #### Moderate Portfolio:
 • **Primary**: ETH buy-and-hold
 • **Secondary**: 70/30 ETH/BTC hold
-• **Target**: Beat by 5-10% annually
+• **Target**: Beat by 5 to 10% annually
 
 #### Aggressive Portfolio:
 • **Primary**: Crypto index fund
@@ -5009,7 +5009,7 @@ This might be the most important skill in DeFi portfolio management. The differe
 **Best for**: Variable yield positions (LP fees, farming)
 
 #### Implementation:
-• **Set minimum** threshold for reinvestment ($100-500)
+• **Set minimum** threshold for reinvestment ($100 to 500)
 • **Accumulate rewards** until threshold reached
 • **Reinvest in** same or related strategy
 • **Adjust threshold** based on gas costs
@@ -5040,7 +5040,7 @@ This might be the most important skill in DeFi portfolio management. The differe
 **Best for**: Volatile token rewards and appreciation gains
 
 #### Implementation:
-• **Take 10-25%** of gains at regular intervals
+• **Take 10 to 25%** of gains at regular intervals
 • **Scale percentage** based on volatility and conviction
 • **Higher percentages** for more speculative positions
 • **Lower percentages** for established positions
@@ -5103,31 +5103,31 @@ This might be the most important skill in DeFi portfolio management. The differe
 ## Market Cycle Considerations 📈📉
 
 ### Early Bull Market:
-• **Reinvest aggressively** (70-90% of gains)
+• **Reinvest aggressively** (70 to 90% of gains)
 • **Focus on** position building
 • **Take minimal** profits
 • **Prepare for** volatility
 
 ### Mid Bull Market:
-• **Balanced approach** (50-70% reinvestment)
+• **Balanced approach** (50 to 70% reinvestment)
 • **Start taking** some profits
 • **Diversify** across strategies
 • **Prepare for** potential correction
 
 ### Late Bull Market:
-• **Take profits** more aggressively (40-60% reinvestment)
+• **Take profits** more aggressively (40 to 60% reinvestment)
 • **Reduce risk** exposure
 • **Secure gains** in stable assets
 • **Prepare for** market top
 
 ### Bear Market:
-• **Minimal reinvestment** (0-30%)
+• **Minimal reinvestment** (0 to 30%)
 • **Focus on** capital preservation
 • **Take profits** on any gains
 • **Build cash** for opportunities
 
 ### Market Bottom/Recovery:
-• **Begin reinvesting** (30-50%)
+• **Begin reinvesting** (30 to 50%)
 • **Look for** high-quality opportunities
 • **Start building** positions again
 • **Prepare for** next cycle
@@ -5135,25 +5135,25 @@ This might be the most important skill in DeFi portfolio management. The differe
 ## Specific DeFi Strategy Guidelines 🔧
 
 ### Lending/Staking (Low Risk):
-• **Default**: Reinvest 90-100% automatically
+• **Default**: Reinvest 90 to 100% automatically
 • **Exception**: When rebalancing portfolio
 • **Frequency**: Continuous compounding when possible
 • **Profit-taking**: Only for portfolio management
 
 ### Liquidity Provision (Medium Risk):
-• **Bull market**: Reinvest 70-80% of fees
-• **Bear market**: Take 50-70% of fees as profit
+• **Bull market**: Reinvest 70 to 80% of fees
+• **Bear market**: Take 50 to 70% of fees as profit
 • **Consider**: Impermanent loss vs fee accumulation
 • **Monitor**: Pool volume and token correlation
 
 ### Yield Farming (High Risk):
-• **Take profits**: 50-80% of token rewards
-• **Reinvest**: 20-50% based on conviction
+• **Take profits**: 50 to 80% of token rewards
+• **Reinvest**: 20 to 50% based on conviction
 • **Frequency**: Weekly or bi-weekly
 • **Focus**: Don't let speculative tokens dominate portfolio
 
 ### New Protocol Farming (Very High Risk):
-• **Take profits**: 70-90% immediately
+• **Take profits**: 70 to 90% immediately
 • **Reinvest**: Only small amounts for learning
 • **Exit strategy**: Plan from day one
 • **Risk management**: Never more than 5% of portfolio
@@ -5573,7 +5573,7 @@ The difference between successful long-term DeFi investors and those who get bur
 • **Avoid** high-risk new protocols
 
 #### Markdown Strategy:
-• **Maintain DeFi** allocation at 5-10%
+• **Maintain DeFi** allocation at 5 to 10%
 • **Focus on** yield generation over appreciation
 • **Take profits** on any gains
 • **Research** opportunities for next cycle
@@ -5697,9 +5697,9 @@ The hardest part of DeFi isn't learning the technology or finding opportunities:
 • **Learning** about emerging technology?
 
 #### Question 2: What's your time horizon?
-• **6-12 months** (short-term trading)
-• **1-3 years** (medium-term positioning)
-• **3-10 years** (long-term accumulation)
+• **6 to 12 months** (short-term trading)
+• **1 to 3 years** (medium-term positioning)
+• **3 to 10 years** (long-term accumulation)
 • **10+ years** (generational wealth building)
 
 #### Question 3: How does DeFi fit your overall finances?
@@ -5708,7 +5708,7 @@ The hardest part of DeFi isn't learning the technology or finding opportunities:
 • **What role** does this play in your financial plan?
 
 ### Sample Investment Philosophy Statement:
-*"I believe DeFi will capture increasing share of global finance over the next 5-10 years. I'm allocating 10-15% of my portfolio to DeFi to generate yield and participate in this growth. I focus on established protocols with proven track records and sustainable economics. I'm willing to accept high volatility for potentially higher returns than traditional investments. I rebalance quarterly and take systematic profits during euphoric periods."*
+*"I believe DeFi will capture increasing share of global finance over the next 5 to 10 years. I'm allocating 10 to 15% of my portfolio to DeFi to generate yield and participate in this growth. I focus on established protocols with proven track records and sustainable economics. I'm willing to accept high volatility for potentially higher returns than traditional investments. I rebalance quarterly and take systematic profits during euphoric periods."*
 
 ## Building Consistent Habits 📋
 
@@ -5726,20 +5726,20 @@ The hardest part of DeFi isn't learning the technology or finding opportunities:
 
 ### Essential DeFi Habits:
 
-#### Daily Habits (5-10 minutes):
+#### Daily Habits (5 to 10 minutes):
 • [ ] **Check portfolio** overview (total value)
 • [ ] **Review** any protocol announcements
 • [ ] **Note** significant market movements
 • [ ] **Resist urge** to make emotional changes
 
-#### Weekly Habits (30-60 minutes):
+#### Weekly Habits (30 to 60 minutes):
 • [ ] **Detailed portfolio** review and analysis
 • [ ] **Research** one new protocol or strategy
 • [ ] **Review** performance vs benchmarks
 • [ ] **Plan** any strategic adjustments
 • [ ] **Update** tracking systems
 
-#### Monthly Habits (2-3 hours):
+#### Monthly Habits (2 to 3 hours):
 • [ ] **Comprehensive** performance analysis
 • [ ] **Rebalance** portfolio if needed
 • [ ] **Tax planning** and record organization
@@ -5820,7 +5820,7 @@ The hardest part of DeFi isn't learning the technology or finding opportunities:
 
 #### Curate Your Information Diet:
 • **Limit** social media exposure during volatile periods
-• **Follow** 3-5 high-quality information sources consistently
+• **Follow** 3 to 5 high-quality information sources consistently
 • **Avoid** daily price checking beyond basic portfolio review
 • **Focus** on fundamentals over short-term movements
 
@@ -5885,9 +5885,9 @@ The hardest part of DeFi isn't learning the technology or finding opportunities:
 **Benefit**: If one stream fails, others continue
 
 #### 2. **Layered Risk Management**
-**Conservative core** (60-70%): Established protocols, lower risk
-**Moderate layer** (20-30%): Proven but higher-risk strategies
-**Speculative edge** (5-10%): New opportunities and experiments
+**Conservative core** (60 to 70%): Established protocols, lower risk
+**Moderate layer** (20 to 30%): Proven but higher-risk strategies
+**Speculative edge** (5 to 10%): New opportunities and experiments
 
 #### 3. **Continuous Learning**
 **Stay curious** about new developments
@@ -5930,7 +5930,7 @@ The hardest part of DeFi isn't learning the technology or finding opportunities:
 • [ ] **Set up** systematic tracking and review processes
 • [ ] **Establish** initial portfolio allocation
 • [ ] **Create** profit-taking and rebalancing rules
-• [ ] **Join** 2-3 quality educational communities
+• [ ] **Join** 2 to 3 quality educational communities
 
 ### 1-Year Foundation:
 • [ ] **Experience** at least one major market cycle
@@ -5939,10 +5939,10 @@ The hardest part of DeFi isn't learning the technology or finding opportunities:
 • [ ] **Develop** tax-efficient systems and processes
 • [ ] **Create** comprehensive risk management systems
 
-### 3-5 Year Vision:
+### 3 to 5 Year Vision:
 • [ ] **Achieve** consistent risk-adjusted returns
 • [ ] **Build** substantial position in DeFi ecosystem
-• [ ] **Develop** expertise in 2-3 specialized areas
+• [ ] **Develop** expertise in 2 to 3 specialized areas
 • [ ] **Consider** more sophisticated strategies (if appropriate)
 • [ ] **Share** knowledge and mentor others
 
@@ -6101,10 +6101,10 @@ A **DeFi vault** is like having a professional investment manager for your crypt
 When you deposit into a vault, you receive "shares" or tokens representing your portion of the vault. As the vault earns returns, your shares become worth more.
 
 **Management Fee**
-A percentage fee charged by the vault operator for managing the strategy. Typically ranges from 0-2% annually.
+A percentage fee charged by the vault operator for managing the strategy. Typically ranges from 0 to 2% annually.
 
 **Performance Fee**
-A percentage of profits taken by the strategist as compensation. Often 10-20% of gains.
+A percentage of profits taken by the strategist as compensation. Often 10 to 20% of gains.
 
 **Withdrawal Fee**
 Some vaults charge a small fee when you withdraw to discourage frequent trading and protect other depositors.
@@ -6276,7 +6276,7 @@ Some vaults require you to keep funds deposited for a minimum time. Not all vaul
                 type: "true-false",
                 options: ["True", "False"],
                 correctAnswers: [0],
-                explanation: "True. Performance fees (often 10-20% of gains) compensate vault strategists for their work in designing and managing profitable strategies.",
+                explanation: "True. Performance fees (often 10 to 20% of gains) compensate vault strategists for their work in designing and managing profitable strategies.",
                 points: 10
               }
             ]
@@ -6345,8 +6345,8 @@ Enzyme is an **asset management infrastructure** that allows anyone to create, m
 • **Multiple Asset Types**: Support for diverse crypto assets
 
 ### Fee Structure
-• **Management fees**: Set by vault manager (typically 0-2%)
-• **Performance fees**: Set by vault manager (typically 10-20%)
+• **Management fees**: Set by vault manager (typically 0 to 2%)
+• **Performance fees**: Set by vault manager (typically 10 to 20%)
 • **Protocol fees**: Small fee to Enzyme protocol
 
 [COMPONENT:DID_YOU_KNOW]
@@ -6923,13 +6923,13 @@ Choosing a vault isn't just about finding the highest APY. It's about finding th
 **Conservative Investors**
 • Stick to established protocols (2+ years old)
 • Prefer stablecoin or single-asset vaults
-• Accept returns of 3-10% APY
+• Accept returns of 3 to 10% APY
 • Prioritize capital preservation
 
 **Moderate Investors**
 • Mix of stable and growth-focused vaults
 • Comfortable with managed strategy vaults
-• Accept returns of 5-20% APY
+• Accept returns of 5 to 20% APY
 • Balance growth with risk management
 
 **Aggressive Investors**
@@ -7524,7 +7524,7 @@ Smart contracts automate the entire tokenization process:
       "defi": "Minimum investment: As low as $1 to $100"
     },
     {
-      "traditional": "Settlement time: 2-3 business days",
+      "traditional": "Settlement time: 2 to 3 business days",
       "defi": "Settlement time: Seconds to minutes"
     },
     {
@@ -7677,7 +7677,7 @@ The RWA tokenization landscape spans multiple asset classes, each with different
 ### Why Treasuries Dominate
 
 • **Safety**: Backed by U.S. government
-• **Yield**: Currently offering 4-5%+ returns
+• **Yield**: Currently offering 4 to 5%+ returns
 • **Liquidity**: Massive underlying market
 • **Regulatory Clarity**: Well-understood legal framework
 
@@ -7832,15 +7832,15 @@ Tokenized securities represent ownership in companies and investment funds.
   "title": "RWA Asset Classes Overview",
   "items": [
     {
-      "traditional": "Treasuries: Lower risk, 4-5% yield, highest liquidity",
+      "traditional": "Treasuries: Lower risk, 4 to 5% yield, highest liquidity",
       "defi": "Best for: Conservative investors seeking stable yield"
     },
     {
-      "traditional": "Private Credit: Medium risk, 8-15% yield, lower liquidity",
+      "traditional": "Private Credit: Medium risk, 8 to 15% yield, lower liquidity",
       "defi": "Best for: Yield seekers with higher risk tolerance"
     },
     {
-      "traditional": "Real Estate: Medium risk, 5-10% yield, variable liquidity",
+      "traditional": "Real Estate: Medium risk, 5 to 10% yield, variable liquidity",
       "defi": "Best for: Diversification and tangible asset exposure"
     },
     {
@@ -7922,7 +7922,7 @@ In the next module, we'll dive into the technical mechanics of how RWA tokenizat
                 type: "multiple",
                 options: [
                   "Backed by U.S. government",
-                  "Currently offering 4-5%+ yields",
+                  "Currently offering 4 to 5%+ yields",
                   "Zero risk of any losses",
                   "Well-understood legal framework"
                 ],
@@ -8106,7 +8106,7 @@ Unlike traditional securities (T+2 or T+3 days), tokenized assets can settle ins
 
 **Traditional Settlement**
 1. Trade executed
-2. 2-3 days clearing
+2. 2 to 3 days clearing
 3. Ownership transferred
 
 **Tokenized Settlement**
@@ -8120,7 +8120,7 @@ Different assets have different redemption mechanisms:
 
 **Tokenized Treasuries (e.g., BUIDL)**
 • Redeem tokens for USD
-• Usually 24-48 hour processing
+• Usually 24 to 48 hour processing
 • Sent to verified bank account
 
 **Tokenized Gold (e.g., PAXG)**
@@ -8296,7 +8296,7 @@ Now that you understand how RWA tokenization works technically and legally, the 
               },
               {
                 id: "q6-3-5",
-                question: "True or False: Tokenized asset settlement typically takes 2-3 days, just like traditional securities.",
+                question: "True or False: Tokenized asset settlement typically takes 2 to 3 days, just like traditional securities.",
                 type: "true-false",
                 options: ["True", "False"],
                 correctAnswers: [1],
@@ -8417,19 +8417,19 @@ Different RWAs generate yield through different mechanisms:
 ### Treasury Yields
 • **Source**: Interest from U.S. government bonds
 • **Sustainability**: Highly sustainable (government-backed)
-• **Current Range**: 4-5%+
+• **Current Range**: 4 to 5%+
 • **Risk Level**: Low
 
 ### Real Estate Income
 • **Source**: Rental payments from properties
 • **Sustainability**: Depends on occupancy and market
-• **Current Range**: 5-10%
+• **Current Range**: 5 to 10%
 • **Risk Level**: Medium
 
 ### Private Credit Interest
 • **Source**: Loan interest payments
 • **Sustainability**: Depends on borrower quality
-• **Current Range**: 8-15%
+• **Current Range**: 8 to 15%
 • **Risk Level**: Medium-High
 
 ### Commodity Appreciation
@@ -8601,13 +8601,13 @@ Now that you can evaluate RWA opportunities, the final module covers market tren
                 question: "What current yield range should you expect from tokenized U.S. Treasuries?",
                 type: "single",
                 options: [
-                  "0-2%",
-                  "4-5%+",
-                  "15-20%",
+                  "0 to 2%",
+                  "4 to 5%+",
+                  "15 to 20%",
                   "50%+"
                 ],
                 correctAnswers: [1],
-                explanation: "Tokenized treasuries currently offer 4-5%+ yields, matching actual U.S. Treasury rates. Significantly higher promised yields should be viewed with suspicion.",
+                explanation: "Tokenized treasuries currently offer 4 to 5%+ yields, matching actual U.S. Treasury rates. Significantly higher promised yields should be viewed with suspicion.",
                 points: 10
               },
               {
@@ -8728,7 +8728,7 @@ This final module covers market trends, institutional adoption, regulatory devel
 **MiCA (Markets in Crypto-Assets)**:
 • Comprehensive regulatory framework
 • Clear rules for tokenized securities
-• Takes effect 2024-2025
+• Takes effect 2024 to 2025
 
 **Impact**:
 • Legal certainty for EU operations
@@ -8801,7 +8801,7 @@ This final module covers market trends, institutional adoption, regulatory devel
   "title": "Your RWA Investment Journey",
   "steps": [
     "Educate: Complete courses like this one before investing",
-    "Start Small: Begin with $100-500 in established products",
+    "Start Small: Begin with $100 to 500 in established products",
     "Choose Safety: Start with tokenized treasuries (lowest risk)",
     "Verify Everything: Check proof of reserves, audits, legal structure",
     "Diversify Gradually: Only expand to other RWAs after gaining experience",

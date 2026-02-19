@@ -89,7 +89,7 @@ export const ReferralTermsModal = ({ open, onOpenChange, onAccepted }: ReferralT
             <div>
               <h4 className="font-semibold text-foreground mb-2">Payment Terms</h4>
               <ul className="list-disc pl-5 space-y-1">
-                <li>Commissions paid within 7-10 business days via crypto (USDC) or Zelle</li>
+                <li>Commissions paid within 7 to 10 business days via crypto (USDC) or Zelle</li>
                 <li>You must set up payout details in your account</li>
               </ul>
             </div>
@@ -106,7 +106,7 @@ export const ReferralTermsModal = ({ open, onOpenChange, onAccepted }: ReferralT
             <div>
               <h4 className="font-semibold text-foreground mb-2">Important Notices</h4>
               <ul className="list-disc pl-5 space-y-1">
-                <li>Commissions are paid within 7-10 business days</li>
+                <li>Commissions are paid within 7 to 10 business days</li>
                 <li>You are responsible for taxes on earnings</li>
                 <li>No guaranteed earnings - results vary</li>
                 <li>Refunded subscriptions = deducted commissions</li>

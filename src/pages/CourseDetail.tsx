@@ -17,7 +17,6 @@ import { useToast } from "@/hooks/use-toast";
 import SEO from "@/components/SEO";
 import { ExpandableText } from "@/components/ui/expandable-text";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { DesktopOnlyNotice } from "@/components/DesktopOnlyNotice";
 import { ParticipantTracker } from "@/components/admin/ParticipantTracker";
 import { usePresenceTracking } from "@/hooks/usePresenceTracking";
 import { ANNUAL_BENEFITS } from "@/lib/constants";
@@ -254,7 +253,7 @@ const CourseDetail = () => {
           {/* Softer notice for mobile users */}
           {isMobile && (
             <div className="text-center py-2.5 sm:py-3 px-3 sm:px-4 mb-3 sm:mb-4 bg-muted/30 rounded-lg border border-border mx-2 sm:mx-0">
-              <p className="text-xs sm:text-sm text-muted-foreground break-words leading-relaxed">
+              <p className="text-sm text-muted-foreground break-words leading-relaxed">
                 Fully usable on mobile. For the best experience, we recommend rotating your device to landscape or using a desktop.
               </p>
             </div>

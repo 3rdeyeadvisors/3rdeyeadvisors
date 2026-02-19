@@ -76,7 +76,7 @@ const WhyMostPeopleLoseCrypto = () => {
                 {/* Introduction */}
                 <div className="mb-12">
                   <p className="text-foreground/90 text-lg leading-relaxed mb-6">
-                    The crypto markets have created generational wealth for some and devastating losses for others. According to multiple studies, an estimated <strong className="text-foreground">70-90% of retail traders lose money</strong> in cryptocurrency markets. This is not because crypto is inherently broken. It is because human psychology and centralized systems create predictable failure patterns.
+                    The crypto markets have created generational wealth for some and devastating losses for others. According to multiple studies, an estimated <strong className="text-foreground">70 to 90% of retail traders lose money</strong> in cryptocurrency markets. This is not because crypto is inherently broken. It is because human psychology and centralized systems create predictable failure patterns.
                   </p>
                   <p className="text-foreground/90 text-lg leading-relaxed">
                     Understanding these patterns is the first step toward avoiding them. Let's examine why most people lose, what the 2022 CeFi collapse revealed about centralized risk, and how DeFi's structural advantages offer a fundamentally different approach.

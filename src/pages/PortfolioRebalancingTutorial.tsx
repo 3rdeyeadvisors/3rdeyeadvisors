@@ -23,7 +23,6 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { DesktopOnlyNotice } from "@/components/DesktopOnlyNotice";
 import { TutorialHeader } from "@/components/course/TutorialHeader";
 import { StepNavigation } from "@/components/course/StepNavigation";
 import { useAuth } from "@/components/auth/AuthProvider";
@@ -63,7 +62,7 @@ const PortfolioRebalancingTutorial = () => {
           },
           {
             trigger: "Threshold-Based",
-            frequency: "When deviation >5-10%",
+            frequency: "When deviation >5 to 10%",
             description: "Rebalance when allocations drift beyond target ranges",
             pros: ["Responsive", "Captures volatility", "Flexible"],
             cons: ["More complex", "Potential overtrading"],
@@ -84,21 +83,21 @@ const PortfolioRebalancingTutorial = () => {
             allocation: "60% Stablecoins, 30% ETH/BTC, 10% Blue-chip DeFi",
             rebalanceFreq: "Quarterly",
             riskLevel: "Low",
-            targetAPY: "5-12%"
+            targetAPY: "5 to 12%"
           },
           {
             type: "Balanced DeFi",
             allocation: "40% Stablecoins, 40% Major crypto, 20% DeFi protocols",
             rebalanceFreq: "Monthly",
             riskLevel: "Medium",
-            targetAPY: "8-20%"
+            targetAPY: "8 to 20%"
           },
           {
             type: "Aggressive DeFi",
             allocation: "20% Stablecoins, 30% Major crypto, 50% DeFi strategies",
             rebalanceFreq: "Bi-weekly",
             riskLevel: "High",
-            targetAPY: "15-50%"
+            targetAPY: "15 to 50%"
           }
         ]
       }
@@ -175,7 +174,7 @@ const PortfolioRebalancingTutorial = () => {
           {
             method: "Batch Transactions",
             description: "Combine multiple rebalancing trades",
-            gasSavings: "50-80%",
+            gasSavings: "50 to 80%",
             tools: ["1inch", "Paraswap", "Zapper"]
           },
           {
@@ -187,7 +186,7 @@ const PortfolioRebalancingTutorial = () => {
           {
             method: "Layer 2 Execution",
             description: "Execute frequent rebalancing on cheaper chains",
-            gasSavings: "90-99%",
+            gasSavings: "90 to 99%",
             tools: ["Polygon", "Arbitrum", "Optimism"]
           }
         ]
@@ -205,7 +204,7 @@ const PortfolioRebalancingTutorial = () => {
             step: "Portfolio Analysis",
             description: "Assess current allocations vs targets",
             tools: ["Zapper", "DeBank", "Zerion", "Custom spreadsheets"],
-            timeRequired: "15-30 minutes",
+            timeRequired: "15 to 30 minutes",
             actions: [
               "Export current portfolio data",
               "Calculate actual vs target allocations",
@@ -217,7 +216,7 @@ const PortfolioRebalancingTutorial = () => {
             step: "Market Assessment",
             description: "Evaluate current market conditions",
             tools: ["CoinGecko", "DeFiPulse", "Fear & Greed Index"],
-            timeRequired: "10-15 minutes",
+            timeRequired: "10 to 15 minutes",
             actions: [
               "Check overall market sentiment",
               "Review individual asset performance",
@@ -229,7 +228,7 @@ const PortfolioRebalancingTutorial = () => {
             step: "Gas Optimization",
             description: "Plan transactions for minimal costs",
             tools: ["ETH Gas Station", "GasNow", "Blocknative"],
-            timeRequired: "5-10 minutes",
+            timeRequired: "5 to 10 minutes",
             actions: [
               "Check current gas prices",
               "Identify optimal transaction timing",
@@ -252,7 +251,7 @@ const PortfolioRebalancingTutorial = () => {
           },
           {
             phase: "Trade Execution",
-            duration: "15-45 minutes",
+            duration: "15 to 45 minutes",
             process: [
               "Start with largest deviations",
               "Execute sells before buys",
@@ -419,7 +418,7 @@ const PortfolioRebalancingTutorial = () => {
             metric: "Turnover Rate",
             description: "Frequency of portfolio changes",
             calculation: "Sum of |Trades| / Average Portfolio Value",
-            target: "10-50% annually depending on strategy",
+            target: "10 to 50% annually depending on strategy",
             interpretation: "Balance between responsiveness and costs"
           },
           {

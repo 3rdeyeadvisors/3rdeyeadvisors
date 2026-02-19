@@ -21,7 +21,6 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { DesktopOnlyNotice } from "@/components/DesktopOnlyNotice";
 import { TutorialHeader } from "@/components/course/TutorialHeader";
 import { StepNavigation } from "@/components/course/StepNavigation";
 import { useAuth } from "@/components/auth/AuthProvider";
@@ -183,32 +182,32 @@ const LiquidityPoolBasicsTutorial = () => {
           {
             category: "Stablecoin Pools",
             examples: "USDC/USDT, DAI/USDC",
-            ilRisk: "Minimal (0-0.1%)",
-            apyRange: "5-15%",
+            ilRisk: "Minimal ( 0 to 0.1%)",
+            apyRange: "5 to 15%",
             bestFor: "Risk-averse, stable income",
             considerations: ["Very low IL", "Lower APY", "High stability", "Great for beginners"]
           },
           {
             category: "Correlated Asset Pools",
             examples: "ETH/wBTC, ETH/stETH",
-            ilRisk: "Low (1-5%)",
-            apyRange: "10-25%",
+            ilRisk: "Low (1 to 5%)",
+            apyRange: "10 to 25%",
             bestFor: "Moderate risk tolerance",
             considerations: ["Assets move together", "Reduced IL", "Moderate APY", "Good balance"]
           },
           {
             category: "Volatile Pairs",
             examples: "ETH/USDC, MATIC/USDT",
-            ilRisk: "High (10-50%+)",
-            apyRange: "20-100%+",
+            ilRisk: "High (10 to 50%+)",
+            apyRange: "20 to 100%+",
             bestFor: "High risk tolerance, active management",
             considerations: ["High IL potential", "High APY", "Requires monitoring", "Best for trending markets"]
           },
           {
             category: "Exotic/New Token Pools",
             examples: "NewToken/ETH",
-            ilRisk: "Extreme (50-100%+)",
-            apyRange: "50-1000%+",
+            ilRisk: "Extreme (50 to 100%+)",
+            apyRange: "50 to 1000%+",
             bestFor: "Speculators, very high risk appetite",
             considerations: ["Extreme IL risk", "Massive APY potential", "High rug risk", "Only with money you can lose"]
           }
@@ -229,7 +228,7 @@ const LiquidityPoolBasicsTutorial = () => {
           {
             criterion: "APY/APR",
             importance: "Medium",
-            whatToLookFor: "Realistic returns (15-50% for established pairs)",
+            whatToLookFor: "Realistic returns (15 to 50% for established pairs)",
             redFlag: "APY > 500% often unsustainable"
           },
           {
@@ -250,7 +249,7 @@ const LiquidityPoolBasicsTutorial = () => {
         overview: "Complete walkthrough of depositing into a liquidity pool on Uniswap (similar process for all DEXs).",
         prerequisites: [
           "Wallet with sufficient tokens for both sides of the pair",
-          "Extra ETH for gas fees (~$5-50 depending on network)",
+          "Extra ETH for gas fees (~$5 to 50 depending on network)",
           "Pool research completed (TVL, APY, IL risk assessed)"
         ],
         steps: [
@@ -285,7 +284,7 @@ const LiquidityPoolBasicsTutorial = () => {
               {
                 option: "Concentrated Range",
                 description: "Liquidity only within specific price range",
-                pros: "10-50x higher fees in range",
+                pros: "10 to 50x higher fees in range",
                 cons: "Goes inactive outside range, needs monitoring"
               }
             ],
@@ -303,9 +302,9 @@ const LiquidityPoolBasicsTutorial = () => {
             step: 5,
             action: "Approve Tokens",
             details: "Two approval transactions (one per token) if first time",
-            gasNote: "Each approval costs gas (~$5-20)",
+            gasNote: "Each approval costs gas (~$5 to 20)",
             tip: "Approve 'unlimited' to avoid future approval fees",
-            time: "2-3 minutes"
+            time: "2 to 3 minutes"
           },
           {
             step: 6,
@@ -316,7 +315,7 @@ const LiquidityPoolBasicsTutorial = () => {
               "LP tokens (or NFT position for V3) minted to your wallet",
               "Position now earning fees on all trades"
             ],
-            time: "1-2 minutes"
+            time: "1 to 2 minutes"
           },
           {
             step: 7,
@@ -326,8 +325,8 @@ const LiquidityPoolBasicsTutorial = () => {
             time: "1 minute"
           }
         ],
-        totalTime: "10-15 minutes",
-        totalGasCost: "$15-100 (depends on network congestion)"
+        totalTime: "10 to 15 minutes",
+        totalGasCost: "$15 to 100 (depends on network congestion)"
       }
     },
     {
@@ -393,15 +392,15 @@ const LiquidityPoolBasicsTutorial = () => {
             strategy: "Yield Farming on LP Tokens",
             description: "Stake your LP tokens in yield farms for additional rewards",
             example: "Provide ETH/USDC → Receive LP tokens → Stake LP tokens → Earn pool fees + farm rewards",
-            apyBoost: "+20-100% APY",
+            apyBoost: "+20 to 100% APY",
             risk: "Smart contract risk from farm contract",
             platforms: "SushiSwap, PancakeSwap, Curve"
           },
           {
             strategy: "Range Orders (Uniswap V3)",
             description: "Tight ranges act like limit orders while earning fees",
-            example: "Set range $1,950-2,050 for ETH → Acts like sell order at $2,050 while earning fees",
-            apyBoost: "5-20x fees in range",
+            example: "Set range $1,950 to 2,050 for ETH → Acts like sell order at $2,050 while earning fees",
+            apyBoost: "5 to 20x fees in range",
             risk: "Position goes inactive outside range",
             bestFor: "Trading + LP hybrid approach"
           },
@@ -423,7 +422,7 @@ const LiquidityPoolBasicsTutorial = () => {
           }
         ],
         riskManagement: [
-          "Never deploy more than 10-30% of portfolio to a single pool",
+          "Never deploy more than 10 to 30% of portfolio to a single pool",
           "Diversify across multiple pools and protocols",
           "Keep emergency reserves for unexpected IL",
           "Use stop-loss mentally: exit if IL exceeds X%",
@@ -447,7 +446,7 @@ const LiquidityPoolBasicsTutorial = () => {
           {
             mistake: "Chasing High APY",
             consequence: "Losing principal to rug pulls or IL",
-            lesson: "Sustainable APY is 15-50% for established pairs; 500%+ is usually a trap"
+            lesson: "Sustainable APY is 15 to 50% for established pairs; 500%+ is usually a trap"
           },
           {
             mistake: "Entering Volatile Pairs in Trending Markets",
@@ -462,7 +461,7 @@ const LiquidityPoolBasicsTutorial = () => {
           {
             mistake: "Providing Liquidity on Launch Day",
             consequence: "Extreme IL as price discovers itself",
-            lesson: "Wait 1-2 weeks for price to stabilize"
+            lesson: "Wait 1 to 2 weeks for price to stabilize"
           },
           {
             mistake: "Using Concentrated Ranges Without Monitoring",
@@ -473,8 +472,8 @@ const LiquidityPoolBasicsTutorial = () => {
         bestPractices: [
           {
             practice: "Start Small",
-            details: "Test with small amounts ($100-500) to understand mechanics",
-            timeframe: "First 1-2 months"
+            details: "Test with small amounts ($100 to 500) to understand mechanics",
+            timeframe: "First 1 to 2 months"
           },
           {
             practice: "Diversify Across Pool Types",

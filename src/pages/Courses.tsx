@@ -293,7 +293,7 @@ const Courses = () => {
             },
             hasCourseInstance: true,
             coursePrerequisites: "No prior experience required",
-            timeRequired: "2-8 hours per course"
+            timeRequired: "2 to 8 hours per course"
           }
         }}
         faq={[
@@ -307,7 +307,7 @@ const Courses = () => {
           },
           {
             question: "How can I earn passive income through DeFi?",
-            answer: "Our courses teach multiple DeFi passive income strategies including yield farming (5-50% APY), liquidity providing, staking rewards, and DeFi lending protocols. Learn to safely navigate opportunities while managing risks."
+            answer: "Our courses teach multiple DeFi passive income strategies including yield farming (5 to 50% APY), liquidity providing, staking rewards, and DeFi lending protocols. Learn to safely navigate opportunities while managing risks."
           },
           {
             question: "Do you offer free DeFi education?",
@@ -354,7 +354,7 @@ const Courses = () => {
           {isPremiumMember && (
             <div className="flex items-center justify-center gap-2 mt-3 text-primary">
               <Star className="w-4 h-4" />
-              <span className="text-sm font-consciousness">Premium Member: {ANNUAL_BENEFITS.earlyAccessDays}-day early access to new courses</span>
+              <span className="text-sm font-consciousness">Premium Member: {ANNUAL_BENEFITS.earlyAccessDays} day early access to new courses</span>
             </div>
           )}
         </div>
