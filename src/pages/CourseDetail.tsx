@@ -10,6 +10,8 @@ import { useSubscription } from "@/hooks/useSubscription";
 import { useProgress } from "@/components/progress/ProgressProvider";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { ArrowLeft, BookOpen, CheckCircle, Clock, Play, Grid3X3, Star, Lock } from "lucide-react";
+import PageHero from "@/components/PageHero";
+import CourseProgressBar from "@/components/course/CourseProgressBar";
 import { getCourseContent } from "@/data/courseContent";
 import { EnhancedModuleNavigation } from "@/components/course/EnhancedModuleNavigation";
 import { CommunityTabs } from "@/components/community/CommunityTabs";
@@ -156,42 +158,38 @@ const CourseDetail = () => {
           }
         ]}
       />
-      <div className="min-h-screen py-20">
-      <div className="container mx-auto px-4 max-w-4xl">
-        {/* Back Button */}
-        <Button
-          variant="outline"
-          onClick={() => navigate("/courses")}
-          className="mb-8 font-consciousness"
-        >
-          <ArrowLeft className="w-4 h-4 mr-2" />
-          Back to Courses
-        </Button>
+      <div className="min-h-screen bg-black relative">
+        {/* Background Glows */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-500/10 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/10 blur-[100px] rounded-full pointer-events-none" />
 
-        {/* Course Header */}
-        <div className="mb-6 sm:mb-8 text-center sm:text-left">
-          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4 mb-4 sm:mb-6">
-            <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-3 sm:gap-4">
-              <BookOpen className="w-6 h-6 sm:w-8 sm:h-8 text-primary flex-shrink-0" />
-              {isEarlyAccess && (
-                <Badge className="bg-primary/20 text-primary border-primary/30 text-xs sm:text-sm flex items-center gap-1">
-                  <Star className="w-3 h-3" />
-                  Early Access
-                </Badge>
-              )}
-              <Badge className="bg-awareness/20 text-awareness border-awareness/30 text-xs sm:text-sm">
-                Free Course
-              </Badge>
-            </div>
-            <div className="flex items-center justify-center sm:justify-end gap-2 text-muted-foreground">
-              <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
-              <span className="font-system text-xs sm:text-sm">{course.estimatedTime}</span>
-            </div>
+        <PageHero
+          eyebrow="Course"
+          title={course.title}
+          subtitle={course.description}
+        />
+
+        <div className="flex flex-wrap justify-center gap-4 md:gap-8 px-6 pb-8 text-center relative z-10">
+          <div>
+            <p className="font-consciousness text-lg font-bold text-white">{course.difficulty}</p>
+            <p className="font-body text-xs uppercase tracking-widest text-white/40">Difficulty</p>
           </div>
+          <div className="w-px bg-white/10 hidden sm:block" />
+          <div>
+            <p className="font-consciousness text-lg font-bold text-white">{course.modules?.length || 0}</p>
+            <p className="font-body text-xs uppercase tracking-widest text-white/40">Modules</p>
+          </div>
+          <div className="w-px bg-white/10 hidden sm:block" />
+          <div>
+            <p className="font-consciousness text-lg font-bold text-white">{course.estimated_hours || '—'}h</p>
+            <p className="font-body text-xs uppercase tracking-widest text-white/40">Est. Duration</p>
+          </div>
+        </div>
 
+        <div className="container mx-auto px-4 max-w-4xl relative z-10">
           {/* Start Learning Button - Handled with locking logic */}
           {user && (
-            <div className="mb-4 sm:mb-6 flex flex-col items-center sm:items-start gap-3 px-2 sm:px-0">
+            <div className="mb-8 flex flex-col items-center gap-4">
               <Button
                 onClick={() => {
                   if (isLocked) {
@@ -200,12 +198,9 @@ const CourseDetail = () => {
                   }
                   navigate(`/courses/${courseId}/module/${course.modules[0]?.id}`);
                 }}
-                className={`font-consciousness w-full sm:w-auto flex items-center justify-center min-h-[44px] text-sm sm:text-base ${
-                  isLocked
-                    ? "bg-muted text-muted-foreground hover:bg-muted/80"
-                    : "bg-primary hover:bg-primary/90 text-primary-foreground"
+                className={`font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl px-8 py-4 text-base font-semibold transition-all shadow-lg shadow-violet-900/30 hover:shadow-violet-700/40 hover:scale-105 w-full sm:w-auto min-h-[52px] ${
+                  isLocked ? "opacity-50 cursor-not-allowed" : ""
                 }`}
-                size="lg"
               >
                 {isLocked ? (
                   <>
@@ -231,39 +226,13 @@ const CourseDetail = () => {
             </div>
           )}
 
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-consciousness font-bold text-foreground mb-3 sm:mb-4 break-words leading-tight px-2 sm:px-0">
-            {course.title}
-          </h1>
-
-          {/* Mobile: Expandable text, Desktop: Full text */}
-          <div className="mb-4 sm:mb-6 px-2 sm:px-0">
-            <div className="block md:hidden">
-              <ExpandableText 
-                text={course.description}
-                maxLines={3}
-                className="text-base sm:text-lg text-muted-foreground font-consciousness leading-relaxed break-words"
-                mobileOnly={true}
+          {user && (
+            <div className="mb-8">
+              <CourseProgressBar
+                completed={progress?.completed_modules?.length || 0}
+                total={course.modules?.length || 0}
               />
             </div>
-            <p className="hidden md:block text-lg text-muted-foreground font-consciousness leading-relaxed break-words">
-              {course.description}
-            </p>
-          </div>
-
-          {/* Softer notice for mobile users */}
-          {isMobile && (
-            <div className="text-center py-2.5 sm:py-3 px-3 sm:px-4 mb-3 sm:mb-4 bg-muted/30 rounded-lg border border-border mx-2 sm:mx-0">
-              <p className="text-sm text-muted-foreground break-words leading-relaxed">
-                Fully usable on mobile. For the best experience, we recommend rotating your device to landscape or using a desktop.
-              </p>
-            </div>
-          )}
-
-          {user && (
-            <ProgressBar 
-              courseId={course.id} 
-              className="mb-6"
-            />
           )}
 
           {!user && (
@@ -289,67 +258,28 @@ const CourseDetail = () => {
           )}
         </div>
 
-        {/* Module Navigation Toggle */}
-        <div className="flex flex-col gap-2.5 sm:gap-3 mb-4 sm:mb-6 px-3 sm:px-4 md:px-6">
-          {/* Title and Metrics Row */}
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2.5 sm:gap-3 text-center sm:text-left">
-            <h2 className="text-lg sm:text-xl md:text-2xl font-consciousness font-semibold text-foreground break-words">
+        {/* Module List */}
+        <div className="px-3 sm:px-4 md:px-0">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+            <h2 className="text-xl md:text-2xl font-consciousness font-semibold text-white">
               Course Modules
             </h2>
-            <div className="flex items-center justify-center sm:justify-end gap-2 sm:gap-3">
-              <ParticipantTracker contentType="course" contentId={courseId || '0'} />
-            </div>
+            <ParticipantTracker contentType="course" contentId={courseId || '0'} />
           </div>
-          
-          {/* View Toggle */}
-          <div className="flex w-full rounded-lg bg-background/40 border border-border/40 p-1 gap-1.5 sm:gap-2">
-            <button
-              onClick={() => setShowEnhancedNav(true)}
-              className={`flex-1 inline-flex items-center justify-center rounded-md px-2 sm:px-3 py-2.5 sm:py-2 text-xs sm:text-sm font-medium font-consciousness transition-colors min-h-[44px] ${
-                showEnhancedNav
-                  ? 'bg-primary text-primary-foreground'
-                  : 'text-muted-foreground bg-transparent'
-              }`}
-            >
-              <Grid3X3 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 sm:mr-2 flex-shrink-0" />
-              <span className="whitespace-nowrap break-words">Enhanced View</span>
-            </button>
-            <button
-              onClick={() => setShowEnhancedNav(false)}
-              className={`flex-1 inline-flex items-center justify-center rounded-md px-2 sm:px-3 py-2.5 sm:py-2 text-xs sm:text-sm font-medium font-consciousness transition-colors min-h-[44px] ${
-                !showEnhancedNav
-                  ? 'bg-primary text-primary-foreground'
-                  : 'text-muted-foreground bg-transparent'
-              }`}
-            >
-              <Grid3X3 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 sm:mr-2 flex-shrink-0" />
-              <span className="whitespace-nowrap break-words">Simple View</span>
-            </button>
-          </div>
-        </div>
 
-        {/* Enhanced or Simple Module Navigation */}
-        {showEnhancedNav ? (
-          <EnhancedModuleNavigation
-            courseId={course.id}
-            onModuleSelect={(moduleId) => navigate(`/courses/${courseId}/module/${moduleId}`)}
-            showProgress={true}
-            compact={false}
-          />
-        ) : (
-          <div className="space-y-4">
+          <div className="space-y-3">
             {course.modules.map((module, index) => {
               const isCompleted = isModuleCompleted(index);
               
               return (
-                <Card
+                <div
                   key={index}
-                  className={`p-6 transition-all duration-300 ${
+                  className={`group p-4 sm:p-5 border rounded-xl transition-all cursor-pointer flex items-center justify-between gap-4 ${
                     isLocked
-                      ? "bg-muted/30 border-border opacity-70 cursor-not-allowed"
+                      ? "border-white/5 bg-white/1 opacity-50 cursor-not-allowed"
                       : isCompleted
-                        ? "bg-primary/5 border-primary/30 cursor-pointer"
-                        : "bg-card/60 border-border hover:border-primary/40 cursor-pointer"
+                        ? "border-emerald-500/20 bg-emerald-500/5 hover:border-emerald-500/40"
+                        : "border-white/8 bg-white/3 hover:border-violet-500/20"
                   }`}
                   onClick={() => {
                     if (isLocked) {
@@ -362,47 +292,35 @@ const CourseDetail = () => {
                     navigate(`/courses/${courseId}/module/${module.id}`);
                   }}
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="flex items-center gap-3 min-w-0 flex-1">
-                      {user ? (
-                        <div onClick={(e) => e.stopPropagation()}>
-                          <Checkbox
-                            checked={isCompleted}
-                            onCheckedChange={() => handleModuleToggle(index)}
-                            className="mt-1"
-                          />
-                        </div>
+                  <div className="flex items-center gap-4 min-w-0">
+                    <div className="flex-shrink-0">
+                      {isLocked ? (
+                        <Lock className="w-4 h-4 text-white/20" />
+                      ) : isCompleted ? (
+                        <CheckCircle className="w-5 h-5 text-emerald-400" />
                       ) : (
-                        <div className="w-4 h-4 border rounded mt-1 border-border" />
-                      )}
-                      
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-2">
-                          <span className="text-sm font-system text-muted-foreground">
-                            Module {index + 1}
-                          </span>
-                          {isCompleted && (
-                            <CheckCircle className="w-4 h-4 text-primary" />
-                          )}
-                        </div>
-                        <h3 className={`font-consciousness font-medium ${
-                          isCompleted ? "text-primary" : "text-foreground"
-                        }`}>
-                          {module.title}
-                        </h3>
-                        <p className="text-sm mt-1 text-muted-foreground">
-                          {module.duration} minutes • {module.type}
+                        <p className="font-body text-xs uppercase tracking-widest text-white/30">
+                          {String(index + 1).padStart(2, '0')}
                         </p>
-                      </div>
-                      
-                      <Play className="w-5 h-5 text-primary" />
+                      )}
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="font-consciousness text-sm sm:text-base font-semibold text-white truncate">
+                        {module.title}
+                      </h3>
+                      <p className="font-body text-xs text-white/40 uppercase tracking-wider mt-0.5">
+                        {module.duration} min • {module.type}
+                      </p>
                     </div>
                   </div>
-                </Card>
+                  {!isLocked && (
+                    <Play className="w-4 h-4 text-white/20 group-hover:text-violet-400 transition-colors shrink-0" />
+                  )}
+                </div>
               );
             })}
           </div>
-        )}
+        </div>
 
         {/* Course Complete Badge */}
         {user && progress?.completion_percentage === 100 && (
@@ -430,7 +348,6 @@ const CourseDetail = () => {
         isOpen={showAuthModal} 
         onClose={() => setShowAuthModal(false)} 
       />
-      </div>
     </>
   );
 };

@@ -67,7 +67,7 @@ const CryptoCard = ({ crypto, isRecommended = false }: { crypto: CryptoData; isR
   const isPositive = crypto.priceChange24h >= 0;
   
   return (
-    <Card className={`p-4 bg-card/80 border-border hover:border-primary/50 transition-all duration-300 ${isRecommended ? 'ring-1 ring-primary/30' : ''}`}>
+    <div className={`p-5 bg-white/3 border border-white/8 rounded-2xl hover:border-violet-500/30 transition-all duration-300 ${isRecommended ? 'ring-1 ring-violet-500/30' : ''}`}>
       {/* Header: Center on mobile, left-align on desktop */}
       <div className="flex flex-col sm:flex-row items-center sm:items-start sm:justify-between mb-3 gap-2 sm:gap-0">
         <div className="flex flex-col sm:flex-row items-center gap-2">
@@ -124,7 +124,7 @@ const CryptoCard = ({ crypto, isRecommended = false }: { crypto: CryptoData; isR
           MCap: {formatMarketCap(crypto.marketCap)}
         </div>
       </div>
-    </Card>
+    </div>
   );
 };
 
@@ -271,7 +271,7 @@ export const CryptoPricesWidget = () => {
   }
 
   return (
-    <Card className="p-6 bg-card/60 border-border">
+    <div className="p-6 md:p-8 bg-white/3 border border-white/8 rounded-2xl">
       {/* Header - Fully centered on mobile */}
       <div className="flex flex-col items-center sm:flex-row sm:items-center sm:justify-between mb-6 gap-4 text-center sm:text-left">
         <div className="flex flex-col sm:flex-row items-center gap-3">
@@ -377,13 +377,13 @@ export const CryptoPricesWidget = () => {
       </div>
 
       {/* Disclaimer */}
-      <div className="mt-6 pt-4 border-t border-border">
-        <p className="text-xs text-muted-foreground font-consciousness text-center">
+      <div className="mt-6 pt-4 border-t border-white/5">
+        <p className="text-xs text-white/30 font-body text-center">
           Prices powered by CoinGecko. Data refreshes every 3 minutes. 
           APY rates are approximate and subject to change. Not financial advice.
         </p>
       </div>
-    </Card>
+    </div>
   );
 };
 

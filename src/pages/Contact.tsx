@@ -119,7 +119,7 @@ const Contact = () => {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div>
-              <div className="p-8 bg-white/3 border border-white/8 rounded-2xl backdrop-blur-sm">
+              <div className="p-6 md:p-8 bg-white/3 border border-white/8 rounded-2xl backdrop-blur-sm max-w-2xl mx-auto">
                 <div className="flex items-center mb-8">
                   <Mail className="w-6 h-6 text-violet-400 mr-3" />
                   <h2 className="text-2xl font-consciousness font-bold text-white">
@@ -130,7 +130,7 @@ const Contact = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="name" className="font-body text-xs uppercase tracking-widest text-white/40">
+                      <Label htmlFor="name" className="font-body text-xs uppercase tracking-widest text-white/40 mb-2 block">
                         Name
                       </Label>
                       <Input
@@ -141,12 +141,12 @@ const Contact = () => {
                         placeholder="Your name"
                         value={formData.name}
                         onChange={handleChange}
-                        className="font-body text-sm bg-white/5 border-white/10 rounded-xl px-4 py-3 text-white focus:border-violet-500/50"
+                        className="font-body text-sm bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white placeholder:text-white/25 focus:outline-none focus:border-violet-500/50 transition-colors w-full"
                         disabled={isSubmitting}
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email" className="font-body text-xs uppercase tracking-widest text-white/40">
+                      <Label htmlFor="email" className="font-body text-xs uppercase tracking-widest text-white/40 mb-2 block">
                         Email
                       </Label>
                       <Input
@@ -157,14 +157,14 @@ const Contact = () => {
                         placeholder="your@email.com"
                         value={formData.email}
                         onChange={handleChange}
-                        className="font-body text-sm bg-white/5 border-white/10 rounded-xl px-4 py-3 text-white focus:border-violet-500/50"
+                        className="font-body text-sm bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white placeholder:text-white/25 focus:outline-none focus:border-violet-500/50 transition-colors w-full"
                         disabled={isSubmitting}
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="subject" className="font-body text-xs uppercase tracking-widest text-white/40">
+                    <Label htmlFor="subject" className="font-body text-xs uppercase tracking-widest text-white/40 mb-2 block">
                       Subject
                     </Label>
                     <Input
@@ -175,13 +175,13 @@ const Contact = () => {
                       placeholder="What's this about?"
                       value={formData.subject}
                       onChange={handleChange}
-                      className="font-body text-sm bg-white/5 border-white/10 rounded-xl px-4 py-3 text-white focus:border-violet-500/50"
+                      className="font-body text-sm bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white placeholder:text-white/25 focus:outline-none focus:border-violet-500/50 transition-colors w-full"
                       disabled={isSubmitting}
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="message" className="font-body text-xs uppercase tracking-widest text-white/40">
+                    <Label htmlFor="message" className="font-body text-xs uppercase tracking-widest text-white/40 mb-2 block">
                       Message
                     </Label>
                     <Textarea
@@ -192,14 +192,14 @@ const Contact = () => {
                       rows={6}
                       value={formData.message}
                       onChange={handleChange}
-                      className="font-body text-sm bg-white/5 border-white/10 rounded-xl px-4 py-3 text-white focus:border-violet-500/50 resize-none"
+                      className="font-body text-sm bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white placeholder:text-white/25 focus:outline-none focus:border-violet-500/50 transition-colors w-full resize-none"
                       disabled={isSubmitting}
                     />
                   </div>
 
                   <Button
                     type="submit"
-                    className="w-full font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl py-6 transition-all"
+                    className="w-full font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl px-8 py-4 font-medium transition-all min-h-[52px]"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
@@ -218,7 +218,7 @@ const Contact = () => {
             {/* About & Connect */}
             <div className="space-y-8">
               {/* About Section */}
-              <div className="p-8 bg-gradient-to-br from-violet-600/10 to-blue-600/10 border border-violet-500/20 rounded-2xl">
+              <div className="p-8 bg-white/3 border border-white/8 rounded-2xl">
                 <div className="flex items-center mb-6">
                   <Globe className="w-6 h-6 text-violet-400 mr-3" />
                   <h2 className="text-2xl font-consciousness font-bold text-white">
@@ -254,29 +254,33 @@ const Contact = () => {
                   Connect With Us
                 </h3>
                 
-                <div className="space-y-3">
-                  <a
-                    href="mailto:info@the3rdeyeadvisors.com"
-                    className="flex items-center gap-3 p-4 bg-white/5 border border-white/10 rounded-xl hover:border-violet-500/30 hover:bg-white/10 transition-all group"
-                  >
-                    <Mail className="w-5 h-5 text-violet-400 group-hover:text-violet-300" />
-                    <span className="font-body text-sm text-white/70">info@the3rdeyeadvisors.com</span>
-                  </a>
+                <div className="space-y-4">
+                  <div>
+                    <p className="font-body text-xs uppercase tracking-widest text-white/30 mb-1">Email Support</p>
+                    <a
+                      href="mailto:info@the3rdeyeadvisors.com"
+                      className="font-consciousness text-sm font-medium text-white hover:text-violet-400 transition-colors"
+                    >
+                      info@the3rdeyeadvisors.com
+                    </a>
+                  </div>
 
-                  <a
-                    href="https://twitter.com/3rdeyeadvisors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 p-4 bg-white/5 border border-white/10 rounded-xl hover:border-violet-500/30 hover:bg-white/10 transition-all group"
-                  >
-                    <Twitter className="w-5 h-5 text-violet-400 group-hover:text-violet-300" />
-                    <span className="font-body text-sm text-white/70">@3rdeyeadvisors</span>
-                  </a>
+                  <div>
+                    <p className="font-body text-xs uppercase tracking-widest text-white/30 mb-1">Twitter / X</p>
+                    <a
+                      href="https://twitter.com/3rdeyeadvisors"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-consciousness text-sm font-medium text-white hover:text-violet-400 transition-colors"
+                    >
+                      @3rdeyeadvisors
+                    </a>
+                  </div>
                 </div>
               </div>
 
               {/* Response Time */}
-              <div className="p-6 bg-violet-500/5 border border-violet-500/10 rounded-2xl flex gap-4">
+              <div className="p-6 bg-white/3 border border-white/8 rounded-2xl flex gap-4">
                 <MessageSquare className="w-6 h-6 text-violet-400 shrink-0" />
                 <div>
                   <h4 className="font-consciousness font-bold text-white mb-1">

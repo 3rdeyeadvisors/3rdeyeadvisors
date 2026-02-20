@@ -229,7 +229,7 @@ const AdvancedDefiProtocolsTutorial = () => {
               "Earn trading fees + farming rewards",
               "Pay interest on borrowed amount"
             ],
-            profitFormula: "(LP rewards + fees) × leverage minus borrowing costs",
+            profitFormula: "(LP rewards + fees) × leverage - borrowing costs",
             optimalConditions: "High farming rewards, low borrowing rates, stable pair"
           },
           {
@@ -241,7 +241,7 @@ const AdvancedDefiProtocolsTutorial = () => {
               "Stake total amount",
               "Earn staking rewards on larger position"
             ],
-            profitFormula: "Staking rewards × leverage minus borrowing costs",
+            profitFormula: "Staking rewards × leverage - borrowing costs",
             optimalConditions: "Staking rewards > borrowing costs + safety margin"
           },
           {
@@ -253,7 +253,7 @@ const AdvancedDefiProtocolsTutorial = () => {
               "Earn farming rewards",
               "Minimize price risk"
             ],
-            profitFormula: "Farming rewards - hedging costs minus IL",
+            profitFormula: "Farming rewards, hedging costs, and impermanent loss",
             optimalConditions: "High farming rewards, efficient hedging markets"
           }
         ],
@@ -342,15 +342,15 @@ const AdvancedDefiProtocolsTutorial = () => {
             description: "Buy puts to protect against downside",
             when: "Holding assets but expect potential downside",
             howItWorks: "Hold ETH + Buy ETH puts → Protected if price falls",
-            maxGain: "Unlimited upside minus premium paid",
-            maxLoss: "Limited to strike price minus premium",
+            maxGain: "Unlimited upside - premium paid",
+            maxLoss: "Limited to strike price - premium",
             suitability: "Risk-averse holders during uncertain times"
           },
           {
             strategy: "Squeeth (Opyn)",
             description: "Get leveraged ETH exposure without liquidation risk",
             when: "Bullish on ETH with high conviction",
-            howItWorks: "Buy squeeth tokens → 2x ETH exposure without margin calls",
+            howItWorks: "Buy squeeth tokens to get 2x ETH exposure without margin calls",
             maxGain: "Unlimited (squared ETH returns)",
             maxLoss: "100% of premium (no liquidation)",
             suitability: "Sophisticated traders comfortable with volatility"
@@ -779,7 +779,7 @@ const AdvancedDefiProtocolsTutorial = () => {
           },
           {
             metric: "Risk-Adjusted Return",
-            calculation: "Sharpe ratio, Sortino ratio, Maximum drawdown",
+            calculation: "Sharpe ratio, Sortino ratio, and Maximum drawdown",
             frequency: "Monthly calculation",
             benchmark: "Compare to risk-free rate and market"
           },

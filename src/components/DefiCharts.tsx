@@ -483,100 +483,63 @@ export const DefiCharts = () => {
       </div>
 
       {/* Desktop View - Show all metrics */}
-      <div className="hidden md:grid md:grid-cols-3 gap-6">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Value Locked</CardTitle>
-            <DollarSign className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{formatCurrency(getCurrentTVL())}</div>
-            <div className="flex items-center text-xs text-muted-foreground">
-              {parseFloat(getTVLChange()) >= 0 ? (
-                <TrendingUp className="w-4 h-4 text-awareness mr-1" />
-              ) : (
-                <TrendingDown className="w-4 h-4 text-destructive mr-1" />
-              )}
-              <span className={parseFloat(getTVLChange()) >= 0 ? 'text-awareness' : 'text-destructive'}>
-                {getTVLChange()}%
-              </span>
-              <span className="ml-1">from yesterday</span>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">24h Volume</CardTitle>
-            <BarChart3 className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">
-              {formatCurrency(data.totalVolume24h)}
-            </div>
-            <p className="text-xs text-muted-foreground">Trading volume across protocols</p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Average Yield</CardTitle>
-            <Percent className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">
-              {data.averageYield.toFixed(2)}%
-            </div>
-            <p className="text-xs text-muted-foreground">Annual percentage yield</p>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Time Series Chart - Hidden on mobile */}
-      <Card className="hidden md:block overflow-hidden">
-        <CardHeader className="pb-2">
-          <div className="flex flex-col md:flex-row items-center md:items-center justify-between gap-4 text-center md:text-left">
-            <div className="flex items-center gap-3">
-              <div className="p-2.5 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20">
-                <Activity className="w-5 h-5 text-primary" />
-              </div>
-              <div>
-                <CardTitle className="text-xl">Market Trends</CardTitle>
-                <CardDescription className="text-sm">30-day performance across key DeFi metrics</CardDescription>
-              </div>
-            </div>
-            <div className="flex gap-1.5 p-1 bg-muted/50 rounded-lg">
-              <Button
-                variant={selectedMetric === 'totalTvl' ? 'default' : 'ghost'}
-                size="sm"
-                onClick={() => setSelectedMetric('totalTvl')}
-                className={`text-xs px-3 ${selectedMetric === 'totalTvl' ? 'shadow-sm' : 'hover:bg-background/80'}`}
-              >
-                <DollarSign className="w-3.5 h-3.5 mr-1.5" />
-                TVL
-              </Button>
-              <Button
-                variant={selectedMetric === 'volume' ? 'default' : 'ghost'}
-                size="sm"
-                onClick={() => setSelectedMetric('volume')}
-                className={`text-xs px-3 ${selectedMetric === 'volume' ? 'shadow-sm' : 'hover:bg-background/80'}`}
-              >
-                <BarChart3 className="w-3.5 h-3.5 mr-1.5" />
-                Volume
-              </Button>
-              <Button
-                variant={selectedMetric === 'yield' ? 'default' : 'ghost'}
-                size="sm"
-                onClick={() => setSelectedMetric('yield')}
-                className={`text-xs px-3 ${selectedMetric === 'yield' ? 'shadow-sm' : 'hover:bg-background/80'}`}
-              >
-                <Percent className="w-3.5 h-3.5 mr-1.5" />
-                Yield
-              </Button>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="bg-white/3 border border-white/8 rounded-2xl p-5">
+          <p className="font-body text-xs uppercase tracking-widest text-white/40 mb-1">Total Value Locked</p>
+          <div className="flex items-baseline gap-2">
+            <p className="font-consciousness text-2xl font-bold text-white">{formatCurrency(getCurrentTVL())}</p>
+            <div className={`flex items-center text-xs ${parseFloat(getTVLChange()) >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+              {parseFloat(getTVLChange()) >= 0 ? '+' : ''}{getTVLChange()}%
             </div>
           </div>
-        </CardHeader>
-        <CardContent className="pt-4">
+        </div>
+
+        <div className="bg-white/3 border border-white/8 rounded-2xl p-5">
+          <p className="font-body text-xs uppercase tracking-widest text-white/40 mb-1">24h Volume</p>
+          <p className="font-consciousness text-2xl font-bold text-white">{formatCurrency(data.totalVolume24h)}</p>
+        </div>
+
+        <div className="bg-white/3 border border-white/8 rounded-2xl p-5">
+          <p className="font-body text-xs uppercase tracking-widest text-white/40 mb-1">Average Yield</p>
+          <p className="font-consciousness text-2xl font-bold text-white">{data.averageYield.toFixed(2)}%</p>
+        </div>
+      </div>
+
+      {/* Time Series Chart */}
+      <div className="bg-white/3 border border-white/8 rounded-2xl p-4 md:p-6 overflow-hidden">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
+          <div className="text-center md:text-left">
+            <h3 className="font-consciousness text-base font-bold text-white mb-1">Market Trends</h3>
+            <p className="font-body text-xs text-white/40 uppercase tracking-widest">30-day performance metrics</p>
+          </div>
+          <div className="flex gap-1.5 p-1 bg-white/5 border border-white/10 rounded-xl">
+            <Button
+              variant={selectedMetric === 'totalTvl' ? 'default' : 'ghost'}
+              size="sm"
+              onClick={() => setSelectedMetric('totalTvl')}
+              className={`text-xs px-3 ${selectedMetric === 'totalTvl' ? 'bg-violet-600 text-white hover:bg-violet-500' : 'text-white/40 hover:text-white'}`}
+            >
+              TVL
+            </Button>
+            <Button
+              variant={selectedMetric === 'volume' ? 'default' : 'ghost'}
+              size="sm"
+              onClick={() => setSelectedMetric('volume')}
+              className={`text-xs px-3 ${selectedMetric === 'volume' ? 'bg-violet-600 text-white hover:bg-violet-500' : 'text-white/40 hover:text-white'}`}
+            >
+              Volume
+            </Button>
+            <Button
+              variant={selectedMetric === 'yield' ? 'default' : 'ghost'}
+              size="sm"
+              onClick={() => setSelectedMetric('yield')}
+              className={`text-xs px-3 ${selectedMetric === 'yield' ? 'bg-violet-600 text-white hover:bg-violet-500' : 'text-white/40 hover:text-white'}`}
+            >
+              Yield
+            </Button>
+          </div>
+        </div>
+        <div>
           <ResponsiveContainer width="100%" height={isDesktop ? 320 : 250}>
             <AreaChart data={data.historicalData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
               <defs>
@@ -596,7 +559,7 @@ export const DefiCharts = () => {
               <CartesianGrid 
                 strokeDasharray="3 3" 
                 stroke="hsl(var(--border))" 
-                strokeOpacity={0.5}
+                strokeOpacity={0.2}
                 vertical={false}
               />
               <XAxis 
@@ -605,40 +568,39 @@ export const DefiCharts = () => {
                   const date = new Date(value);
                   return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
                 }}
-                fontSize={11}
-                stroke="hsl(var(--muted-foreground))"
+                fontSize={10}
+                stroke="rgba(255,255,255,0.3)"
                 tickLine={false}
-                axisLine={{ stroke: 'hsl(var(--border))', strokeOpacity: 0.5 }}
+                axisLine={false}
                 dy={8}
               />
               <YAxis 
                 tickFormatter={(value) => 
                   selectedMetric === 'yield' ? `${value.toFixed(1)}%` : formatCurrency(value)
                 }
-                fontSize={11}
-                stroke="hsl(var(--muted-foreground))"
+                fontSize={10}
+                stroke="rgba(255,255,255,0.3)"
                 tickLine={false}
                 axisLine={false}
                 dx={-5}
-                width={70}
+                width={60}
               />
               <Tooltip 
-                cursor={{ stroke: 'hsl(var(--primary))', strokeWidth: 1, strokeDasharray: '4 4', strokeOpacity: 0.5 }}
+                cursor={{ stroke: 'hsl(var(--primary))', strokeWidth: 1, strokeDasharray: '4 4' }}
                 content={({ active, payload, label }) => {
                   if (active && payload && payload.length) {
                     const value = payload[0].value as number;
                     const date = new Date(label);
                     return (
-                      <div className="bg-popover/95 backdrop-blur-sm border border-border rounded-lg shadow-xl p-3 min-w-[160px]">
-                        <p className="text-xs text-muted-foreground mb-1.5 font-medium">
-                          {date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}
+                      <div className="bg-black/90 border border-white/10 rounded-xl p-3 shadow-2xl">
+                        <p className="text-[10px] uppercase tracking-widest text-white/40 mb-2 font-body font-bold">
+                          {date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                         </p>
                         <div className="flex items-center gap-2">
-                          <div className="w-2.5 h-2.5 rounded-full bg-primary shadow-sm shadow-primary/50" />
-                          <span className="text-sm text-muted-foreground">
-                            {selectedMetric === 'totalTvl' ? 'TVL' : selectedMetric === 'volume' ? 'Volume' : 'Avg Yield'}:
+                          <span className="text-sm font-consciousness font-bold text-white">
+                            {selectedMetric === 'totalTvl' ? 'TVL' : selectedMetric === 'volume' ? 'Volume' : 'Yield'}:
                           </span>
-                          <span className="text-sm font-bold text-foreground ml-auto">
+                          <span className="text-sm font-body font-bold text-violet-400 ml-auto">
                             {selectedMetric === 'yield' ? `${value.toFixed(2)}%` : formatCurrency(value)}
                           </span>
                         </div>
@@ -665,20 +627,17 @@ export const DefiCharts = () => {
               />
             </AreaChart>
           </ResponsiveContainer>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Protocol Rankings */}
-        <Card className="flex flex-col">
-          <CardHeader className="text-center md:text-left flex-shrink-0">
-            <CardTitle className="flex items-center justify-center md:justify-start">
-              <BarChart3 className="w-5 h-5 mr-2" />
-              Top DeFi Protocols
-            </CardTitle>
-            <CardDescription>Ranked by Total Value Locked with 7-day trends</CardDescription>
-          </CardHeader>
-          <CardContent className="flex-1 flex flex-col overflow-hidden">
+        <div className="bg-white/3 border border-white/8 rounded-2xl p-4 md:p-6 flex flex-col">
+          <div className="text-center md:text-left mb-6">
+            <h3 className="font-consciousness text-base font-bold text-white mb-1">Top DeFi Protocols</h3>
+            <p className="font-body text-xs text-white/40 uppercase tracking-widest">Ranked by Total Value Locked</p>
+          </div>
+          <div className="flex-1 flex flex-col overflow-hidden">
             {data?.protocols && data.protocols.length > 0 ? (
               <>
                 {/* Desktop Layout - Carousel with slide indicators */}
@@ -870,21 +829,16 @@ export const DefiCharts = () => {
                 </div>
               </div>
             )}
-          </CardContent>
-        </Card>
+          </div>
+        </div>
 
-        {/* Risk Distribution - Hidden on mobile */}
-        <Card className="hidden md:flex md:flex-col">
-          <CardHeader className="pb-2">
-            <CardTitle className="flex items-center gap-2 text-lg">
-              <div className="p-2 rounded-lg bg-primary/10">
-                <PieChartIcon className="w-4 h-4 text-primary" />
-              </div>
-              Category Distribution
-            </CardTitle>
-            <CardDescription className="text-sm">TVL breakdown by category (Top 10 Protocols)</CardDescription>
-          </CardHeader>
-          <CardContent className="pt-0 flex-1 flex items-center justify-center">
+        {/* Risk Distribution */}
+        <div className="bg-white/3 border border-white/8 rounded-2xl p-4 md:p-6 flex flex-col">
+          <div className="text-center md:text-left mb-6">
+            <h3 className="font-consciousness text-base font-bold text-white mb-1">Category Distribution</h3>
+            <p className="font-body text-xs text-white/40 uppercase tracking-widest">TVL breakdown by sector</p>
+          </div>
+          <div className="flex-1 flex items-center justify-center">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-center gap-8 w-full max-w-2xl mx-auto">
               {/* Chart Container with center label */}
               <div className="relative flex justify-center flex-shrink-0">
@@ -955,17 +909,17 @@ export const DefiCharts = () => {
                 ))}
               </div>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       </div>
 
       {/* Protocol Details Table */}
-      <Card>
-        <CardHeader className="text-center md:text-left">
-          <CardTitle>Protocol Performance</CardTitle>
-          <CardDescription>Detailed metrics for top DeFi protocols</CardDescription>
-        </CardHeader>
-        <CardContent>
+      <div className="bg-white/3 border border-white/8 rounded-2xl p-4 md:p-6">
+        <div className="text-center md:text-left mb-6">
+          <h3 className="font-consciousness text-base font-bold text-white mb-1">Protocol Performance</h3>
+          <p className="font-body text-xs text-white/40 uppercase tracking-widest">Detailed metrics for top DeFi protocols</p>
+        </div>
+        <div>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse block md:table">
               <thead className="hidden md:table-header-group">
@@ -1040,8 +994,8 @@ export const DefiCharts = () => {
               </tbody>
             </table>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </div>
   );
 };
