@@ -102,6 +102,7 @@ const Navigation = () => {
   ];
 
   return (
+    <>
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/8 pt-[env(safe-area-inset-top)]">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
@@ -203,7 +204,9 @@ const Navigation = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation Overlay */}
+    </nav>
+
+      {/* Mobile Navigation Overlay - outside nav to avoid backdrop-filter containing block */}
       <div
         className={`fixed inset-x-0 top-[64px] bottom-0 bg-black z-[60] md:hidden transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
@@ -296,7 +299,7 @@ const Navigation = () => {
           </div>
         </div>
       </div>
-    </nav>
+    </>
   );
 };
 
