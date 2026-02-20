@@ -15,7 +15,7 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center py-20 bg-black">
+    <div className="min-h-screen flex items-center justify-center py-20 bg-transparent">
       <div className="container mx-auto px-4 mobile-typography-center">
         <Card className="p-12 bg-white/3 border border-white/8 max-w-md mx-auto text-center">
           <Eye className="w-16 h-16 text-primary mx-auto mb-6 animate-cosmic-pulse" />

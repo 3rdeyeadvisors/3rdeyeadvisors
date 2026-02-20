@@ -24,7 +24,7 @@ const CheckoutSuccess = () => {
         description="Your membership is confirmed. Start learning DeFi today."
         url="https://www.the3rdeyeadvisors.com/checkout/success"
       />
-      <div className="min-h-screen bg-black flex items-center justify-center px-6">
+      <div className="min-h-screen bg-transparent flex items-center justify-center px-6">
         {/* Background glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-500/5 rounded-full blur-[120px] pointer-events-none" />
 

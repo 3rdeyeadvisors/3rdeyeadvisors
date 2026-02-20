@@ -342,7 +342,7 @@ const Auth = () => {
   // Show loading screen when redirecting to Stripe checkout
   if (checkoutLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-black px-4 relative overflow-hidden">
+      <div className="min-h-screen flex items-center justify-center bg-transparent px-4 relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-violet-600/20 blur-[120px] rounded-full pointer-events-none" />
         <div className="bg-white/3 border border-white/8 rounded-2xl p-8 max-w-md w-full relative z-10 text-center">
           <Loader2 className="w-12 h-12 animate-spin text-violet-400 mx-auto mb-6" />
@@ -359,7 +359,7 @@ const Auth = () => {
       <Helmet>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
-        <div className="min-h-screen flex items-center justify-center bg-black px-4 relative overflow-hidden">
+        <div className="min-h-screen flex items-center justify-center bg-transparent px-4 relative overflow-hidden">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-violet-600/20 blur-[120px] rounded-full pointer-events-none" />
         <div className="bg-white/3 border border-white/8 rounded-2xl p-6 md:p-8 max-w-md w-full mx-4 relative z-10">
             <div className="text-center mb-8">
@@ -407,7 +407,7 @@ const Auth = () => {
   // Show password update form when coming from reset email
   if (isPasswordUpdate) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-black px-4 relative overflow-hidden">
+      <div className="min-h-screen flex items-center justify-center bg-transparent px-4 relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-violet-600/20 blur-[120px] rounded-full pointer-events-none" />
         <div className="bg-white/3 border border-white/8 rounded-2xl p-6 md:p-8 max-w-md w-full mx-4 relative z-10">
           <div className="text-center mb-8">
@@ -462,7 +462,7 @@ const Auth = () => {
       <Helmet>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
-      <div className="min-h-screen flex items-center justify-center bg-black px-4 py-12 relative overflow-hidden">
+      <div className="min-h-screen flex items-center justify-center bg-transparent px-4 py-12 relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-600/15 blur-[140px] rounded-full pointer-events-none" />
 
         <div className="bg-white/3 border border-white/8 rounded-2xl p-6 md:p-8 max-w-md w-full mx-4 relative z-10">

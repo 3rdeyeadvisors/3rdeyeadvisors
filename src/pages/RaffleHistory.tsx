@@ -176,7 +176,7 @@ const RaffleHistory = () => {
         keywords="raffle history, past winners, crypto giveaways, defi rewards"
       />
 
-      <div className="min-h-screen bg-black pb-20">
+      <div className="min-h-screen bg-transparent pb-20">
         <PageHero
           eyebrow="Archive"
           title="Raffle History"

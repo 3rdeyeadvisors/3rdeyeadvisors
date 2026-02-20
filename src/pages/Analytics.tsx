@@ -13,7 +13,7 @@ const Analytics = () => {
         keywords="DeFi analytics, real-time DeFi data, DefiLlama API, yield farming analytics, TVL tracking, DeFi market insights, protocol analytics, crypto market data, DeFi charts, blockchain analytics, Aave data, Uniswap analytics"
         url="https://www.the3rdeyeadvisors.com/analytics"
       />
-      <div className="min-h-screen bg-black pt-20 pb-12">
+      <div className="min-h-screen bg-transparent pt-20 pb-12">
         <PageHero
           eyebrow="Market Data"
           title="DeFi Analytics"

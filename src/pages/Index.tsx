@@ -2,7 +2,6 @@ import SEO from "@/components/SEO";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import OrionChat from "@/components/orion/OrionChat";
 import {
-  GalaxyBackground,
   HeroSection,
   FeaturesSection,
   AboutSection,
@@ -38,9 +37,6 @@ const Index = () => {
       />
       
       <div className="min-h-screen relative">
-        {/* Galaxy background */}
-        <GalaxyBackground />
-        
         {/* Main content */}
         <div className="relative z-10">
           <HeroSection />

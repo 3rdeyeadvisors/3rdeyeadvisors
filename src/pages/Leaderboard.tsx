@@ -59,7 +59,7 @@ const Leaderboard = () => {
         description="The top earners on the platform. Points are earned by completing courses, passing quizzes, referring members, and participating in the community."
       />
 
-      <div className="min-h-screen bg-black pb-20">
+      <div className="min-h-screen bg-transparent pb-20">
         <PageHero
           eyebrow="Rankings"
           title="The Leaderboard"

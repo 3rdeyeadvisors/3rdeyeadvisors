@@ -185,7 +185,7 @@ const ResetPassword = () => {
 
   if (!isValidToken && !tokenVerified) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-black px-4">
+      <div className="min-h-screen flex items-center justify-center bg-transparent px-4">
         <Card className="w-full max-w-md">
           <CardContent className="pt-6">
             <div className="flex items-center justify-center space-x-2">
@@ -199,7 +199,7 @@ const ResetPassword = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black px-4">
+    <div className="min-h-screen flex items-center justify-center bg-transparent px-4">
       <Card className="w-full max-w-md border-primary/20 shadow-cosmic">
         <CardHeader className="text-center space-y-4">
           <div className="mx-auto w-16 h-16 bg-violet-500/20 rounded-full flex items-center justify-center">
