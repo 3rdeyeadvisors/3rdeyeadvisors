@@ -6,6 +6,7 @@ import { usePoints } from '@/hooks/usePoints';
 import { useAuth } from '@/components/auth/AuthProvider';
 import { Trophy, Medal, Award } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 
 interface LeaderboardEntry {
   user_id: string;

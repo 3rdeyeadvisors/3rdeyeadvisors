@@ -13,6 +13,7 @@ interface Course {
   description: string;
   category: string;
   duration: string;
+  difficulty?: string;
   modules: string[];
   icon: LucideIcon;
   isEarlyAccess?: boolean;
