@@ -200,23 +200,24 @@ const Store = () => {
           </div>
 
           {/* Category Toggle Buttons */}
-          <div className="flex justify-center mb-16">
-            <div className="inline-flex rounded-2xl bg-white/5 border border-white/8 p-1.5 gap-1.5">
+          <div className="flex justify-center gap-3 mb-16">
+            {[
+              { id: 'merchandise', label: 'Physical Products', icon: Package },
+              { id: 'digital', label: 'Digital Collectibles', icon: Sparkles },
+            ].map((cat) => (
               <button
-                onClick={() => setActiveCategory('merchandise')}
-                className={`flex items-center gap-2 px-6 py-3 rounded-xl font-body text-xs uppercase tracking-widest transition-all ${activeCategory === 'merchandise' ? 'bg-violet-600 text-white' : 'text-white/40 hover:text-white'}`}
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id as any)}
+                className={`font-body text-xs uppercase tracking-widest px-8 py-3 rounded-full border transition-all flex items-center gap-2 ${
+                  activeCategory === cat.id
+                    ? "bg-violet-600 border-violet-600 text-white shadow-lg shadow-violet-900/20"
+                    : "border-white/15 text-white/50 hover:border-violet-500/30 hover:text-white/80 bg-transparent"
+                }`}
               >
-                <Package className="h-4 w-4" />
-                <span>Physical Products</span>
+                <cat.icon className="w-4 h-4" />
+                {cat.label}
               </button>
-              <button
-                onClick={() => setActiveCategory('digital')}
-                className={`flex items-center gap-2 px-6 py-3 rounded-xl font-body text-xs uppercase tracking-widest transition-all ${activeCategory === 'digital' ? 'bg-violet-600 text-white' : 'text-white/40 hover:text-white'}`}
-              >
-                <Sparkles className="h-4 w-4" />
-                <span>Digital Collectibles</span>
-              </button>
-            </div>
+            ))}
           </div>
 
           {/* Success Message */}
@@ -318,7 +319,7 @@ const Store = () => {
                 }
 
                 return (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
                     {filteredProducts.map((product: any) => (
                       <MerchandiseCard 
                         key={product.id} 

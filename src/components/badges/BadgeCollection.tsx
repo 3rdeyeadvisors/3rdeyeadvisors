@@ -63,41 +63,57 @@ export const BadgeCollection = ({ compact = false, showLocked = true }: BadgeCol
   }
 
   return (
-    <Card>
-      <CardHeader className="pb-3">
-        <div className="flex items-center justify-between">
-          <CardTitle className="text-lg font-consciousness flex items-center gap-2">
-            <Award className="w-5 h-5 text-primary" />
-            Badges
-          </CardTitle>
-          <Badge variant="outline">
-            {earnedCount} / {totalCount}
-          </Badge>
+    <div className="space-y-6">
+      <div className="flex items-center justify-between">
+        <h3 className="font-consciousness text-lg font-bold text-white flex items-center gap-2">
+          <Award className="w-5 h-5 text-violet-400" />
+          Badge Collection
+        </h3>
+        <div className="font-body text-[10px] uppercase tracking-widest text-white/40 bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
+          {earnedCount} / {totalCount} Earned
         </div>
-      </CardHeader>
-      <CardContent>
-        {displayBadges.length === 0 ? (
-          <p className="text-muted-foreground text-sm text-center py-4">
-            Complete courses and quizzes to earn badges!
+      </div>
+
+      {displayBadges.length === 0 ? (
+        <div className="bg-white/3 border border-white/8 rounded-2xl p-8 text-center">
+          <p className="font-body text-sm text-white/30">
+            Complete courses and quizzes to earn badges.
           </p>
-        ) : (
-          <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-4">
-            {displayBadges.map((badge) => (
-              <div key={badge.type} className="flex flex-col items-center gap-1">
-                <BadgeDisplay
-                  badgeType={badge.type}
-                  size="md"
-                  earned={badge.earned}
-                  earnedAt={badge.earnedAt}
-                />
-                <span className={`text-xs text-center ${badge.earned ? 'text-foreground' : 'text-muted-foreground'}`}>
+        </div>
+      ) : (
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
+          {displayBadges.map((badge) => (
+            <div
+              key={badge.type}
+              className={`flex flex-col items-center gap-2 p-4 bg-white/3 border border-white/8 rounded-2xl transition-all ${
+                badge.earned
+                  ? 'hover:border-violet-500/30'
+                  : 'opacity-40 hover:opacity-60'
+              }`}
+            >
+              <BadgeDisplay
+                badgeType={badge.type}
+                size="md"
+                earned={badge.earned}
+                earnedAt={badge.earnedAt}
+              />
+              <div className="space-y-1">
+                <p className={badge.earned
+                  ? "font-consciousness text-xs font-bold text-white text-center"
+                  : "font-body text-xs text-white/40 text-center"
+                }>
                   {badge.name}
-                </span>
+                </p>
+                {badge.earned && badge.earnedAt && (
+                  <p className="font-body text-[10px] text-white/30 text-center">
+                    {new Date(badge.earnedAt).toLocaleDateString()}
+                  </p>
+                )}
               </div>
-            ))}
-          </div>
-        )}
-      </CardContent>
-    </Card>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
   );
 };

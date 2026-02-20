@@ -342,14 +342,13 @@ const Auth = () => {
   // Show loading screen when redirecting to Stripe checkout
   if (checkoutLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-cosmic px-4">
-        <Card className="w-full max-w-md">
-          <CardContent className="pt-8 pb-8 text-center">
-            <Loader2 className="w-12 h-12 animate-spin text-primary mx-auto mb-4" />
-            <h2 className="text-xl font-bold mb-2">Setting up your trial...</h2>
-            <p className="text-muted-foreground">Redirecting to secure checkout</p>
-          </CardContent>
-        </Card>
+      <div className="min-h-screen flex items-center justify-center bg-black px-4 relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-violet-600/20 blur-[120px] rounded-full pointer-events-none" />
+        <div className="bg-white/3 border border-white/8 rounded-2xl p-8 max-w-md w-full relative z-10 text-center">
+          <Loader2 className="w-12 h-12 animate-spin text-violet-400 mx-auto mb-6" />
+          <h2 className="font-consciousness text-xl font-bold text-white mb-2">Setting up your trial...</h2>
+          <p className="font-body text-sm text-white/40">Redirecting to secure checkout</p>
+        </div>
       </div>
     );
   }
@@ -360,47 +359,46 @@ const Auth = () => {
       <Helmet>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
-        <div className="min-h-screen flex items-center justify-center bg-gradient-cosmic px-4">
-          <Card className="w-full max-w-md">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl font-bold">Reset Password</CardTitle>
-              <CardDescription>
-                Enter your email to receive password reset instructions
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleResetPassword} className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="reset-email">Email</Label>
-                  <Input
-                    id="reset-email"
-                    type="email"
-                    placeholder="your@email.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                </div>
-                <div className="flex gap-2">
-                  <Button type="submit" disabled={loading} className="flex-1">
-                    {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                    Send Reset Email
-                  </Button>
-                  <Button 
-                    type="button" 
-                    variant="outline" 
-                    onClick={() => {
-                      setIsPasswordReset(false);
-                      window.history.replaceState({}, document.title, window.location.pathname);
-                    }}
-                    className="flex-1"
-                  >
-                    Back to Sign In
-                  </Button>
-                </div>
-              </form>
-            </CardContent>
-          </Card>
+        <div className="min-h-screen flex items-center justify-center bg-black px-4 relative overflow-hidden">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-violet-600/20 blur-[120px] rounded-full pointer-events-none" />
+          <div className="bg-white/3 border border-white/8 rounded-2xl p-6 md:p-8 max-w-md w-full relative z-10">
+            <div className="text-center mb-8">
+              <h1 className="font-consciousness text-2xl font-bold text-violet-400 mb-2">3rdeyeadvisors</h1>
+              <p className="font-body text-sm text-white/40 uppercase tracking-widest">Reset Password</p>
+            </div>
+
+            <form onSubmit={handleResetPassword} className="space-y-6">
+              <div className="space-y-1">
+                <Label htmlFor="reset-email" className="font-body text-xs uppercase tracking-widest text-white/40 block">Email</Label>
+                <input
+                  id="reset-email"
+                  type="email"
+                  placeholder="your@email.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="font-body text-base sm:text-sm bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white placeholder:text-white/25 focus:outline-none focus:border-violet-500/50 transition-colors w-full"
+                />
+              </div>
+              <div className="flex flex-col gap-3">
+                <Button type="submit" disabled={loading} className="font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl py-6 font-medium transition-all w-full">
+                  {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                  Send Reset Email
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  onClick={() => {
+                    setIsPasswordReset(false);
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                  }}
+                  className="font-body text-xs text-white/40 hover:text-white"
+                >
+                  Back to Sign In
+                </Button>
+              </div>
+            </form>
+          </div>
         </div>
       </>
     );
@@ -409,19 +407,19 @@ const Auth = () => {
   // Show password update form when coming from reset email
   if (isPasswordUpdate) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-cosmic px-4">
-        <Card className="w-full max-w-md">
-          <CardHeader className="text-center">
-            <CardTitle className="text-2xl font-bold">Set New Password</CardTitle>
-            <CardDescription>
-              Enter your new password below
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={handleUpdatePassword} className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="new-password">New Password</Label>
-                <Input
+      <div className="min-h-screen flex items-center justify-center bg-black px-4 relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-violet-600/20 blur-[120px] rounded-full pointer-events-none" />
+        <div className="bg-white/3 border border-white/8 rounded-2xl p-6 md:p-8 max-w-md w-full relative z-10">
+          <div className="text-center mb-8">
+            <h1 className="font-consciousness text-2xl font-bold text-violet-400 mb-2">3rdeyeadvisors</h1>
+            <p className="font-body text-sm text-white/40 uppercase tracking-widest">Set New Password</p>
+          </div>
+
+          <form onSubmit={handleUpdatePassword} className="space-y-6">
+            <div className="space-y-4">
+              <div className="space-y-1">
+                <Label htmlFor="new-password" className="font-body text-xs uppercase tracking-widest text-white/40 block">New Password</Label>
+                <input
                   id="new-password"
                   type="password"
                   placeholder="••••••••"
@@ -429,14 +427,15 @@ const Auth = () => {
                   onChange={(e) => setNewPassword(e.target.value)}
                   required
                   minLength={8}
+                  className="font-body text-base sm:text-sm bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white placeholder:text-white/25 focus:outline-none focus:border-violet-500/50 transition-colors w-full"
                 />
-                <p className="text-xs text-muted-foreground">
-                  Password must be at least 8 characters long
+                <p className="font-body text-[10px] text-white/30 uppercase tracking-tight">
+                  Min. 8 characters long
                 </p>
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="confirm-new-password">Confirm New Password</Label>
-                <Input
+              <div className="space-y-1">
+                <Label htmlFor="confirm-new-password" className="font-body text-xs uppercase tracking-widest text-white/40 block">Confirm New Password</Label>
+                <input
                   id="confirm-new-password"
                   type="password"
                   placeholder="••••••••"
@@ -444,15 +443,16 @@ const Auth = () => {
                   onChange={(e) => setConfirmNewPassword(e.target.value)}
                   required
                   minLength={8}
+                  className="font-body text-base sm:text-sm bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white placeholder:text-white/25 focus:outline-none focus:border-violet-500/50 transition-colors w-full"
                 />
               </div>
-              <Button type="submit" disabled={loading} className="w-full">
-                {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                Update Password
-              </Button>
-            </form>
-          </CardContent>
-        </Card>
+            </div>
+            <Button type="submit" disabled={loading} className="font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl py-6 font-medium transition-all w-full">
+              {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+              Update Password
+            </Button>
+          </form>
+        </div>
       </div>
     );
   }
@@ -462,86 +462,94 @@ const Auth = () => {
       <Helmet>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
-      <div className="min-h-screen flex items-center justify-center bg-gradient-cosmic px-4 py-8 w-full overflow-x-hidden">
-        <Card className="w-full max-w-md mx-auto">
-          <CardHeader className="text-center">
-            <CardTitle className="text-2xl font-bold">Welcome to 3rdeyeadvisors</CardTitle>
-            <CardDescription>
-              Join our community to access exclusive DeFi courses and resources
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Tabs defaultValue={defaultTab} className="w-full">
-              <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="signin">Sign In</TabsTrigger>
-                <TabsTrigger value="signup">Sign Up</TabsTrigger>
-              </TabsList>
-              
-              <TabsContent value="signin">
-                <form onSubmit={handleSignIn} className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="signin-email">Email</Label>
-                    <Input
+      <div className="min-h-screen flex items-center justify-center bg-black px-4 py-12 relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-600/15 blur-[140px] rounded-full pointer-events-none" />
+
+        <div className="bg-white/3 border border-white/8 rounded-2xl p-6 md:p-8 max-w-md w-full relative z-10">
+          <div className="text-center mb-8">
+            <h1 className="font-consciousness text-3xl font-bold text-violet-400 mb-2">3rdeyeadvisors</h1>
+            <p className="font-body text-sm text-white/40">Access Institutional-Grade DeFi Intelligence</p>
+          </div>
+
+          <Tabs defaultValue={defaultTab} className="w-full">
+            <TabsList className="grid w-full grid-cols-2 bg-white/5 p-1 rounded-xl mb-8">
+              <TabsTrigger value="signin" className="font-consciousness text-sm font-medium data-[state=active]:bg-violet-600 data-[state=active]:text-white transition-all py-2.5">Sign In</TabsTrigger>
+              <TabsTrigger value="signup" className="font-consciousness text-sm font-medium data-[state=active]:bg-violet-600 data-[state=active]:text-white transition-all py-2.5">Sign Up</TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="signin" className="mt-0">
+              <form onSubmit={handleSignIn} className="space-y-6">
+                <div className="space-y-4">
+                  <div className="space-y-1">
+                    <Label htmlFor="signin-email" className="font-body text-xs uppercase tracking-widest text-white/40 block">Email Address</Label>
+                    <input
                       id="signin-email"
                       type="email"
                       placeholder="your@email.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
+                      className="font-body text-base sm:text-sm bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white placeholder:text-white/25 focus:outline-none focus:border-violet-500/50 transition-colors w-full"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="signin-password">Password</Label>
-                    <Input
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between">
+                      <Label htmlFor="signin-password" className="font-body text-xs uppercase tracking-widest text-white/40 block">Password</Label>
+                      <button
+                        type="button"
+                        onClick={() => setIsPasswordReset(true)}
+                        className="font-body text-[10px] text-violet-400 hover:text-violet-300 transition-colors uppercase tracking-widest"
+                      >
+                        Forgot?
+                      </button>
+                    </div>
+                    <input
                       id="signin-password"
                       type="password"
                       placeholder="••••••••"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       required
+                      className="font-body text-base sm:text-sm bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white placeholder:text-white/25 focus:outline-none focus:border-violet-500/50 transition-colors w-full"
                     />
                   </div>
-                  <Button type="submit" className="w-full" disabled={loading}>
-                    {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                    Sign In
-                  </Button>
-                  <Button 
-                    type="button" 
-                    variant="ghost" 
-                    className="w-full text-sm"
-                    onClick={() => setIsPasswordReset(true)}
-                  >
-                    Forgot your password?
-                  </Button>
-                </form>
-              </TabsContent>
-              
-              <TabsContent value="signup">
-                <form onSubmit={handleSignUp} className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="signup-name">Display Name</Label>
-                    <Input
+                </div>
+                <Button type="submit" className="font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl py-6 font-medium transition-all w-full text-base" disabled={loading}>
+                  {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                  Sign In to Platform
+                </Button>
+              </form>
+            </TabsContent>
+
+            <TabsContent value="signup" className="mt-0">
+              <form onSubmit={handleSignUp} className="space-y-6">
+                <div className="space-y-4">
+                  <div className="space-y-1">
+                    <Label htmlFor="signup-name" className="font-body text-xs uppercase tracking-widest text-white/40 block">Display Name</Label>
+                    <input
                       id="signup-name"
                       type="text"
-                      placeholder="Your Name"
+                      placeholder="Your name or alias"
                       value={displayName}
                       onChange={(e) => setDisplayName(e.target.value)}
+                      className="font-body text-base sm:text-sm bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white placeholder:text-white/25 focus:outline-none focus:border-violet-500/50 transition-colors w-full"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="signup-email">Email</Label>
-                    <Input
+                  <div className="space-y-1">
+                    <Label htmlFor="signup-email" className="font-body text-xs uppercase tracking-widest text-white/40 block">Email Address</Label>
+                    <input
                       id="signup-email"
                       type="email"
                       placeholder="your@email.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
+                      className="font-body text-base sm:text-sm bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white placeholder:text-white/25 focus:outline-none focus:border-violet-500/50 transition-colors w-full"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="signup-password">Password</Label>
-                    <Input
+                  <div className="space-y-1">
+                    <Label htmlFor="signup-password" className="font-body text-xs uppercase tracking-widest text-white/40 block">Create Password</Label>
+                    <input
                       id="signup-password"
                       type="password"
                       placeholder="••••••••"
@@ -549,40 +557,45 @@ const Auth = () => {
                       onChange={(e) => setPassword(e.target.value)}
                       required
                       minLength={8}
+                      className="font-body text-base sm:text-sm bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white placeholder:text-white/25 focus:outline-none focus:border-violet-500/50 transition-colors w-full"
                     />
-                    <p className="text-xs text-muted-foreground">
-                      Password must be at least 8 characters and include uppercase, lowercase, and a number
+                    <p className="font-body text-[10px] text-white/30 uppercase tracking-tighter">
+                      Must be 8+ characters with uppercase & number
                     </p>
                   </div>
-                  <div className="flex items-start space-x-2 py-2">
+                </div>
+
+                <div className="flex items-start space-x-3 py-2">
+                  <div className="relative flex items-center h-5">
                     <input
                       id="terms"
                       type="checkbox"
-                      className="mt-1 h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+                      className="h-4 w-4 rounded border-white/10 bg-white/5 text-violet-600 focus:ring-violet-500 focus:ring-offset-black"
                       checked={agreeToTerms}
                       onChange={(e) => setAgreeToTerms(e.target.checked)}
                       required
                     />
-                    <Label htmlFor="terms" className="text-xs leading-relaxed text-muted-foreground">
-                      I agree to the{" "}
-                      <a href="/terms" className="text-primary hover:underline underline-offset-4">
-                        Terms of Service
-                      </a>{" "}
-                      and{" "}
-                      <a href="/privacy" className="text-primary hover:underline underline-offset-4">
-                        Privacy Policy
-                      </a>
-                    </Label>
                   </div>
-                  <Button type="submit" className="w-full" disabled={loading}>
-                    {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                    Sign Up
-                  </Button>
-                </form>
-              </TabsContent>
-            </Tabs>
-          </CardContent>
-        </Card>
+                  <Label htmlFor="terms" className="font-body text-[10px] leading-snug text-white/40 uppercase tracking-widest">
+                    I agree to the{" "}
+                    <a href="/terms" className="text-violet-400 hover:text-violet-300 underline transition-colors">
+                      Terms
+                    </a>{" "}
+                    and{" "}
+                    <a href="/privacy" className="text-violet-400 hover:text-violet-300 underline transition-colors">
+                      Privacy Policy
+                    </a>
+                  </Label>
+                </div>
+
+                <Button type="submit" className="font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl py-6 font-medium transition-all w-full text-base" disabled={loading}>
+                  {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                  Create Account
+                </Button>
+              </form>
+            </TabsContent>
+          </Tabs>
+        </div>
       </div>
     </>
   );

@@ -106,12 +106,14 @@ const Navigation = () => {
         { path: "/earn", label: "Earn", description: "Points, rewards, and referral commissions" },
         { path: "/roadmap", label: "Roadmap", description: "Vote on what gets built next" },
         { path: "/raffle-history", label: "Raffle History", description: "Past winners and prize distributions" },
+        { path: "/leaderboard", label: "Leaderboard", description: "Community rankings and point leaders" },
         { path: "/analytics", label: "Analytics", description: "Platform data and market insights" },
       ]
     },
     { label: "Vault", path: "/vault-access" },
     { label: "Store", path: "/store" },
     { label: "Philosophy", path: "/philosophy" },
+    { label: "For Professionals", path: "/institutional" },
   ];
 
   return (
@@ -275,8 +277,10 @@ const Navigation = () => {
               { path: "/raffles", label: "Raffles", icon: Gift },
               { path: "/earn", label: "Earn", icon: Zap },
               { path: "/roadmap", label: "Roadmap", icon: Map },
+              { path: "/leaderboard", label: "Leaderboard", icon: Trophy },
               { path: "/analytics", label: "Analytics", icon: BarChart3 },
               { path: "/philosophy", label: "Philosophy", icon: Lightbulb },
+              { path: "/institutional", label: "For Professionals", icon: Building },
               { path: "/contact", label: "Contact", icon: Mail },
             ].map((item) => (
               <Link

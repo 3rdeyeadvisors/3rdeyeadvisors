@@ -60,6 +60,7 @@ const Raffles = () => {
   const [loading, setLoading] = useState(true);
   const [taskCompletion, setTaskCompletion] = useState<TaskCompletion>({});
   const [totalEntries, setTotalEntries] = useState(0);
+  const [pastRaffles, setPastRaffles] = useState<Raffle[]>([]);
   const [referralCount, setReferralCount] = useState(0);
   const [socialTasks, setSocialTasks] = useState<SocialTasks>({});
   const [winnerDisplayName, setWinnerDisplayName] = useState<string | null>(null);
@@ -69,6 +70,7 @@ const Raffles = () => {
 
   useEffect(() => {
     fetchActiveRaffle();
+    fetchPastRaffles();
     if (user) {
       fetchUserProgress();
       fetchReferralCount();
@@ -224,6 +226,22 @@ const Raffles = () => {
       console.error('Error fetching raffle:', error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const fetchPastRaffles = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('raffles')
+        .select('*')
+        .not('winner_user_id', 'is', null)
+        .order('winner_selected_at', { ascending: false })
+        .limit(3);
+
+      if (error) throw error;
+      setPastRaffles(data || []);
+    } catch (error) {
+      console.error('Error fetching past raffles:', error);
     }
   };
 
@@ -638,177 +656,126 @@ const Raffles = () => {
 
         {/* Active Raffle or Closed Message */}
         {!activeRaffle ? (
-          <Card className="text-center py-12 w-full">
+          <Card className="bg-white/3 border border-white/8 rounded-3xl text-center py-16 w-full">
             <CardContent>
-              <Clock className="w-16 h-16 mx-auto mb-4 text-muted-foreground" />
-              <h2 className="text-2xl font-bold mb-2">Raffle Entries Currently Closed</h2>
-              <p className="text-muted-foreground mb-4">
-                Stay tuned for the next round!
+              <Clock className="w-16 h-16 mx-auto mb-6 text-white/20" />
+              <h2 className="font-consciousness text-2xl font-bold text-white mb-2">Raffle Entries Currently Closed</h2>
+              <p className="font-body text-white/50 mb-8 max-w-sm mx-auto">
+                Stay tuned for the next round of rewards and challenges.
               </p>
               {!user && (
                 <Link to="/auth">
-                  <Button>Sign In to Get Notified</Button>
+                  <Button className="font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl px-8">Sign In to Get Notified</Button>
                 </Link>
               )}
             </CardContent>
           </Card>
         ) : activeRaffle.winner_user_id ? (
-          <Card className="text-center py-12 w-full">
+          <Card className="bg-white/3 border border-white/8 rounded-3xl text-center py-16 w-full">
             <CardContent>
-              <Trophy className="w-20 h-20 mx-auto mb-4 text-warning" />
-              <h2 className="text-3xl font-bold mb-4">
-                {isWinner ? "🎉 Congratulations! You Won! 🎉" : "Winner Announced!"}
+              <Trophy className="w-20 h-20 mx-auto mb-6 text-amber-400" />
+              <h2 className="font-consciousness text-3xl font-bold text-white mb-4">
+                {isWinner ? "Congratulations! You Won!" : "Winner Announced!"}
               </h2>
               {isWinner ? (
                 <div className="space-y-4">
-                  <p className="text-xl text-primary font-semibold">
+                  <p className="font-consciousness text-xl text-violet-400 font-bold">
                     You won ${activeRaffle.prize_amount} in {activeRaffle.prize}!
                   </p>
-                  <p className="text-muted-foreground">
+                  <p className="font-body text-white/50">
                     Check your email for instructions on claiming your prize.
                   </p>
                 </div>
               ) : (
                 <div className="space-y-4">
-                  <p className="text-lg text-muted-foreground">
-                    The winner of <strong>{activeRaffle.title}</strong> is:
+                  <p className="font-body text-lg text-white/60">
+                    The winner of <span className="font-consciousness text-white">{activeRaffle.title}</span> is:
                   </p>
-                  <p className="text-2xl font-bold text-primary">{winnerDisplayName}</p>
-                  <p className="text-muted-foreground mt-4">
-                    Thank you for participating! Keep learning and stay tuned for the next raffle.
+                  <p className="font-consciousness text-2xl font-bold text-amber-400">{winnerDisplayName}</p>
+                  <p className="font-body text-white/40 mt-4">
+                    Thank you for participating: Keep learning and stay tuned for the next raffle.
                   </p>
                 </div>
               )}
               <div className="mt-8">
-                <Badge variant="outline" className="text-sm">
+                <Badge variant="outline" className="font-body text-xs uppercase tracking-widest border-white/10 text-white/40">
                   Winner selected on {new Date(activeRaffle.winner_selected_at!).toLocaleDateString()}
                 </Badge>
               </div>
             </CardContent>
           </Card>
         ) : (
-          <>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8 w-full lg:items-start">
+          <div className="space-y-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full items-start">
                 {/* Raffle Details */}
-                <Card className="w-full overflow-hidden">
-              <CardHeader className="px-4 sm:px-6 py-4 text-center">
-                <CardTitle className="flex flex-col sm:flex-row items-center justify-center gap-2 text-lg sm:text-xl md:text-2xl">
-                  <Trophy className="w-6 h-6 text-warning flex-shrink-0" />
-                  <span className="text-center leading-tight">Current Raffle</span>
-                </CardTitle>
-                <CardDescription className="text-sm md:text-base mt-2">{activeRaffle.title}</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4 md:space-y-6 text-center px-4 sm:px-6 pb-6">
-                {user ? (
-                  <>
-                    {/* Prize */}
+                <div className="relative overflow-hidden bg-gradient-to-b from-violet-950/40 to-black border border-violet-500/30 rounded-3xl p-6 md:p-8">
+                  <div className="absolute top-0 right-0 p-4">
+                    <Trophy className="w-12 h-12 text-violet-500/20" />
+                  </div>
+
+                  <div className="relative z-10 space-y-8">
                     <div>
-                      <h3 className="font-semibold mb-2">Prize:</h3>
-                      <p className="text-2xl font-bold text-primary">
-                        ${activeRaffle.prize_amount} worth of {activeRaffle.prize}
-                      </p>
+                      <p className="font-body text-xs uppercase tracking-widest text-violet-400 mb-2">Current Prize</p>
+                      <h2 className="font-consciousness text-4xl md:text-5xl font-bold text-white">
+                        ${activeRaffle.prize_amount}
+                      </h2>
+                      <p className="font-body text-lg text-white/60 mt-1">{activeRaffle.prize}</p>
                     </div>
 
-                    {/* Countdown */}
-                    <div>
-                      <h3 className="font-semibold mb-2">Time Remaining:</h3>
-                      <RaffleCountdown endDate={activeRaffle.end_date} />
-                    </div>
-
-                    {/* User entries */}
-                    <div className="pt-4 border-t">
-                      <div className="flex flex-col sm:flex-row items-center justify-between gap-2">
-                        <h3 className="font-semibold text-base">Your Entries:</h3>
-                        <Badge variant="secondary" className="text-base sm:text-lg px-3 py-1.5 sm:px-4">
-                          <Ticket className="w-4 h-4 mr-2" />
-                          {totalEntries}
-                        </Badge>
+                    <div className="grid grid-cols-2 gap-8 pt-6 border-t border-white/10">
+                      <div>
+                        <p className="font-body text-[10px] uppercase tracking-widest text-white/40 mb-2">Time Remaining</p>
+                        <div className="font-consciousness text-2xl font-bold text-amber-400">
+                          <RaffleCountdown endDate={activeRaffle.end_date} />
+                        </div>
                       </div>
-                      {subscription?.plan === 'founding_33' && (
-                        <div className="flex items-center justify-center gap-2 mt-2">
-                          <Badge variant="default" className="text-xs bg-amber-500 text-black">
-                            <Crown className="w-3 h-3 mr-1" />
-                            Founding 33: +{FOUNDING33_BENEFITS.bonusRaffleTickets} entries
-                          </Badge>
+                      <div className="text-right">
+                        <p className="font-body text-[10px] uppercase tracking-widest text-white/40 mb-2">Your Entries</p>
+                        <div className="font-consciousness text-5xl font-bold text-violet-400">
+                          {totalEntries}
                         </div>
-                      )}
-                      {subscription?.plan === 'annual' && (
-                        <div className="flex items-center justify-center gap-2 mt-2">
-                          <Badge variant="default" className="text-xs">
-                            <Crown className="w-3 h-3 mr-1" />
-                            Annual Bonus: +{ANNUAL_BENEFITS.bonusRaffleTickets} entries
-                          </Badge>
-                        </div>
-                      )}
-                      {referralCount > 0 && (
-                        <p className="text-sm text-muted-foreground mt-2">
-                          Including {referralCount} bonus {referralCount === 1 ? 'entry' : 'entries'} from referrals
-                        </p>
-                      )}
+                        <p className="font-body text-[10px] text-white/30 uppercase tracking-tighter mt-1">Total Entries</p>
+                      </div>
                     </div>
 
-                    {/* Join button */}
-                    {!hasParticipated && (
-                      <div className="pt-4 border-t">
-                        <Button 
-                          onClick={handleParticipate} 
-                          disabled={participating}
-                          className="w-full"
-                          size="lg"
-                        >
-                          {participating ? "Joining..." : "🎯 Join This Raffle"}
-                        </Button>
-                        <p className="text-xs text-muted-foreground text-center mt-2">
-                          {subscription?.plan === 'founding_33' 
-                            ? `Start with ${1 + FOUNDING33_BENEFITS.bonusRaffleTickets} entries (Founding 33 bonus included)`
-                            : subscription?.plan === 'annual' 
-                              ? `Start with ${1 + ANNUAL_BENEFITS.bonusRaffleTickets} entries (annual bonus included)`
-                              : 'Start with 1 entry, earn more by completing tasks'}
-                        </p>
+                    {user ? (
+                      <div className="space-y-4 pt-6">
+                        {!hasParticipated ? (
+                          <Button
+                            onClick={handleParticipate}
+                            disabled={participating}
+                            className="w-full font-body bg-violet-600 hover:bg-violet-500 text-white py-6 rounded-xl text-base transition-all"
+                          >
+                            {participating ? "Joining..." : "Join This Raffle"}
+                          </Button>
+                        ) : (
+                          <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-4 flex items-center justify-center gap-2">
+                            <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                            <span className="font-body text-sm text-emerald-400">You are in the draw</span>
+                          </div>
+                        )}
+                        <RaffleShareButton userId={user?.id} />
+                      </div>
+                    ) : (
+                      <div className="pt-6">
+                        <Link to="/auth">
+                          <Button className="w-full font-body bg-violet-600 hover:bg-violet-500 text-white py-6 rounded-xl text-base transition-all">
+                            Sign In to Join Raffle
+                          </Button>
+                        </Link>
                       </div>
                     )}
+                  </div>
+                </div>
 
-                    {/* Share button */}
-                    <div className="pt-4">
-                      <RaffleShareButton userId={user?.id} />
-                    </div>
-                  </>
-                ) : (
-                  /* NON-LOGGED-IN: Timer + Join Button */
-                  <>
-                    <div>
-                      <RaffleCountdown endDate={activeRaffle.end_date} />
-                    </div>
-                    <div className="pt-4 border-t">
-                      <Link to="/auth">
-                        <Button className="w-full" size="lg">
-                          Join Raffle Now
-                        </Button>
-                      </Link>
-                      <p className="text-xs text-muted-foreground text-center mt-2">
-                        Sign up or log in to participate
-                      </p>
-                    </div>
-                  </>
-                )}
-              </CardContent>
-            </Card>
+                {/* Task Checklist */}
+                {user && (
+                  <div className="bg-white/3 border border-white/8 rounded-3xl p-6 md:p-8">
+                    <h3 className="font-consciousness text-xl font-bold text-white mb-2">Earn Entries</h3>
+                    <p className="font-body text-sm text-white/40 mb-8">Complete the following tasks to increase your chances.</p>
 
-            {/* Task Checklist - Only show for logged-in users */}
-            {user && (
-              <Card className="w-full">
-              <CardHeader className="px-4 sm:px-6 py-4">
-                <CardTitle className="text-lg sm:text-xl">Entry Requirements</CardTitle>
-                <CardDescription className="text-sm">
-                  Complete tasks to earn raffle entries
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="px-4 sm:px-6 pb-6">
-                <div className="space-y-4">
-                    {/* Social Media Verification Section */}
-                    <div className="space-y-3 pb-4 border-b border-border">
-                      <h3 className="text-sm font-semibold text-muted-foreground">Social Media Tasks</h3>
-                      
+                    <div className="space-y-3">
+                      {/* Social Media Tasks */}
                       <SocialVerificationForm
                         raffleId={activeRaffle.id}
                         userId={user.id}
@@ -826,50 +793,90 @@ const Raffles = () => {
                         verificationStatus={socialTasks.x?.verification_status}
                         onSubmit={fetchUserProgress}
                       />
-                    </div>
 
-                    {/* Auto-Verified Tasks Section */}
-                    <div className="space-y-3">
-                      <h3 className="text-sm font-semibold text-muted-foreground">Learning Tasks</h3>
-                      
-                      <div className="max-h-[500px] overflow-y-auto space-y-2 md:space-y-3 pr-1">
-                      {AUTO_TASKS.map((task) => (
-                        <div key={task.id} className="flex items-start space-x-2 md:space-x-3 p-2 md:p-3 rounded-lg hover:bg-accent/50 transition-colors">
-                          <Checkbox
-                            id={task.id}
-                            checked={taskCompletion[task.id] || false}
-                            onCheckedChange={() => handleTaskToggle(task.id)}
-                            disabled={true}
-                            className="mt-0.5 flex-shrink-0"
-                          />
-                          <div className="flex-1 min-w-0">
-                            <label
-                              htmlFor={task.id}
-                              className="text-sm font-medium leading-snug peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer block break-words"
-                            >
-                              {task.label}
-                              <Badge variant="outline" className="ml-2 text-xs inline-block">
-                                Auto-verified
-                              </Badge>
-                            </label>
+                      {/* Learning Tasks */}
+                      {AUTO_TASKS.map((task) => {
+                        const isCompleted = taskCompletion[task.id];
+                        return (
+                          <div
+                            key={task.id}
+                            className={`flex items-center gap-3 p-4 rounded-xl border transition-all ${
+                              isCompleted ? 'border-emerald-500/20 bg-emerald-500/5' : 'border-white/8 bg-white/3 hover:border-violet-500/20'
+                            }`}
+                          >
+                            <div className={`w-5 h-5 rounded-full border flex items-center justify-center ${isCompleted ? 'border-emerald-500 text-emerald-400 bg-emerald-500/20' : 'border-white/20 text-transparent'}`}>
+                              <CheckCircle2 className="w-3 h-3" />
+                            </div>
+                            <span className="font-body text-sm text-white flex-1">{task.label}</span>
+                            <span className="font-consciousness text-sm font-bold text-violet-400">+{task.entries}</span>
                           </div>
-                          <Badge variant="secondary" className="text-xs flex-shrink-0">
-                            +{task.entries}
-                          </Badge>
-                        </div>
-                      ))}
-                      </div>
+                        );
+                      })}
                     </div>
                   </div>
-              </CardContent>
-              </Card>
-            )}
+                )}
             </div>
-          </>
+
+            {/* Bonus Status for Premium Members */}
+            {user && (subscription?.plan === 'founding_33' || subscription?.plan === 'annual') && (
+              <div className="bg-amber-500/5 border border-amber-500/20 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-4 text-center md:text-left">
+                  <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 shrink-0">
+                    <Crown className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-consciousness text-lg font-bold text-white">Premium Bonus Active</h4>
+                    <p className="font-body text-sm text-white/50">
+                      {subscription?.plan === 'founding_33'
+                        ? `Founding 33 members receive +${FOUNDING33_BENEFITS.bonusRaffleTickets} bonus entries automatically.`
+                        : `Annual subscribers receive +${ANNUAL_BENEFITS.bonusRaffleTickets} bonus entries automatically.`
+                      }
+                    </p>
+                  </div>
+                </div>
+                <div className="font-consciousness text-2xl font-bold text-amber-400">
+                  +{subscription?.plan === 'founding_33' ? FOUNDING33_BENEFITS.bonusRaffleTickets : ANNUAL_BENEFITS.bonusRaffleTickets} PTS
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Past Raffles Section */}
+        {pastRaffles.length > 0 && (
+          <div className="mt-20">
+            <div className="flex items-center justify-between mb-8">
+              <h3 className="font-consciousness text-2xl font-bold text-white">Past Winners</h3>
+              <Link to="/raffle-history" className="font-body text-xs uppercase tracking-widest text-violet-400 hover:text-violet-300 transition-colors">
+                View All History
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {pastRaffles.map((raffle) => (
+                <div key={raffle.id} className="bg-white/3 border border-white/8 rounded-xl p-6 hover:border-white/15 transition-all group">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-400">
+                      <Trophy className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="font-body text-[10px] uppercase tracking-widest text-white/30">Winner</p>
+                      <p className="font-consciousness text-sm font-bold text-amber-400">
+                        {raffle.id.slice(0, 8)}... {/* Mock name as we don't have winner name here easily */}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="font-body text-sm text-white/60 mb-2 truncate">{raffle.prize}</p>
+                  <p className="font-body text-xs text-white/30">
+                    {new Date(raffle.winner_selected_at!).toLocaleDateString()}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         )}
 
         {/* Legal Disclaimer */}
-        <Card className="mt-8 border-muted">
+        <Card className="mt-16 bg-transparent border-white/5">
           <CardContent className="pt-6">
             <p className="text-xs text-foreground/60 text-center">
               <strong>Disclaimer:</strong> Educational participation only. No purchase necessary. 

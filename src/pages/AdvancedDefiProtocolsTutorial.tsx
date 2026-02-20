@@ -342,7 +342,7 @@ const AdvancedDefiProtocolsTutorial = () => {
             description: "Buy puts to protect against downside",
             when: "Holding assets but expect potential downside",
             howItWorks: "Hold ETH + Buy ETH puts → Protected if price falls",
-            maxGain: "Unlimited upside - premium paid",
+            maxGain: "Unlimited upside: premium paid",
             maxLoss: "Limited to strike price - premium",
             suitability: "Risk-averse holders during uncertain times"
           },

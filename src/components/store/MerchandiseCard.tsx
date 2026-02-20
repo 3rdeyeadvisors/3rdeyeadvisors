@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ShoppingCart, Check, Eye } from "lucide-react";
+import { ShoppingCart, Check, Eye, Plus } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -11,6 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useCart } from "@/contexts/CartContext";
 
 interface MerchandiseCardProps {
   product: any;
@@ -20,6 +21,7 @@ interface MerchandiseCardProps {
 
 export function MerchandiseCard({ product, onAddToCart, isInCart }: MerchandiseCardProps) {
   const navigate = useNavigate();
+  const { items } = useCart();
   const [selectedVariant, setSelectedVariant] = useState<any>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -148,17 +150,19 @@ export function MerchandiseCard({ product, onAddToCart, isInCart }: MerchandiseC
   };
 
   const currentImage = product.images?.[currentImageIndex];
-  const inCart = selectedVariant && isInCart(`${product.printify_id}-${selectedVariant.id}`);
+  const cartItemId = selectedVariant ? `${product.printify_id}-${selectedVariant.id}` : null;
+  const cartItem = items.find(item => item.id === cartItemId);
+  const quantityInCart = cartItem?.quantity || 0;
 
   const handleCardClick = () => {
     navigate(`/store/merchandise/${product.printify_id}`);
   };
 
   return (
-    <Card className="group overflow-hidden border bg-card/50 backdrop-blur hover:border-primary/40 transition-all duration-300 flex flex-col h-full">
+    <div className="bg-white/3 border border-white/8 rounded-2xl overflow-hidden hover:border-violet-500/30 transition-all duration-300 group flex flex-col h-full">
       {/* Product Image - Clickable */}
       <div 
-        className="relative aspect-square overflow-hidden bg-background cursor-pointer"
+        className="relative aspect-square overflow-hidden bg-black cursor-pointer"
         onClick={handleCardClick}
       >
         <img
@@ -167,25 +171,34 @@ export function MerchandiseCard({ product, onAddToCart, isInCart }: MerchandiseC
           loading="lazy"
           width={400}
           height={400}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
         />
+        {quantityInCart > 0 && (
+          <div className="absolute top-3 right-3 bg-violet-600 text-white font-body text-[10px] font-bold px-2 py-1 rounded-full shadow-lg">
+            {quantityInCart} in Cart
+          </div>
+        )}
       </div>
 
       {/* Product Info */}
-      <div className="p-3 sm:p-4 flex flex-col flex-1">
+      <div className="p-5 flex flex-col flex-1">
         {/* Product Name - Clickable */}
-        <div className="mb-2 sm:mb-3">
+        <div className="mb-4">
           <h3 
             onClick={handleCardClick}
-            className="text-xs sm:text-sm md:text-base font-consciousness font-semibold mb-1 sm:mb-2 line-clamp-3 sm:line-clamp-2 min-h-[3.5rem] sm:min-h-[3rem] cursor-pointer hover:text-primary transition-colors text-left leading-snug"
+            className="font-consciousness text-base font-bold text-white group-hover:text-violet-300 transition-colors line-clamp-2 min-h-[3rem] cursor-pointer leading-tight"
           >
             {product.title}
           </h3>
         </div>
 
-        {/* Compact Variant Selector - only show if product has variants with sizes */}
-        {hasSizeVariants ? (
-          <div className="space-y-1.5 mb-2">
+        <p className="font-body text-sm text-white/50 mb-6 line-clamp-2">
+          {product.description?.replace(/<[^>]*>?/gm, '').slice(0, 100)}...
+        </p>
+
+        {/* Compact Variant Selector */}
+        {hasSizeVariants && (
+          <div className="mb-6">
             <Select 
               value={`${selectedColor} / ${selectedSize}`} 
               onValueChange={(value) => {
@@ -195,10 +208,10 @@ export function MerchandiseCard({ product, onAddToCart, isInCart }: MerchandiseC
                 updateSelectedVariant(color, size);
               }}
             >
-              <SelectTrigger className="w-full h-8 md:h-9 text-xs">
+              <SelectTrigger className="w-full h-10 bg-white/5 border-white/10 text-xs text-white/70 rounded-xl">
                 <SelectValue placeholder="Select variant" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="bg-zinc-900 border-white/10 text-white">
                 {colors.map((color) => (
                   <div key={color}>
                     {variantsByColor[color].map((variant: any) => (
@@ -207,7 +220,7 @@ export function MerchandiseCard({ product, onAddToCart, isInCart }: MerchandiseC
                         value={`${color} / ${variant.size}`} 
                         className="text-xs"
                       >
-                        {color} / {variant.size}
+                        {color} : {variant.size}
                       </SelectItem>
                     ))}
                   </div>
@@ -215,54 +228,37 @@ export function MerchandiseCard({ product, onAddToCart, isInCart }: MerchandiseC
               </SelectContent>
             </Select>
           </div>
-        ) : (
-          /* Single variant label for products without size options */
-          <div className="h-8 md:h-9 mb-2 flex items-center justify-center">
-            <span className="text-xs text-muted-foreground font-consciousness">One Size</span>
-          </div>
         )}
 
-        {/* Price & Buttons */}
-        <div className="flex flex-col gap-1.5 mt-auto pt-2 border-t border-border/50">
-          <p className="text-lg md:text-2xl font-consciousness font-bold text-primary text-center">
+        {/* Price & Add to Cart */}
+        <div className="mt-auto space-y-4">
+          <p className="font-consciousness text-lg font-bold text-white">
             ${selectedVariant?.price?.toFixed(2) || '0.00'}
           </p>
           
-          {/* View Details Button */}
-          <Button
-            onClick={handleCardClick}
-            variant="outline"
-            className="gap-1.5 w-full h-8 md:h-10 text-xs font-consciousness"
-            size="sm"
-          >
-            <Eye className="h-3 md:h-4 w-3 md:w-4" />
-            <span className="hidden md:inline">View Details</span>
-            <span className="md:hidden">Details</span>
-          </Button>
-
-          {/* Add to Cart Button */}
           <Button
             onClick={handleAddToCart}
-            disabled={!selectedVariant || inCart}
-            className="gap-1.5 w-full h-8 md:h-10 text-xs font-consciousness"
-            size="sm"
+            disabled={!selectedVariant}
+            className="relative font-body text-sm bg-violet-600 hover:bg-violet-500 text-white rounded-xl py-6 transition-all w-full group/btn overflow-visible"
           >
-            {inCart ? (
-              <>
-                <Check className="h-3 md:h-4 w-3 md:w-4" />
-                <span className="hidden md:inline">In Cart</span>
-                <span className="md:hidden">Added</span>
-              </>
-            ) : (
-              <>
-                <ShoppingCart className="h-3 md:h-4 w-3 md:w-4" />
-                <span className="hidden md:inline">Add to Cart</span>
-                <span className="md:hidden">Add</span>
-              </>
+            <Plus className="w-4 h-4 mr-2" />
+            Add to Cart
+            {quantityInCart > 0 && (
+              <span className="absolute -top-1 -right-1 w-4 h-4 bg-violet-600 rounded-full font-body text-[10px] text-white flex items-center justify-center">
+                {quantityInCart}
+              </span>
             )}
+          </Button>
+
+          <Button
+            onClick={handleCardClick}
+            variant="ghost"
+            className="w-full font-body text-xs text-white/40 hover:text-white hover:bg-white/5 transition-all"
+          >
+            View Details
           </Button>
         </div>
       </div>
-    </Card>
+    </div>
   );
 }

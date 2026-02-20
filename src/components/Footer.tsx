@@ -9,6 +9,7 @@ const Footer = () => {
     { label: 'Tutorials', href: '/tutorials' },
     { label: 'Store', href: '/store' },
     { label: 'Blog', href: '/blog' },
+    { label: 'For Professionals', href: '/institutional' },
   ];
 
   const supportLinks = [

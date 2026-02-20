@@ -34,6 +34,8 @@ const CourseDetail = lazy(() => import("./pages/CourseDetail"));
 const ModuleViewer = lazy(() => import("./pages/ModuleViewer"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Analytics = lazy(() => import("./pages/Analytics"));
+const Leaderboard = lazy(() => import("./pages/Leaderboard"));
+const Institutional = lazy(() => import("./pages/Institutional"));
 const EmailLogsAdmin = lazy(() => import("./pages/EmailLogsAdmin"));
 const Tutorials = lazy(() => import("./pages/Tutorials"));
 const WalletSetupTutorial = lazy(() => import("./pages/WalletSetupTutorial"));
@@ -122,6 +124,7 @@ const AnimatedRoutes = () => {
       <Routes location={location} key={getStableKey()}>
         <Route path="/" element={<PageTransition><Index /></PageTransition>} />
         <Route path="/philosophy" element={<PageTransition><Philosophy /></PageTransition>} />
+        <Route path="/institutional" element={<PageTransition><Institutional /></PageTransition>} />
         <Route path="/courses" element={<PageTransition><Courses /></PageTransition>} />
         <Route path="/courses/:courseId" element={<PageTransition><CourseDetail /></PageTransition>} />
         <Route path="/courses/:courseId/module/:moduleId" element={<PageTransition><ModuleViewer /></PageTransition>} />
@@ -140,6 +143,7 @@ const AnimatedRoutes = () => {
         <Route path="/blog/:slug" element={<PageTransition><BlogPost /></PageTransition>} />
         <Route path="/resources" element={<PageTransition><Resources /></PageTransition>} />
         <Route path="/analytics" element={<PageTransition><Analytics /></PageTransition>} />
+        <Route path="/leaderboard" element={<PageTransition><Leaderboard /></PageTransition>} />
         <Route path="/tutorials" element={<PageTransition><Tutorials /></PageTransition>} />
         <Route path="/tutorials/wallet-setup" element={<PageTransition><WalletSetupTutorial /></PageTransition>} />
         <Route path="/tutorials/first-dex-swap" element={<PageTransition><FirstDexSwapTutorial /></PageTransition>} />

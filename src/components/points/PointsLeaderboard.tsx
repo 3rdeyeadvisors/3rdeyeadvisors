@@ -17,68 +17,78 @@ interface LeaderboardEntry {
 
 export const PointsLeaderboard = () => {
   const { user } = useAuth();
-  const { getLeaderboard, rank: userRank } = usePoints();
+  const { getLeaderboard, rank: userRank, leaderboardLoading: loading } = usePoints();
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [period, setPeriod] = useState<'weekly' | 'monthly' | 'all-time'>('monthly');
   const navigate = useNavigate();
 
   useEffect(() => {
     const loadLeaderboard = async () => {
       const data = await getLeaderboard();
       setLeaderboard(data);
-      setLoading(false);
     };
     loadLeaderboard();
   }, [getLeaderboard]);
 
-  const getRankIcon = (rank: number) => {
+  const getRankStyle = (rank: number) => {
     switch (rank) {
       case 1:
-        return <Trophy className="w-5 h-5 text-yellow-500" />;
+        return 'border-amber-500/40 bg-amber-500/5 text-amber-400';
       case 2:
-        return <Medal className="w-5 h-5 text-gray-400" />;
+        return 'border-white/30 bg-white/5 text-white/80';
       case 3:
-        return <Award className="w-5 h-5 text-amber-600" />;
+        return 'border-orange-500/30 bg-orange-500/5 text-orange-400';
       default:
-        return <span className="w-5 h-5 flex items-center justify-center text-sm font-bold text-muted-foreground">{rank}</span>;
+        return 'border-white/5 bg-white/2 hover:border-violet-500/20 hover:bg-violet-500/3';
     }
   };
 
-  const getRankBadgeColor = (rank: number) => {
+  const getRankNumberColor = (rank: number) => {
     switch (rank) {
-      case 1:
-        return 'bg-yellow-500/20 text-yellow-600 border-yellow-500/30';
-      case 2:
-        return 'bg-gray-400/20 text-gray-600 border-gray-400/30';
-      case 3:
-        return 'bg-amber-600/20 text-amber-700 border-amber-600/30';
-      default:
-        return '';
+      case 1: return 'text-amber-400';
+      case 2: return 'text-white/80';
+      case 3: return 'text-orange-400';
+      default: return 'text-white/30';
     }
   };
-
-  const currentMonth = new Date().toLocaleString('default', { month: 'long', year: 'numeric' });
 
   if (loading) {
     return (
-      <Card className="p-4 animate-pulse">
-        <div className="h-48 bg-muted rounded" />
+      <Card className="p-4 bg-white/3 border border-white/8 animate-pulse">
+        <div className="h-48 bg-white/5 rounded-xl" />
       </Card>
     );
   }
 
   return (
-    <Card className="p-4 sm:p-6 border-primary/20">
-      <div className="flex items-center gap-2 mb-4">
-        <Trophy className="w-5 h-5 text-primary" />
-        <h3 className="font-semibold text-foreground">{currentMonth} Leaderboard</h3>
+    <Card className="p-4 sm:p-6 bg-white/3 border border-white/8 rounded-2xl">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div className="flex items-center gap-2">
+          <Trophy className="w-5 h-5 text-violet-400" />
+          <h3 className="font-consciousness font-bold text-white">Leaderboard</h3>
+        </div>
+
+        <div className="flex gap-1 bg-white/5 p-1 rounded-xl">
+          {['weekly', 'monthly', 'all-time'].map((p) => (
+            <button
+              key={p}
+              onClick={() => setPeriod(p as any)}
+              className={`font-body text-[10px] uppercase tracking-widest px-3 py-1.5 rounded-lg transition-all ${
+                period === p
+                  ? 'bg-violet-600 text-white'
+                  : 'text-white/40 hover:text-white'
+              }`}
+            >
+              {p.replace('-', ' ')}
+            </button>
+          ))}
+        </div>
       </div>
 
       {leaderboard.length === 0 ? (
-        <div className="text-center py-8 text-muted-foreground">
-          <Trophy className="w-12 h-12 mx-auto mb-2 opacity-50" />
-          <p>No points earned yet this month.</p>
-          <p className="text-sm">Be the first to get on the leaderboard!</p>
+        <div className="text-center py-8">
+          <Trophy className="w-12 h-12 mx-auto mb-2 opacity-20 text-white" />
+          <p className="font-body text-sm text-white/40">No points earned yet for this period.</p>
         </div>
       ) : (
         <div className="space-y-2">
@@ -89,33 +99,29 @@ export const PointsLeaderboard = () => {
               <div
                 key={entry.user_id}
                 onClick={() => navigate(`/profile/${entry.user_id}`)}
-                className={`flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-all hover:bg-muted/50 ${
-                  isCurrentUser ? 'bg-primary/10 border border-primary/30' : 'bg-background/50'
-                } ${getRankBadgeColor(entry.rank)}`}
+                className={`flex items-center gap-4 px-4 py-3 rounded-xl border transition-all cursor-pointer ${
+                  isCurrentUser ? 'border-violet-500/30 bg-violet-500/5' : getRankStyle(entry.rank)
+                }`}
               >
-                <div className="w-8 flex items-center justify-center">
-                  {getRankIcon(entry.rank)}
+                <div className={`font-consciousness text-sm font-bold w-6 text-center ${getRankNumberColor(entry.rank)}`}>
+                  {entry.rank}
                 </div>
                 
-                <Avatar className="w-8 h-8">
+                <Avatar className="w-8 h-8 border border-white/10">
                   <AvatarImage src={entry.avatar_url || ''} />
-                  <AvatarFallback className="text-xs bg-primary/10 text-primary">
+                  <AvatarFallback className="text-[10px] bg-white/5 text-white/40 font-consciousness">
                     {(entry.display_name || 'A').charAt(0).toUpperCase()}
                   </AvatarFallback>
                 </Avatar>
                 
                 <div className="flex-1 min-w-0">
-                  <p className={`font-medium truncate ${isCurrentUser ? 'text-primary' : ''}`}>
+                  <p className={`font-consciousness text-sm font-medium truncate ${isCurrentUser ? 'text-violet-400' : 'text-white'}`}>
                     {entry.display_name || 'Anonymous'}
-                    {isCurrentUser && (
-                      <Badge variant="secondary" className="ml-2 text-xs">You</Badge>
-                    )}
                   </p>
                 </div>
                 
                 <div className="text-right">
-                  <span className="font-bold">{entry.total_points.toLocaleString()}</span>
-                  <span className="text-xs text-muted-foreground ml-1">pts</span>
+                  <span className="font-consciousness text-sm font-bold text-violet-400">{entry.total_points.toLocaleString()}</span>
                 </div>
               </div>
             );
@@ -123,32 +129,39 @@ export const PointsLeaderboard = () => {
         </div>
       )}
 
-      {/* Show user's position if not in top 10 */}
       {userRank && userRank.rank > 10 && (
-        <>
-          <div className="border-t border-border my-4" />
-          <div className="flex items-center gap-3 p-3 rounded-lg bg-primary/10 border border-primary/30">
-            <div className="w-8 flex items-center justify-center">
-              <span className="text-sm font-bold text-muted-foreground">#{userRank.rank}</span>
+        <div className="mt-4 pt-4 border-t border-white/5">
+          <div
+            onClick={() => navigate(`/profile/${user?.id}`)}
+            className="flex items-center gap-4 px-4 py-3 rounded-xl border border-violet-500/30 bg-violet-500/5 cursor-pointer"
+          >
+            <div className="font-consciousness text-sm font-bold text-white/30 w-6 text-center">
+              {userRank.rank}
             </div>
-            
-            <Avatar className="w-8 h-8">
-              <AvatarFallback className="text-xs bg-primary/10 text-primary">
+            <Avatar className="w-8 h-8 border border-violet-500/20">
+              <AvatarFallback className="text-[10px] bg-violet-500/10 text-violet-400 font-consciousness">
                 You
               </AvatarFallback>
             </Avatar>
-            
             <div className="flex-1 min-w-0">
-              <p className="font-medium text-primary">Your Position</p>
+              <p className="font-consciousness text-sm font-medium text-violet-400">Your Position</p>
             </div>
-            
             <div className="text-right">
-              <span className="font-bold">{userRank.total_points.toLocaleString()}</span>
-              <span className="text-xs text-muted-foreground ml-1">pts</span>
+              <span className="font-consciousness text-sm font-bold text-violet-400">{userRank.total_points.toLocaleString()}</span>
             </div>
           </div>
-        </>
+        </div>
       )}
+
+      <div className="mt-6">
+        <Button
+          variant="outline"
+          className="w-full font-body text-xs uppercase tracking-widest border-white/10 text-white hover:bg-white/5 rounded-xl py-5"
+          onClick={() => navigate('/leaderboard')}
+        >
+          View Full Leaderboard
+        </Button>
+      </div>
     </Card>
   );
 };

@@ -1,20 +1,17 @@
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "@/components/auth/AuthProvider";
+import { useSubscription } from "@/hooks/useSubscription";
 import SEO from "@/components/SEO";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import PageHero from "@/components/PageHero";
+import VaultSection from "@/components/landing/VaultSection";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import { 
   Lock,
   ExternalLink,
-  Key,
-  TrendingUp,
   Shield,
-  Sparkles,
-  ArrowRight
+  ArrowRight,
+  ChevronRight
 } from "lucide-react";
-import nftImage from "@/assets/nft/3ea-earth-access.png";
 
 // External URLs
 const THIRDWEB_NFT_URL = "https://thirdweb.com/ethereum/0x91AE8ec3d88E871679F826c1D6c5B008f105506c";
@@ -23,184 +20,105 @@ const ENZYME_VAULT_URL = "https://app.enzyme.finance/vault/0x8b668add6fba7c01444
 const VaultAccess = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
+  const { hasAccess } = useSubscription();
 
   return (
     <>
       <SEO 
-        title="Vault Access | 3EA"
-        description="Access the exclusive 3EA Enzyme Vault. NFT holders get access to managed DeFi strategies."
+        title="Vault Access | Managed DeFi Strategies"
+        description="Access the exclusive 3EA Enzyme Vault. Three tiers of education and institutional grade DeFi management strategies."
       />
 
-      <div className="container max-w-4xl py-12 space-y-8">
-        {/* Header */}
-        <div className="text-center space-y-4">
-          <Badge variant="outline" className="mb-4">
-            <Lock className="h-3 w-3 mr-1" />
-            NFT-Gated Access
-          </Badge>
-          <h1 className="text-4xl font-bold">3EA Enzyme Vault</h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            The 3EA Earth Access NFT is your private key to the vault. 
-            Only NFT holders can deposit into this exclusive DeFi strategy.
-          </p>
-        </div>
+      <div className="min-h-screen bg-black pb-20">
+        <PageHero
+          eyebrow="The Vault"
+          title="Knowledge at Every Level"
+          subtitle="Three tiers of education from foundational to institutional grade. Each vault unlocks a deeper layer of the DeFi ecosystem."
+        />
 
-        <Separator />
-
-        {/* NFT Access Key Section */}
-        <Card className="border-primary/30 bg-gradient-to-br from-primary/5 to-primary/10">
-          <CardHeader className="text-center pb-2">
-            <div className="flex justify-center mb-4">
-              <Key className="h-12 w-12 text-primary" />
-            </div>
-            <CardTitle className="text-2xl">Step 1: Get Your Access NFT</CardTitle>
-            <CardDescription className="text-base">
-              The 3EA Earth Access NFT acts as your membership key to the vault
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            <div className="flex flex-col md:flex-row items-center gap-6">
-              {/* NFT Preview */}
-              <div className="w-full max-w-[200px] aspect-square rounded-lg overflow-hidden border border-primary/20">
-                <img 
-                  src={nftImage} 
-                  alt="3EA Earth Access NFT membership key"
-                  width={200}
-                  height={200}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
+        <div className="container mx-auto px-6">
+          {/* Membership Gate for non-premium users */}
+          {!hasAccess && (
+            <div className="bg-white/3 border border-white/8 rounded-2xl p-8 md:p-12 text-center max-w-2xl mx-auto mb-20 relative overflow-hidden group">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1 bg-gradient-to-r from-transparent via-violet-500 to-transparent opacity-50" />
               
-              {/* Benefits */}
-              <div className="flex-1 space-y-3">
-                <h3 className="font-semibold">What you get:</h3>
-                <ul className="space-y-2 text-muted-foreground">
-                  <li className="flex items-center gap-2">
-                    <Sparkles className="h-4 w-4 text-primary shrink-0" />
-                    <span>Exclusive vault access membership</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <TrendingUp className="h-4 w-4 text-primary shrink-0" />
-                    <span>Managed DeFi strategies by 3EA</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Shield className="h-4 w-4 text-primary shrink-0" />
-                    <span>Non-custodial :  you control your funds</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <Button 
-              asChild 
-              size="lg" 
-              className="w-full min-h-[48px] gap-2"
-            >
-              <a 
-                href={THIRDWEB_NFT_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Get Your Access NFT
-                <ExternalLink className="h-4 w-4" />
-              </a>
-            </Button>
-            <p className="text-xs text-muted-foreground text-center">
-              Purchase on Thirdweb with your wallet
-            </p>
-          </CardContent>
-        </Card>
-
-        {/* Vault Access Section */}
-        <Card>
-          <CardHeader className="text-center pb-2">
-            <div className="flex justify-center mb-4">
-              <Lock className="h-12 w-12 text-primary" />
-            </div>
-            <CardTitle className="text-2xl">Step 2: Access the Vault</CardTitle>
-            <CardDescription className="text-base">
-              Already own the NFT? Connect your wallet on Enzyme to deposit
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            <div className="bg-muted/50 rounded-lg p-4 space-y-3">
-              <h3 className="font-semibold">Vault Details:</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Platform:</span>
-                  <span className="font-medium">Enzyme Finance</span>
+              <div className="relative z-10">
+                <div className="w-16 h-16 rounded-2xl bg-violet-500/10 flex items-center justify-center text-violet-400 mx-auto mb-6 group-hover:scale-110 transition-transform">
+                  <Lock className="w-8 h-8" />
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Network:</span>
-                  <span className="font-medium">Ethereum Mainnet</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Strategy:</span>
-                  <span className="font-medium">Managed DeFi</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Access:</span>
-                  <span className="font-medium">NFT Holders Only</span>
+                <h2 className="font-consciousness text-2xl font-bold text-white mb-4">Premium Membership Required</h2>
+                <p className="font-body text-white/50 mb-8 max-w-md mx-auto leading-relaxed">
+                  Access to managed vaults and institutional-grade strategies is reserved for our active members. Join the movement to unlock full access.
+                </p>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <Link to="/subscription">
+                    <Button className="font-body bg-violet-600 hover:bg-violet-500 text-white px-8 py-6 rounded-xl transition-all">
+                      View Membership Plans
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  </Link>
+                  <Link to="/philosophy">
+                    <Button variant="ghost" className="font-body text-white/40 hover:text-white hover:bg-white/5">
+                      Learn More
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>
+          )}
 
-            <Button 
-              asChild 
-              size="lg" 
-              variant="outline"
-              className="w-full min-h-[48px] gap-2"
+          {/* Render the VaultSection component */}
+          <VaultSection />
+
+          {/* Quick Links Section */}
+          <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+            <Link to="/vault-deposit-guide" className="group">
+              <div className="bg-white/3 border border-white/8 rounded-2xl p-6 hover:border-violet-500/30 transition-all flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400">
+                    <Shield className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-consciousness text-white font-bold">Deposit Guide</h4>
+                    <p className="font-body text-xs text-white/40">Step-by-step instructions</p>
+                  </div>
+                </div>
+                <ChevronRight className="w-5 h-5 text-white/20 group-hover:text-violet-400 transition-colors" />
+              </div>
+            </Link>
+
+            <Link to="/vault-withdrawal-guide" className="group">
+              <div className="bg-white/3 border border-white/8 rounded-2xl p-6 hover:border-violet-500/30 transition-all flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400">
+                    <ExternalLink className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-consciousness text-white font-bold">Withdrawal Guide</h4>
+                    <p className="font-body text-xs text-white/40">Exit liquidity procedures</p>
+                  </div>
+                </div>
+                <ChevronRight className="w-5 h-5 text-white/20 group-hover:text-violet-400 transition-colors" />
+              </div>
+            </Link>
+          </div>
+
+          {/* Enzyme External CTA */}
+          <div className="mt-16 text-center">
+            <a
+              href={ENZYME_VAULT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-violet-400 hover:text-violet-300 font-body text-sm transition-colors border border-violet-500/20 bg-violet-500/5 px-6 py-3 rounded-full"
             >
-              <a 
-                href={ENZYME_VAULT_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Enter the Enzyme Vault
-                <ArrowRight className="h-4 w-4" />
-              </a>
-            </Button>
-            <p className="text-xs text-muted-foreground text-center">
-              You'll connect your wallet directly on Enzyme's platform
+              Enter Enzyme Platform
+              <ExternalLink className="w-4 h-4" />
+            </a>
+            <p className="font-body text-[10px] text-white/20 uppercase tracking-widest mt-4">
+              Managed on Ethereum Mainnet
             </p>
-            <div className="flex flex-col sm:flex-row gap-2 justify-center pt-2">
-              <Link to="/vault-deposit-guide" className="text-sm text-primary hover:underline">
-                Deposit Guide →
-              </Link>
-              <span className="hidden sm:inline text-muted-foreground">|</span>
-              <Link to="/vault-withdrawal-guide" className="text-sm text-primary hover:underline">
-                Withdrawal Guide →
-              </Link>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Important Note */}
-        <Card className="border-amber-500/30 bg-amber-500/5">
-          <CardContent className="pt-6">
-            <p className="text-sm text-center">
-              <strong>Important:</strong> After purchasing your NFT, please allow up to 7 days for your wallet to be whitelisted on the vault.
-            </p>
-          </CardContent>
-        </Card>
-
-        {/* Not signed in prompt */}
-        {!user && (
-          <Card className="border-muted">
-            <CardContent className="pt-6 text-center space-y-4">
-              <p className="text-muted-foreground">
-                Sign in to your 3EA account to track your vault activity and get updates.
-              </p>
-              <Button 
-                variant="secondary" 
-                onClick={() => navigate('/auth?redirect=/vault-access')}
-              >
-                Sign In
-              </Button>
-            </CardContent>
-          </Card>
-        )}
+          </div>
+        </div>
       </div>
     </>
   );

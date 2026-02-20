@@ -170,108 +170,99 @@ const RaffleHistory = () => {
   return (
     <>
       <SEO 
-        title="Raffle History: 3rdeyeadvisors"
+        title="Raffle History | Past Winners"
         description="View all past Learn-to-Earn raffles, winners, and prize distributions. See the complete history of our community reward program."
         keywords="raffle history, past winners, crypto giveaways, defi rewards"
       />
 
-      <div className="container mx-auto px-4 py-16">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <History className="w-10 h-10 text-primary" />
-            <h1 className="text-4xl md:text-5xl font-bold">Raffle History</h1>
+      <div className="min-h-screen bg-black pb-20">
+        <PageHero
+          eyebrow="Archive"
+          title="Raffle History"
+          subtitle="Every past raffle, winner, and prize. A full record of the community reward program."
+        />
+
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex justify-center mb-12 -mt-4">
+            <Link to="/raffles">
+              <Button variant="outline" className="font-body text-xs uppercase tracking-widest border-white/10 text-white hover:bg-white/5 rounded-full px-6">
+                <Trophy className="w-4 h-4 mr-2" />
+                View Current Raffle
+              </Button>
+            </Link>
           </div>
-          <p className="text-xl text-muted-foreground mb-6">
-            Complete timeline of Learn-to-Earn raffles and winners
-          </p>
-          <Link to="/raffles">
-            <Button variant="outline">
-              View Current Raffle
-            </Button>
-          </Link>
-        </div>
 
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-          <Card>
-            <CardContent className="pt-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-muted-foreground">Total Raffles</p>
-                  <p className="text-3xl font-bold">{raffles.length}</p>
-                </div>
-                <Trophy className="w-8 h-8 text-primary" />
+          <div className="bg-white/3 border border-white/8 rounded-2xl p-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="font-body text-[10px] uppercase tracking-widest text-white/30 mb-1">Total Raffles</p>
+                <p className="font-consciousness text-2xl font-bold text-white">{raffles.length}</p>
               </div>
-            </CardContent>
-          </Card>
+              <History className="w-6 h-6 text-violet-400" />
+            </div>
+          </div>
 
-          <Card>
-            <CardContent className="pt-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-muted-foreground">Completed</p>
-                  <p className="text-3xl font-bold">
-                    {raffles.filter((r) => r.winner_user_id).length}
-                  </p>
-                </div>
-                <Trophy className="w-8 h-8 text-success" />
+          <div className="bg-white/3 border border-white/8 rounded-2xl p-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="font-body text-[10px] uppercase tracking-widest text-white/30 mb-1">Completed</p>
+                <p className="font-consciousness text-2xl font-bold text-emerald-400">
+                  {raffles.filter((r) => r.winner_user_id).length}
+                </p>
               </div>
-            </CardContent>
-          </Card>
+              <Trophy className="w-6 h-6 text-emerald-400" />
+            </div>
+          </div>
 
           {isAdmin && (
-            <Card>
-              <CardContent className="pt-6">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm text-muted-foreground">Total Participants</p>
-                    <p className="text-3xl font-bold">
-                      {raffles.reduce((sum, r) => sum + (r.participant_count || 0), 0)}
-                    </p>
-                  </div>
-                  <Users className="w-8 h-8 text-blue-500" />
-                </div>
-              </CardContent>
-            </Card>
-          )}
-
-          <Card>
-            <CardContent className="pt-6">
+            <div className="bg-white/3 border border-white/8 rounded-2xl p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-muted-foreground">Total Prizes</p>
-                  <p className="text-3xl font-bold">
-                    ${raffles.reduce((sum, r) => sum + r.prize_amount, 0)}
+                  <p className="font-body text-[10px] uppercase tracking-widest text-white/30 mb-1">Participants</p>
+                  <p className="font-consciousness text-2xl font-bold text-violet-400">
+                    {raffles.reduce((sum, r) => sum + (r.participant_count || 0), 0)}
                   </p>
                 </div>
-                <DollarSign className="w-8 h-8 text-warning" />
+                <Users className="w-6 h-6 text-violet-400" />
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          )}
+
+          <div className="bg-white/3 border border-white/8 rounded-2xl p-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="font-body text-[10px] uppercase tracking-widest text-white/30 mb-1">Total Prizes</p>
+                <p className="font-consciousness text-2xl font-bold text-amber-400">
+                  ${raffles.reduce((sum, r) => sum + r.prize_amount, 0)}
+                </p>
+              </div>
+              <DollarSign className="w-6 h-6 text-amber-400" />
+            </div>
+          </div>
         </div>
 
         {/* Filters and Search */}
-        <Card className="mb-8">
-          <CardContent className="pt-6">
+        <div className="bg-white/3 border border-white/8 rounded-2xl p-6 mb-8">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               <div className="md:col-span-2">
                 <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-white/30" />
                   <Input
                     placeholder="Search raffles, prizes, or winners..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-10"
+                    className="pl-10 bg-white/5 border-white/10 text-white placeholder:text-white/20 focus:border-violet-500/50"
                   />
                 </div>
               </div>
 
               <Select value={filterStatus} onValueChange={setFilterStatus}>
-                <SelectTrigger>
+                <SelectTrigger className="bg-white/5 border-white/10 text-white">
                   <SelectValue placeholder="Filter by status" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-zinc-900 border-white/10 text-white">
                   <SelectItem value="all">All Raffles</SelectItem>
                   <SelectItem value="completed">Completed</SelectItem>
                   <SelectItem value="active">Active</SelectItem>
@@ -280,10 +271,10 @@ const RaffleHistory = () => {
               </Select>
 
               <Select value={sortBy} onValueChange={setSortBy}>
-                <SelectTrigger>
+                <SelectTrigger className="bg-white/5 border-white/10 text-white">
                   <SelectValue placeholder="Sort by" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-zinc-900 border-white/10 text-white">
                   <SelectItem value="recent">Most Recent</SelectItem>
                   <SelectItem value="oldest">Oldest First</SelectItem>
                   <SelectItem value="participants">Most Participants</SelectItem>
@@ -291,129 +282,96 @@ const RaffleHistory = () => {
                 </SelectContent>
               </Select>
             </div>
-          </CardContent>
-        </Card>
+        </div>
 
         {/* Results Count */}
-        <div className="mb-4">
-          <p className="text-sm text-muted-foreground">
+        <div className="mb-6">
+          <p className="font-body text-sm text-white/40">
             Showing {filteredRaffles.length} of {raffles.length} raffles
           </p>
         </div>
 
-        {/* Timeline */}
-        <div className="space-y-6">
+        {/* Timeline Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredRaffles.length === 0 ? (
-            <Card className="text-center py-12">
-              <CardContent>
-                <Trophy className="w-16 h-16 mx-auto mb-4 text-muted-foreground" />
-                <h3 className="text-xl font-semibold mb-2">No raffles found</h3>
-                <p className="text-muted-foreground">
-                  Try adjusting your search or filters
-                </p>
-              </CardContent>
-            </Card>
+            <div className="col-span-full text-center py-20 bg-white/3 border border-white/8 rounded-3xl">
+              <Trophy className="w-12 h-12 mx-auto text-white/10 mb-4" />
+              <h3 className="font-consciousness text-xl font-bold text-white mb-2">No raffles found</h3>
+              <p className="font-body text-sm text-white/40">
+                Try adjusting your search or filters
+              </p>
+            </div>
           ) : (
             filteredRaffles.map((raffle) => {
-              const status = getRaffleStatus(raffle);
               return (
-                <Card key={raffle.id} className="relative overflow-hidden">
-                  <div className={`absolute left-0 top-0 bottom-0 w-1 ${status.color}`} />
-                  <CardHeader>
-                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
-                          <CardTitle className="text-2xl">{raffle.title}</CardTitle>
-                          <Badge className={`${status.color} text-foreground`}>
-                            {status.label}
-                          </Badge>
-                        </div>
-                        <CardDescription className="text-base">
-                          {raffle.description}
-                        </CardDescription>
-                      </div>
-                      <div className="text-right">
-                        <div className="text-3xl font-bold text-primary">
-                          ${raffle.prize_amount}
-                        </div>
-                        <p className="text-sm text-muted-foreground">{raffle.prize}</p>
-                      </div>
+                <div key={raffle.id} className="bg-white/3 border border-white/8 rounded-2xl p-5 md:p-6 hover:border-white/15 transition-all flex flex-col h-full group">
+                  <div className="flex-1">
+                    <h3 className="font-consciousness text-lg font-bold text-white mb-1 group-hover:text-violet-400 transition-colors">{raffle.title}</h3>
+                    <p className="font-body text-xs text-white/30 uppercase tracking-wider mb-4">
+                      {new Date(raffle.start_date).toLocaleDateString()} to {new Date(raffle.end_date).toLocaleDateString()}
+                    </p>
+
+                    <div className="mb-6">
+                      <p className="font-consciousness text-2xl font-bold text-amber-400">${raffle.prize_amount}</p>
+                      <p className="font-body text-sm text-white/50">{raffle.prize}</p>
                     </div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      <div className="flex items-center gap-2">
-                        <Calendar className="w-4 h-4 text-muted-foreground" />
-                        <div>
-                          <p className="text-xs text-muted-foreground">Duration</p>
-                          <p className="text-sm font-medium">
-                            {new Date(raffle.start_date).toLocaleDateString()} -{" "}
-                            {new Date(raffle.end_date).toLocaleDateString()}
-                          </p>
-                        </div>
+                  </div>
+
+                  <div className="border-t border-white/8 mt-4 pt-4 space-y-4">
+                    {raffle.winner_user_id ? (
+                      <div>
+                        <p className="font-body text-xs uppercase tracking-widest text-white/30 mb-1">Winner</p>
+                        <p className="font-consciousness text-base font-bold text-amber-300">{raffle.winner_display_name}</p>
                       </div>
+                    ) : (
+                      <Badge className="bg-violet-500/10 text-violet-400 border-none font-body text-[10px] uppercase tracking-widest">
+                        Currently Active
+                      </Badge>
+                    )}
 
-                      {isAdmin && (
-                        <div className="flex items-center gap-2">
-                          <Users className="w-4 h-4 text-muted-foreground" />
-                          <div>
-                            <p className="text-xs text-muted-foreground">Participants</p>
-                            <p className="text-sm font-medium">
-                              {raffle.participant_count || 0} {raffle.participant_count === 1 ? 'person' : 'people'}
-                            </p>
-                          </div>
-                        </div>
-                      )}
-
-                      {raffle.winner_user_id && (
-                        <div className="flex items-center gap-2">
-                          <Trophy className="w-4 h-4 text-warning" />
-                          <div>
-                            <p className="text-xs text-muted-foreground">Winner</p>
-                            <p className="text-sm font-medium">{raffle.winner_display_name}</p>
-                            {raffle.winner_selected_at && (
-                              <p className="text-xs text-muted-foreground">
-                                Selected {new Date(raffle.winner_selected_at).toLocaleDateString()}
-                              </p>
-                            )}
-                          </div>
-                        </div>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-1.5 text-white/40">
+                        <Users className="w-3.5 h-3.5" />
+                        <span className="font-body text-xs">{raffle.participant_count || 0} Entries</span>
+                      </div>
+                      {raffle.winner_selected_at && (
+                        <span className="font-body text-[10px] text-white/20 uppercase">
+                          {new Date(raffle.winner_selected_at).toLocaleDateString()}
+                        </span>
                       )}
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               );
             })
           )}
         </div>
 
         {/* Call to Action */}
-        {filteredRaffles.some((r) => r.is_active) && (
-          <Card className="mt-8 bg-gradient-to-r from-primary/10 to-primary/5 border-primary/20">
-            <CardContent className="pt-6 text-center">
-              <Trophy className="w-12 h-12 mx-auto mb-4 text-primary" />
-              <h3 className="text-2xl font-bold mb-2">Active Raffle Available!</h3>
-              <p className="text-muted-foreground mb-4">
-                Don't miss your chance to win. Participate now!
+        {filteredRaffles.some((r) => r.is_active && !r.winner_user_id) && (
+          <div className="mt-12 bg-gradient-to-r from-violet-900/20 to-violet-600/20 border border-violet-500/20 rounded-3xl p-8 text-center">
+              <Trophy className="w-12 h-12 mx-auto mb-4 text-violet-400" />
+              <h3 className="font-consciousness text-2xl font-bold text-white mb-2">Active Raffle Available!</h3>
+              <p className="font-body text-white/50 mb-8">
+                Don't miss your chance to win. Participate now and earn entries.
               </p>
               <Link to="/raffles">
-                <Button size="lg">
+                <Button className="font-body bg-violet-600 hover:bg-violet-500 text-white px-12 py-6 rounded-xl transition-all">
                   Join Now
                 </Button>
               </Link>
-            </CardContent>
-          </Card>
+          </div>
         )}
 
         {/* Legal Disclaimer */}
-        <Card className="mt-8 border-muted">
-          <CardContent className="pt-6">
-            <p className="text-xs text-muted-foreground text-center">
-              <strong>About Raffle History:</strong> This page displays the complete history of our Learn-to-Earn raffles. 
-              All winners were selected randomly from verified participants using a weighted selection based on entry counts.
-            </p>
-          </CardContent>
-        </Card>
+        <div className="mt-16 text-center">
+          <p className="font-body text-xs text-white/20 max-w-2xl mx-auto leading-relaxed">
+            <strong className="text-white/30 uppercase tracking-widest mr-2">About Raffle History:</strong>
+            This page displays the complete history of our Learn-to-Earn raffles.
+            All winners were selected randomly from verified participants using a weighted selection based on entry counts.
+          </p>
+          </div>
+        </div>
       </div>
     </>
   );

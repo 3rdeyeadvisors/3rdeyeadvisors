@@ -66,72 +66,73 @@ export const NFTStoreCard = () => {
         : `${mintedCount.toLocaleString()} minted`);
 
   return (
-    <Card className="overflow-hidden border-primary/30 bg-gradient-to-br from-primary/5 to-primary/10 hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+    <div className="bg-white/3 border border-white/8 rounded-2xl overflow-hidden hover:border-violet-500/30 transition-all duration-300 group flex flex-col h-full">
       {/* NFT Image */}
-      <div className="aspect-square relative bg-gradient-to-br from-primary/20 via-primary/10 to-background overflow-hidden">
+      <div className="aspect-square relative bg-black overflow-hidden">
         <img 
           src={nftImage} 
           alt="3EA Earth Access NFT"
           loading="lazy"
           width={400}
           height={400}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
         />
         {hasDataError && (
-          <Badge variant="outline" className="absolute top-2 left-2 text-xs bg-background/80">
+          <Badge variant="outline" className="absolute top-2 left-2 text-[10px] bg-black/80 text-white/50 border-white/10">
             <AlertCircle className="w-3 h-3 mr-1" />
-            Live data unavailable
+            Offline Data
           </Badge>
         )}
       </div>
 
-      <CardHeader className="pb-2 px-4">
-        <CardTitle className="font-consciousness text-base">
-          3EA Earth Access NFT
-        </CardTitle>
-        <CardDescription className="font-consciousness text-xs">
-          Unlock exclusive Enzyme Vault access
-        </CardDescription>
-      </CardHeader>
+      <div className="p-5 flex flex-col flex-1">
+        <div className="mb-4">
+          <h3 className="font-consciousness text-base font-bold text-white group-hover:text-violet-300 transition-colors">
+            3EA Earth Access NFT
+          </h3>
+          <p className="font-body text-xs text-white/40 mt-1 uppercase tracking-widest">
+            Vault Membership Key
+          </p>
+        </div>
 
-      <CardContent className="space-y-3 px-4 pb-4 flex-1 flex flex-col">
         {/* Price & Supply Info - Compact */}
-        <div className="grid grid-cols-2 gap-2">
-          <div className="rounded-md bg-muted/50 p-2 text-center">
-            <div className="flex items-center justify-center gap-1 text-muted-foreground text-xs mb-0.5">
-              <Coins className="h-3 w-3 shrink-0" />
-              <span>Price</span>
-            </div>
+        <div className="grid grid-cols-2 gap-3 mb-6">
+          <div className="rounded-xl bg-white/5 border border-white/10 p-3 text-center">
+            <p className="font-body text-[10px] uppercase tracking-widest text-white/30 mb-1">Price</p>
             {isLoading && !hasDataError ? (
-              <Loader2 className="h-3 w-3 animate-spin mx-auto" />
+              <Loader2 className="h-3 w-3 animate-spin mx-auto text-violet-400" />
             ) : (
-              <p className="font-semibold text-foreground text-xs truncate">{formattedPrice}</p>
+              <p className="font-consciousness text-sm font-bold text-white truncate">{formattedPrice}</p>
             )}
           </div>
-          <div className="rounded-md bg-muted/50 p-2 text-center">
-            <div className="flex items-center justify-center gap-1 text-muted-foreground text-xs mb-0.5">
-              <Package className="h-3 w-3 shrink-0" />
-              <span>Supply</span>
-            </div>
+          <div className="rounded-xl bg-white/5 border border-white/10 p-3 text-center">
+            <p className="font-body text-[10px] uppercase tracking-widest text-white/30 mb-1">Supply</p>
             {isLoading && !hasDataError ? (
-              <Loader2 className="h-3 w-3 animate-spin mx-auto" />
+              <Loader2 className="h-3 w-3 animate-spin mx-auto text-violet-400" />
             ) : (
-              <p className="font-semibold text-foreground text-xs truncate">{formattedSupply}</p>
+              <p className="font-consciousness text-sm font-bold text-white truncate">{formattedSupply}</p>
             )}
           </div>
         </div>
 
-        {/* Benefits - Compact */}
-        <div className="text-xs text-muted-foreground space-y-0.5">
-          <p>✓ Enzyme Vault access</p>
-          <p>✓ Managed DeFi strategies</p>
+        <div className="space-y-2 mb-8">
+          {[
+            "Enzyme Vault access",
+            "Managed DeFi strategies",
+            "On-chain verification"
+          ].map((benefit, i) => (
+            <div key={i} className="flex items-center gap-2">
+              <CheckCircle2 className="w-3.5 h-3.5 text-violet-400" />
+              <span className="font-body text-xs text-white/60">{benefit}</span>
+            </div>
+          ))}
         </div>
 
         {/* Buy Now Button - Direct Link to Thirdweb */}
-        <div className="mt-auto pt-2">
+        <div className="mt-auto space-y-4">
           <Button 
             asChild 
-            className="w-full min-h-[44px] gap-2"
+            className="w-full font-body bg-violet-600 hover:bg-violet-500 text-white py-6 rounded-xl text-sm transition-all"
           >
             <a 
               href={THIRDWEB_CHECKOUT_URL}
@@ -139,24 +140,22 @@ export const NFTStoreCard = () => {
               rel="noopener noreferrer"
             >
               Buy on Thirdweb
-              <ExternalLink className="h-4 w-4" />
+              <ExternalLink className="h-4 w-4 ml-2" />
             </a>
           </Button>
-        </div>
 
-        <p className="text-xs text-muted-foreground text-center">
           <a 
             href={`https://etherscan.io/address/${NFT_CONTRACT_ADDRESS}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:underline inline-flex items-center justify-center gap-1"
+            className="font-body text-[10px] text-white/30 hover:text-white/60 transition-colors flex items-center justify-center gap-1.5 uppercase tracking-widest"
           >
-            <ExternalLink className="h-3 w-3 shrink-0" />
-            <span>View on Etherscan</span>
+            <ExternalLink className="h-3 w-3" />
+            View Contract
           </a>
-        </p>
-      </CardContent>
-    </Card>
+        </div>
+      </div>
+    </div>
   );
 };
 

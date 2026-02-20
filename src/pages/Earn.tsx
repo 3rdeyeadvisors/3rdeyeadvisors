@@ -13,7 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 import { 
   DollarSign, Users, Copy, Share2, Check, Loader2, 
-  Wallet, Mail, ArrowRight, Gift, Clock, CheckCircle2, Crown, FileText, Shield
+  Wallet, Mail, ArrowRight, Gift, Clock, CheckCircle2, Crown, FileText, Shield, Zap
 } from "lucide-react";
 import SEO from "@/components/SEO";
 import PageHero from "@/components/PageHero";
@@ -388,38 +388,61 @@ const Earn = () => {
                   </CardContent>
                 </Card>
               ) : (
-                <Card className="mb-12 bg-white/3 border border-white/8 rounded-2xl p-8">
-                  <CardHeader className="p-0 mb-8">
-                    <CardTitle className="font-consciousness text-xl font-bold text-white mb-2">Your Referral Link</CardTitle>
-                    <CardDescription className="font-body text-white/50">Share this link to start earning</CardDescription>
-                  </CardHeader>
-                  <CardContent className="p-0 space-y-6">
-                    <div className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 flex items-center gap-4">
-                      <div className="font-body text-sm text-white/70 flex-1 truncate">{referralLink}</div>
+                <div className="bg-white/3 border border-white/8 rounded-2xl p-6 md:p-8 mb-12">
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className="w-12 h-12 rounded-2xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-400 flex-shrink-0">
+                      <Zap className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-consciousness text-xl font-bold text-white mb-1">Your Referral Link</h3>
+                      <p className="font-body text-sm text-white/50">Share this link. Earn commission on every membership purchased through it. Forever.</p>
+                    </div>
+                  </div>
+
+                  {/* Commission rates */}
+                  <div className="grid grid-cols-3 gap-3 mb-6">
+                    {[
+                      { tier: "Monthly Member", rate: "10%", color: "text-white/60" },
+                      { tier: "Annual Member", rate: "20%", color: "text-violet-400" },
+                      { tier: "Founding 33", rate: "70%", color: "text-amber-400" },
+                    ].map((item) => (
+                      <div key={item.tier} className="text-center p-3 bg-white/3 rounded-xl border border-white/8">
+                        <p className={`font-consciousness text-2xl font-bold ${item.color} mb-1`}>{item.rate}</p>
+                        <p className="font-body text-[10px] uppercase tracking-widest text-white/40">{item.tier}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Link display */}
+                  <div className="flex flex-col gap-4">
+                    <div className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3">
+                      <span className="font-body text-sm text-white/60 flex-1 truncate">{referralLink}</span>
                       <button
                         onClick={handleCopyLink}
-                        className="font-body text-xs text-violet-400 hover:text-violet-300 whitespace-nowrap transition-colors"
+                        className="font-body text-xs text-violet-400 hover:text-violet-300 whitespace-nowrap transition-colors flex items-center gap-1"
                       >
-                        {copied ? 'Copied' : 'Copy Link'}
+                        <Copy className="w-3 h-3" />
+                        {copied ? 'Copied!' : 'Copy'}
                       </button>
                     </div>
-                    <Button onClick={handleShare} className="w-full font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl py-6 transition-all">
+                    <Button onClick={handleShare} className="w-full font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl py-6 transition-all shadow-lg shadow-violet-900/20">
                       <Share2 className="w-4 h-4 mr-2" />
-                      Share Referral
+                      Share Your Link
                     </Button>
-                    {acceptance && (
-                      <div className="flex items-center justify-between font-body text-[10px] uppercase tracking-widest text-white/20 pt-6 border-t border-white/5">
-                        <Link to="/referral-terms" className="hover:text-violet-400 transition-colors flex items-center gap-2">
-                          <FileText className="w-3 h-3" />
-                          Referral Terms
-                        </Link>
-                        <span>
-                          Accepted: {new Date(acceptance.accepted_at).toLocaleDateString()}
-                        </span>
-                      </div>
-                    )}
-                  </CardContent>
-                </Card>
+                  </div>
+
+                  {acceptance && (
+                    <div className="flex items-center justify-between font-body text-[10px] uppercase tracking-widest text-white/20 mt-6 pt-6 border-t border-white/5">
+                      <Link to="/referral-terms" className="hover:text-violet-400 transition-colors flex items-center gap-2">
+                        <FileText className="w-3 h-3" />
+                        Referral Terms
+                      </Link>
+                      <span>
+                        Accepted: {new Date(acceptance.accepted_at).toLocaleDateString()}
+                      </span>
+                    </div>
+                  )}
+                </div>
               )}
 
               {/* Stats */}
