@@ -511,7 +511,7 @@ export const EnhancedContentPlayer = ({
               {module.type === 'text' && module.content.text && (
                 <div 
                   id="module-content"
-                  className="prose prose-sm md:prose-lg max-w-none font-consciousness overflow-y-auto max-h-[60vh] md:max-h-[calc(100vh-400px)] text-left mx-auto w-full break-words overflow-x-hidden overscroll-contain px-2 md:px-4 pt-8"
+                  className="prose-custom max-w-none overflow-y-auto max-h-[60vh] md:max-h-[calc(100vh-400px)] text-left mx-auto w-full break-words overflow-x-hidden overscroll-contain px-2 md:px-4 pt-8"
                   style={{ 
                     WebkitOverflowScrolling: 'touch',
                     touchAction: 'pan-y'
@@ -643,37 +643,27 @@ export const EnhancedContentPlayer = ({
       <Separator className="my-6" />
 
       {/* Enhanced Navigation */}
-      <div className="space-y-3">
+      <div className="space-y-4">
         {/* Previous/Next Row */}
-        <div className="flex items-center justify-between gap-3">
-          {hasPrevious ? (
+        <div className="flex flex-col sm:flex-row items-center gap-3">
+          {hasPrevious && (
             <Button 
-              variant="outline" 
               onClick={onPrevious} 
-              size="lg" 
-              className="flex-1 flex items-center justify-center gap-2 min-h-[44px]"
+              className="w-full sm:flex-1 font-body text-sm border border-white/15 hover:border-white/30 text-white/60 hover:text-white rounded-xl px-5 py-3 transition-all flex items-center justify-center gap-2 min-h-[48px] bg-transparent"
             >
               <ChevronLeft className="w-4 h-4" />
-              <span className="hidden sm:inline">Previous</span>
-              <span className="sm:hidden">Prev</span>
+              <span>Previous Module</span>
             </Button>
-          ) : (
-            <div className="flex-1" />
           )}
 
-          {hasNext ? (
+          {hasNext && (
             <Button 
-              variant="outline"
               onClick={onNext}
-              size="lg"
-              className="flex-1 flex items-center justify-center gap-2 min-h-[44px]"
+              className="w-full sm:flex-1 font-body text-sm bg-violet-600 hover:bg-violet-500 text-white rounded-xl px-5 py-3 transition-all flex items-center justify-center gap-2 min-h-[48px]"
             >
-              <span className="hidden sm:inline">Next</span>
-              <span className="sm:hidden">Next</span>
+              <span>Next Module</span>
               <ChevronRight className="w-4 h-4" />
             </Button>
-          ) : (
-            <div className="flex-1" />
           )}
         </div>
 
@@ -681,8 +671,7 @@ export const EnhancedContentPlayer = ({
         {!isCompleted && user && (
           <Button 
             onClick={handleComplete} 
-            size="lg" 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground w-full flex items-center justify-center gap-2 min-h-[48px] font-medium shadow-lg hover:shadow-primary/20 transition-all"
+            className="w-full font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl px-6 py-4 transition-all flex items-center justify-center gap-2 min-h-[52px] font-semibold shadow-lg shadow-violet-900/20"
           >
             <CheckCircle className="w-5 h-5" />
             <span>Mark Module Complete</span>
@@ -690,9 +679,9 @@ export const EnhancedContentPlayer = ({
         )}
 
         {isCompleted && (
-          <div className="p-4 md:p-5 bg-awareness/10 border-2 border-awareness/30 rounded-lg flex items-center justify-center gap-3">
-            <CheckCircle className="w-6 h-6 text-awareness" />
-            <span className="font-medium text-awareness text-base md:text-lg">Module Completed ✓</span>
+          <div className="p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-xl flex items-center justify-center gap-3">
+            <CheckCircle className="w-5 h-5 text-emerald-400" />
+            <span className="font-body text-sm font-semibold text-emerald-400">Module Completed</span>
           </div>
         )}
       </div>

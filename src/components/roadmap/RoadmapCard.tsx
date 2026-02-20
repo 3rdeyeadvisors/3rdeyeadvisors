@@ -128,21 +128,21 @@ export const RoadmapCard = ({
     setDialogOpen(true);
   };
 
-  const VotingButtons = ({ compact = false }: { compact?: boolean }) => {
+  const VotingButtons = () => {
     if (isCompleted) {
       return (
         <div className="flex items-center justify-center gap-1 text-emerald-400 min-h-[36px]">
-          <Check className="w-3.5 h-3.5" />
-          <span className="text-xs font-medium">Completed</span>
+          <Check className="w-4 h-4" />
+          <span className="text-sm font-semibold">Completed</span>
         </div>
       );
     }
 
     if (!isVotingOpen) {
       return (
-        <div className="flex items-center justify-center gap-1 text-muted-foreground min-h-[36px]">
-          <Clock className="w-3.5 h-3.5" />
-          <span className="text-xs font-medium">Closed</span>
+        <div className="flex items-center justify-center gap-1 text-white/20 min-h-[36px]">
+          <Clock className="w-4 h-4" />
+          <span className="text-sm font-semibold uppercase tracking-widest">Closed</span>
         </div>
       );
     }
@@ -150,13 +150,8 @@ export const RoadmapCard = ({
     if (!canVote) {
       return (
         <div className="flex gap-2 w-full">
-          <Button variant="outline" size="sm" disabled className="flex-1 min-h-[36px] opacity-50 text-xs">
-            <ThumbsUp className="w-3.5 h-3.5 mr-1" />
-            Yes
-          </Button>
-          <Button variant="outline" size="sm" disabled className="flex-1 min-h-[36px] opacity-50 text-xs">
-            <ThumbsDown className="w-3.5 h-3.5 mr-1" />
-            No
+          <Button disabled className="flex-1 min-h-[36px] bg-white/5 border border-white/10 text-white/20 text-[10px] uppercase tracking-widest font-body rounded-lg">
+            Upgrade to Vote
           </Button>
         </div>
       );
@@ -165,48 +160,44 @@ export const RoadmapCard = ({
     return (
       <div className="flex gap-2 w-full">
         <Button
-          variant={userVoteType === 'yes' ? 'default' : 'outline'}
-          size="sm"
           onClick={(e) => {
             e.stopPropagation();
             onVote('yes');
           }}
           disabled={isVoting}
-          className={`flex-1 min-h-[36px] min-w-[100px] text-xs ${
+          className={`flex-1 min-h-[36px] font-body text-xs rounded-lg transition-all ${
             userVoteType === 'yes'
-              ? 'bg-emerald-600 hover:bg-emerald-700 text-white'
-              : 'border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10'
+              ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-900/20'
+              : 'bg-violet-600 hover:bg-violet-500 text-white'
           }`}
         >
           {isVoting ? (
             <Loader2 className="w-3.5 h-3.5 animate-spin" />
           ) : (
             <>
-              <ThumbsUp className="w-3.5 h-3.5 mr-1" />
-              Yes <span className="ml-1 opacity-75 tabular-nums">({yesVotes})</span>
+              <ThumbsUp className="w-3.5 h-3.5 mr-2" />
+              Support
             </>
           )}
         </Button>
         <Button
-          variant={userVoteType === 'no' ? 'default' : 'outline'}
-          size="sm"
           onClick={(e) => {
             e.stopPropagation();
             onVote('no');
           }}
           disabled={isVoting}
-          className={`flex-1 min-h-[36px] min-w-[100px] text-xs ${
+          className={`flex-1 min-h-[36px] font-body text-xs rounded-lg transition-all ${
             userVoteType === 'no'
-              ? 'bg-red-600 hover:bg-red-700 text-white'
-              : 'border-red-500/30 text-red-400 hover:bg-red-500/10'
+              ? 'bg-red-600 text-white shadow-lg shadow-red-900/20'
+              : 'bg-white/5 border border-white/10 text-white/60 hover:bg-white/10'
           }`}
         >
           {isVoting ? (
             <Loader2 className="w-3.5 h-3.5 animate-spin" />
           ) : (
             <>
-              <ThumbsDown className="w-3.5 h-3.5 mr-1" />
-              No <span className="ml-1 opacity-75 tabular-nums">({noVotes})</span>
+              <ThumbsDown className="w-3.5 h-3.5 mr-2" />
+              Oppose
             </>
           )}
         </Button>
@@ -217,111 +208,62 @@ export const RoadmapCard = ({
   const VoteWeightBadge = () => {
     if (votingTier === 'none') return null;
 
-    return votingTier === 'founding' ? (
-      <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/30">
-        <Crown className="w-3 h-3 text-amber-400" />
-        <span className="text-xs font-medium text-amber-400">3x</span>
-      </div>
-    ) : (
-      <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/10 border border-primary/30">
-        <Star className="w-3 h-3 text-primary" />
-        <span className="text-xs font-medium text-primary">1x</span>
+    return (
+      <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[10px] font-bold uppercase tracking-widest ${
+        votingTier === 'founding'
+          ? "bg-amber-500/10 border-amber-500/30 text-amber-400"
+          : "bg-violet-500/10 border-violet-500/30 text-violet-400"
+      }`}>
+        {votingTier === 'founding' ? <Crown className="w-3 h-3" /> : <Star className="w-3 h-3" />}
+        {votingTier === 'founding' ? "3x Power" : "1x Power"}
       </div>
     );
   };
 
   return (
     <>
-      <Card
-        className="group relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/30 transition-all duration-300 cursor-pointer h-full flex flex-col"
+      <div
+        className="bg-white/3 border border-white/8 rounded-2xl p-5 hover:border-violet-500/20 transition-all cursor-pointer h-full flex flex-col group"
         onClick={handleCardClick}
       >
-        {/* Subtle gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-        
-        <CardHeader className="relative p-4 pb-2">
-          <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
-            <CardTitle className="text-base md:text-lg font-consciousness leading-tight flex-1 min-w-0">
-              {title}
-            </CardTitle>
-            <Badge variant="outline" className={`${statusInfo.className} text-[10px] sm:text-xs shrink-0 self-start`}>
-              {statusInfo.label}
-            </Badge>
-          </div>
+        <div className="flex items-start justify-between gap-4 mb-4">
+          <h3 className="font-consciousness text-base font-bold text-white leading-snug group-hover:text-violet-300 transition-colors">
+            {title}
+          </h3>
+          <Badge variant="outline" className={`${statusInfo.className} text-[10px] uppercase tracking-widest border-none px-2 py-1 h-auto`}>
+            {statusInfo.label}
+          </Badge>
+        </div>
 
-          {/* Countdown Timer */}
-          {!isCompleted && timeRemaining && (
-            <div className={`flex items-center gap-1 mt-1.5 text-xs ${
-              timeRemaining.expired
-                ? 'text-muted-foreground'
-                : timeRemaining.urgent
-                  ? 'text-amber-400'
-                  : 'text-muted-foreground'
-            }`}>
-              {timeRemaining.urgent && !timeRemaining.expired ? (
-                <AlertTriangle className="w-3 h-3" />
-              ) : (
-                <Clock className="w-3 h-3" />
-              )}
-              <span className="font-medium">{formatTimeRemaining()}</span>
-            </div>
+        <div className="flex-1 mb-6">
+          {description && (
+            <p className="font-body text-sm text-white/50 leading-relaxed line-clamp-3">
+              {description}
+            </p>
           )}
-        </CardHeader>
+        </div>
 
-        <CardContent className="relative p-4 pt-2 space-y-3 flex-1 flex flex-col">
-          <div className="flex-1">
-            {description && (
-              <>
-                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-2">
-                  {description}
-                </p>
-                <span className="text-xs text-primary/70 hover:text-primary cursor-pointer mt-1 inline-block">
-                  Click to read more
-                </span>
-              </>
-            )}
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <p className="font-consciousness text-2xl font-bold text-violet-400">
+              {netVotes >= 0 ? '+' : ''}{netVotes}
+            </p>
+            <p className="font-body text-[10px] uppercase tracking-widest text-white/30">Net Votes</p>
           </div>
-
-          {/* Vote Progress */}
-          <div className="space-y-1.5">
-            <div className="flex items-center justify-between text-xs">
-              <span className="text-muted-foreground">Support</span>
-              <span className="font-medium tabular-nums">
-                <span className="text-emerald-400">+{yesVotes}</span>
-                <span className="text-muted-foreground mx-1">/</span>
-                <span className="text-red-400">-{noVotes}</span>
-                <span className="text-muted-foreground ml-2">net: </span>
-                <span className={netVotes >= 0 ? 'text-emerald-400' : 'text-red-400'}>
-                  {netVotes >= 0 ? '+' : ''}{netVotes}
-                </span>
-              </span>
-            </div>
-            <Progress value={sentimentPercentage} className="h-1.5" />
+          <div className="flex-1 max-w-[160px]">
+            <VotingButtons />
           </div>
+        </div>
 
-          {/* Vote Action */}
-          <div className="flex flex-col gap-2 pt-1">
-            {/* Vote Weight Badge & User Vote Status */}
-            <div className="flex items-center justify-center gap-3 flex-wrap min-h-[20px]">
-              <VoteWeightBadge />
-              {userVoteType && (
-                <span className="text-xs text-muted-foreground">
-                  You voted: <span className={userVoteType === 'yes' ? 'text-emerald-400' : 'text-red-400'}>
-                    {userVoteType === 'yes' ? 'Yes' : 'No'}
-                  </span>
-                </span>
-              )}
-            </div>
-
-            {/* Voting Buttons */}
-            <div className="flex justify-center w-full pt-1">
-              <div className="w-full max-w-[280px]">
-                <VotingButtons />
-              </div>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+        <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-between">
+          <VoteWeightBadge />
+          {!isCompleted && timeRemaining && (
+            <span className={`font-body text-[10px] uppercase tracking-widest ${timeRemaining.urgent ? 'text-amber-400' : 'text-white/30'}`}>
+              {formatTimeRemaining()}
+            </span>
+          )}
+        </div>
+      </div>
 
       {/* Detail Dialog */}
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>

@@ -410,7 +410,7 @@ const PortfolioRebalancingTutorial = () => {
           {
             metric: "Rebalancing Alpha",
             description: "Excess return attributed to rebalancing",
-            calculation: "Portfolio Return minus Buy & Hold Return",
+            calculation: "Portfolio Return - Buy & Hold Return",
             target: "Positive over rolling 12-month periods",
             interpretation: "Higher values indicate effective rebalancing"
           },
@@ -425,14 +425,14 @@ const PortfolioRebalancingTutorial = () => {
             metric: "Sharpe Ratio",
             description: "Risk-adjusted returns",
             calculation: "(Return - Risk-Free Rate) / Standard Deviation",
-            target: ">1.0 for good performance",
+            target: "Greater than 1.0 for good performance",
             interpretation: "Higher values indicate better risk-adjusted performance"
           },
           {
             metric: "Maximum Drawdown",
             description: "Largest peak-to-trough decline",
             calculation: "Max((Peak - Trough) / Peak)",
-            target: "<20% for moderate risk strategies",
+            target: "Less than 20% for moderate risk strategies",
             interpretation: "Lower values indicate better downside protection"
           }
         ],

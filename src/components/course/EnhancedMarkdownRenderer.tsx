@@ -192,7 +192,7 @@ export const EnhancedMarkdownRenderer = ({ content, heroImage }: EnhancedMarkdow
   };
 
   return (
-    <div className="prose prose-invert max-w-none px-4 py-4 sm:px-6 space-y-4">
+    <div className="prose-custom max-w-none">
       {heroImage && (
         <div className="w-full mb-8 rounded-lg overflow-hidden -mx-4 sm:-mx-6">
           <img 

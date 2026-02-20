@@ -69,23 +69,28 @@ const Philosophy = () => {
         <div className="max-w-4xl mx-auto px-6 pb-20 relative z-10">
           {/* First Strip */}
           <div className="text-center mb-16">
-            <h2 className="text-2xl md:text-4xl font-consciousness font-bold text-white mb-6 animate-awareness-float leading-tight">
+            <h2 className="text-2xl md:text-5xl font-consciousness font-bold text-white mb-6 animate-awareness-float leading-tight">
               This is not a brand.
             </h2>
-            <h3 className="text-xl md:text-3xl font-consciousness font-bold text-violet-400 animate-cosmic-pulse leading-tight">
-              It is a reprogramming system.
-            </h3>
+            <div className="border-l-4 border-violet-500 pl-6 py-4 mx-auto w-fit">
+              <h3 className="text-xl md:text-3xl font-consciousness italic text-white/80 animate-cosmic-pulse leading-tight">
+                It is a reprogramming system.
+              </h3>
+            </div>
           </div>
 
           {/* Philosophy Introduction */}
-          <div className="mb-16">
-            <div className="p-8 md:p-10 bg-white/3 border border-white/8 rounded-2xl backdrop-blur-sm">
-              <p className="text-base md:text-lg text-white/70 leading-relaxed font-body mb-6 text-center">
+          <div className="mb-16 space-y-8">
+            <h2 className="font-consciousness text-2xl md:text-3xl font-bold text-white mb-4 text-center">
+              Reclaiming Economic Power
+            </h2>
+            <div className="space-y-6">
+              <p className="font-body text-lg text-white/60 leading-relaxed mb-6 text-center">
                 Financial awareness is not just about making money. It is about understanding how systems work
                 so you can make choices, not just follow rules. DeFi gives individuals a chance to reclaim that control.
                 Here, we teach you how, step by step.
               </p>
-              <p className="text-base md:text-lg text-white/70 leading-relaxed font-body text-center">
+              <p className="font-body text-lg text-white/60 leading-relaxed mb-6 text-center">
                 For too long, traditional financial institutions have programmed us to believe
                 that true financial freedom is impossible. They have conditioned us to accept
                 middlemen, hidden fees, and systems designed to extract value from our labor.
@@ -98,18 +103,18 @@ const Philosophy = () => {
           {/* Three Columns */}
           <div className="mb-16">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {philosophyPoints.map((point, index) => (
+              {philosophyPoints.map((point) => (
                 <div
                   key={point.title}
-                  className="p-8 bg-white/3 border border-white/8 rounded-2xl hover:border-violet-500/30 transition-all duration-300 group text-center"
+                  className="bg-white/3 border border-white/8 rounded-2xl p-6 hover:border-violet-500/30 transition-all duration-300 group text-center"
                 >
                   <div className="mb-6 flex justify-center">
                     <point.icon className="w-12 h-12 text-violet-400 group-hover:text-violet-300 transition-colors" />
                   </div>
-                  <h3 className="text-lg font-consciousness font-bold text-white mb-3">
+                  <h3 className="font-consciousness text-lg font-bold text-white mb-2">
                     {point.title}
                   </h3>
-                  <p className="text-sm text-white/50 font-body leading-relaxed">
+                  <p className="font-body text-white/50 leading-relaxed">
                     {point.description}
                   </p>
                 </div>

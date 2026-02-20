@@ -55,15 +55,15 @@ const ChartReadingTutorial = () => {
           <h4 className="font-semibold mt-6">Timeframe Selection</h4>
           <div className="grid grid-cols-2 gap-3">
             <div className="p-3 border rounded">
-              <h5 className="font-medium text-sm">Short-term (1m-1h)</h5>
+              <h5 className="font-medium text-sm">Short-term (1m to 1h)</h5>
               <p className="text-xs text-muted-foreground">Day trading, quick entries/exits</p>
             </div>
             <div className="p-3 border rounded">
-              <h5 className="font-medium text-sm">Medium-term (4h-1d)</h5>
+              <h5 className="font-medium text-sm">Medium-term (4h to 1d)</h5>
               <p className="text-xs text-muted-foreground">Swing trading, position management</p>
             </div>
             <div className="p-3 border rounded">
-              <h5 className="font-medium text-sm">Long-term (1w-1M)</h5>
+              <h5 className="font-medium text-sm">Long-term (1w to 1M)</h5>
               <p className="text-xs text-muted-foreground">Investment decisions, major trends</p>
             </div>
             <div className="p-3 border rounded">

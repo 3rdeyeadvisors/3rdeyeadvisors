@@ -24,6 +24,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { useAuth } from '@/components/auth/AuthProvider';
+import PageHero from '@/components/PageHero';
 
 const DAILY_CAP = 100;
 
@@ -159,7 +160,12 @@ const MiniGames = () => {
   const ActiveGameComponent = GAMES.find(g => g.id === activeGame)?.component;
 
   return (
-    <div className="container mx-auto px-4 pt-24 pb-12">
+    <div className="min-h-screen bg-black relative overflow-hidden">
+      {/* Nebula Glow */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-500/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/5 blur-[100px] rounded-full pointer-events-none" />
+
+      <div className="container mx-auto px-4 pt-20 pb-12 relative z-10">
       <div className="max-w-6xl mx-auto">
         {!activeGame ? (
           <motion.div
@@ -167,18 +173,22 @@ const MiniGames = () => {
             animate={{ opacity: 1, y: 0 }}
             className="space-y-8"
           >
+            <PageHero
+              eyebrow="Brain Training"
+              title="Sharpen Your Mind"
+              subtitle="Cognitive challenges designed to build the pattern recognition and analytical thinking that makes you a better DeFi participant."
+            />
+
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-              <div>
-                <h1 className="text-4xl md:text-5xl font-bold font-consciousness mb-2 bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent">
-                  Cognitive Lab
-                </h1>
-                <p className="text-muted-foreground text-lg max-w-2xl">
+              <div className="flex-1">
+                <h2 className="text-2xl font-consciousness font-bold text-white mb-2">Cognitive Lab</h2>
+                <p className="text-white/50 font-body max-w-2xl">
                   Scientifically-inspired exercises designed to sharpen your mental edge,
                   increase IQ, and build long-term cognitive resilience.
                 </p>
               </div>
 
-              <Card className="p-6 bg-primary/5 border-primary/20 min-w-[280px]">
+              <Card className="p-6 bg-white/3 border-white/8 min-w-[280px] rounded-2xl">
                 <div className="flex justify-between items-center mb-4">
                   <div className="flex items-center gap-2">
                     <Trophy className="w-5 h-5 text-primary" />
@@ -193,7 +203,7 @@ const MiniGames = () => {
               </Card>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               <TooltipProvider>
                 {GAMES.map((game, idx) => (
                   <motion.div
@@ -204,33 +214,35 @@ const MiniGames = () => {
                   >
                     <Tooltip>
                       <TooltipTrigger asChild>
-                        <Card
-                          className="group relative overflow-hidden h-full border-border/50 hover:border-primary/50 transition-all duration-300 cursor-pointer hover:shadow-[0_0_20px_rgba(var(--primary),0.1)]"
+                        <div
+                          className="bg-white/3 border border-white/8 rounded-2xl overflow-hidden hover:border-violet-500/30 transition-all duration-300 group cursor-pointer h-full flex flex-col"
                           onClick={() => setActiveGame(game.id)}
                         >
-                          <div className="p-6">
-                            <div className={`w-12 h-12 rounded-2xl ${game.bgColor} ${game.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                              <game.icon className="w-6 h-6" />
+                          <div className="p-6 flex-1">
+                            <div className={`w-12 h-12 rounded-xl bg-violet-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                              <game.icon className="w-6 h-6 text-violet-400" />
                             </div>
                             <div className="mb-4">
-                              <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{game.category}</span>
-                              <h3 className="text-xl font-bold mt-1 group-hover:text-primary transition-colors">{game.title}</h3>
+                              <span className="font-body text-[10px] uppercase tracking-widest text-violet-400 border border-violet-500/30 bg-violet-500/10 px-2 py-1 rounded-md">{game.category}</span>
+                              <h3 className="font-consciousness text-lg font-bold text-white mt-4 group-hover:text-violet-300 transition-colors">{game.title}</h3>
                             </div>
-                            <p className="text-muted-foreground text-sm line-clamp-2 mb-6">
+                            <p className="font-body text-sm text-white/50 line-clamp-2 mb-6">
                               {game.description}
                             </p>
-                            <Button variant="outline" className="w-full min-h-[44px] group-hover:bg-primary group-hover:text-primary-foreground transition-all">
-                              Launch Exercise
+                          </div>
+                          <div className="px-6 pb-6 mt-auto">
+                            <Button className="w-full font-body text-sm bg-violet-600 hover:bg-violet-500 text-white rounded-xl px-4 py-2 transition-all">
+                              Play Game
                             </Button>
                           </div>
-                        </Card>
-                      </TooltipTrigger>
-                      <TooltipContent side="bottom" className="max-w-xs p-4 bg-card border-primary/20">
-                        <div className="flex items-center gap-2 mb-1">
-                          <Activity className="w-4 h-4 text-primary" />
-                          <span className="font-bold">Cognitive Benefit</span>
                         </div>
-                        <p className="text-xs text-muted-foreground">
+                      </TooltipTrigger>
+                      <TooltipContent side="bottom" className="max-w-xs p-4 bg-[#0a0a0a] border-violet-500/30 text-white">
+                        <div className="flex items-center gap-2 mb-1 text-violet-400">
+                          <Activity className="w-4 h-4" />
+                          <span className="font-bold font-consciousness text-xs">Cognitive Benefit</span>
+                        </div>
+                        <p className="text-xs text-white/60 font-body">
                           {game.benefit}
                         </p>
                       </TooltipContent>
@@ -310,6 +322,7 @@ const MiniGames = () => {
             </Card>
           </motion.div>
         )}
+      </div>
       </div>
     </div>
   );

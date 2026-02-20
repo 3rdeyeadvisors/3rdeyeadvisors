@@ -11,7 +11,8 @@ import { useAuth } from "@/components/auth/AuthProvider";
 import { useProgress } from "@/components/progress/ProgressProvider";
 import { AuthModal } from "@/components/auth/AuthModal";
 import { getCourseContent } from "@/data/courseContent";
-import { ArrowLeft, BookOpen, List, Play } from "lucide-react";
+import { ArrowLeft, BookOpen, List, Play, CheckCircle, Lock } from "lucide-react";
+import CourseProgressBar from "@/components/course/CourseProgressBar";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { OrientationSuggestion } from "@/components/course/OrientationSuggestion";
 import OrionChat from "@/components/orion/OrionChat";
@@ -81,172 +82,164 @@ const ModuleViewer = () => {
   const showSignInPrompt = !user;
 
   return (
-    <div className="min-h-screen py-8 sm:py-12 md:py-20">
+    <div className="min-h-screen bg-black pt-20 pb-12">
       <OrientationSuggestion />
-      <div className="w-full px-3 sm:px-4 md:px-6 text-center sm:text-left">
-        {/* Desktop Only Notice for Mobile Users */}
-        
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 sm:gap-4 mb-4 sm:mb-6 md:mb-8">
-          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 justify-center sm:justify-start">
-            <Button
-              variant="outline"
-              onClick={() => navigate(`/courses/${courseId}`)}
-              className="font-consciousness text-xs sm:text-sm md:text-base min-h-[40px] sm:min-h-[44px] w-full sm:w-auto"
-            >
-              <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
-              <span className="hidden sm:inline">Back to Course</span>
-              <span className="sm:hidden">Back</span>
-            </Button>
 
-            <Button
-              variant="ghost"
-              onClick={() => setShowModuleList(!showModuleList)}
-              className="font-consciousness text-xs sm:text-sm md:text-base min-h-[40px] sm:min-h-[44px] w-full sm:w-auto"
-            >
-              <List className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
-              <span className="hidden sm:inline">All Modules</span>
-              <span className="sm:hidden">Modules</span>
-            </Button>
+      <div className="flex flex-col lg:flex-row gap-6 max-w-7xl mx-auto px-4 md:px-6 py-6">
+        {/* Left Column (Content) */}
+        <div className="w-full lg:w-[65%] space-y-6">
+          {/* Content Top Bar */}
+          <div className="mb-8">
+            <div className="flex items-center justify-between mb-4">
+              <Button
+                variant="ghost"
+                onClick={() => navigate(`/courses/${courseId}`)}
+                className="font-body text-xs uppercase tracking-widest text-white/40 hover:text-white p-0 h-auto"
+              >
+                <ArrowLeft className="w-3 h-3 mr-2" />
+                Back to Course
+              </Button>
+              <ParticipantTracker contentType="module" contentId={moduleId || ''} />
+            </div>
+
+            <p className="font-body text-xs uppercase tracking-widest text-white/40 mb-2">
+              {course.title}
+            </p>
+            <h1 className="font-consciousness text-xl md:text-3xl font-bold text-white mb-4">
+              {currentModule.title}
+            </h1>
+            <p className="font-body text-xs text-white/30 uppercase tracking-widest">
+              Module {currentModuleIndex + 1} of {course.modules.length}
+            </p>
           </div>
 
-          <div className="text-center md:text-right px-2 sm:px-0">
-            <div className="flex flex-col sm:flex-row items-center gap-2 justify-center md:justify-end">
-              <ParticipantTracker contentType="module" contentId={moduleId || ''} />
-              <div>
-                <h2 className="text-sm sm:text-base md:text-lg font-consciousness font-semibold text-foreground line-clamp-1 break-words">
-                  {course.title}
-                </h2>
-                <p className="text-xs md:text-sm text-muted-foreground break-words">
-                  {course.category === "free" ? "Free Course" : `${course.category} Course`}
+          {/* Sign In Prompt for non-authenticated users */}
+          {showSignInPrompt && (
+            <Card className="p-8 text-center bg-white/3 border-white/8 rounded-2xl mb-6">
+              <BookOpen className="w-12 h-12 text-violet-400 mx-auto mb-4" />
+              <h2 className="text-xl sm:text-2xl font-consciousness font-bold text-white mb-3">
+                Sign In to Access Content
+              </h2>
+              <p className="text-white/50 font-body mb-6 text-sm sm:text-base">
+                You can preview the module outline below. Sign in to view the full content and track your progress.
+              </p>
+              <Button
+                onClick={() => setShowAuthModal(true)}
+                className="font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl px-8 py-3 transition-all"
+              >
+                Sign In to Continue
+              </Button>
+            </Card>
+          )}
+
+          {/* Enhanced Content Player */}
+          {user ? (
+            <EnhancedContentPlayer
+              courseId={course.id}
+              module={currentModule}
+              onComplete={handleModuleComplete}
+              onNext={handleNext}
+              onPrevious={handlePrevious}
+              hasNext={currentModuleIndex < course.modules.length - 1}
+              hasPrevious={currentModuleIndex > 0}
+              currentModuleIndex={currentModuleIndex}
+              totalModules={course.modules.length}
+              courseTitle={course.title}
+              allModules={course.modules}
+            />
+          ) : (
+            <Card className="p-6 bg-white/3 border-white/8 rounded-2xl">
+              <h3 className="text-lg font-consciousness font-semibold text-white mb-4">{currentModule.title}</h3>
+              <p className="text-white/40 mb-4">Duration: {currentModule.duration} minutes</p>
+              <div className="p-6 bg-white/5 rounded-xl border border-white/10 text-center">
+                <p className="text-white/50 text-sm font-body">
+                  Full content is available after signing in.
                 </p>
               </div>
+            </Card>
+          )}
+
+          {/* Community Features */}
+          {user && (
+            <div className="mt-12">
+              <h2 className="text-xl md:text-2xl font-consciousness font-bold text-white mb-6">
+                Community Discussion
+              </h2>
+              <CommunityTabs
+                courseId={course.id}
+                moduleId={currentModule.id}
+              />
             </div>
-          </div>
+          )}
         </div>
 
-        {/* Module List Sidebar */}
-        {showModuleList && (
-          <Card className="mb-3 sm:mb-4 md:mb-6 p-3 sm:p-4 md:p-6">
-            <h3 className="text-sm sm:text-base md:text-lg font-consciousness font-semibold mb-2.5 sm:mb-3 md:mb-4 text-center md:text-left break-words">Course Modules</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3">
+        {/* Right Column (Sidebar) */}
+        <div className="w-full lg:w-[35%] lg:sticky lg:top-24 lg:self-start space-y-6">
+          {/* Course Progress Card */}
+          {user && (
+            <Card className="bg-white/3 border-white/8 rounded-2xl p-6">
+              <CourseProgressBar
+                completed={progress?.completed_modules?.length || 0}
+                total={course.modules?.length || 0}
+              />
+            </Card>
+          )}
+
+          {/* Module List */}
+          <div className="bg-white/3 border border-white/8 rounded-2xl overflow-hidden">
+            <div className="font-consciousness text-sm font-bold text-white p-4 border-b border-white/8 flex items-center justify-between">
+              <span>Course Modules</span>
+              <span className="text-white/40 font-body text-xs">{course.modules.length} total</span>
+            </div>
+            <div className="max-h-[60vh] overflow-y-auto">
               {course.modules.map((module, index) => {
                 const isCompleted = isModuleCompleted(index);
                 const isCurrent = index === currentModuleIndex;
                 
                 return (
-                  <Button
+                  <button
                     key={module.id}
-                    variant={isCurrent ? "default" : "outline"}
-                    className={`h-auto p-2.5 sm:p-3 transition-all justify-start text-left min-h-[64px] ${
+                    className={`w-full flex items-center gap-3 px-4 py-4 border-b border-white/5 last:border-0 transition-all text-left group ${
                       isCurrent 
-                        ? "bg-primary/10 border-primary/50 text-primary hover:bg-primary/20" 
-                        : isCompleted 
-                          ? "bg-awareness/10 border-awareness/40 hover:bg-awareness/20" 
-                          : "bg-card border-border hover:border-primary/30"
+                        ? "bg-violet-500/10 text-violet-300"
+                        : "text-white/60 hover:bg-white/5 hover:text-white"
                     }`}
-                    onClick={() => {
-                      navigate(`/courses/${courseId}/module/${module.id}`);
-                      setShowModuleList(false);
-                    }}
+                    onClick={() => navigate(`/courses/${courseId}/module/${module.id}`)}
                   >
-                    <div className="flex items-start gap-2 w-full">
-                      {/* Status icon */}
+                    <div className="flex-shrink-0">
                       {isCompleted ? (
-                        <div className="w-4 h-4 sm:w-5 sm:h-5 bg-awareness rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 sm:mt-1">
-                          <span className="text-foreground text-[10px] sm:text-xs font-bold">✓</span>
-                        </div>
+                        <CheckCircle className="w-4 h-4 text-emerald-400" />
                       ) : (
-                        <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-current rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 sm:mt-1">
-                          <span className="text-[10px] sm:text-xs font-medium">{index + 1}</span>
+                        <div className={`w-5 h-5 rounded-full border flex items-center justify-center text-[10px] font-bold ${
+                          isCurrent ? "border-violet-400 text-violet-400" : "border-white/20 text-white/20"
+                        }`}>
+                          {index + 1}
                         </div>
                       )}
-                      
-                      {/* Content */}
-                      <div className="flex-1 pr-1 sm:pr-2">
-                        <p className="text-xs sm:text-sm font-medium leading-snug whitespace-normal break-words">{module.title}</p>
-                        <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5 sm:mt-1">{module.duration} min</p>
-                      </div>
-                      
-                      {/* Play icon */}
-                      {isCurrent && <Play className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0 mt-0.5 sm:mt-1" />}
                     </div>
-                  </Button>
+                    <div className="flex-1 min-w-0">
+                      <p className={`font-body text-sm truncate ${isCurrent ? "font-semibold" : ""}`}>
+                        {module.title}
+                      </p>
+                      <p className="text-[10px] uppercase tracking-widest text-white/30 mt-0.5">
+                        {module.duration} min
+                      </p>
+                    </div>
+                    {isCurrent && <Play className="w-3 h-3 text-violet-400 animate-pulse" />}
+                  </button>
                 );
               })}
             </div>
-          </Card>
-        )}
-
-        {/* Sign In Prompt for non-authenticated users */}
-        {showSignInPrompt && (
-          <Card className="p-6 sm:p-8 text-center bg-awareness/10 border-awareness/30 mb-6">
-            <BookOpen className="w-12 h-12 sm:w-16 sm:h-16 text-awareness mx-auto mb-4" />
-            <h2 className="text-xl sm:text-2xl font-consciousness font-bold text-foreground mb-3">
-              Sign In to Access Content
-            </h2>
-            <p className="text-muted-foreground font-consciousness mb-4 text-sm sm:text-base">
-              You can preview the module outline below. Sign in to view the full content and track your progress.
-            </p>
-            <Button
-              variant="awareness"
-              onClick={() => setShowAuthModal(true)}
-              className="font-consciousness"
-            >
-              Sign In to Continue
-            </Button>
-          </Card>
-        )}
-
-        {/* Enhanced Content Player - Only show for authenticated users */}
-        {user ? (
-          <EnhancedContentPlayer
-            courseId={course.id}
-            module={currentModule}
-            onComplete={handleModuleComplete}
-            onNext={handleNext}
-            onPrevious={handlePrevious}
-            hasNext={currentModuleIndex < course.modules.length - 1}
-            hasPrevious={currentModuleIndex > 0}
-            currentModuleIndex={currentModuleIndex}
-            totalModules={course.modules.length}
-            courseTitle={course.title}
-            allModules={course.modules}
-          />
-        ) : (
-          <Card className="p-6 bg-muted/30 border-border">
-            <h3 className="text-lg font-consciousness font-semibold mb-4">{currentModule.title}</h3>
-            <p className="text-muted-foreground mb-4">Duration: {currentModule.duration} minutes</p>
-            <div className="p-4 bg-background/50 rounded-lg border border-border text-center">
-              <p className="text-muted-foreground text-sm">
-                Full content is available after signing in.
-              </p>
-            </div>
-          </Card>
-        )}
-
-        {/* Community Features - Only for authenticated users */}
-        {user && (
-          <div className="mt-6 sm:mt-8 md:mt-12 px-2 sm:px-0">
-            <Card className="p-3 sm:p-4 md:p-6">
-              <h2 className="text-lg sm:text-xl md:text-2xl font-consciousness font-bold text-center mb-4 sm:mb-6 break-words">
-                Community Discussion
-              </h2>
-              <CommunityTabs 
-                courseId={course.id} 
-                moduleId={currentModule.id}
-              />
-            </Card>
           </div>
-        )}
+        </div>
+      </div>
 
         <AuthModal 
           isOpen={showAuthModal} 
           onClose={() => setShowAuthModal(false)} 
         />
+        {user && <OrionChat />}
       </div>
-      {user && <OrionChat />}
-    </div>
   );
 };
 
