@@ -181,7 +181,7 @@ const CourseDetail = () => {
           </div>
           <div className="w-px bg-white/10 hidden sm:block" />
           <div>
-            <p className="font-consciousness text-lg font-bold text-white">{course.estimated_hours || '—'}h</p>
+            <p className="font-consciousness text-lg font-bold text-white">{(course as any).estimated_hours || '—'}h</p>
             <p className="font-body text-xs uppercase tracking-widest text-white/40">Est. Duration</p>
           </div>
         </div>

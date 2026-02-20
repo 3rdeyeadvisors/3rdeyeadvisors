@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Trophy, Calendar, Users, DollarSign, Search, History } from "lucide-react";
 import SEO from "@/components/SEO";
+import PageHero from "@/components/PageHero";
 import { Link } from "react-router-dom";
 
 interface RaffleHistoryItem {

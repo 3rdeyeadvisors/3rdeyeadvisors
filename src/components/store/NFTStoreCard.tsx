@@ -4,7 +4,7 @@ import { getActiveClaimCondition, totalSupply } from "thirdweb/extensions/erc115
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Coins, Package, Loader2, AlertCircle } from "lucide-react";
+import { ExternalLink, Coins, Package, Loader2, AlertCircle, CheckCircle2 } from "lucide-react";
 import nftImage from "@/assets/nft/3ea-earth-access.png";
 
 // Token ID for the 3EA Access NFT (first token in the ERC1155 collection)
