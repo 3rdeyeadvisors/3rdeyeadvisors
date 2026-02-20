@@ -168,3 +168,6 @@ verify_jwt = true
 
 [functions.fetch-crypto-prices]
 verify_jwt = false
+
+[functions.send-platform-upgrade-email]
+verify_jwt = false
