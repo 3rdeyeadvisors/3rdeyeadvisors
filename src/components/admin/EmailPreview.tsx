@@ -67,9 +67,6 @@ const EmailPreview = () => {
                                 ✅ <strong>Follow us on Instagram</strong> @3rdeyeadvisors
                               </p>
                               <p style="font-size: 16px; line-height: 2; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; margin: 8px 0;">
-                                ✅ <strong>Follow us on X (Twitter)</strong> @3rdeyeadvisors
-                              </p>
-                              <p style="font-size: 16px; line-height: 2; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; margin: 8px 0;">
                                 ✅ <strong>Subscribe to the newsletter</strong> (you're already in! 🎉)
                               </p>
                               <p style="font-size: 16px; line-height: 2; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; margin: 8px 0;">
@@ -322,7 +319,7 @@ const EmailPreview = () => {
             <p style="font-size: 16px; line-height: 1.6; margin-bottom: 0;">
               🎟 More Learn-to-Earn raffles are coming<br>
               📚 Keep learning and earning entries<br>
-              🔔 Follow us on <a href="https://instagram.com/3rdeyeadvisors" style="color: #3B82F6; text-decoration: none;">Instagram</a> and <a href="https://x.com/3rdeyeadvisors" style="color: #3B82F6; text-decoration: none;">X</a> for updates
+              🔔 Follow us on <a href="https://instagram.com/3rdeyeadvisors" style="color: #3B82F6; text-decoration: none;">Instagram</a> for updates
             </p>
           </div>
           

@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, MessageSquare, Send, Globe, Twitter } from "lucide-react";
+import { Mail, MessageSquare, Send, Globe, Instagram } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import NewsletterSignup from "@/components/NewsletterSignup";
@@ -266,9 +266,9 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <p className="font-body text-xs uppercase tracking-widest text-white/40 mb-1">Twitter / X</p>
+                    <p className="font-body text-xs uppercase tracking-widest text-white/40 mb-1">Instagram</p>
                     <a
-                      href="https://twitter.com/3rdeyeadvisors"
+                      href="https://www.instagram.com/3rdeyeadvisors"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="font-consciousness text-sm font-medium text-white hover:text-violet-400 transition-colors"

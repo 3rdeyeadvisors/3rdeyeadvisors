@@ -21,25 +21,20 @@ const Navigation = () => {
   const { user, signOut, session } = useAuth();
   const { toast } = useToast();
 
-  // Close menu on route change
   useEffect(() => {
     setIsOpen(false);
   }, [location.pathname]);
 
-  // Check admin status
   useEffect(() => {
     const checkAdmin = async () => {
       if (!user) {
         setIsAdmin(false);
         return;
       }
-
-      // Explicitly allow the requested admin email
       if (isAdminEmail(user.email)) {
         setIsAdmin(true);
         return;
       }
-
       try {
         const { data } = await supabase
           .from('user_roles')
@@ -47,18 +42,15 @@ const Navigation = () => {
           .eq('user_id', user.id)
           .eq('role', 'admin')
           .maybeSingle();
-
         setIsAdmin(!!data);
       } catch (error) {
         console.error("Error checking admin status:", error);
         setIsAdmin(false);
       }
     };
-
     checkAdmin();
   }, [user]);
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -75,16 +67,9 @@ const Navigation = () => {
   const handleSignOut = async () => {
     try {
       await signOut();
-      toast({
-        title: "Signed out successfully",
-        description: "You have been logged out.",
-      });
+      toast({ title: "Signed out successfully", description: "You have been logged out." });
     } catch (error) {
-      toast({
-        title: "Error",
-        description: "Failed to sign out.",
-        variant: "destructive",
-      });
+      toast({ title: "Error", description: "Failed to sign out.", variant: "destructive" });
     }
   };
 
@@ -120,14 +105,12 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/8 pt-[env(safe-area-inset-top)]">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo/Brand */}
           <Link to="/" className="flex items-center group transition-all duration-300" aria-label="3rdeyeadvisors home">
             <span className="font-consciousness font-bold text-violet-400 text-lg group-hover:drop-shadow-[0_0_8px_rgba(167,139,250,0.4)] transition-all">
               3rdeyeadvisors
             </span>
           </Link>
-          
-          {/* Desktop Navigation */}
+
           <div className="hidden md:flex items-center justify-center flex-1 mx-8 gap-1">
             {desktopNavItems.map((item) => (
               <div key={item.label} className="relative group px-1">
@@ -135,8 +118,6 @@ const Navigation = () => {
                   <div className="flex items-center gap-1 px-3 py-2 rounded-xl text-sm font-consciousness font-medium text-white/70 group-hover:text-violet-400 group-hover:bg-white/5 transition-all cursor-default">
                     {item.label}
                     <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
-
-                    {/* Dropdown Menu */}
                     <div className="absolute top-full left-0 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
                       <div className="w-64 bg-black/95 border border-white/10 rounded-2xl p-2 shadow-2xl shadow-violet-950/50 backdrop-blur-xl overflow-hidden">
                         {item.children.map((child) => (
@@ -172,7 +153,6 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Right Side Actions */}
           <div className="flex items-center gap-2 md:gap-4">
             <Link to="/cart" className="relative p-2 text-white/70 hover:text-violet-400 transition-colors">
               <ShoppingCart className="w-5 h-5" />
@@ -198,12 +178,7 @@ const Navigation = () => {
                       Profile
                     </Button>
                   </Link>
-                  <Button
-                    onClick={handleSignOut}
-                    variant="ghost"
-                    size="sm"
-                    className="font-consciousness text-red-400/70 hover:text-red-400 hover:bg-red-400/5"
-                  >
+                  <Button onClick={handleSignOut} variant="ghost" size="sm" className="font-consciousness text-red-400/70 hover:text-red-400 hover:bg-red-400/5">
                     Sign Out
                   </Button>
                 </>
@@ -216,7 +191,6 @@ const Navigation = () => {
               )}
             </div>
 
-            {/* Mobile menu button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="md:hidden p-2 text-white/70 hover:text-white transition-colors"
@@ -231,12 +205,11 @@ const Navigation = () => {
 
       {/* Mobile Navigation Overlay */}
       <div
-        className={`fixed inset-0 top-[64px] md:top-[80px] bg-black backdrop-blur-xl z-[60] md:hidden transition-all duration-300 ${
-          isOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
+        className={`fixed inset-x-0 top-[64px] bottom-0 bg-black z-[60] md:hidden transition-transform duration-300 ease-in-out ${
+          isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="h-full overflow-y-auto flex flex-col">
-          {/* User account strip */}
           {user && (
             <div className="flex items-center gap-3 p-4 mb-2 border-b border-white/8">
               <div className="w-10 h-10 rounded-full bg-violet-500/20 border border-violet-500/30 flex items-center justify-center">
@@ -249,7 +222,6 @@ const Navigation = () => {
             </div>
           )}
 
-          {/* Primary action buttons */}
           <div className="grid grid-cols-2 gap-3 p-4 mb-4">
             <Link to="/courses" className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-violet-600/20 border border-violet-500/30 hover:bg-violet-600/30 transition-all active:scale-95 min-w-0">
               <BookOpen className="w-6 h-6 text-violet-400" />
@@ -269,7 +241,6 @@ const Navigation = () => {
             </Link>
           </div>
 
-          {/* Full link list */}
           <div className="px-4 space-y-1">
             {[
               { path: "/blog", label: "Blog", icon: Newspaper },
@@ -299,7 +270,6 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Bottom auth actions */}
           <div className="p-4 mt-4 border-t border-white/8">
             {user ? (
               <div className="grid grid-cols-2 gap-3">
@@ -320,7 +290,6 @@ const Navigation = () => {
             )}
           </div>
 
-          {/* Legal links */}
           <div className="flex justify-center gap-6 px-4 py-4">
             <Link to="/privacy" className="font-body text-xs text-white/40 hover:text-white/50 transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="font-body text-xs text-white/40 hover:text-white/50 transition-colors">Terms of Service</Link>

@@ -2,19 +2,19 @@ import { Card } from "@/components/ui/card";
 
 const PrivacyPolicy = () => {
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen py-20 bg-black">
       <div className="container mx-auto px-4 max-w-4xl mobile-typography-center">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-consciousness font-bold text-foreground mb-4">
+          <h1 className="text-4xl font-consciousness font-bold text-white mb-4">
             Privacy Policy
           </h1>
-          <p className="text-muted-foreground font-consciousness">
+          <p className="text-white/50 font-body">
             Last updated: {new Date().toLocaleDateString()}
           </p>
         </div>
 
-        <Card className="p-8 bg-card/60 border-border">
-          <div className="prose prose-lg max-w-none space-y-8 text-foreground font-consciousness mobile-typography-center">
+        <Card className="p-8 bg-white/3 border border-white/8">
+          <div className="prose prose-lg max-w-none space-y-8 text-white font-body mobile-typography-center">
             
             <section>
               <h2 className="text-2xl font-bold mb-4">1. Information We Collect</h2>
@@ -114,8 +114,8 @@ const PrivacyPolicy = () => {
               </p>
             </section>
 
-            <div className="border-t border-border pt-6 mt-8">
-              <p className="text-sm text-muted-foreground">
+            <div className="border-t border-white/8 pt-6 mt-8">
+              <p className="text-sm text-white/50">
                 This privacy policy is designed to help you understand how we collect, use, 
                 and safeguard your information while providing educational services focused 
                 on financial consciousness and DeFi education.

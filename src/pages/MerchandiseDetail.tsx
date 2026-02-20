@@ -216,14 +216,14 @@ export default function MerchandiseDetail() {
       <div className="min-h-screen py-20">
         <div className="container mx-auto px-4">
           <div className="animate-pulse">
-            <div className="h-8 bg-muted rounded w-32 mb-8" />
+            <div className="h-8 bg-white/5 rounded w-32 mb-8" />
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="aspect-square bg-muted rounded" />
+              <div className="aspect-square bg-white/5 rounded" />
               <div className="space-y-4">
-                <div className="h-8 bg-muted rounded w-3/4" />
-                <div className="h-6 bg-muted rounded w-1/4" />
-                <div className="h-32 bg-muted rounded" />
-                <div className="h-12 bg-muted rounded" />
+                <div className="h-8 bg-white/5 rounded w-3/4" />
+                <div className="h-6 bg-white/5 rounded w-1/4" />
+                <div className="h-32 bg-white/5 rounded" />
+                <div className="h-12 bg-white/5 rounded" />
               </div>
             </div>
           </div>
@@ -305,7 +305,7 @@ export default function MerchandiseDetail() {
               )}
             </div>
 
-            <p className="mt-6 text-foreground font-consciousness font-medium text-center">
+            <p className="mt-6 text-white font-consciousness font-medium text-center">
               {product.title} {productImages.length > 1 && `(${currentImageIndex + 1} / ${productImages.length})`}
             </p>
           </motion.div>
@@ -380,7 +380,7 @@ export default function MerchandiseDetail() {
                       className={`flex-shrink-0 w-20 h-20 rounded border-2 overflow-hidden transition-all ${
                         index === currentImageIndex
                           ? 'border-primary'
-                          : 'border-border hover:border-primary/50'
+                          : 'border-white/8 hover:border-primary/50'
                       }`}
                     >
                       <img
@@ -414,7 +414,7 @@ export default function MerchandiseDetail() {
               {/* Description */}
               {productDescription && (
                 <div 
-                  className="text-muted-foreground prose prose-sm max-w-none"
+                  className="text-white/50 prose prose-sm max-w-none"
                   dangerouslySetInnerHTML={{ __html: productDescription }}
                 />
               )}
@@ -424,7 +424,7 @@ export default function MerchandiseDetail() {
                 <div className="space-y-4">
                   <div>
                     <label className="block text-sm font-consciousness font-medium mb-2">
-                      Color: <span className="text-foreground">{selectedColor}</span>
+                      Color: <span className="text-white">{selectedColor}</span>
                     </label>
                     <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                       {colors.map((color) => (
@@ -443,7 +443,7 @@ export default function MerchandiseDetail() {
 
                   <div>
                     <label className="block text-sm font-consciousness font-medium mb-2">
-                      Size: <span className="text-foreground">{selectedSize}</span>
+                      Size: <span className="text-white">{selectedSize}</span>
                     </label>
                     <Select value={selectedSize} onValueChange={handleSizeChange}>
                       <SelectTrigger className="w-full h-12">
@@ -484,7 +484,7 @@ export default function MerchandiseDetail() {
               {/* Product Details */}
               <Card className="p-4 bg-secondary/40">
                 <h3 className="font-consciousness font-semibold mb-2">Product Details</h3>
-                <ul className="text-sm text-muted-foreground space-y-1">
+                <ul className="text-sm text-white/50 space-y-1">
                   <li>• Premium eco-friendly materials</li>
                   <li>• 5 to 7 business day processing and shipping</li>
                   <li>• Secure payment processing</li>

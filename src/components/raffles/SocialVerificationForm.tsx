@@ -30,11 +30,11 @@ const SocialVerificationForm = ({
   const [submitting, setSubmitting] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
 
-  const platform = taskType === 'instagram' ? 'Instagram' : 'X';
+  const platform = taskType === 'instagram' ? 'Instagram' : 'Instagram';
   const platformHandle = taskType === 'instagram' ? '@3rdeyeadvisors' : '@3rdeyeadvisors';
   const platformLink = taskType === 'instagram' 
     ? 'https://instagram.com/3rdeyeadvisors' 
-    : 'https://x.com/3rdeyeadvisors';
+    : 'https://www.instagram.com/3rdeyeadvisors';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

@@ -2,19 +2,19 @@ import { Card } from "@/components/ui/card";
 
 const TermsOfService = () => {
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen py-20 bg-black">
       <div className="container mx-auto px-4 max-w-4xl mobile-typography-center">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-consciousness font-bold text-foreground mb-4">
+          <h1 className="text-4xl font-consciousness font-bold text-white mb-4">
             Terms of Service
           </h1>
-          <p className="text-muted-foreground font-consciousness">
+          <p className="text-white/50 font-body">
             Last updated: {new Date().toLocaleDateString()}
           </p>
         </div>
 
-        <Card className="p-8 bg-card/60 border-border">
-          <div className="prose prose-lg max-w-none space-y-8 text-foreground font-consciousness mobile-typography-center">
+        <Card className="p-8 bg-white/3 border border-white/8">
+          <div className="prose prose-lg max-w-none space-y-8 text-white font-body mobile-typography-center">
             
             <section>
               <h2 className="text-2xl font-bold mb-4">1. Acceptance of Terms</h2>
@@ -181,8 +181,8 @@ const TermsOfService = () => {
               </p>
             </section>
 
-            <div className="border-t border-border pt-6 mt-8">
-              <p className="text-sm text-muted-foreground">
+            <div className="border-t border-white/8 pt-6 mt-8">
+              <p className="text-sm text-white/50">
                 These terms are designed to protect both our users and our educational mission 
                 while clearly establishing the boundaries of our relationship and responsibilities.
               </p>

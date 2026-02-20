@@ -153,7 +153,7 @@ const RaffleHistory = () => {
     } else if (raffle.is_active) {
       return { label: "Active", color: "bg-primary" };
     } else {
-      return { label: "Closed", color: "bg-muted" };
+      return { label: "Closed", color: "bg-white/5" };
     }
   };
 

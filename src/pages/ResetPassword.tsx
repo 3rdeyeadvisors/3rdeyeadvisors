@@ -202,11 +202,11 @@ const ResetPassword = () => {
     <div className="min-h-screen flex items-center justify-center bg-black px-4">
       <Card className="w-full max-w-md border-primary/20 shadow-cosmic">
         <CardHeader className="text-center space-y-4">
-          <div className="mx-auto w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center">
-            <Shield className="h-8 w-8 text-background" />
+          <div className="mx-auto w-16 h-16 bg-violet-500/20 rounded-full flex items-center justify-center">
+            <Shield className="h-8 w-8 text-violet-400" />
           </div>
           <div className="space-y-2">
-            <CardTitle className="text-2xl font-bold text-gradient-primary">
+            <CardTitle className="text-2xl font-bold text-violet-400">
               Reset Your Password
             </CardTitle>
             <CardDescription className="text-muted-foreground">
@@ -301,7 +301,7 @@ const ResetPassword = () => {
             <Button 
               type="submit" 
               disabled={loading || !newPassword || !confirmNewPassword} 
-              className="w-full bg-gradient-primary hover:opacity-90 text-background font-semibold"
+              className="w-full bg-violet-600 hover:bg-violet-500 text-white font-semibold"
             >
               {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
               Update Password
