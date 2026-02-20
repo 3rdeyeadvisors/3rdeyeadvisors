@@ -1841,6 +1841,27 @@ export type Database = {
         }
         Relationships: []
       }
+      vault_waitlist: {
+        Row: {
+          created_at: string | null
+          email: string
+          id: string
+          vault_name: string
+        }
+        Insert: {
+          created_at?: string | null
+          email: string
+          id?: string
+          vault_name: string
+        }
+        Update: {
+          created_at?: string | null
+          email?: string
+          id?: string
+          vault_name?: string
+        }
+        Relationships: []
+      }
       vault_whitelist: {
         Row: {
           created_at: string | null
