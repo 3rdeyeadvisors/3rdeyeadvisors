@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Ticket, Trophy, Share2, Clock, CheckCircle2, History, Crown } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import SEO from "@/components/SEO";
+import PageHero from "@/components/PageHero";
 import { Link } from "react-router-dom";
 import RaffleCountdown from "@/components/raffles/RaffleCountdown";
 import RaffleShareButton from "@/components/raffles/RaffleShareButton";
@@ -583,17 +584,21 @@ const Raffles = () => {
         keywords="defi raffles, crypto giveaway, learn to earn, bitcoin rewards, defi education"
       />
 
-      <div className="w-full mx-auto px-4 py-8 md:py-16 md:px-6 lg:px-8 max-w-7xl">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Ticket className="w-10 h-10 text-primary" />
-            <h1 className="text-4xl md:text-5xl font-bold">Learn to Earn</h1>
-            <Trophy className="w-10 h-10 text-warning" />
-          </div>
-          <p className="text-xl text-muted-foreground mb-4">The Raffle Portal</p>
+      <div className="min-h-screen bg-black relative overflow-hidden">
+        {/* Nebula Glow */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-500/5 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/5 blur-[100px] rounded-full pointer-events-none" />
+
+        <PageHero
+          eyebrow="Community"
+          title="Enter to Win"
+          subtitle="Complete educational tasks to earn raffle entries. Learn more, earn more entries, win real rewards."
+        />
+
+      <div className="max-w-7xl mx-auto px-6 pb-20 relative z-10">
+        <div className="flex justify-center mb-12 -mt-4">
           <Link to="/raffle-history">
-            <Button variant="outline" size="sm">
+            <Button variant="outline" className="font-body text-xs uppercase tracking-widest border-white/10 text-white hover:bg-white/5 rounded-full px-6">
               <History className="w-4 h-4 mr-2" />
               View Raffle History
             </Button>
@@ -874,6 +879,7 @@ const Raffles = () => {
           </CardContent>
         </Card>
       </div>
+    </div>
     </>
   );
 };

@@ -9,7 +9,7 @@ const EmailPreview = () => {
 
   const sampleData = {
     name: "Alex Johnson",
-    raffle_title: "Learn to Earn - Bitcoin Edition",
+    raffle_title: "Learn to Earn : Bitcoin Edition",
     prize: "Bitcoin",
     prize_amount: 50,
     entry_count: 5,
@@ -433,7 +433,7 @@ const EmailPreview = () => {
             <div>
               <h4 className="font-semibold text-foreground mb-2">About Email Previews</h4>
               <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• These previews show sample data - actual emails will use real raffle information</li>
+                <li>• These previews show sample data : actual emails will use real raffle information</li>
                 <li>• Click "Open in New Tab" to see the full email layout in a new window</li>
                 <li>• The dark background simulates how emails appear in preview panes</li>
                 <li>• Email styling may vary slightly across different email clients</li>

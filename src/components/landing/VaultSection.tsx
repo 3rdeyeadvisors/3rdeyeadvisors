@@ -2,6 +2,8 @@ import { Shield, Lock, TrendingUp, Info } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
+import { useState } from 'react';
+import { supabase } from '@/integrations/supabase/client';
 
 const vaultLayers = [
   {
@@ -58,6 +60,34 @@ const vaults = [
 ];
 
 const VaultSection = () => {
+  const [waitlistEmail, setWaitlistEmail] = useState('');
+  const [waitlistVault, setWaitlistVault] = useState<string | null>(null);
+  const [waitlistLoading, setWaitlistLoading] = useState(false);
+  const [waitlistSuccess, setWaitlistSuccess] = useState<string | null>(null);
+
+  const handleWaitlistJoin = async (vaultName: string) => {
+    setWaitlistVault(vaultName);
+  };
+
+  const handleWaitlistSubmit = async (vaultName: string, email: string) => {
+    if (!email || !email.includes('@')) return;
+    setWaitlistLoading(true);
+    try {
+      const { error } = await supabase
+        .from('vault_waitlist')
+        .insert([{ email: email.trim().toLowerCase(), vault_name: vaultName }]);
+      if (!error) {
+        setWaitlistSuccess(vaultName);
+        setWaitlistVault(null);
+        setWaitlistEmail('');
+      }
+    } catch (err) {
+      console.error('Waitlist error:', err);
+    } finally {
+      setWaitlistLoading(false);
+    }
+  };
+
   return (
     <section className="py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
@@ -102,9 +132,35 @@ const VaultSection = () => {
 
                   {!vault.isLive && (
                     <div className="mt-6 pt-4 border-t border-white/5">
-                      <button className="w-full font-body text-sm text-white/40 hover:text-violet-400 transition-colors py-2 border border-white/10 hover:border-violet-500/30 rounded-xl">
-                        Notify Me When Live
-                      </button>
+                      {waitlistSuccess === vault.name ? (
+                        <p className="font-body text-xs text-emerald-400 text-center py-2">
+                          You are on the waitlist. We will notify you when this vault opens.
+                        </p>
+                      ) : waitlistVault === vault.name ? (
+                        <div className="flex gap-2">
+                          <input
+                            type="email"
+                            placeholder="your@email.com"
+                            value={waitlistEmail}
+                            onChange={(e) => setWaitlistEmail(e.target.value)}
+                            className="flex-1 font-body text-xs bg-white/5 border border-white/15 rounded-lg px-3 py-2 text-white placeholder:text-white/30 focus:outline-none focus:border-violet-500/50 transition-colors min-w-0"
+                          />
+                          <button
+                            onClick={() => handleWaitlistSubmit(vault.name, waitlistEmail)}
+                            disabled={waitlistLoading}
+                            className="font-body text-xs bg-violet-600 hover:bg-violet-500 text-white px-3 py-2 rounded-lg transition-all disabled:opacity-50 whitespace-nowrap"
+                          >
+                            {waitlistLoading ? '...' : 'Notify Me'}
+                          </button>
+                        </div>
+                      ) : (
+                        <button
+                          onClick={() => handleWaitlistJoin(vault.name)}
+                          className="w-full font-body text-sm text-white/40 hover:text-violet-400 transition-colors py-2 border border-white/10 hover:border-violet-500/30 rounded-xl"
+                        >
+                          Notify Me When Live
+                        </button>
+                      )}
                     </div>
                   )}
 

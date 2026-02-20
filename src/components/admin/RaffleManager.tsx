@@ -664,7 +664,7 @@ const RaffleManager = () => {
                     id="title"
                     value={formData.title}
                     onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                    placeholder="e.g., Learn to Earn - Bitcoin Edition"
+                    placeholder="e.g., Learn to Earn : Bitcoin Edition"
                     required
                   />
                 </div>

@@ -49,7 +49,7 @@ export const BroadcastAlertsLog = () => {
   const handleRetry = async (alertId: string) => {
     try {
       window.open(`https://zapbkuaejvzpqerkkcnc.supabase.co/functions/v1/retry-broadcast?alert_id=${alertId}`, '_blank');
-      toast.success("Retry initiated - check the new tab for results");
+      toast.success("Retry initiated : check the new tab for results");
       setTimeout(() => refetch(), 2000);
     } catch (error) {
       toast.error("Failed to initiate retry");
@@ -176,7 +176,7 @@ export const BroadcastAlertsLog = () => {
               ) : (
                 <div className="text-center py-8 text-muted-foreground">
                   {filter === 'unresolved' 
-                    ? '✅ No unresolved alerts - all systems running smoothly!'
+                    ? '✅ No unresolved alerts : all systems running smoothly!'
                     : 'No alerts found'}
                 </div>
               )}
@@ -201,7 +201,7 @@ export const BroadcastAlertsLog = () => {
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="font-medium">
-                          {new Date(summary.week_start).toLocaleDateString()} - {new Date(summary.week_end).toLocaleDateString()}
+                          {new Date(summary.week_start).toLocaleDateString()} to {new Date(summary.week_end).toLocaleDateString()}
                         </p>
                         <div className="flex items-center gap-4 mt-2 text-sm text-muted-foreground">
                           <span>{summary.total_broadcasts_sent}/{summary.total_broadcasts_scheduled} broadcasts</span>

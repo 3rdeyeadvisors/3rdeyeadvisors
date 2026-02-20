@@ -452,12 +452,12 @@ export const QASection = ({ courseId, moduleId }: QASectionProps) => {
   }
 
   return (
-    <Card>
+    <Card className="bg-white/3 border-white/8">
       <div className="space-y-3 px-4 py-4 sm:px-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <HelpCircle className="w-5 h-5 text-primary" />
-            <h3 className="text-lg font-consciousness font-semibold">
+            <HelpCircle className="w-5 h-5 text-violet-400" />
+            <h3 className="text-lg font-consciousness font-bold text-white">
               Questions & Answers ({questions.length})
             </h3>
           </div>
@@ -466,7 +466,7 @@ export const QASection = ({ courseId, moduleId }: QASectionProps) => {
               onClick={() => setShowNewQuestion(!showNewQuestion)}
               variant="outline"
               size="sm"
-              className="font-consciousness h-9 text-xs sm:text-sm"
+              className="font-body text-xs uppercase tracking-widest border-white/10 text-white hover:bg-white/5 rounded-xl h-9"
             >
               Ask Question
             </Button>
@@ -475,25 +475,26 @@ export const QASection = ({ courseId, moduleId }: QASectionProps) => {
 
         {/* New Question Form */}
         {showNewQuestion && user && (
-          <Card className="p-3 sm:p-4 bg-primary/5 border-primary/20">
+          <Card className="p-3 sm:p-4 bg-violet-500/5 border-violet-500/20">
             <div className="space-y-3">
               <Input
                 placeholder="Question title..."
                 value={newQuestionTitle}
                 onChange={(e) => setNewQuestionTitle(e.target.value)}
-                className="text-sm"
+                className="font-body text-sm bg-white/5 border-white/10 rounded-xl px-4 py-3 text-white"
               />
               <Textarea
                 placeholder="Describe your question in detail..."
                 value={newQuestionContent}
                 onChange={(e) => setNewQuestionContent(e.target.value)}
-                className="min-h-[100px] text-sm"
+                className="font-body text-sm bg-white/5 border-white/10 rounded-xl px-4 py-3 text-white min-h-[100px]"
               />
               <div className="flex gap-2 justify-end">
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={() => setShowNewQuestion(false)}
+                  className="font-body border-white/10 text-white rounded-xl"
                 >
                   Cancel
                 </Button>
@@ -501,7 +502,7 @@ export const QASection = ({ courseId, moduleId }: QASectionProps) => {
                   size="sm"
                   onClick={handleSubmitQuestion}
                   disabled={!newQuestionTitle.trim() || !newQuestionContent.trim() || submitting}
-                  className="font-consciousness"
+                  className="font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl"
                 >
                   {submitting ? "Posting..." : "Post Question"}
                 </Button>
@@ -519,7 +520,7 @@ export const QASection = ({ courseId, moduleId }: QASectionProps) => {
             </div>
           ) : (
           questions.map((question) => (
-            <Card key={question.id} className="p-4">
+            <Card key={question.id} className="p-4 bg-white/3 border-white/8">
               <div className="flex items-start gap-3 mb-4">
                 <Avatar className="w-8 h-8">
                   <AvatarFallback className="text-xs">
@@ -531,12 +532,12 @@ export const QASection = ({ courseId, moduleId }: QASectionProps) => {
                   <div className="flex items-center justify-between mb-1">
                     <div className="flex items-center gap-2">
                       <div className="flex items-center gap-1">
-                        <span className="font-consciousness font-medium text-sm">
+                        <span className="font-consciousness font-bold text-sm text-white">
                           {question.profiles?.display_name || "Anonymous"}
                         </span>
                         {foundingMembers.has(question.user_id) && <FoundingMemberBadge />}
                       </div>
-                      <span className="text-xs text-muted-foreground">
+                      <span className="font-body text-xs text-white/40">
                         {formatDistanceToNow(new Date(question.created_at), { addSuffix: true })}
                       </span>
                       {question.is_solved && (
@@ -611,10 +612,10 @@ export const QASection = ({ courseId, moduleId }: QASectionProps) => {
                     </div>
                   ) : (
                     <>
-                      <h4 className="font-consciousness font-semibold text-foreground mb-2">
+                      <h4 className="font-consciousness font-bold text-white mb-2">
                         {question.title}
                       </h4>
-                      <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
+                      <p className="font-body text-sm text-white/50 mb-3 leading-relaxed">
                         {question.description}
                       </p>
                     </>

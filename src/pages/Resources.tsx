@@ -1,10 +1,11 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Wallet, BarChart3, Shield, BookOpen, Globe } from "lucide-react";
+import { ExternalLink, Wallet, BarChart3, Shield, BookOpen, Globe, Download } from "lucide-react";
 import DefiCalculators from "@/components/DefiCalculators";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import SEO from "@/components/SEO";
+import PageHero from "@/components/PageHero";
 
 const Resources = () => {
   const resourceCategories = [
@@ -103,68 +104,66 @@ const Resources = () => {
           }
         ]}
       />
-      <div className="min-h-screen py-20">
-      <div className="container mx-auto px-4 mobile-typography-center">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-consciousness font-bold text-foreground mb-4">
-            Resource Hub
-          </h1>
-          <p className="text-xl text-muted-foreground font-consciousness max-w-2xl mx-auto">
-            Curated tools, platforms, and resources to navigate the DeFi ecosystem safely and effectively
-          </p>
-        </div>
+      <div className="min-h-screen bg-black relative overflow-hidden">
+        {/* Nebula Glow */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-500/5 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/5 blur-[100px] rounded-full pointer-events-none" />
 
+        <PageHero
+          eyebrow="Library"
+          title="Tools and Resources"
+          subtitle="PDFs, calculators, templates, and reference materials to support your DeFi education."
+        />
+
+      <div className="max-w-7xl mx-auto px-6 pb-20 relative z-10">
         {/* Resource Categories */}
-        <div className="grid gap-12 mb-16">
-          {resourceCategories.map((category, categoryIndex) => (
-            <section key={category.title} className="space-y-6">
+        <div className="space-y-24 mb-24">
+          {resourceCategories.map((category) => (
+            <section key={category.title}>
               {/* Category Header */}
-              <div className="flex flex-col md:flex-row items-center md:items-start gap-3 pb-4 border-b border-border/50 text-center md:text-left">
-                <div className="p-2.5 rounded-lg bg-primary/10">
-                  <category.icon className="w-6 h-6 text-primary" />
+              <div className="flex flex-col md:flex-row items-center md:items-start gap-4 mb-10 pb-6 border-b border-white/10">
+                <div className="w-12 h-12 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400">
+                  <category.icon className="w-6 h-6" />
                 </div>
-                <div>
-                  <h2 className="text-xl font-consciousness font-bold text-foreground">
+                <div className="text-center md:text-left">
+                  <h2 className="font-consciousness text-2xl font-bold text-white mb-1">
                     {category.title}
                   </h2>
-                  <p className="text-sm text-muted-foreground font-consciousness">
+                  <p className="font-body text-white/50">
                     {category.description}
                   </p>
                 </div>
               </div>
 
-              {/* Resources Grid - 3 columns on desktop */}
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {category.resources.map((resource, index) => (
+              {/* Resources Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {category.resources.map((resource) => (
                   <Card 
                     key={resource.name}
-                    className="p-5 bg-card/60 border-border hover:border-primary/40 transition-all duration-300 hover:shadow-lg group flex flex-col"
+                    className="p-6 bg-white/3 border border-white/8 rounded-2xl hover:border-violet-500/30 transition-all group flex flex-col h-full"
                   >
-                    <div className="flex items-start justify-between gap-2 mb-2">
-                      <h3 className="text-base font-consciousness font-semibold text-foreground group-hover:text-primary transition-colors leading-tight">
+                    <div className="flex items-start justify-between gap-4 mb-4">
+                      <h3 className="font-consciousness text-base font-semibold text-white group-hover:text-violet-300 transition-colors leading-snug">
                         {resource.name}
                       </h3>
                       {resource.verified && (
-                        <Badge className="bg-awareness/20 text-awareness border-awareness/30 text-xs shrink-0">
+                        <Badge className="font-body text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-400 border-none">
                           Verified
                         </Badge>
                       )}
                     </div>
                     
-                    <p className="text-sm text-muted-foreground font-consciousness mb-4 leading-relaxed flex-1">
+                    <p className="font-body text-sm text-white/50 mb-8 leading-relaxed flex-1">
                       {resource.description}
                     </p>
                     
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
-                      className="w-full font-consciousness text-sm group-hover:border-primary/60 group-hover:text-primary"
+                    <button
+                      className="font-body text-sm text-violet-400 hover:text-violet-300 flex items-center gap-2 transition-colors group/btn"
                       onClick={() => window.open(resource.url, '_blank')}
                     >
-                      Access Resource
-                      <ExternalLink className="w-3.5 h-3.5 ml-2" />
-                    </Button>
+                      {resource.url.endsWith('.pdf') ? 'Download PDF' : 'Access Resource'}
+                      <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                    </button>
                   </Card>
                 ))}
               </div>
@@ -178,12 +177,12 @@ const Resources = () => {
         </section>
 
         {/* Disclaimer */}
-        <Card className="mt-16 p-6 bg-secondary/40 border-border">
-          <div className="text-center">
-            <h3 className="text-lg font-consciousness font-semibold text-foreground mb-3">
+        <Card className="p-8 bg-white/3 border border-white/8 rounded-2xl">
+          <div className="text-center max-w-3xl mx-auto">
+            <h3 className="font-consciousness text-lg font-bold text-white mb-4">
               Important Disclaimer
             </h3>
-            <p className="text-muted-foreground font-consciousness leading-relaxed">
+            <p className="font-body text-white/50 leading-relaxed">
               These resources are provided for educational purposes only. Always conduct your own research 
               and never invest more than you can afford to lose. DeFi protocols carry inherent risks 
               including smart contract vulnerabilities, impermanent loss, and market volatility.

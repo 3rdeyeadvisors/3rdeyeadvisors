@@ -3,9 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Calendar, Clock, ArrowRight } from "lucide-react";
+import { Calendar, Clock, ArrowRight, Sparkles } from "lucide-react";
 import { getBlogPosts, getBlogPostsByCategory, getBlogCategories } from "@/data/blogContent";
 import SEO from "@/components/SEO";
+import PageHero from "@/components/PageHero";
 
 const Blog = () => {
   const navigate = useNavigate();
@@ -65,33 +66,11 @@ const Blog = () => {
     setTranslateX(0);
   };
 
-  const getCategoryColor = (category: string) => {
-    switch (category) {
-      case "DeFi Education":
-      case "Education": 
-        return "bg-awareness/20 text-awareness-foreground border-awareness/40 hover:bg-awareness/30";
-      case "Security": 
-        return "bg-primary/20 text-primary-foreground border-primary/40 hover:bg-primary/30";
-      case "Innovation": 
-        return "bg-accent/20 text-accent-foreground border-accent/40 hover:bg-accent/30";
-      case "DeFi Tools":
-      case "Tools": 
-        return "bg-secondary/20 text-secondary-foreground border-secondary/40 hover:bg-secondary/30";
-      case "Analysis": 
-        return "bg-muted text-muted-foreground border-border hover:bg-muted/80";
-      case "Web3 Gaming":
-        return "bg-accent/20 text-accent-foreground border-accent/40 hover:bg-accent/30";
-      case "DeFAI":
-      case "DEFAI":
-        return "bg-primary text-primary-foreground border-primary/60 hover:bg-primary/90";
-      case "Regulation":
-      case "Policy":
-        return "bg-primary text-primary-foreground border-primary/60 hover:bg-primary/90";
-      case "DeFi Trends":
-        return "bg-primary text-primary-foreground border-primary/60 hover:bg-primary/90";
-      default: 
-        return "bg-primary/20 text-primary-foreground border-primary/40 hover:bg-primary/30";
-    }
+  const getCategoryStyle = (category: string) => {
+    const isActive = category === selectedCategory;
+    return isActive
+      ? "bg-violet-600 border-violet-600 text-white"
+      : "border-white/15 text-white/50 hover:border-violet-500/30 hover:text-white/80 bg-transparent";
   };
 
   return (
@@ -126,32 +105,28 @@ const Blog = () => {
           }
         ]}
       />
-      <div className="py-12 md:py-20 lg:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-consciousness font-bold text-foreground mb-4">
-            Blog & Articles
-          </h1>
-          <p className="text-xl text-muted-foreground font-consciousness max-w-2xl mx-auto">
-            Insights, analysis, and consciousness expansion for the evolving DeFi ecosystem
-          </p>
-        </div>
+      <div className="min-h-screen bg-black relative overflow-hidden">
+        {/* Nebula Glow */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-500/5 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/5 blur-[100px] rounded-full pointer-events-none" />
 
+        <PageHero
+          eyebrow="Research"
+          title="Insights and Analysis"
+          subtitle="Deep dives into DeFi protocols, market analysis, and educational content written for people who want to actually understand what is happening."
+        />
+
+      <div className="max-w-7xl mx-auto px-6 pb-20 relative z-10">
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-3 mb-16">
           {categories.map((category) => (
-            <Badge 
+            <button
               key={category}
-              className={`px-4 py-2 cursor-pointer transition-all duration-cosmic hover:scale-105 ${
-                category === selectedCategory 
-                  ? "bg-primary/40 text-primary border-primary/60" 
-                  : getCategoryColor(category)
-              }`}
+              className={`font-body text-xs uppercase tracking-widest px-6 py-2.5 rounded-full border transition-all ${getCategoryStyle(category)}`}
               onClick={() => setSelectedCategory(category)}
             >
               {category}
-            </Badge>
+            </button>
           ))}
         </div>
 
@@ -167,11 +142,11 @@ const Blog = () => {
 
         {/* Featured Posts Section */}
         {featuredPosts.length > 0 && (
-          <div className="mb-12">
-            <h2 className="text-2xl section-heading mb-6">Featured This Week</h2>
-            <div className="max-w-xs md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto">
+          <div className="mb-20">
+            <h2 className="font-consciousness text-2xl font-bold text-white mb-8 text-center uppercase tracking-widest">Featured Insights</h2>
+            <div className="w-full mx-auto">
               <Card 
-                className="p-6 md:p-8 bg-gradient-consciousness border-primary/20 shadow-consciousness cursor-grab active:cursor-grabbing select-none"
+                className="p-8 md:p-12 bg-white/3 border border-white/8 rounded-2xl overflow-hidden hover:border-violet-500/30 transition-all cursor-grab active:cursor-grabbing select-none"
                 ref={sliderRef}
                 onMouseDown={(e) => handleStart(e.clientX)}
                 onMouseMove={(e) => handleMove(e.clientX)}
@@ -191,41 +166,39 @@ const Blog = () => {
                     {featuredPosts.map((post) => (
                       <div key={post.id} className="w-full flex-shrink-0 flex flex-col">
                         {/* Badge */}
-                        <div className="flex justify-center mb-4">
-                          <Badge className={`w-fit ${getCategoryColor(post.category)}`}>
-                            {post.category}
+                        <div className="flex justify-center mb-8">
+                          <Badge className="font-body text-[10px] uppercase tracking-widest px-3 py-1 bg-violet-600 text-white border-none rounded-full flex items-center gap-2">
+                            <Sparkles className="w-3 h-3" /> FEATURED
                           </Badge>
                         </div>
 
                         {/* Content */}
-                        <h3 className="text-xl md:text-2xl font-consciousness font-semibold text-foreground mb-3 line-clamp-2 text-center">
+                        <h3 className="font-consciousness text-2xl md:text-4xl font-bold text-white mb-6 text-center leading-tight">
                           {post.title}
                         </h3>
                         
-                        <p className="text-base md:text-lg text-muted-foreground font-consciousness mb-4 leading-relaxed line-clamp-3 text-center max-w-2xl mx-auto">
+                        <p className="font-body text-lg text-white/50 mb-10 leading-relaxed text-center max-w-3xl mx-auto">
                           {post.excerpt}
                         </p>
                         
                         {/* Footer */}
-                        <div className="flex items-center justify-center gap-6 text-sm text-muted-foreground mb-6">
+                        <div className="flex items-center justify-center gap-8 text-[10px] font-body uppercase tracking-widest text-white/30 mb-10">
                           <div className="flex items-center gap-2">
                             <Calendar className="w-4 h-4" />
-                            <span className="font-system">{parseLocalDate(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+                            <span>{parseLocalDate(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <Clock className="w-4 h-4" />
-                            <span className="font-system">{post.readTime}</span>
+                            <span>{post.readTime}</span>
                           </div>
                         </div>
                         
                         <div className="flex justify-center">
                           <Button 
-                            variant="outline" 
-                            size="lg"
-                            className="font-consciousness bg-background/90 hover:bg-primary/10 border-primary/40 px-8"
+                            className="font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl px-12 py-6 transition-all"
                             onClick={() => navigate(`/blog/${post.slug}`)}
                           >
-                            Read More
+                            Read Article
                             <ArrowRight className="w-4 h-4 ml-2" />
                           </Button>
                         </div>
@@ -236,15 +209,15 @@ const Blog = () => {
                 
                 {/* Navigation bars */}
                 {featuredPosts.length > 1 && (
-                  <div className="flex mt-3 pt-3 border-t border-primary/20">
+                  <div className="flex mt-12 gap-2 max-w-xs mx-auto">
                     {featuredPosts.map((_, index) => (
                       <button
                         key={index}
                         onClick={() => setCurrentFeaturedIndex(index)}
-                        className={`flex-1 h-1 transition-colors ${
+                        className={`flex-1 h-1 rounded-full transition-all ${
                           index === currentFeaturedIndex 
-                            ? 'bg-primary' 
-                            : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                            ? "bg-violet-500"
+                            : "bg-white/10 hover:bg-white/20"
                         }`}
                       />
                     ))}
@@ -260,36 +233,34 @@ const Blog = () => {
           {regularPosts.map((post, index) => (
             <Card 
               key={post.id}
-              className="p-6 bg-card/60 border-border hover:border-primary/40 transition-all duration-cosmic hover:shadow-consciousness group flex flex-col h-full"
+              className="p-6 bg-white/3 border border-white/8 rounded-2xl hover:border-violet-500/30 transition-all group flex flex-col h-full"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <Badge className={`mb-4 ${getCategoryColor(post.category)}`}>
+              <Badge className="mb-4 w-fit font-body text-[10px] uppercase tracking-widest px-2 py-0.5 border border-white/10 bg-white/5 text-white/40">
                 {post.category}
               </Badge>
               
-              <h3 className="text-xl font-consciousness font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
+              <h3 className="font-consciousness text-base font-semibold text-white mb-3 group-hover:text-violet-300 transition-colors">
                 {post.title}
               </h3>
               
-              <p className="text-muted-foreground font-consciousness mb-4 leading-relaxed flex-grow">
+              <p className="font-body text-sm text-white/50 mb-6 leading-relaxed flex-grow">
                 {post.excerpt}
               </p>
               
-              <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
+              <div className="flex items-center justify-between text-[10px] font-body uppercase tracking-widest text-white/20 mb-6">
                 <div className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4" />
-                  <span className="font-system">{parseLocalDate(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+                  <Calendar className="w-3 h-3" />
+                  <span>{parseLocalDate(post.date).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4" />
-                  <span className="font-system">{post.readTime}</span>
+                  <Clock className="w-3 h-3" />
+                  <span>{post.readTime}</span>
                 </div>
               </div>
               
               <Button 
-                variant="cosmic" 
-                size="sm" 
-                className="w-full font-consciousness"
+                className="w-full font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl py-5 transition-all"
                 onClick={() => navigate(`/blog/${post.slug}`)}
               >
                 Read More

@@ -16,6 +16,7 @@ import {
   Wallet, Mail, ArrowRight, Gift, Clock, CheckCircle2, Crown, FileText, Shield
 } from "lucide-react";
 import SEO from "@/components/SEO";
+import PageHero from "@/components/PageHero";
 import { Link } from "react-router-dom";
 import { PRICING, COMMISSIONS, COMMISSION_RATES } from "@/lib/constants";
 import { ReferralTermsModal } from "@/components/referral/ReferralTermsModal";
@@ -221,139 +222,137 @@ const Earn = () => {
         keywords="referral program, earn crypto, affiliate program, defi education"
       />
 
-      <div className="min-h-screen bg-background py-16 md:py-20 px-6">
-        <div className="max-w-5xl mx-auto">
-          {/* Hero Section */}
-          <div className="text-center mb-12 md:mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-5">
-              <Gift className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary">Referral Program</span>
-            </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-5">
-              Earn Up to 60% Commission
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto leading-relaxed">
-              Share 3rdeyeadvisors and earn ${COMMISSIONS.monthly} to ${COMMISSIONS.annual} per referral
-            </p>
+      <div className="min-h-screen bg-black relative overflow-hidden">
+        {/* Nebula Glow */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-500/5 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/5 blur-[100px] rounded-full pointer-events-none" />
+
+        <PageHero
+          eyebrow="Rewards"
+          title="Earn While You Learn"
+          subtitle="Complete courses, refer friends, and participate in the community. Every action builds your points balance and unlocks real rewards."
+        />
+
+        <div className="max-w-7xl mx-auto px-6 pb-24 relative z-10">
+          {/* Earn Methods Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            <Card className="bg-white/3 border border-white/8 rounded-2xl p-8 hover:border-violet-500/30 transition-all flex flex-col">
+              <h3 className="font-consciousness text-lg font-bold text-white mb-2">Complete Courses</h3>
+              <div className="font-consciousness text-4xl font-bold text-violet-400 mb-4">100 PTS</div>
+              <p className="font-body text-sm text-white/50 mb-8 flex-grow">
+                Master DeFi modules and pass quizzes to earn points. Points unlock platform badges and exclusive raffles.
+              </p>
+              <Button asChild className="font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl py-6 transition-all">
+                <Link to="/courses">Start Learning</Link>
+              </Button>
+            </Card>
+
+            <Card className="bg-white/3 border border-white/8 rounded-2xl p-8 hover:border-violet-500/30 transition-all flex flex-col">
+              <h3 className="font-consciousness text-lg font-bold text-white mb-2">Refer Friends</h3>
+              <div className="font-consciousness text-4xl font-bold text-violet-400 mb-4">60% USD</div>
+              <p className="font-body text-sm text-white/50 mb-8 flex-grow">
+                Invite others to join the movement. Earn massive commissions on every successful subscription you refer.
+              </p>
+              <Button onClick={() => {
+                const el = document.getElementById('referral-section');
+                el?.scrollIntoView({ behavior: 'smooth' });
+              }} className="font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl py-6 transition-all">
+                Get Your Link
+              </Button>
+            </Card>
+
+            <Card className="bg-white/3 border border-white/8 rounded-2xl p-8 hover:border-violet-500/30 transition-all flex flex-col">
+              <h3 className="font-consciousness text-lg font-bold text-white mb-2">Daily Presence</h3>
+              <div className="font-consciousness text-4xl font-bold text-violet-400 mb-4">10 PTS</div>
+              <p className="font-body text-sm text-white/50 mb-8 flex-grow">
+                Stay active in the ecosystem. Earn daily points just for being part of the 3rdeyeadvisors community.
+              </p>
+              <Button asChild className="font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl py-6 transition-all">
+                <Link to="/dashboard">Go to Dashboard</Link>
+              </Button>
+            </Card>
           </div>
 
-          {/* How It Works */}
-          <Card className="mb-8">
-            <CardHeader>
-              <CardTitle>How It Works</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="flex flex-col items-center text-center p-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-4">
-                    <Share2 className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="font-semibold mb-2">1. Share Your Link</h3>
-                  <p className="text-sm text-foreground/70">
-                    Share your unique referral link with friends and followers
-                  </p>
-                </div>
-                <div className="flex flex-col items-center text-center p-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-4">
-                    <Users className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="font-semibold mb-2">2. Friend Subscribes</h3>
-                  <p className="text-sm text-foreground/70">
-                    They sign up, try the free trial, and subscribe
-                  </p>
-                </div>
-                <div className="flex flex-col items-center text-center p-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-4">
-                    <DollarSign className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="font-semibold mb-2">3. You Get Paid</h3>
-                  <p className="text-sm text-foreground/70">
-                    Earn {Math.round(COMMISSION_RATES.monthly * 100)}% to {Math.round(COMMISSION_RATES.annual * 100)}% commission paid in crypto or Zelle
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
           {/* Commission Rates - Based on YOUR subscription */}
-          <Card className="mb-8">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                Your Commission Rate
-                {subscription?.plan === 'annual' && (
-                  <Badge className="bg-primary gap-1">
-                    <Crown className="w-3 h-3" />
-                    Annual Subscriber
-                  </Badge>
-                )}
-              </CardTitle>
-              <CardDescription>
-                {subscription?.plan === 'annual' 
-                  ? "As an annual subscriber, you earn 60% on ALL referrals"
-                  : "Upgrade to annual to unlock 60% commission on all referrals"
-                }
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              {/* Current Rate Display */}
-              <div className="mb-6 p-4 rounded-lg border-2 border-primary bg-primary/5 text-center">
-                <p className="text-sm text-foreground/70 mb-1">Your Current Rate</p>
-                <div className="text-4xl font-bold text-primary">
-                  {subscription?.plan === 'annual' ? '60%' : '50%'}
+          <Card className="mb-12 bg-white/3 border border-white/8 rounded-2xl p-8" id="referral-section">
+            <CardHeader className="p-0 mb-8">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div>
+                  <CardTitle className="font-consciousness text-2xl font-bold text-white mb-2 flex items-center gap-3">
+                    Your Commission Rate
+                    {subscription?.plan === 'annual' && (
+                      <Badge className="bg-violet-600 text-white font-body text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full flex items-center gap-1.5 border-none">
+                        <Crown className="w-3 h-3" />
+                        Annual
+                      </Badge>
+                    )}
+                  </CardTitle>
+                  <CardDescription className="font-body text-white/50">
+                    {subscription?.plan === 'annual'
+                      ? "As an annual subscriber, you earn 60% on all referrals"
+                      : "Upgrade to annual to unlock 60% commission on all referrals"
+                    }
+                  </CardDescription>
+                </div>
+                {/* Current Rate Display */}
+                <div className="flex flex-col items-end">
+                  <span className="font-body text-[10px] uppercase tracking-widest text-white/30 mb-1">Your Rate</span>
+                  <div className="font-consciousness text-5xl font-bold text-violet-400">
+                    {subscription?.plan === 'annual' ? '60%' : '50%'}
+                  </div>
                 </div>
               </div>
-
+            </CardHeader>
+            <CardContent className="p-0">
               {/* Earnings Table */}
-              <div className="space-y-3">
-                <div className="flex justify-between items-center p-3 bg-muted/30 rounded-lg">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                <div className="flex justify-between items-center p-6 bg-white/5 rounded-2xl border border-white/8">
                   <div>
-                    <span className="font-medium">Monthly Referral</span>
-                    <p className="text-sm text-foreground/60">{PRICING.monthly.display}/mo subscription</p>
+                    <span className="font-consciousness text-lg font-bold text-white">Monthly Referral</span>
+                    <p className="font-body text-xs text-white/40 mt-1">{PRICING.monthly.display} subscription</p>
                   </div>
                   <div className="text-right">
-                    <div className="text-xl font-bold text-primary">
+                    <div className="font-consciousness text-3xl font-bold text-violet-400">
                       ${subscription?.plan === 'annual' 
                         ? (PRICING.monthly.amount * 0.6).toFixed(2)
                         : (PRICING.monthly.amount * 0.5).toFixed(2)
                       }
                     </div>
-                    <p className="text-xs text-foreground/60">per referral</p>
+                    <p className="font-body text-[10px] uppercase tracking-widest text-white/30">Earnings</p>
                   </div>
                 </div>
-                <div className="flex justify-between items-center p-3 bg-muted/30 rounded-lg">
+                <div className="flex justify-between items-center p-6 bg-white/5 rounded-2xl border border-white/8">
                   <div>
-                    <span className="font-medium">Annual Referral</span>
-                    <p className="text-sm text-foreground/60">{PRICING.annual.display}/yr subscription</p>
+                    <span className="font-consciousness text-lg font-bold text-white">Annual Referral</span>
+                    <p className="font-body text-xs text-white/40 mt-1">{PRICING.annual.display} subscription</p>
                   </div>
                   <div className="text-right">
-                    <div className="text-xl font-bold text-primary">
+                    <div className="font-consciousness text-3xl font-bold text-violet-400">
                       ${subscription?.plan === 'annual' 
                         ? (PRICING.annual.amount * 0.6).toFixed(2)
                         : (PRICING.annual.amount * 0.5).toFixed(2)
                       }
                     </div>
-                    <p className="text-xs text-foreground/60">per referral</p>
+                    <p className="font-body text-[10px] uppercase tracking-widest text-white/30">Earnings</p>
                   </div>
                 </div>
               </div>
 
               {/* Upgrade CTA for non-annual subscribers */}
               {subscription?.plan !== 'annual' && (
-                <div className="mt-6 p-4 bg-primary/10 rounded-lg border border-primary/20">
-                  <div className="flex items-start gap-3">
-                    <Crown className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                <div className="p-6 bg-violet-500/10 rounded-2xl border border-violet-500/20">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-violet-500/20 flex items-center justify-center text-violet-400 mt-1">
+                      <Crown className="w-5 h-5" />
+                    </div>
                     <div className="flex-1">
-                      <p className="font-medium text-foreground">Upgrade to Annual for 60% Commission</p>
-                      <p className="text-sm text-foreground/70 mt-1">
-                        Annual subscribers earn 60% on all referrals instead of 50%. 
-                        That's ${(PRICING.monthly.amount * 0.6).toFixed(2)} per monthly referral and 
-                        ${(PRICING.annual.amount * 0.6).toFixed(2)} per annual referral.
+                      <p className="font-consciousness text-lg font-bold text-white mb-1">Upgrade to Annual for 60% Commission</p>
+                      <p className="font-body text-sm text-white/50 leading-relaxed mb-6">
+                        Annual subscribers earn 60% on all referrals instead of 50%. Maximize your earnings across the platform.
                       </p>
-                      <Link to="/subscription">
-                        <Button size="sm" className="mt-3">
-                          Upgrade Now <ArrowRight className="w-4 h-4 ml-1" />
-                        </Button>
-                      </Link>
+                      <Button asChild className="font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl px-8 transition-all">
+                        <Link to="/subscription">Upgrade Now</Link>
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -366,58 +365,56 @@ const Earn = () => {
             <>
               {/* Referral Link - Terms Gate */}
               {!termsLoading && !hasAcceptedTerms ? (
-                <Card className="mb-8 border-primary/30">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Shield className="w-5 h-5 text-primary" />
+                <Card className="mb-12 bg-white/3 border border-violet-500/30 rounded-2xl p-8">
+                  <CardHeader className="p-0 mb-8">
+                    <CardTitle className="font-consciousness text-xl font-bold text-white mb-2 flex items-center gap-3">
+                      <Shield className="w-5 h-5 text-violet-400" />
                       Accept Referral Terms
                     </CardTitle>
-                    <CardDescription>
+                    <CardDescription className="font-body text-white/50">
                       Review and accept our referral program terms to get your unique link
                     </CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <div className="flex flex-col sm:flex-row items-center gap-4 p-4 bg-muted/30 rounded-lg">
-                      <p className="text-sm text-foreground/80 flex-1">
+                  <CardContent className="p-0">
+                    <div className="flex flex-col sm:flex-row items-center gap-6 p-6 bg-white/5 rounded-2xl border border-white/8">
+                      <p className="font-body text-sm text-white/60 flex-1">
                         Before you can share your referral link and earn commissions, please review 
                         and accept our referral program terms and conditions.
                       </p>
-                      <Button onClick={() => setShowTermsModal(true)} className="w-full sm:w-auto">
-                        <FileText className="w-4 h-4 mr-2" />
+                      <Button onClick={() => setShowTermsModal(true)} className="font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl px-8 transition-all">
                         View Terms
                       </Button>
                     </div>
                   </CardContent>
                 </Card>
               ) : (
-                <Card className="mb-8">
-                  <CardHeader>
-                    <CardTitle>Your Referral Link</CardTitle>
-                    <CardDescription>Share this link to start earning</CardDescription>
+                <Card className="mb-12 bg-white/3 border border-white/8 rounded-2xl p-8">
+                  <CardHeader className="p-0 mb-8">
+                    <CardTitle className="font-consciousness text-xl font-bold text-white mb-2">Your Referral Link</CardTitle>
+                    <CardDescription className="font-body text-white/50">Share this link to start earning</CardDescription>
                   </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="flex gap-2">
-                      <Input 
-                        value={referralLink} 
-                        readOnly 
-                        className="font-mono text-sm"
-                      />
-                      <Button onClick={handleCopyLink} variant="outline">
-                        {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-                      </Button>
-                      <Button onClick={handleShare}>
-                        <Share2 className="w-4 h-4 mr-2" />
-                        Share
-                      </Button>
+                  <CardContent className="p-0 space-y-6">
+                    <div className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 flex items-center gap-4">
+                      <div className="font-body text-sm text-white/70 flex-1 truncate">{referralLink}</div>
+                      <button
+                        onClick={handleCopyLink}
+                        className="font-body text-xs text-violet-400 hover:text-violet-300 whitespace-nowrap transition-colors"
+                      >
+                        {copied ? 'Copied' : 'Copy Link'}
+                      </button>
                     </div>
+                    <Button onClick={handleShare} className="w-full font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl py-6 transition-all">
+                      <Share2 className="w-4 h-4 mr-2" />
+                      Share Referral
+                    </Button>
                     {acceptance && (
-                      <div className="flex items-center justify-between text-xs text-muted-foreground border-t border-border pt-3">
-                        <Link to="/referral-terms" className="hover:text-primary transition-colors flex items-center gap-1">
+                      <div className="flex items-center justify-between font-body text-[10px] uppercase tracking-widest text-white/20 pt-6 border-t border-white/5">
+                        <Link to="/referral-terms" className="hover:text-violet-400 transition-colors flex items-center gap-2">
                           <FileText className="w-3 h-3" />
-                          View Referral Terms
+                          Referral Terms
                         </Link>
                         <span>
-                          Terms accepted: {new Date(acceptance.accepted_at).toLocaleDateString()}
+                          Accepted: {new Date(acceptance.accepted_at).toLocaleDateString()}
                         </span>
                       </div>
                     )}
@@ -426,93 +423,71 @@ const Earn = () => {
               )}
 
               {/* Stats */}
-              <div className="grid md:grid-cols-3 gap-4 mb-8">
-                <Card>
-                  <CardContent className="pt-6">
+              <div className="grid md:grid-cols-3 gap-6 mb-12">
+                {[
+                  { icon: Users, label: 'Total Referrals', value: referralCount, color: 'text-white/40' },
+                  { icon: Clock, label: 'Pending Payout', value: formatCurrency(pendingAmount), color: 'text-amber-400' },
+                  { icon: CheckCircle2, label: 'Total Paid', value: formatCurrency(paidAmount), color: 'text-emerald-400' }
+                ].map((stat, i) => (
+                  <Card key={i} className="bg-white/3 border border-white/8 rounded-2xl p-6">
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center">
-                        <Users className="w-6 h-6 text-foreground/70" />
+                      <div className={`w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center ${stat.color}`}>
+                        <stat.icon className="w-6 h-6" />
                       </div>
                       <div>
-                        <p className="text-sm text-foreground/70">Total Referrals</p>
-                        <p className="text-2xl font-bold">{referralCount}</p>
+                        <p className="font-body text-[10px] uppercase tracking-widest text-white/30 mb-1">{stat.label}</p>
+                        <p className="font-consciousness text-2xl font-bold text-white">{stat.value}</p>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardContent className="pt-6">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-yellow-500/10 flex items-center justify-center">
-                        <Clock className="w-6 h-6 text-yellow-500" />
-                      </div>
-                      <div>
-                        <p className="text-sm text-foreground/70">Pending</p>
-                        <p className="text-2xl font-bold">{formatCurrency(pendingAmount)}</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardContent className="pt-6">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center">
-                        <CheckCircle2 className="w-6 h-6 text-green-500" />
-                      </div>
-                      <div>
-                        <p className="text-sm text-foreground/70">Paid</p>
-                        <p className="text-2xl font-bold">{formatCurrency(paidAmount)}</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                  </Card>
+                ))}
               </div>
 
               {/* Payout Method */}
-              <Card className="mb-8">
-                <CardHeader>
-                  <CardTitle>Payout Method</CardTitle>
-                  <CardDescription>
+              <Card className="mb-12 bg-white/3 border border-white/8 rounded-2xl p-8">
+                <CardHeader className="p-0 mb-8">
+                  <CardTitle className="font-consciousness text-xl font-bold text-white mb-2">Payout Method</CardTitle>
+                  <CardDescription className="font-body text-white/50">
                     Set up how you want to receive your commissions
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-6">
+                <CardContent className="p-0 space-y-8">
                   <RadioGroup 
                     value={payoutMethod} 
                     onValueChange={setPayoutMethod}
-                    className="grid grid-cols-2 gap-4"
+                    className="grid grid-cols-2 gap-6"
                   >
                     <div>
                       <RadioGroupItem value="crypto" id="crypto" className="peer sr-only" />
                       <Label
                         htmlFor="crypto"
-                        className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer"
+                        className="flex flex-col items-center justify-between rounded-xl border border-white/10 bg-white/5 p-6 hover:border-violet-500/30 transition-all peer-data-[state=checked]:border-violet-600 peer-data-[state=checked]:bg-violet-600/10 cursor-pointer"
                       >
-                        <Wallet className="mb-3 h-6 w-6" />
-                        <span className="font-medium">Crypto</span>
+                        <Wallet className="mb-3 h-6 w-6 text-violet-400" />
+                        <span className="font-consciousness text-sm font-bold text-white">Crypto</span>
                       </Label>
                     </div>
                     <div>
                       <RadioGroupItem value="zelle" id="zelle" className="peer sr-only" />
                       <Label
                         htmlFor="zelle"
-                        className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer"
+                        className="flex flex-col items-center justify-between rounded-xl border border-white/10 bg-white/5 p-6 hover:border-violet-500/30 transition-all peer-data-[state=checked]:border-violet-600 peer-data-[state=checked]:bg-violet-600/10 cursor-pointer"
                       >
-                        <Mail className="mb-3 h-6 w-6" />
-                        <span className="font-medium">Zelle</span>
+                        <Mail className="mb-3 h-6 w-6 text-violet-400" />
+                        <span className="font-consciousness text-sm font-bold text-white">Zelle</span>
                       </Label>
                     </div>
                   </RadioGroup>
 
                   {payoutMethod === "crypto" && (
-                    <div className="space-y-4">
+                    <div className="space-y-6">
                       <div>
-                        <Label htmlFor="network">Network</Label>
+                        <Label className="font-body text-[10px] uppercase tracking-widest text-white/40 mb-2 block" htmlFor="network">Network</Label>
                         <Select value={cryptoNetwork} onValueChange={setCryptoNetwork}>
-                          <SelectTrigger>
+                          <SelectTrigger className="font-body text-sm bg-white/5 border border-white/15 rounded-xl px-4 py-6 text-white focus:ring-0 focus:border-violet-500/50">
                             <SelectValue placeholder="Select network" />
                           </SelectTrigger>
-                          <SelectContent>
+                          <SelectContent className="bg-zinc-900 border-white/15">
                             <SelectItem value="ethereum">Ethereum</SelectItem>
                             <SelectItem value="polygon">Polygon</SelectItem>
                             <SelectItem value="base">Base</SelectItem>
@@ -523,12 +498,13 @@ const Earn = () => {
                         </Select>
                       </div>
                       <div>
-                        <Label htmlFor="wallet">Wallet Address</Label>
-                        <Input
+                        <Label className="font-body text-[10px] uppercase tracking-widest text-white/40 mb-2 block" htmlFor="wallet">Wallet Address</Label>
+                        <input
                           id="wallet"
                           placeholder="0x..."
                           value={payoutDetails}
                           onChange={(e) => setPayoutDetails(e.target.value)}
+                          className="font-body text-sm bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white focus:border-violet-500/50 focus:outline-none transition-colors w-full"
                         />
                       </div>
                     </div>
@@ -536,18 +512,19 @@ const Earn = () => {
 
                   {payoutMethod === "zelle" && (
                     <div>
-                      <Label htmlFor="zelle-contact">Zelle Email or Phone</Label>
-                      <Input
+                      <Label className="font-body text-[10px] uppercase tracking-widest text-white/40 mb-2 block" htmlFor="zelle-contact">Zelle Email or Phone</Label>
+                      <input
                         id="zelle-contact"
                         placeholder="email@example.com or (555) 123-4567"
                         value={payoutDetails}
                         onChange={(e) => setPayoutDetails(e.target.value)}
+                        className="font-body text-sm bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white focus:border-violet-500/50 focus:outline-none transition-colors w-full"
                       />
                     </div>
                   )}
 
                   {payoutMethod && (
-                    <Button onClick={handleSavePayoutMethod} disabled={saving}>
+                    <Button onClick={handleSavePayoutMethod} disabled={saving} className="w-full font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl py-6 transition-all">
                       {saving ? (
                         <>
                           <Loader2 className="w-4 h-4 mr-2 animate-spin" />
@@ -559,9 +536,9 @@ const Earn = () => {
                     </Button>
                   )}
 
-                  <p className="text-sm text-foreground/60">
-                    Need a different payout option? Contact us at{" "}
-                    <a href="mailto:info@the3rdeyeadvisors.com" className="text-primary hover:underline">
+                  <p className="font-body text-xs text-white/30 text-center">
+                    Questions about payouts? Contact{" "}
+                    <a href="mailto:info@the3rdeyeadvisors.com" className="text-violet-400 hover:underline">
                       info@the3rdeyeadvisors.com
                     </a>
                   </p>
@@ -570,35 +547,34 @@ const Earn = () => {
 
               {/* Commission History */}
               {commissions.length > 0 && (
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Commission History</CardTitle>
+                <Card className="bg-white/3 border border-white/8 rounded-2xl p-8">
+                  <CardHeader className="p-0 mb-8">
+                    <CardTitle className="font-consciousness text-xl font-bold text-white">Commission History</CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
+                  <CardContent className="p-0">
+                    <div className="space-y-4">
                       {commissions.map((commission) => (
                         <div 
                           key={commission.id} 
-                          className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 bg-muted/30 rounded-lg"
+                          className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 p-6 bg-white/5 rounded-2xl border border-white/8"
                         >
                           <div className="min-w-0">
-                            <div className="flex flex-wrap items-center gap-2">
-                              <Badge variant={commission.plan_type === "annual" ? "default" : "secondary"} className="text-[10px] sm:text-xs">
+                            <div className="flex flex-wrap items-center gap-3 mb-2">
+                              <Badge className={`font-body text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full border border-none ${commission.plan_type === "annual" ? "bg-violet-600 text-white" : "bg-white/10 text-white/50"}`}>
                                 {commission.plan_type === "annual" ? "Annual" : "Monthly"}
                               </Badge>
                               <Badge 
-                                variant={commission.status === "paid" ? "default" : "outline"}
-                                className={`text-[10px] sm:text-xs ${commission.status === "paid" ? "bg-green-500" : ""}`}
+                                className={`font-body text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full border border-none ${commission.status === "paid" ? "bg-emerald-500/10 text-emerald-400" : "bg-amber-500/10 text-amber-400"}`}
                               >
                                 {commission.status}
                               </Badge>
                             </div>
-                            <p className="text-xs sm:text-sm text-foreground/70 mt-1.5 break-words">
+                            <p className="font-body text-xs text-white/40">
                               {formatDate(commission.created_at)}
                               {commission.paid_at && ` • Paid ${formatDate(commission.paid_at)}`}
                             </p>
                           </div>
-                          <div className="text-lg sm:text-xl font-bold text-primary self-start sm:self-center">
+                          <div className="font-consciousness text-2xl font-bold text-violet-400">
                             {formatCurrency(commission.commission_amount_cents)}
                           </div>
                         </div>
@@ -610,14 +586,16 @@ const Earn = () => {
             </>
           ) : (
             /* Sign In CTA */
-            <Card>
-              <CardContent className="py-12 text-center">
-                <Gift className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Sign in to Start Earning</h3>
-                <p className="text-foreground/70 mb-6">
-                  Create an account or sign in to get your unique referral link
+            <Card className="bg-white/3 border border-white/8 rounded-2xl p-12">
+              <CardContent className="p-0 text-center">
+                <div className="w-16 h-16 rounded-2xl bg-violet-500/10 flex items-center justify-center text-violet-400 mx-auto mb-8">
+                  <Gift className="w-8 h-8" />
+                </div>
+                <h3 className="font-consciousness text-2xl font-bold text-white mb-4">Sign in to Start Earning</h3>
+                <p className="font-body text-white/50 mb-10 max-w-sm mx-auto">
+                  Create an account or sign in to get your unique referral link and start tracking your rewards.
                 </p>
-                <Button asChild>
+                <Button asChild className="font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl px-12 py-6 transition-all">
                   <Link to="/auth">
                     Sign In <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>
@@ -627,29 +605,24 @@ const Earn = () => {
           )}
 
           {/* Terms Summary */}
-          <Card className="mt-8 bg-muted/30">
-            <CardContent className="py-6">
-              <h4 className="font-semibold mb-3">Program Terms Summary</h4>
-              <ul className="space-y-2 text-sm text-foreground/70">
-                <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
-                  One-time commission per referred user (first subscription only)
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
-                  Commission is created when the referred user pays their first subscription
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
-                  Payouts are processed within 7 to 10 business days
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
-                  You must have a valid payout method set up to receive payments
-                </li>
+          <Card className="mt-12 bg-white/3 border border-white/8 rounded-2xl p-8">
+            <CardContent className="p-0">
+              <h4 className="font-consciousness text-base font-bold text-white mb-6">Program Terms Summary</h4>
+              <ul className="space-y-4">
+                {[
+                  "One-time commission per referred user (first subscription only)",
+                  "Commission is created when the referred user pays their first subscription",
+                  "Payouts are processed within 7 to 10 business days",
+                  "You must have a valid payout method set up to receive payments"
+                ].map((term, i) => (
+                  <li key={i} className="flex items-start gap-3 font-body text-sm text-white/50">
+                    <Check className="w-4 h-4 mt-0.5 text-violet-400 flex-shrink-0" />
+                    {term}
+                  </li>
+                ))}
               </ul>
-              <div className="mt-4 pt-4 border-t border-border">
-                <Link to="/referral-terms" className="text-sm text-primary hover:underline flex items-center gap-1">
+              <div className="mt-8 pt-8 border-t border-white/5">
+                <Link to="/referral-terms" className="font-body text-sm text-violet-400 hover:text-violet-300 transition-colors flex items-center gap-2">
                   <FileText className="w-4 h-4" />
                   Read full Referral Program Terms & Conditions
                 </Link>

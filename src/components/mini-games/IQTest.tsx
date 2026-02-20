@@ -175,11 +175,11 @@ export const IQTest: React.FC<{ onComplete: (iq: number, score: number) => void 
   };
 
   const getDescription = (iq: number) => {
-    if (iq >= 130) return "Very Superior - You possess exceptional cognitive abilities.";
-    if (iq >= 120) return "Superior - Your mental agility is well above the general population.";
-    if (iq >= 110) return "High Average - You have strong analytical and logical skills.";
-    if (iq >= 90) return "Average - Your cognitive profile is well-balanced.";
-    return "Keep Training - Daily cognitive exercises can improve these scores over time.";
+    if (iq >= 130) return "Very Superior : You possess exceptional cognitive abilities.";
+    if (iq >= 120) return "Superior : Your mental agility is well above the general population.";
+    if (iq >= 110) return "High Average : You have strong analytical and logical skills.";
+    if (iq >= 90) return "Average : Your cognitive profile is well-balanced.";
+    return "Keep Training : Daily cognitive exercises can improve these scores over time.";
   };
 
   const handleEmailResults = async () => {

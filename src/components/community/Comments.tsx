@@ -319,13 +319,13 @@ export const Comments = ({ contentType, contentId, title }: CommentsProps) => {
   };
 
   const CommentItem = ({ comment, isReply = false }: { comment: Comment; isReply?: boolean }) => (
-    <div className={`${isReply ? 'ml-8 border-l-2 border-muted pl-4' : ''}`}>
-      <Card className="mb-4">
+    <div className={`${isReply ? 'ml-8 border-l-2 border-white/5 pl-4' : ''}`}>
+      <Card className="mb-4 bg-white/3 border-white/8">
         <CardContent className="p-4">
           <div className="flex items-start gap-3">
             <Avatar className="w-8 h-8">
               <AvatarImage src={comment.profiles?.avatar_url || ""} />
-              <AvatarFallback className="bg-primary/10 text-primary text-sm">
+              <AvatarFallback className="bg-violet-500/10 text-violet-400 text-sm font-body">
                 {(comment.profiles?.display_name || 'U').charAt(0).toUpperCase()}
               </AvatarFallback>
             </Avatar>
@@ -333,12 +333,12 @@ export const Comments = ({ contentType, contentId, title }: CommentsProps) => {
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-2">
                 <div className="flex items-center gap-1">
-                  <span className="font-medium text-sm">
+                  <span className="font-consciousness font-bold text-sm text-white">
                     {comment.profiles?.display_name || 'Anonymous User'}
                   </span>
                   {foundingMembers.has(comment.user_id) && <FoundingMemberBadge />}
                 </div>
-                <span className="text-xs text-muted-foreground">
+                <span className="font-body text-xs text-white/40">
                   {formatDate(comment.created_at)}
                 </span>
                 {comment.is_helpful && (
@@ -348,38 +348,32 @@ export const Comments = ({ contentType, contentId, title }: CommentsProps) => {
                 )}
               </div>
               
-              <p className="text-sm text-foreground mb-3 whitespace-pre-wrap">
+              <p className="font-body text-sm text-white/70 mb-3 whitespace-pre-wrap leading-relaxed">
                 {comment.content}
               </p>
               
               <div className="flex items-center gap-4">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="text-xs text-muted-foreground hover:text-primary"
+                <button
+                  className="font-body text-xs text-white/40 hover:text-violet-400 transition-colors flex items-center"
                   onClick={() => handleLikeComment(comment.id, comment.user_liked || false)}
                 >
                   <Heart className={`w-4 h-4 mr-1 ${comment.user_liked ? 'fill-red-500 text-red-500' : ''}`} />
                   {comment.likes_count}
-                </Button>
+                </button>
                 
                 {!isReply && (
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="text-xs text-muted-foreground hover:text-primary"
+                  <button
+                    className="font-body text-xs text-white/40 hover:text-violet-400 transition-colors flex items-center"
                     onClick={() => setReplyingTo(replyingTo === comment.id ? null : comment.id)}
                   >
                     <Reply className="w-4 h-4 mr-1" />
                     Reply
-                  </Button>
+                  </button>
                 )}
                 
                 {comment.replies && comment.replies.length > 0 && (
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="text-xs text-muted-foreground hover:text-primary"
+                  <button
+                    className="font-body text-xs text-white/40 hover:text-violet-400 transition-colors flex items-center"
                     onClick={() => toggleReplies(comment.id)}
                   >
                     {expandedComments.has(comment.id) ? (
@@ -388,7 +382,7 @@ export const Comments = ({ contentType, contentId, title }: CommentsProps) => {
                       <ChevronDown className="w-4 h-4 mr-1" />
                     )}
                     {comment.replies.length} {comment.replies.length === 1 ? 'reply' : 'replies'}
-                  </Button>
+                  </button>
                 )}
               </div>
             </div>
@@ -456,18 +450,18 @@ export const Comments = ({ contentType, contentId, title }: CommentsProps) => {
   return (
     <div className="space-y-6">
       <div>
-        <h3 className="text-lg font-semibold mb-4">
+        <h3 className="font-consciousness text-lg font-bold text-white mb-4">
           Comments {title && `for ${title}`} ({comments.length})
         </h3>
         
         {/* New comment input */}
         {user ? (
-          <Card className="mb-6">
+          <Card className="mb-6 bg-white/3 border-white/8">
             <CardContent className="p-4">
               <div className="flex items-start gap-3">
                 <Avatar className="w-8 h-8">
                   <AvatarImage src="" />
-                  <AvatarFallback className="bg-primary/10 text-primary text-sm">
+                  <AvatarFallback className="bg-violet-500/10 text-violet-400 text-sm font-body">
                     {user.email?.charAt(0).toUpperCase()}
                   </AvatarFallback>
                 </Avatar>
@@ -476,12 +470,13 @@ export const Comments = ({ contentType, contentId, title }: CommentsProps) => {
                     placeholder="Share your thoughts or ask a question..."
                     value={newComment}
                     onChange={(e) => setNewComment(e.target.value)}
-                    className="mb-3"
+                    className="mb-3 font-body text-sm bg-white/5 border-white/10 rounded-xl px-4 py-3 text-white focus:border-violet-500/50"
                     rows={3}
                   />
                   <Button
                     onClick={handleSubmitComment}
                     disabled={submitting || !newComment.trim()}
+                    className="font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl"
                   >
                     {submitting ? "Posting..." : "Post Comment"}
                   </Button>
@@ -490,10 +485,14 @@ export const Comments = ({ contentType, contentId, title }: CommentsProps) => {
             </CardContent>
           </Card>
         ) : (
-          <Card className="mb-6">
+          <Card className="mb-6 bg-white/3 border-white/8">
             <CardContent className="p-4 text-center">
-              <p className="text-muted-foreground mb-3">Sign in to join the discussion</p>
-              <Button variant="outline" onClick={() => navigate('/auth')}>
+              <p className="font-body text-white/50 mb-4">Sign in to join the discussion</p>
+              <Button
+                variant="outline"
+                onClick={() => navigate('/auth')}
+                className="font-body border-white/10 text-white hover:bg-white/5 rounded-xl"
+              >
                 Sign In
               </Button>
             </CardContent>

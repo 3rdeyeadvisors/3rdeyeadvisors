@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/hooks/use-toast";
 import { useSingleFoundingMemberStatus } from "@/hooks/useFoundingMemberStatus";
+import { useSubscription } from "@/hooks/useSubscription";
 import { FoundingMemberBadge } from "@/components/community/FoundingMemberBadge";
 import { 
   User, 
@@ -71,6 +72,7 @@ const Profile = () => {
   const { userId: viewUserId } = useParams<{ userId?: string }>();
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { hasAccess, subscription } = useSubscription();
   
   // Determine if viewing own profile or someone else's
   const isOwnProfile = !viewUserId || viewUserId === user?.id;
@@ -558,14 +560,18 @@ const Profile = () => {
   const achievements = getAchievements();
 
   return (
-    <div className="min-h-screen py-20 w-full overflow-x-hidden">
-      <div className="container mx-auto px-4 max-w-4xl w-full">
+    <div className="min-h-screen bg-black py-24 w-full overflow-x-hidden relative">
+      {/* Nebula Glow */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-500/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/5 blur-[100px] rounded-full pointer-events-none" />
+
+      <div className="container mx-auto px-6 max-w-4xl w-full relative z-10">
         {/* Back button for viewing other profiles */}
         {!isOwnProfile && (
           <Button 
             variant="ghost" 
             onClick={() => navigate(-1)} 
-            className="mb-4"
+            className="mb-8 font-body text-white/40 hover:text-white"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back
@@ -573,17 +579,20 @@ const Profile = () => {
         )}
 
         {/* Profile Header */}
-        <Card className="mb-8">
-          <CardContent className="p-8">
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
+        <Card className="mb-12 bg-white/3 border border-white/8 rounded-2xl overflow-hidden">
+          <CardContent className="p-8 md:p-12">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-10">
               {/* Avatar Section */}
               <div className="relative">
-                <Avatar className="w-32 h-32">
-                  <AvatarImage src={profile?.avatar_url || ""} />
-                  <AvatarFallback className="bg-primary/10 text-primary text-4xl font-consciousness">
-                    {(profile?.display_name || "U").charAt(0).toUpperCase()}
-                  </AvatarFallback>
-                </Avatar>
+                <div className="w-20 h-20 rounded-full bg-violet-500/20 border-2 border-violet-500/30 flex items-center justify-center overflow-hidden">
+                  {profile?.avatar_url ? (
+                    <img src={profile.avatar_url} alt="Avatar" className="w-full h-full object-cover" />
+                  ) : (
+                    <span className="text-2xl font-consciousness text-violet-400">
+                      {(profile?.display_name || "U").charAt(0).toUpperCase()}
+                    </span>
+                  )}
+                </div>
                 {isOwnProfile && (
                   <>
                     <input
@@ -593,78 +602,73 @@ const Profile = () => {
                       onChange={handleAvatarUpload}
                       className="hidden"
                     />
-                    <Button
-                      size="icon"
-                      variant="secondary"
-                      className="absolute -bottom-2 -right-2 rounded-full shadow-lg"
+                    <button
+                      className="absolute -bottom-1 -right-1 w-7 h-7 bg-violet-600 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-violet-500 transition-colors"
                       onClick={() => fileInputRef.current?.click()}
                       disabled={uploading}
-                      title="Upload new avatar"
                     >
                       {uploading ? (
-                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <Loader2 className="w-3 h-3 animate-spin" />
                       ) : (
-                        <Camera className="w-4 h-4" />
+                        <Camera className="w-3 h-3" />
                       )}
-                    </Button>
+                    </button>
                   </>
                 )}
               </div>
 
               {/* Profile Info */}
-              <div className="flex-1 space-y-4 text-center md:text-left">
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+              <div className="flex-1 space-y-6 text-center md:text-left">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
                   <div className="flex-1">
                     {isEditing && isOwnProfile ? (
-                      <div className="space-y-4">
+                      <div className="space-y-6">
                         <div>
-                          <Label htmlFor="display_name">Display Name</Label>
-                          <Input
+                          <Label className="font-body text-xs uppercase tracking-widest text-white/40 mb-2 block" htmlFor="display_name">Display Name</Label>
+                          <input
                             id="display_name"
                             value={editForm.display_name}
                             onChange={(e) => setEditForm(prev => ({ ...prev, display_name: e.target.value }))}
+                            className="font-body text-sm bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white focus:border-violet-500/50 focus:outline-none transition-colors w-full"
                             placeholder="Your display name"
                           />
                         </div>
                         <div>
-                          <Label htmlFor="bio">Bio</Label>
-                          <Textarea
+                          <Label className="font-body text-xs uppercase tracking-widest text-white/40 mb-2 block" htmlFor="bio">Bio</Label>
+                          <textarea
                             id="bio"
                             value={editForm.bio}
                             onChange={(e) => setEditForm(prev => ({ ...prev, bio: e.target.value }))}
+                            className="font-body text-sm bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white focus:border-violet-500/50 focus:outline-none transition-colors w-full resize-none"
                             placeholder="Tell us about yourself..."
                             rows={3}
-                          />
-                        </div>
-                        <div>
-                          <Label htmlFor="avatar_url">Avatar URL</Label>
-                          <Input
-                            id="avatar_url"
-                            value={editForm.avatar_url}
-                            onChange={(e) => setEditForm(prev => ({ ...prev, avatar_url: e.target.value }))}
-                            placeholder="https://example.com/avatar.jpg"
                           />
                         </div>
                       </div>
                     ) : (
                       <>
-                        <h1 className="text-3xl font-consciousness font-bold text-foreground mb-2 flex items-center gap-2 justify-center md:justify-start">
+                        <h1 className="font-consciousness text-xl font-bold text-white mb-2 flex items-center gap-3 justify-center md:justify-start">
                           {profile?.display_name || (isOwnProfile ? user?.email?.split('@')[0] : 'User')}
-                          {isFoundingMember && <FoundingMemberBadge className="w-6 h-6" />}
+                          {isFoundingMember && <FoundingMemberBadge className="w-5 h-5" />}
                         </h1>
-                        {isOwnProfile && user && (
-                          <div className="flex items-center justify-center md:justify-start gap-2 text-muted-foreground mb-4">
-                            <Mail className="w-4 h-4" />
-                            <span>{user.email}</span>
-                          </div>
-                        )}
+                        <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-6">
+                          {isOwnProfile && user && (
+                            <div className="font-body text-sm text-white/40">
+                              {user.email}
+                            </div>
+                          )}
+                          {isOwnProfile && (
+                            <Badge className={`font-body text-xs uppercase tracking-widest px-3 py-1 rounded-full border ${hasAccess ? 'text-emerald-400 border-emerald-500/30 bg-emerald-500/10' : 'text-white/40 border-white/15'}`}>
+                              {hasAccess ? (subscription?.plan === 'annual' ? 'Annual Plan' : 'Monthly Plan') : 'Inactive'}
+                            </Badge>
+                          )}
+                        </div>
                         {profile?.bio && (
-                          <p className="text-muted-foreground mb-4">{profile.bio}</p>
+                          <p className="font-body text-sm text-white/60 leading-relaxed mb-6 max-w-xl">{profile.bio}</p>
                         )}
                         {isOwnProfile && user && (
-                          <div className="flex items-center justify-center md:justify-start gap-2 text-sm text-muted-foreground">
-                            <Calendar className="w-4 h-4" />
-                            <span>Joined {new Date(user.created_at).toLocaleDateString()}</span>
+                          <div className="font-body text-sm text-white/40">
+                            Member since {new Date(user.created_at).toLocaleDateString()}
                           </div>
                         )}
                       </>
@@ -673,16 +677,16 @@ const Profile = () => {
 
                   {/* Edit Controls - only show for own profile */}
                   {isOwnProfile && (
-                    <div className="flex gap-2 justify-center sm:self-start">
+                    <div className="flex gap-3 justify-center sm:self-start">
                       {isEditing ? (
                         <>
                           <Button
                             onClick={handleSaveProfile}
                             disabled={saving}
-                            size="sm"
+                            className="font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl px-6 py-2 transition-all h-auto"
                           >
-                            <Save className="w-4 h-4 sm:mr-2" />
-                            <span className="hidden sm:inline">{saving ? "Saving..." : "Save"}</span>
+                            <Save className="w-4 h-4 mr-2" />
+                            {saving ? "..." : "Save"}
                           </Button>
                           <Button
                             variant="outline"
@@ -694,20 +698,19 @@ const Profile = () => {
                                 avatar_url: profile?.avatar_url || ""
                               });
                             }}
-                            size="sm"
+                            className="font-body border-white/10 text-white hover:bg-white/5 rounded-xl px-6 py-2 transition-all h-auto"
                           >
-                            <X className="w-4 h-4 sm:mr-2" />
-                            <span className="hidden sm:inline">Cancel</span>
+                            <X className="w-4 h-4" />
                           </Button>
                         </>
                       ) : (
                         <Button
                           variant="outline"
                           onClick={() => setIsEditing(true)}
-                          size="sm"
+                          className="font-body border-white/10 text-white hover:bg-white/5 rounded-xl px-6 py-2 transition-all h-auto"
                         >
-                          <Edit className="w-4 h-4 sm:mr-2" />
-                          <span className="hidden sm:inline">Edit Profile</span>
+                          <Edit className="w-4 h-4 mr-2" />
+                          Edit
                         </Button>
                       )}
                     </div>
@@ -720,62 +723,52 @@ const Profile = () => {
 
         {/* Stats Overview - only show for own profile */}
         {isOwnProfile && (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            <Card className="p-4 text-center">
-              <BookOpen className="w-8 h-8 text-primary mx-auto mb-2" />
-              <p className="text-2xl font-bold text-foreground">{userStats.coursesEnrolled}</p>
-              <p className="text-sm text-muted-foreground">Courses Enrolled</p>
-            </Card>
-            
-            <Card className="p-4 text-center">
-              <Trophy className="w-8 h-8 text-awareness mx-auto mb-2" />
-              <p className="text-2xl font-bold text-foreground">{userStats.coursesCompleted}</p>
-              <p className="text-sm text-muted-foreground">Completed</p>
-            </Card>
-            
-            <Card className="p-4 text-center">
-              <Brain className="w-8 h-8 text-accent mx-auto mb-2" />
-              <p className="text-2xl font-bold text-foreground">{userStats.quizzesPassed}</p>
-              <p className="text-sm text-muted-foreground">Quizzes Passed</p>
-            </Card>
-            
-            <Card className="p-4 text-center">
-              <TrendingUp className="w-8 h-8 text-green-600 mx-auto mb-2" />
-              <p className="text-2xl font-bold text-foreground">{userStats.averageScore}%</p>
-              <p className="text-sm text-muted-foreground">Avg Score</p>
-            </Card>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+            {[
+              { icon: BookOpen, value: userStats.coursesEnrolled, label: 'Enrolled', color: 'text-violet-400' },
+              { icon: Trophy, value: userStats.coursesCompleted, label: 'Completed', color: 'text-emerald-400' },
+              { icon: Brain, value: userStats.quizzesPassed, label: 'Passed', color: 'text-violet-400' },
+              { icon: TrendingUp, value: `${userStats.averageScore}%`, label: 'Avg Score', color: 'text-blue-400' }
+            ].map((stat, i) => (
+              <Card key={i} className="p-6 bg-white/3 border border-white/8 rounded-2xl text-center">
+                <stat.icon className={`w-8 h-8 mx-auto mb-3 ${stat.color}`} />
+                <p className="font-consciousness text-2xl font-bold text-white mb-1">{stat.value}</p>
+                <p className="font-body text-xs uppercase tracking-widest text-white/40">{stat.label}</p>
+              </Card>
+            ))}
           </div>
         )}
 
         {/* Achievements - only show for own profile */}
         {isOwnProfile && (
-          <Card className="mb-8">
-            <CardHeader className="text-center">
-              <CardTitle className="flex items-center justify-center gap-2">
-                <Trophy className="w-5 h-5" />
+          <Card className="mb-12 bg-white/3 border border-white/8 rounded-2xl p-6">
+            <CardHeader className="text-center p-0 mb-8">
+              <CardTitle className="font-consciousness text-base font-bold text-white mb-2">
                 Achievements
               </CardTitle>
-              <CardDescription>
+              <CardDescription className="font-body text-sm text-white/40">
                 Your learning milestones and accomplishments
               </CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="p-0">
               {achievements.length > 0 ? (
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid md:grid-cols-2 gap-6">
                   {achievements.map((achievement, index) => (
-                    <div key={index} className="flex items-center gap-3 p-4 bg-muted/30 rounded-lg">
-                      <achievement.icon className={`w-8 h-8 ${achievement.color}`} />
+                    <div key={index} className="flex items-center gap-4 p-5 bg-white/5 rounded-xl border border-white/8">
+                      <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center">
+                        <achievement.icon className={`w-6 h-6 ${achievement.color}`} />
+                      </div>
                       <div>
-                        <h4 className="font-semibold text-foreground">{achievement.title}</h4>
-                        <p className="text-sm text-muted-foreground">{achievement.description}</p>
+                        <h4 className="font-consciousness text-sm font-bold text-white">{achievement.title}</h4>
+                        <p className="font-body text-xs text-white/40">{achievement.description}</p>
                       </div>
                     </div>
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-8">
-                  <Trophy className="w-12 h-12 text-muted-foreground/50 mx-auto mb-4" />
-                  <p className="text-muted-foreground">Complete courses and quizzes to unlock achievements!</p>
+                <div className="text-center py-12">
+                  <Trophy className="w-12 h-12 text-white/10 mx-auto mb-4" />
+                  <p className="font-body text-sm text-white/40">Complete courses and quizzes to unlock achievements!</p>
                 </div>
               )}
             </CardContent>
@@ -784,39 +777,36 @@ const Profile = () => {
 
         {/* Course Notes - only show for own profile */}
         {isOwnProfile && courseNotes.length > 0 && (
-          <Card className="mb-8">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <MessageSquare className="w-5 h-5 text-primary" />
+          <Card className="mb-12 bg-white/3 border border-white/8 rounded-2xl p-6">
+            <CardHeader className="p-0 mb-8">
+              <CardTitle className="font-consciousness text-base font-bold text-white mb-2">
                 Course Notes
               </CardTitle>
-              <CardDescription>
+              <CardDescription className="font-body text-sm text-white/40">
                 Your personal notes tracked during course modules
               </CardDescription>
             </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
+            <CardContent className="p-0">
+              <div className="space-y-6">
                 {courseNotes.map((note, index) => (
-                  <div key={index} className="p-4 rounded-lg border border-border bg-muted/20">
-                    <div className="flex items-center justify-between mb-2">
-                      <h4 className="font-semibold text-foreground flex items-center gap-2">
-                        <BookOpen className="w-4 h-4 text-primary" />
+                  <div key={index} className="p-6 rounded-xl border border-white/10 bg-white/5">
+                    <div className="flex items-center justify-between mb-4">
+                      <h4 className="font-consciousness text-sm font-bold text-white flex items-center gap-3">
+                        <BookOpen className="w-4 h-4 text-violet-400" />
                         {note.moduleTitle}
                       </h4>
-                      <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
-                        <Clock className="w-3 h-3" />
+                      <div className="font-body text-[10px] uppercase tracking-widest text-white/30">
                         {new Date(note.lastUpdated).toLocaleDateString()}
                       </div>
                     </div>
-                    <p className="text-sm text-foreground/80 whitespace-pre-wrap italic bg-background/50 p-3 rounded border border-border/50">
-                      "{note.notes}"
+                    <p className="font-body text-sm text-white/60 leading-relaxed italic border-l-2 border-violet-500/30 pl-4 py-1">
+                      {note.notes}
                     </p>
-                    <div className="mt-3 flex justify-end">
+                    <div className="mt-6 flex justify-end">
                       <Button
                         variant="ghost"
-                        size="sm"
-                        className="text-xs h-8"
                         onClick={() => navigate(`/courses/${note.courseId}/module/${note.moduleId}`)}
+                        className="font-body text-xs text-violet-400 hover:text-violet-300 hover:bg-violet-500/10 p-0 h-auto"
                       >
                         Go to Module
                       </Button>
@@ -830,41 +820,29 @@ const Profile = () => {
 
         {/* Quick Actions - only show for own profile */}
         {isOwnProfile && (
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Settings className="w-5 h-5" />
+          <Card className="mb-12 bg-white/3 border border-white/8 rounded-2xl p-6">
+            <CardHeader className="p-0 mb-8">
+              <CardTitle className="font-consciousness text-base font-bold text-white">
                 Quick Actions
               </CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="p-0">
               <div className="grid md:grid-cols-3 gap-4">
-                <Button
-                  variant="outline"
-                  className="justify-start"
-                  onClick={() => navigate("/dashboard")}
-                >
-                  <User className="w-4 h-4 mr-2" />
-                  Go to Dashboard
-                </Button>
-                
-                <Button
-                  variant="outline"
-                  className="justify-start"
-                  onClick={() => navigate("/courses")}
-                >
-                  <BookOpen className="w-4 h-4 mr-2" />
-                  Browse Courses
-                </Button>
-                
-                <Button
-                  variant="outline"
-                  className="justify-start"
-                  onClick={() => navigate("/tutorials")}
-                >
-                  <Brain className="w-4 h-4 mr-2" />
-                  Tutorials
-                </Button>
+                {[
+                  { icon: User, label: 'Go to Dashboard', path: '/dashboard' },
+                  { icon: BookOpen, label: 'Browse Courses', path: '/courses' },
+                  { icon: Brain, label: 'Tutorials', path: '/tutorials' }
+                ].map((action, i) => (
+                  <Button
+                    key={i}
+                    variant="outline"
+                    className="font-body text-sm border-white/10 text-white hover:bg-white/5 rounded-xl py-6 h-auto justify-start px-6"
+                    onClick={() => navigate(action.path)}
+                  >
+                    <action.icon className="w-4 h-4 mr-3 text-violet-400" />
+                    {action.label}
+                  </Button>
+                ))}
               </div>
             </CardContent>
           </Card>
@@ -872,28 +850,31 @@ const Profile = () => {
 
         {/* Danger Zone - only show for own profile */}
         {isOwnProfile && (
-          <Card className="mt-8 border-destructive/20 bg-destructive/5">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-destructive">
+          <Card className="mt-12 border-red-500/20 bg-red-500/5 rounded-2xl p-6">
+            <CardHeader className="p-0 mb-8">
+              <CardTitle className="font-consciousness text-base font-bold text-red-400 flex items-center gap-3">
                 <AlertTriangle className="w-5 h-5" />
                 Danger Zone
               </CardTitle>
-              <CardDescription>
+              <CardDescription className="font-body text-sm text-white/40">
                 Irreversible actions for your account
               </CardDescription>
             </CardHeader>
-            <CardContent>
-              <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <CardContent className="p-0">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div>
-                  <h4 className="font-semibold text-foreground">Delete Account</h4>
-                  <p className="text-sm text-muted-foreground">
+                  <h4 className="font-consciousness text-sm font-bold text-white mb-1">Delete Account</h4>
+                  <p className="font-body text-xs text-white/40">
                     Permanently delete your account and all associated data. This action cannot be undone.
                   </p>
                 </div>
 
                 <AlertDialog>
                   <AlertDialogTrigger asChild>
-                    <Button variant="destructive" size="sm">
+                    <Button
+                      variant="destructive"
+                      className="font-body text-xs bg-red-600 hover:bg-red-500 text-white rounded-xl px-6 py-3 transition-all h-auto"
+                    >
                       <Trash2 className="w-4 h-4 mr-2" />
                       Delete Account
                     </Button>

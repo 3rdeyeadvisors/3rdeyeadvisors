@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import SEO from "@/components/SEO";
+import PageHero from "@/components/PageHero";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -103,228 +104,198 @@ const Contact = () => {
         keywords="contact 3rdeyeadvisors, DeFi education support, financial consciousness contact, crypto education inquiry"
         url="https://www.the3rdeyeadvisors.com/contact"
       />
-      <div className="py-12 md:py-20 lg:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-consciousness font-bold text-foreground mb-4">
-            Contact & About
-          </h1>
-          <p className="text-xl text-muted-foreground font-consciousness max-w-3xl mx-auto leading-relaxed">
-            Connect with the consciousness behind 3rdeyeadvisors. We're here to support your 
-            journey toward financial awakening and decentralized empowerment.
-          </p>
-        </div>
+      <div className="min-h-screen bg-black overflow-hidden relative">
+        {/* Nebula Glow */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-500/5 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/5 blur-[100px] rounded-full pointer-events-none" />
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <div>
-            <Card className="p-8 bg-card/60 border-border">
-              <div className="flex items-center justify-center mb-4 md:mb-6 text-center">
-                <Mail className="w-6 h-6 text-primary shrink-0 mr-3" aria-hidden="true" />
-                <h2 className="text-2xl font-consciousness font-bold text-foreground text-center">
-                  Get in Touch
-                </h2>
-              </div>
+        <PageHero
+          eyebrow="Get In Touch"
+          title="Talk to Us"
+          subtitle="Questions about membership, institutional partnerships, or anything else. We respond to every message."
+        />
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="name" className="font-consciousness">
-                      Name *
+        <div className="max-w-7xl mx-auto px-6 pb-20 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Contact Form */}
+            <div>
+              <div className="p-8 bg-white/3 border border-white/8 rounded-2xl backdrop-blur-sm">
+                <div className="flex items-center mb-8">
+                  <Mail className="w-6 h-6 text-violet-400 mr-3" />
+                  <h2 className="text-2xl font-consciousness font-bold text-white">
+                    Get in Touch
+                  </h2>
+                </div>
+
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="name" className="font-body text-xs uppercase tracking-widest text-white/40">
+                        Name
+                      </Label>
+                      <Input
+                        id="name"
+                        name="name"
+                        type="text"
+                        required
+                        placeholder="Your name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        className="font-body text-sm bg-white/5 border-white/10 rounded-xl px-4 py-3 text-white focus:border-violet-500/50"
+                        disabled={isSubmitting}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="email" className="font-body text-xs uppercase tracking-widest text-white/40">
+                        Email
+                      </Label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        required
+                        placeholder="your@email.com"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="font-body text-sm bg-white/5 border-white/10 rounded-xl px-4 py-3 text-white focus:border-violet-500/50"
+                        disabled={isSubmitting}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="subject" className="font-body text-xs uppercase tracking-widest text-white/40">
+                      Subject
                     </Label>
                     <Input
-                      id="name"
-                      name="name"
+                      id="subject"
+                      name="subject"
                       type="text"
                       required
-                      placeholder="Your name"
-                      value={formData.name}
+                      placeholder="What's this about?"
+                      value={formData.subject}
                       onChange={handleChange}
-                      className="font-consciousness"
+                      className="font-body text-sm bg-white/5 border-white/10 rounded-xl px-4 py-3 text-white focus:border-violet-500/50"
                       disabled={isSubmitting}
                     />
                   </div>
-                  <div>
-                    <Label htmlFor="email" className="font-consciousness">
-                      Email *
+
+                  <div className="space-y-2">
+                    <Label htmlFor="message" className="font-body text-xs uppercase tracking-widest text-white/40">
+                      Message
                     </Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
+                    <Textarea
+                      id="message"
+                      name="message"
                       required
-                      placeholder="your@email.com"
-                      value={formData.email}
+                      placeholder="Tell us about your journey, questions, or how we can help..."
+                      rows={6}
+                      value={formData.message}
                       onChange={handleChange}
-                      className="font-consciousness"
+                      className="font-body text-sm bg-white/5 border-white/10 rounded-xl px-4 py-3 text-white focus:border-violet-500/50 resize-none"
                       disabled={isSubmitting}
                     />
                   </div>
-                </div>
 
-                <div>
-                  <Label htmlFor="subject" className="font-consciousness">
-                    Subject *
-                  </Label>
-                  <Input
-                    id="subject"
-                    name="subject"
-                    type="text"
-                    required
-                    placeholder="What's this about?"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className="font-consciousness"
+                  <Button
+                    type="submit"
+                    className="w-full font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl py-6 transition-all"
                     disabled={isSubmitting}
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="message" className="font-consciousness">
-                    Message *
-                  </Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    required
-                    placeholder="Tell us about your journey, questions, or how we can help..."
-                    rows={6}
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="font-consciousness resize-none"
-                    disabled={isSubmitting}
-                  />
-                </div>
-
-                {/* Honeypot field - hidden from users, visible to bots */}
-                <div className="absolute -left-[9999px] opacity-0 pointer-events-none" aria-hidden="true">
-                  <Label htmlFor="website">Website</Label>
-                  <Input
-                    id="website"
-                    name="website"
-                    type="text"
-                    tabIndex={-1}
-                    autoComplete="off"
-                    value={formData.website}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                <Button 
-                  type="submit" 
-                  variant="cosmic" 
-                  className="w-full font-consciousness"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    "Sending..."
-                  ) : (
-                    <>
-                      <Send className="w-4 h-4 mr-2" />
-                      Send Message
-                    </>
-                  )}
-                </Button>
-              </form>
-            </Card>
-          </div>
-
-          {/* About & Connect */}
-          <div className="space-y-8">
-            {/* About Section */}
-            <Card className="p-8 bg-gradient-consciousness border-primary/20">
-              <div className="flex items-center justify-center mb-4 md:mb-6 text-center">
-                <Globe className="w-6 h-6 text-foreground shrink-0 mr-3 drop-shadow-sm" aria-hidden="true" />
-                <h2 className="text-2xl font-consciousness font-bold text-foreground text-center">
-                  About 3rdeyeadvisors
-                </h2>
+                  >
+                    {isSubmitting ? (
+                      "Sending..."
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4 mr-2" />
+                        Send Message
+                      </>
+                    )}
+                  </Button>
+                </form>
               </div>
+            </div>
 
-              <div className="space-y-4 text-foreground/90 font-consciousness leading-relaxed text-center">
-                <p>
-                  We are consciousness explorers who discovered that traditional financial systems 
-                  were designed to keep humanity in a state of economic dependence. DeFi represents 
-                  more than just technology. It is a paradigm shift toward true financial sovereignty.
-                </p>
-                
-                <p>
-                  Our mission is simple: Help conscious individuals break free from programmed 
-                  financial limitations and step into their power as sovereign economic beings. 
-                  We provide education, not promises. Tools, not shortcuts. Awareness, not hype.
-                </p>
-                
-                <p>
-                  Every course, tool, and resource we create comes from direct experience navigating 
-                  the DeFi landscape. We've made the mistakes so you don't have to. We've discovered 
-                  the strategies that actually work.
-                </p>
-                
-                <div className="pt-4 border-t border-border/50">
-                  <p className="text-sm text-muted-foreground">
-                    <strong className="text-foreground">Remember:</strong> This is not financial advice. 
-                    This is consciousness expansion. Always do your own research and never invest more than you can afford to lose.
+            {/* About & Connect */}
+            <div className="space-y-8">
+              {/* About Section */}
+              <div className="p-8 bg-gradient-to-br from-violet-600/10 to-blue-600/10 border border-violet-500/20 rounded-2xl">
+                <div className="flex items-center mb-6">
+                  <Globe className="w-6 h-6 text-violet-400 mr-3" />
+                  <h2 className="text-2xl font-consciousness font-bold text-white">
+                    About 3rdeyeadvisors
+                  </h2>
+                </div>
+
+                <div className="space-y-4 text-white/70 font-body leading-relaxed">
+                  <p>
+                    We are consciousness explorers who discovered that traditional financial systems
+                    were designed to keep humanity in a state of economic dependence. DeFi represents
+                    more than just technology. It is a paradigm shift toward true financial sovereignty.
                   </p>
+
+                  <p>
+                    Our mission is simple: Help conscious individuals break free from programmed
+                    financial limitations and step into their power as sovereign economic beings.
+                    We provide education, not promises. Tools, not shortcuts. Awareness, not hype.
+                  </p>
+
+                  <div className="pt-4 border-t border-white/10">
+                    <p className="text-xs text-white/40 italic">
+                      Remember: This is not financial advice.
+                      This is consciousness expansion. Always do your own research.
+                    </p>
+                  </div>
                 </div>
               </div>
-            </Card>
 
-            {/* Social Connect */}
-            <Card className="p-6 bg-card/60 border-border">
-              <h3 className="text-lg font-consciousness font-semibold text-foreground mb-4 text-center">
-                Connect With Us
-              </h3>
-              
-              <div className="space-y-3">
-                <Button 
-                  variant="outline" 
-                  className="w-full justify-start font-consciousness"
-                  asChild
-                >
-                  <a href="mailto:info@the3rdeyeadvisors.com" className="flex items-center">
-                    <Mail className="w-4 h-4 mr-3" />
-                    info@the3rdeyeadvisors.com
-                  </a>
-                </Button>
+              {/* Social Connect */}
+              <div className="p-8 bg-white/3 border border-white/8 rounded-2xl">
+                <h3 className="text-lg font-consciousness font-bold text-white mb-6">
+                  Connect With Us
+                </h3>
                 
-                <Button 
-                  variant="outline" 
-                  className="w-full justify-start font-consciousness"
-                  asChild
-                >
-                  <a href="https://twitter.com/3rdeyeadvisors" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                    <Twitter className="w-4 h-4 mr-3" />
-                    @3rdeyeadvisors
+                <div className="space-y-3">
+                  <a
+                    href="mailto:info@the3rdeyeadvisors.com"
+                    className="flex items-center gap-3 p-4 bg-white/5 border border-white/10 rounded-xl hover:border-violet-500/30 hover:bg-white/10 transition-all group"
+                  >
+                    <Mail className="w-5 h-5 text-violet-400 group-hover:text-violet-300" />
+                    <span className="font-body text-sm text-white/70">info@the3rdeyeadvisors.com</span>
                   </a>
-                </Button>
-                
+
+                  <a
+                    href="https://twitter.com/3rdeyeadvisors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 p-4 bg-white/5 border border-white/10 rounded-xl hover:border-violet-500/30 hover:bg-white/10 transition-all group"
+                  >
+                    <Twitter className="w-5 h-5 text-violet-400 group-hover:text-violet-300" />
+                    <span className="font-body text-sm text-white/70">@3rdeyeadvisors</span>
+                  </a>
+                </div>
               </div>
-            </Card>
 
-            {/* Response Time */}
-            <Card className="p-6 bg-awareness/5 border-awareness/20">
-              <div className="flex items-start gap-3">
-                <MessageSquare className="w-5 h-5 text-awareness mt-1" />
+              {/* Response Time */}
+              <div className="p-6 bg-violet-500/5 border border-violet-500/10 rounded-2xl flex gap-4">
+                <MessageSquare className="w-6 h-6 text-violet-400 shrink-0" />
                 <div>
-                  <h4 className="font-consciousness font-semibold text-foreground mb-2 text-center">
+                  <h4 className="font-consciousness font-bold text-white mb-1">
                     Response Time
                   </h4>
-                  <p className="text-sm text-muted-foreground font-consciousness">
-                    We typically respond within 24 hours during weekdays. For urgent technical support 
-                    or course-related questions, please mention "URGENT" in your subject line.
+                  <p className="text-sm text-white/50 font-body leading-relaxed">
+                    We typically respond within 24 hours during weekdays.
                   </p>
                 </div>
               </div>
-            </Card>
+            </div>
           </div>
-        </div>
 
-        {/* Newsletter Section */}
-        <section className="mt-16">
-          <NewsletterSignup variant="cosmic" />
-        </section>
+          {/* Newsletter Section */}
+          <section className="mt-20">
+            <NewsletterSignup variant="cosmic" />
+          </section>
+        </div>
       </div>
-    </div>
     </>
   );
 };

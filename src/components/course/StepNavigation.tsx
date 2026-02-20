@@ -50,9 +50,9 @@ export const StepNavigation = ({
                 variant={current ? "default" : completed ? "secondary" : "outline"}
                 onClick={() => onStepChange(step.id)}
                 className={`
-                  justify-start gap-2 min-w-[200px] md:min-w-0
-                  ${completed ? "bg-awareness/10 text-awareness hover:bg-awareness/20 border-awareness" : ""}
-                  ${current ? "ring-2 ring-primary" : ""}
+                  justify-start gap-2 min-w-[200px] md:min-w-0 font-body text-xs uppercase tracking-widest rounded-xl px-4 py-3
+                  ${completed ? "bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 border-emerald-500/30" : "bg-white/5 border-white/10 text-white/70 hover:text-white"}
+                  ${current ? "bg-violet-600 text-white border-violet-600 ring-0" : ""}
                 `}
                 disabled={!isAuthenticated && step.id !== 1}
               >
@@ -66,24 +66,23 @@ export const StepNavigation = ({
       </div>
 
       {/* Navigation Buttons */}
-      <div className="flex flex-col sm:flex-row gap-2 sm:justify-between sm:items-center pt-4 border-t border-border">
+      <div className="flex flex-col sm:flex-row gap-3 sm:justify-between sm:items-center pt-6 border-t border-white/5">
         <Button
           variant="outline"
           onClick={onPrevious}
           disabled={currentStep === 1 || !isAuthenticated}
-          className="w-full sm:w-auto"
+          className="font-body text-xs uppercase tracking-widest border-white/10 text-white hover:bg-white/5 rounded-xl px-6 py-4 w-full sm:w-auto"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
           Previous Step
         </Button>
 
-        <div className="flex gap-2 flex-col sm:flex-row">
+        <div className="flex gap-3 flex-col sm:flex-row">
           {!isCurrentStepCompleted && (
             <Button
               onClick={onMarkComplete}
-              variant="default"
               disabled={!isAuthenticated}
-              className="w-full sm:w-auto"
+              className="font-body text-xs uppercase tracking-widest bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl px-6 py-4 w-full sm:w-auto"
             >
               <CheckCircle className="w-4 h-4 mr-2" />
               Mark Complete
@@ -93,7 +92,7 @@ export const StepNavigation = ({
           <Button
             onClick={onNext}
             disabled={!isAuthenticated}
-            className="w-full sm:w-auto"
+            className="font-body text-xs uppercase tracking-widest bg-violet-600 hover:bg-violet-500 text-white rounded-xl px-8 py-4 w-full sm:w-auto"
           >
             {isLastStep ? "Complete Tutorial" : "Next Step"}
             <ArrowRight className="w-4 h-4 ml-2" />
@@ -103,9 +102,9 @@ export const StepNavigation = ({
 
       {/* Completion Badge for Current Step */}
       {isCurrentStepCompleted && (
-        <div className="flex items-center justify-center gap-2 p-3 bg-awareness/10 border border-awareness/30 rounded-lg">
-          <CheckCircle className="w-5 h-5 text-awareness" />
-          <span className="text-sm font-medium text-awareness">This step is completed</span>
+        <div className="flex items-center justify-center gap-2 p-4 bg-emerald-500/5 border border-emerald-500/20 rounded-xl">
+          <CheckCircle className="w-5 h-5 text-emerald-400" />
+          <span className="font-body text-sm font-medium text-emerald-400">This step is completed</span>
         </div>
       )}
     </div>

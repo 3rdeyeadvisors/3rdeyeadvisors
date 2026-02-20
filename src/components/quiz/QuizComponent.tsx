@@ -365,28 +365,28 @@ export const QuizComponent = ({ courseId, moduleId, quiz, onComplete }: QuizComp
     const passed = score >= quiz.passingScore;
     
     return (
-      <Card className="p-3 sm:p-6 border-2 border-primary/20 shadow-lg w-full max-w-full overflow-hidden">
+      <Card className="p-3 sm:p-6 bg-white/3 border border-white/8 rounded-2xl w-full max-w-full overflow-hidden">
         {/* Prominent Results Header */}
-        <div className="text-center mb-4 sm:mb-6 p-3 sm:p-4 rounded-lg" style={{
+        <div className="text-center mb-4 sm:mb-6 p-3 sm:p-4 rounded-xl" style={{
           background: passed 
-            ? 'linear-gradient(135deg, rgba(var(--awareness), 0.1), rgba(var(--awareness), 0.05))' 
-            : 'linear-gradient(135deg, rgba(var(--destructive), 0.1), rgba(var(--destructive), 0.05))'
+            ? 'linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05))'
+            : 'linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.05))'
         }}>
           <div className={`w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 mx-auto mb-3 sm:mb-4 rounded-full flex items-center justify-center border-2 sm:border-4 ${
-            passed ? "bg-awareness/20 text-awareness border-awareness/40" : "bg-destructive/20 text-destructive border-destructive/40"
+            passed ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/40" : "bg-red-500/20 text-red-400 border-red-500/40"
           }`}>
             {passed ? <Trophy className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" /> : <XCircle className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />}
           </div>
-          <Badge className={`text-xs sm:text-sm md:text-base mb-2 sm:mb-3 ${passed ? 'bg-awareness text-awareness-foreground' : 'bg-destructive text-destructive-foreground'}`}>
+          <Badge className={`font-body text-[10px] uppercase tracking-widest mb-3 ${passed ? 'bg-emerald-600 text-white' : 'bg-red-600 text-white'}`}>
             {passed ? "✅ QUIZ PASSED" : "📝 QUIZ COMPLETE"}
           </Badge>
-          <h3 className="text-xl sm:text-2xl md:text-3xl font-consciousness font-bold mb-2 sm:mb-3 break-words">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-consciousness font-bold text-white mb-2 sm:mb-3 break-words">
             {passed ? "Congratulations!" : "Good Effort!"}
           </h3>
-          <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">
+          <div className="text-3xl sm:text-4xl md:text-5xl font-consciousness font-bold text-white mb-2">
             {score}%
           </div>
-          <p className="text-xs sm:text-sm md:text-base text-muted-foreground px-2 break-words">
+          <p className="font-body text-xs sm:text-sm text-white/50 px-2 break-words">
             {passed 
               ? `You passed! (Required: ${quiz.passingScore}%)` 
               : `You need ${quiz.passingScore}% to pass. ${canTakeQuiz() ? 'You can try again!' : ''}`
@@ -395,11 +395,11 @@ export const QuizComponent = ({ courseId, moduleId, quiz, onComplete }: QuizComp
         </div>
 
         {/* Detailed Results Section */}
-        <Separator className="my-4 sm:my-6" />
+        <Separator className="my-4 sm:my-6 border-white/5" />
         
         <div className="mb-3 sm:mb-4">
-          <h4 className="text-base sm:text-lg md:text-xl font-consciousness font-semibold text-center mb-3 sm:mb-4 break-words">
-            📊 Answer Review
+          <h4 className="font-consciousness text-lg font-bold text-white text-center mb-3 sm:mb-4 break-words">
+            Answer Review
           </h4>
         </div>
 
@@ -479,10 +479,10 @@ export const QuizComponent = ({ courseId, moduleId, quiz, onComplete }: QuizComp
 
   if (!user) {
     return (
-      <Card className="p-6 text-center">
-        <AlertCircle className="w-12 h-12 text-yellow-500 mx-auto mb-4" />
-        <h3 className="text-lg font-semibold mb-2">Sign In Required</h3>
-        <p className="text-muted-foreground">Please sign in to take this quiz.</p>
+      <Card className="p-8 text-center bg-white/3 border-white/8 rounded-2xl">
+        <AlertCircle className="w-12 h-12 text-amber-400 mx-auto mb-4" />
+        <h3 className="font-consciousness text-xl font-bold text-white mb-2">Sign In Required</h3>
+        <p className="font-body text-white/50">Please sign in to take this quiz.</p>
       </Card>
     );
   }
@@ -496,32 +496,36 @@ export const QuizComponent = ({ courseId, moduleId, quiz, onComplete }: QuizComp
     const hasPassedBefore = attempts.some(attempt => attempt.passed);
 
     return (
-      <Card className="p-6">
-        <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold mb-2">{quiz.title}</h2>
+      <Card className="p-8 bg-white/3 border-white/8 rounded-2xl">
+        <div className="text-center mb-8">
+          <h2 className="font-consciousness text-2xl font-bold text-white mb-2">{quiz.title}</h2>
           {quiz.description && (
-            <p className="text-muted-foreground mb-4">{quiz.description}</p>
+            <p className="font-body text-white/50 mb-4">{quiz.description}</p>
           )}
         </div>
 
-        <div className="grid md:grid-cols-2 gap-4 mb-6">
-          <div className="flex items-center gap-2">
-            <Trophy className="w-5 h-5 text-primary" />
-            <span>Passing Score: {quiz.passingScore}%</span>
+        <div className="grid grid-cols-2 gap-4 mb-8">
+          <div className="p-4 rounded-xl bg-white/5 border border-white/10 flex flex-col items-center text-center">
+            <Trophy className="w-5 h-5 text-violet-400 mb-2" />
+            <span className="font-body text-[10px] uppercase tracking-widest text-white/40 mb-1">Pass Score</span>
+            <span className="font-consciousness text-lg text-white">{quiz.passingScore}%</span>
           </div>
-          <div className="flex items-center gap-2">
-            <RotateCcw className="w-5 h-5 text-primary" />
-            <span>Max Attempts: {quiz.maxAttempts}</span>
+          <div className="p-4 rounded-xl bg-white/5 border border-white/10 flex flex-col items-center text-center">
+            <RotateCcw className="w-5 h-5 text-violet-400 mb-2" />
+            <span className="font-body text-[10px] uppercase tracking-widest text-white/40 mb-1">Max Tries</span>
+            <span className="font-consciousness text-lg text-white">{quiz.maxAttempts}</span>
           </div>
           {quiz.timeLimit && (
-            <div className="flex items-center gap-2">
-              <Clock className="w-5 h-5 text-primary" />
-              <span>Time Limit: {quiz.timeLimit} minutes</span>
+            <div className="p-4 rounded-xl bg-white/5 border border-white/10 flex flex-col items-center text-center">
+              <Clock className="w-5 h-5 text-violet-400 mb-2" />
+              <span className="font-body text-[10px] uppercase tracking-widest text-white/40 mb-1">Time Limit</span>
+              <span className="font-consciousness text-lg text-white">{quiz.timeLimit}m</span>
             </div>
           )}
-          <div className="flex items-center gap-2">
-            <CheckCircle className="w-5 h-5 text-primary" />
-            <span>Questions: {quiz.questions.length}</span>
+          <div className="p-4 rounded-xl bg-white/5 border border-white/10 flex flex-col items-center text-center">
+            <CheckCircle className="w-5 h-5 text-violet-400 mb-2" />
+            <span className="font-body text-[10px] uppercase tracking-widest text-white/40 mb-1">Questions</span>
+            <span className="font-consciousness text-lg text-white">{quiz.questions.length}</span>
           </div>
         </div>
 
@@ -564,7 +568,7 @@ export const QuizComponent = ({ courseId, moduleId, quiz, onComplete }: QuizComp
           <Button 
             onClick={startQuiz} 
             disabled={!canTakeQuiz()}
-            className="font-consciousness"
+            className="font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl px-8 py-6 transition-all"
           >
             {hasPassedBefore ? "Practice Again" : "Start Quiz"}
           </Button>
@@ -578,12 +582,12 @@ export const QuizComponent = ({ courseId, moduleId, quiz, onComplete }: QuizComp
   const progress = ((currentQuestion + 1) / quiz.questions.length) * 100;
 
   return (
-    <Card className="p-3 sm:p-6 w-full max-w-full overflow-hidden">
+    <Card className="p-4 sm:p-8 bg-white/3 border-white/8 rounded-2xl w-full max-w-full overflow-hidden">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0 mb-4 sm:mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
         <div className="text-center sm:text-left">
-          <h2 className="text-base sm:text-xl font-bold break-words">{quiz.title}</h2>
-          <p className="text-xs sm:text-sm text-muted-foreground">
+          <h2 className="font-consciousness text-xl font-bold text-white mb-1 break-words">{quiz.title}</h2>
+          <p className="font-body text-xs uppercase tracking-widest text-white/40">
             Question {currentQuestion + 1} of {quiz.questions.length}
           </p>
         </div>
@@ -598,28 +602,37 @@ export const QuizComponent = ({ courseId, moduleId, quiz, onComplete }: QuizComp
       </div>
 
       {/* Progress */}
-      <Progress value={progress} className="mb-4 sm:mb-6" />
+      <div className="mb-8">
+        <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+          <div
+            className="h-full bg-violet-600 transition-all duration-300"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+      </div>
 
       {/* Question */}
-      <div className="mb-4 sm:mb-6 w-full max-w-full overflow-hidden">
-        <h3 className="text-sm sm:text-lg font-semibold mb-3 sm:mb-4 break-words leading-relaxed">{currentQuestionData.question}</h3>
+      <div className="mb-8 w-full max-w-full overflow-hidden">
+        <h3 className="font-consciousness text-lg font-bold text-white mb-6 break-words leading-relaxed">
+          {currentQuestionData.question}
+        </h3>
         <div className="w-full max-w-full overflow-hidden">
           {renderQuestion(currentQuestionData)}
         </div>
       </div>
 
       {/* Navigation */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <Button
           variant="outline"
           onClick={handlePrevious}
           disabled={currentQuestion === 0}
-          className="w-full sm:w-auto text-xs sm:text-sm order-2 sm:order-1"
+          className="font-body text-xs uppercase tracking-widest border-white/10 text-white hover:bg-white/5 rounded-xl px-6 py-4 w-full sm:w-auto order-2 sm:order-1"
         >
           Previous
         </Button>
 
-        <div className="text-xs sm:text-sm text-muted-foreground text-center order-1 sm:order-2">
+        <div className="font-body text-xs uppercase tracking-widest text-white/40 text-center order-1 sm:order-2">
           {Object.keys(answers).length} of {quiz.questions.length} answered
         </div>
 
@@ -627,12 +640,15 @@ export const QuizComponent = ({ courseId, moduleId, quiz, onComplete }: QuizComp
           <Button
             onClick={handleSubmitQuiz}
             disabled={loading}
-            className="bg-awareness hover:bg-awareness/90 w-full sm:w-auto text-xs sm:text-sm order-3"
+            className="font-body text-xs uppercase tracking-widest bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl px-6 py-4 w-full sm:w-auto order-3"
           >
             Submit Quiz
           </Button>
         ) : (
-          <Button onClick={handleNext} className="w-full sm:w-auto text-xs sm:text-sm order-3">
+          <Button
+            onClick={handleNext}
+            className="font-body text-xs uppercase tracking-widest bg-violet-600 hover:bg-violet-500 text-white rounded-xl px-8 py-4 w-full sm:w-auto order-3"
+          >
             Next
           </Button>
         )}

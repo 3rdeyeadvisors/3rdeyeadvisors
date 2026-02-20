@@ -82,7 +82,7 @@ export const ReferralTermsModal = ({ open, onOpenChange, onAccepted }: ReferralT
                 <li>Non-subscribers & monthly subscribers: {Math.round(COMMISSION_RATES.monthly * 100)}% commission</li>
                 <li>Annual subscribers: {Math.round(COMMISSION_RATES.annual * 100)}% commission (premium rate)</li>
                 <li>Founding 33 members: {Math.round(COMMISSION_RATES.founding_33 * 100)}% commission (highest tier)</li>
-                <li>Earn ${(PRICING.monthly.amount * COMMISSION_RATES.monthly).toFixed(2)} - ${(PRICING.annual.amount * COMMISSION_RATES.founding_33).toFixed(2)} per referral</li>
+                <li>Earn ${(PRICING.monthly.amount * COMMISSION_RATES.monthly).toFixed(2)} to ${(PRICING.annual.amount * COMMISSION_RATES.founding_33).toFixed(2)} per referral</li>
               </ul>
             </div>
 
@@ -108,7 +108,7 @@ export const ReferralTermsModal = ({ open, onOpenChange, onAccepted }: ReferralT
               <ul className="list-disc pl-5 space-y-1">
                 <li>Commissions are paid within 7 to 10 business days</li>
                 <li>You are responsible for taxes on earnings</li>
-                <li>No guaranteed earnings - results vary</li>
+                <li>No guaranteed earnings : results vary</li>
                 <li>Refunded subscriptions = deducted commissions</li>
               </ul>
             </div>

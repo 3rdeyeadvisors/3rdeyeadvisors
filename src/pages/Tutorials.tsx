@@ -4,8 +4,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Play, Shield, TrendingUp, Calculator, AlertTriangle, Wallet, ArrowLeftRight, PieChart, Target, CheckCircle, BarChart3, Image, Users } from "lucide-react";
+import { Play, Shield, TrendingUp, Calculator, AlertTriangle, Wallet, ArrowLeftRight, PieChart, Target, CheckCircle, BarChart3, Image, Users, Clock } from "lucide-react";
 import SEO from "@/components/SEO";
+import PageHero from "@/components/PageHero";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { useNavigate } from "react-router-dom";
@@ -193,10 +194,10 @@ const Tutorials = () => {
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
-      case "Beginner": return "text-awareness bg-awareness/20";
-      case "Intermediate": return "text-accent bg-accent/20";
-      case "Advanced": return "text-primary-glow bg-primary/20";
-      default: return "text-muted-foreground bg-muted/20";
+      case "Beginner": return "text-emerald-400 border-emerald-500/30 bg-emerald-500/10";
+      case "Intermediate": return "text-violet-400 border-violet-500/30 bg-violet-500/10";
+      case "Advanced": return "text-amber-400 border-amber-500/30 bg-amber-500/10";
+      default: return "text-white/40 border-white/15 bg-white/5";
     }
   };
 
@@ -217,35 +218,43 @@ const Tutorials = () => {
         url="https://the3rdeyeadvisors.com/tutorials"
         type="website"
       />
-      <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted">
-        <div className="container mx-auto px-6 sm:px-8 py-12 md:py-16 lg:py-20">
-          {/* Header */}
-          <div className="text-center mb-8 md:mb-10">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
-                Tutorials
-              </h1>
-              <ParticipantTracker contentType="tutorial" contentId="tutorials-page" />
-            </div>
-            <p className="text-sm sm:text-base md:text-lg text-foreground/70 max-w-2xl mx-auto">
-              Practical guides to protect your wealth, spot scams, and navigate DeFi with confidence
-            </p>
+      <div className="min-h-screen bg-black relative overflow-hidden">
+        {/* Nebula Glow */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-500/5 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/5 blur-[100px] rounded-full pointer-events-none" />
+
+        <PageHero
+          eyebrow="Hands-On Learning"
+          title="Learn by Doing"
+          subtitle="Twelve hands-on tutorials that walk you through real DeFi actions. Follow along step by step and leave knowing exactly what you did and why."
+        />
+
+        <div className="max-w-7xl mx-auto px-6 pb-20 relative z-10">
+          <div className="flex justify-center mb-12 -mt-4">
+            <ParticipantTracker contentType="tutorial" contentId="tutorials-page" />
           </div>
 
           {/* Progress Summary */}
-          <Card className="mb-8 md:mb-10 bg-gradient-to-r from-primary/5 to-accent/5 border-primary/20">
-            <CardContent className="pt-6">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-3">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="h-5 w-5 text-awareness" />
-                  <h3 className="text-base sm:text-lg font-semibold text-foreground">Your Progress</h3>
+          <Card className="mb-12 bg-white/3 border border-white/8 rounded-2xl overflow-hidden">
+            <CardContent className="p-8">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center">
+                    <CheckCircle className="h-5 w-5 text-violet-400" />
+                  </div>
+                  <h3 className="font-consciousness text-lg font-bold text-white">Your Progress</h3>
                 </div>
-                <Badge variant="secondary" className="bg-primary/20 text-primary border-0">
+                <Badge className="font-body text-xs uppercase tracking-widest px-3 py-1 rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-400">
                   {completedCount} of {totalTutorials} completed
                 </Badge>
               </div>
-              <Progress value={progressPercentage} className="h-2 mb-3" />
-              <p className="text-sm text-foreground/70">
+              <div className="h-2 bg-white/5 rounded-full overflow-hidden mb-4">
+                <div
+                  className="h-full bg-violet-600 transition-all duration-1000"
+                  style={{ width: `${progressPercentage}%` }}
+                />
+              </div>
+              <p className="font-body text-sm text-white/50">
                 {completedCount === 0 && "Start your DeFi learning journey today!"}
                 {completedCount > 0 && completedCount < totalTutorials && `Keep going! ${totalTutorials - completedCount} tutorial${totalTutorials - completedCount === 1 ? '' : 's'} remaining.`}
                 {completedCount === totalTutorials && "Congratulations! You have completed all tutorials!"}
@@ -254,17 +263,17 @@ const Tutorials = () => {
           </Card>
 
           {/* Category Tabs */}
-          <Tabs value={selectedCategory} onValueChange={setSelectedCategory} className="mb-8 md:mb-10">
-            <TabsList className="flex flex-wrap gap-2 w-full p-2 bg-card/60 rounded-lg border border-border justify-center mb-8 md:mb-10">
+          <Tabs value={selectedCategory} onValueChange={setSelectedCategory} className="mb-12">
+            <TabsList className="flex flex-wrap gap-3 w-full p-2 bg-white/5 rounded-2xl border border-white/8 justify-center mb-12">
               {Object.entries(videoCategories).map(([key, category]) => {
                 const IconComponent = category.icon;
                 return (
                   <TabsTrigger 
                     key={key} 
                     value={key} 
-                    className="flex items-center justify-center gap-2 min-h-[48px] px-4 py-2 rounded-full text-sm data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:font-semibold"
+                    className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-xs uppercase tracking-widest font-body transition-all data-[state=active]:bg-violet-600 data-[state=active]:text-white"
                   >
-                    <IconComponent className="h-4 w-4 flex-shrink-0" />
+                    <IconComponent className="h-4 w-4" />
                     <span>{category.title}</span>
                   </TabsTrigger>
                 );
@@ -273,69 +282,58 @@ const Tutorials = () => {
 
             {Object.entries(videoCategories).map(([key, category]) => (
               <TabsContent key={key} value={key}>
-                <div className="mb-6">
-                  <h2 className="text-xl sm:text-2xl font-semibold mb-2 text-foreground">{category.title}</h2>
-                  <p className="text-sm sm:text-base text-foreground/70">{category.description}</p>
+                <div className="mb-8">
+                  <h2 className="font-consciousness text-2xl font-bold text-white mb-2">{category.title}</h2>
+                  <p className="font-body text-white/50">{category.description}</p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {category.videos.map((video) => {
                     const VideoIcon = video.icon;
                     const isCompleted = completedTutorials.includes(video.id);
                     return (
-                      <Card key={video.id} className={`group hover:shadow-cosmic transition-all duration-cosmic border bg-card/80 backdrop-blur-sm hover:bg-card h-full flex flex-col ${isCompleted ? 'border-awareness/50' : 'border-border/50 hover:border-primary/30'}`}>
-                        <CardHeader className="pb-4">
-                          {/* Icon and completion status row */}
-                          <div className="flex items-center justify-between mb-4">
-                            <div className="p-3 rounded-lg bg-primary/20 group-hover:bg-primary/30 transition-colors">
-                              <VideoIcon className="h-6 w-6 text-primary" />
+                      <Card key={video.id} className="relative bg-white/3 border border-white/8 rounded-2xl overflow-hidden hover:border-violet-500/30 transition-all duration-300 group flex flex-col">
+                        {/* Hover Gradient Border */}
+                        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-violet-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                        <CardHeader className="p-6 pb-4">
+                          <div className="flex items-center justify-between mb-6">
+                            <div className="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400">
+                              <VideoIcon className="h-5 w-5" />
                             </div>
                             {isCompleted && (
-                              <CheckCircle className="h-5 w-5 text-awareness" />
-                            )}
-                          </div>
-                          
-                          {/* Title */}
-                          <CardTitle className="text-lg text-card-foreground group-hover:text-primary transition-colors mb-3 text-left">
-                            {video.title}
-                          </CardTitle>
-                          
-                          {/* Badges */}
-                          <div className="flex flex-wrap items-center gap-2">
-                            {isCompleted && (
-                              <Badge variant="outline" className="text-xs font-medium bg-awareness/20 text-awareness border-awareness/30">
+                              <Badge className="bg-emerald-500/10 text-emerald-400 border-emerald-500/30 font-body text-[10px] uppercase tracking-widest px-2 py-0.5">
                                 Completed
                               </Badge>
                             )}
-                            <Badge 
-                              variant="secondary" 
-                              className={`text-xs font-medium ${getPriorityColor(video.priority)} text-foreground border-0`}
-                            >
-                              {video.priority}
-                            </Badge>
-                            <Badge 
-                              variant="outline" 
-                              className={`text-xs font-medium ${getDifficultyColor(video.difficulty)} border-0`}
-                            >
+                          </div>
+                          
+                          <CardTitle className="font-consciousness text-base font-bold text-white group-hover:text-violet-300 transition-colors mb-3">
+                            {video.title}
+                          </CardTitle>
+                          
+                          <div className="flex flex-wrap items-center gap-2">
+                            <Badge className={`font-body text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full border ${getDifficultyColor(video.difficulty)}`}>
                               {video.difficulty}
+                            </Badge>
+                            <Badge className="font-body text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full border border-white/10 text-white/40">
+                              {video.priority}
                             </Badge>
                           </div>
                         </CardHeader>
 
-                        <CardContent className="pt-0 flex-1 flex flex-col">
-                          <CardDescription className="mb-4 text-sm text-muted-foreground text-left">
+                        <CardContent className="p-6 pt-0 flex-1 flex flex-col">
+                          <CardDescription className="font-body text-sm text-white/50 leading-relaxed mb-6">
                             {video.description}
                           </CardDescription>
 
-                          <div className="flex items-center justify-between text-sm text-muted-foreground/80 mb-4 font-system flex-wrap gap-2">
-                            <span>{video.duration}</span>
+                          <div className="flex items-center justify-between text-[10px] font-body uppercase tracking-widest text-white/30 mb-6">
+                            <span className="flex items-center gap-1.5"><Clock className="w-3 h-3" /> {video.duration}</span>
                             <span>{video.steps} steps</span>
-                            <span className="text-primary/80 w-full sm:w-auto text-left sm:text-right">{video.course}</span>
                           </div>
 
                           <Button 
-                            className="mt-auto w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all hover:shadow-cosmic border-primary/30"
-                            variant="outline"
+                            className="w-full font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl py-6 transition-all mt-auto"
                             onClick={() => {
                               const tutorialRoutes: { [key: string]: string } = {
                                 "wallet-setup": "/tutorials/wallet-setup",

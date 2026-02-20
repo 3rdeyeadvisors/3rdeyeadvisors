@@ -513,30 +513,37 @@ export const EnhancedDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen pt-20 pb-8 w-full overflow-x-hidden">
-      <div className="container mx-auto px-4 max-w-6xl w-full">
+    <div className="min-h-screen bg-black pt-20 pb-20 w-full overflow-x-hidden relative">
+      {/* Nebula Glow */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-500/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/5 blur-[100px] rounded-full pointer-events-none" />
+
+      <div className="container mx-auto px-6 max-w-6xl w-full relative z-10">
         {/* Enhanced Header */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mb-6 sm:mb-8 w-full">
-          <Avatar className="w-16 h-16 sm:w-20 sm:h-20">
-            <AvatarImage src="" />
-            <AvatarFallback className="bg-primary/10 text-primary text-xl sm:text-2xl font-consciousness">
-              {user.email?.charAt(0).toUpperCase()}
-            </AvatarFallback>
-          </Avatar>
+        <div className="flex flex-col sm:flex-row items-center gap-6 mb-12 w-full">
+          <div className="relative">
+            <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 to-blue-600 rounded-full blur opacity-25" />
+            <Avatar className="w-20 h-20 border-2 border-white/10 relative">
+              <AvatarImage src="" />
+              <AvatarFallback className="bg-violet-500/10 text-violet-400 text-2xl font-consciousness">
+                {user.email?.charAt(0).toUpperCase()}
+              </AvatarFallback>
+            </Avatar>
+          </div>
           <div className="flex-1 text-center sm:text-left w-full">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-consciousness font-bold text-foreground mb-2">
-              Welcome back!
+            <h1 className="text-3xl md:text-5xl font-consciousness font-bold text-white mb-2">
+              Welcome back, {user.email?.split('@')[0]}
             </h1>
-            <p className="text-muted-foreground font-consciousness text-base sm:text-lg">
+            <p className="text-white/50 font-body text-lg">
               Continue your DeFi learning journey
             </p>
-            <div className="flex items-center justify-center sm:justify-start gap-3 sm:gap-4 mt-2 flex-wrap">
-              <Badge variant="outline" className="text-sm">
+            <div className="flex items-center justify-center sm:justify-start gap-4 mt-4 flex-wrap">
+              <Badge className="font-body text-xs uppercase tracking-widest px-3 py-1 rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-400">
                 Level {Math.floor(totalProgress / 25) + 1}
               </Badge>
-              <div className="flex items-center gap-1">
-                <Zap className="w-4 h-4 text-accent" />
-                <span className="text-sm">{currentStreak} day streak</span>
+              <div className="flex items-center gap-2 font-body text-sm text-white/40">
+                <Zap className="w-4 h-4 text-violet-400" />
+                <span>{currentStreak} day streak</span>
               </div>
             </div>
           </div>
@@ -544,16 +551,18 @@ export const EnhancedDashboard = () => {
 
         {/* Subscription Status Card */}
         {!subLoading && (
-          <Card className={`p-4 sm:p-6 mb-6 sm:mb-8 ${hasAccess ? 'bg-gradient-to-r from-primary/10 to-accent/10 border-primary/30' : 'bg-gradient-to-r from-muted/50 to-muted/30 border-border'}`}>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div className="flex items-center gap-3">
-                {hasAccess ? (
-                  <Crown className="w-8 h-8 text-primary" />
-                ) : (
-                  <Sparkles className="w-8 h-8 text-muted-foreground" />
-                )}
+          <Card className={`p-6 mb-12 rounded-2xl border transition-all ${hasAccess ? 'bg-white/3 border-violet-500/20' : 'bg-white/3 border-white/8'}`}>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+              <div className="flex items-center gap-4">
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${hasAccess ? 'bg-violet-500/10 text-violet-400' : 'bg-white/5 text-white/30'}`}>
+                  {hasAccess ? (
+                    <Crown className="w-6 h-6" />
+                  ) : (
+                    <Sparkles className="w-6 h-6" />
+                  )}
+                </div>
                 <div>
-                  <h3 className="font-semibold text-foreground">
+                  <h3 className="font-consciousness text-lg font-bold text-white">
                     {hasAccess 
                       ? subscription?.isGrandfathered 
                         ? 'Grandfathered Access'
@@ -564,7 +573,7 @@ export const EnhancedDashboard = () => {
                         : 'Premium Member'
                       : 'Unlock Full Access'}
                   </h3>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="font-body text-sm text-white/40">
                     {hasAccess 
                       ? subscription?.isGrandfathered || subscription?.isAdmin
                         ? 'You have lifetime access to all content'
@@ -576,12 +585,18 @@ export const EnhancedDashboard = () => {
                 </div>
               </div>
               {!hasAccess && (
-                <Button onClick={() => navigate('/subscription')}>
+                <Button
+                  className="font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl px-8 py-6 transition-all"
+                  onClick={() => navigate('/subscription')}
+                >
                   Start Free Trial
                 </Button>
               )}
               {hasAccess && !subscription?.isGrandfathered && !subscription?.isAdmin && (
-                <Button variant="outline" onClick={() => navigate('/subscription')}>
+                <Button
+                  className="font-body border border-white/10 hover:border-violet-500/30 text-white rounded-xl px-8 py-6 transition-all bg-transparent"
+                  onClick={() => navigate('/subscription')}
+                >
                   Manage Plan
                 </Button>
               )}
@@ -600,17 +615,17 @@ export const EnhancedDashboard = () => {
         </div>
 
         {/* Sound Settings */}
-        <Card className={`p-4 mb-6 sm:mb-8 transition-all duration-300 ${
+        <Card className={`p-5 mb-12 transition-all duration-300 rounded-2xl border ${
           soundEnabled 
-            ? 'bg-gradient-to-r from-primary/10 via-accent/5 to-primary/10 border-primary/30 shadow-lg shadow-primary/10' 
-            : 'bg-muted/30 border-border'
+            ? 'bg-white/3 border-violet-500/30 shadow-lg shadow-violet-500/10'
+            : 'bg-white/3 border-white/8'
         }`}>
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <div className={`p-2.5 rounded-xl transition-all duration-300 ${
+            <div className="flex items-center gap-5">
+              <div className={`w-10 h-10 rounded-xl transition-all duration-300 flex items-center justify-center ${
                 soundEnabled 
-                  ? 'bg-primary/20 text-primary' 
-                  : 'bg-muted text-muted-foreground'
+                  ? 'bg-violet-500/20 text-violet-400'
+                  : 'bg-white/5 text-white/30'
               }`}>
                 {soundEnabled ? (
                   <Volume2 className="w-5 h-5 animate-pulse" />
@@ -619,17 +634,12 @@ export const EnhancedDashboard = () => {
                 )}
               </div>
               <div>
-                <Label htmlFor="sound-toggle" className="font-medium text-foreground flex items-center gap-2">
+                <Label htmlFor="sound-toggle" className="font-consciousness text-sm font-bold text-white flex items-center gap-2">
                   Achievement Sounds
-                  {soundEnabled && (
-                    <Badge variant="outline" className="text-[10px] px-1.5 py-0 h-4 bg-primary/10 border-primary/30 text-primary">
-                      ON
-                    </Badge>
-                  )}
                 </Label>
-                <p className="text-xs text-muted-foreground mt-0.5">
+                <p className="font-body text-xs text-white/40 mt-0.5">
                   {soundEnabled 
-                    ? '🔊 Sounds will play for achievements & milestones' 
+                    ? 'Audio feedback enabled for achievements'
                     : 'Enable sounds for a more immersive experience'}
                 </p>
               </div>
@@ -638,7 +648,7 @@ export const EnhancedDashboard = () => {
               id="sound-toggle"
               checked={soundEnabled}
               onCheckedChange={toggleSound}
-              className="data-[state=checked]:bg-primary"
+              className="data-[state=checked]:bg-violet-600"
             />
           </div>
         </Card>
@@ -647,126 +657,55 @@ export const EnhancedDashboard = () => {
         <ReferralCard />
 
         {/* Enhanced Stats Cards - Now Clickable */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6 mb-6 md:mb-8 w-full">
-          <Card 
-            className="p-4 sm:p-6 bg-gradient-to-br from-primary/10 to-primary/5 border-primary/20 cursor-pointer hover:border-primary/40 hover:shadow-md transition-all group"
-            onClick={() => setOpenDetail('enrolled')}
-          >
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 sm:gap-3">
-                <BookOpen className="w-6 h-6 sm:w-8 sm:h-8 text-primary flex-shrink-0" />
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6 mb-12 w-full">
+          {[
+            { id: 'enrolled', icon: BookOpen, value: enrolledCourses, label: 'Courses Enrolled', color: 'text-violet-400' },
+            { id: 'completed', icon: Trophy, value: completedCourses, label: 'Completed', color: 'text-emerald-400' },
+            { id: 'quizzes', icon: Brain, value: quizStats.passedQuizzes, label: 'Quizzes Passed', color: 'text-violet-400' },
+            { id: 'scores', icon: TrendingUp, value: `${quizStats.averageScore}%`, label: 'Avg. Quiz Score', color: 'text-violet-400' },
+            { id: 'progress', icon: Target, value: `${Math.round(totalProgress)}%`, label: 'Overall Progress', color: 'text-blue-400' }
+          ].map((stat) => (
+            <Card
+              key={stat.id}
+              className="p-4 sm:p-5 bg-white/3 border border-white/8 rounded-2xl cursor-pointer hover:border-violet-500/20 transition-all group relative overflow-hidden"
+              onClick={() => setOpenDetail(stat.id)}
+            >
+              <div className="flex flex-col gap-4">
+                <div className="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400">
+                  <stat.icon className="w-5 h-5" />
+                </div>
                 <div>
-                  <p className="text-xl sm:text-2xl font-consciousness font-bold text-foreground">
-                    {enrolledCourses}
+                  <p className="font-consciousness text-2xl sm:text-3xl font-bold text-white mb-1">
+                    {stat.value}
                   </p>
-                  <p className="text-xs sm:text-sm text-muted-foreground font-consciousness">
-                    Courses Enrolled
+                  <p className="font-body text-[10px] uppercase tracking-widest text-white/40">
+                    {stat.label}
                   </p>
                 </div>
               </div>
-              <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-            </div>
-          </Card>
-
-          <Card 
-            className="p-4 sm:p-6 bg-gradient-to-br from-awareness/10 to-awareness/5 border-awareness/20 cursor-pointer hover:border-awareness/40 hover:shadow-md transition-all group"
-            onClick={() => setOpenDetail('completed')}
-          >
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 sm:gap-3">
-                <Trophy className="w-6 h-6 sm:w-8 sm:h-8 text-awareness flex-shrink-0" />
-                <div>
-                  <p className="text-xl sm:text-2xl font-consciousness font-bold text-foreground">
-                    {completedCourses}
-                  </p>
-                  <p className="text-xs sm:text-sm text-muted-foreground font-consciousness">
-                    Completed
-                  </p>
-                </div>
-              </div>
-              <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-awareness transition-colors" />
-            </div>
-          </Card>
-
-          <Card 
-            className="p-4 sm:p-6 bg-gradient-to-br from-accent/10 to-accent/5 border-accent/20 cursor-pointer hover:border-accent/40 hover:shadow-md transition-all group"
-            onClick={() => setOpenDetail('quizzes')}
-          >
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 sm:gap-3">
-                <Brain className="w-6 h-6 sm:w-8 sm:h-8 text-accent flex-shrink-0" />
-                <div>
-                  <p className="text-xl sm:text-2xl font-consciousness font-bold text-foreground">
-                    {quizStats.passedQuizzes}
-                  </p>
-                  <p className="text-xs sm:text-sm text-muted-foreground font-consciousness">
-                    Quizzes Passed
-                  </p>
-                </div>
-              </div>
-              <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors" />
-            </div>
-          </Card>
-
-          <Card 
-            className="p-4 sm:p-6 bg-card border-border cursor-pointer hover:border-primary/40 hover:shadow-md transition-all group"
-            onClick={() => setOpenDetail('scores')}
-          >
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 sm:gap-3">
-                <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-awareness flex-shrink-0" />
-                <div>
-                  <p className="text-xl sm:text-2xl font-consciousness font-bold text-foreground">
-                    {quizStats.averageScore}%
-                  </p>
-                  <p className="text-xs sm:text-sm text-muted-foreground font-consciousness">
-                    Avg. Quiz Score
-                  </p>
-                </div>
-              </div>
-              <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-            </div>
-          </Card>
-
-          <Card 
-            className="p-4 sm:p-6 bg-card border-border cursor-pointer hover:border-primary/40 hover:shadow-md transition-all group"
-            onClick={() => setOpenDetail('progress')}
-          >
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 sm:gap-3">
-                <Target className="w-6 h-6 sm:w-8 sm:h-8 text-accent flex-shrink-0" />
-                <div>
-                  <p className="text-xl sm:text-2xl font-consciousness font-bold text-foreground">
-                    {Math.round(totalProgress)}%
-                  </p>
-                  <p className="text-xs sm:text-sm text-muted-foreground font-consciousness">
-                    Overall Progress
-                  </p>
-                </div>
-              </div>
-              <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-            </div>
-          </Card>
+            </Card>
+          ))}
         </div>
 
         {/* Progress Overview */}
-        <Card className="p-4 sm:p-6 mb-6 md:mb-8 w-full overflow-x-auto">
-          <h3 className="text-base sm:text-lg font-consciousness font-semibold mb-3 sm:mb-4">Weekly Learning Activity</h3>
-          <div className="grid grid-cols-7 gap-2 sm:gap-4 min-w-[280px]">
+        <Card className="p-8 mb-12 bg-white/3 border border-white/8 rounded-2xl w-full overflow-x-auto">
+          <h3 className="font-consciousness text-lg font-bold text-white mb-8">Weekly Learning Activity</h3>
+          <div className="grid grid-cols-7 gap-4 min-w-[400px]">
             {weeklyProgress.map((day, index) => {
               // Goal is 60 minutes per day
               const percentage = Math.min((day.minutes / 60) * 100, 100);
               return (
-                <div key={index} className="text-center">
-                  <p className="text-sm font-medium mb-2">{day.day}</p>
-                  <div className="space-y-1">
-                    <div className="h-16 bg-primary/10 rounded flex items-end justify-center overflow-hidden">
+                <div key={index} className="text-center group">
+                  <p className="font-body text-xs uppercase tracking-widest text-white/40 mb-3 group-hover:text-violet-400 transition-colors">{day.day}</p>
+                  <div className="space-y-3">
+                    <div className="h-24 bg-white/5 rounded-xl flex items-end justify-center overflow-hidden relative">
                       <div
-                        className="bg-primary transition-all duration-500 w-full"
+                        className="bg-violet-600 transition-all duration-1000 w-full"
                         style={{ height: `${percentage}%` }}
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
                     </div>
-                    <p className="text-xs font-medium text-foreground">{day.minutes}m</p>
+                    <p className="font-consciousness text-sm font-bold text-white">{day.minutes}m</p>
                   </div>
                 </div>
               );
@@ -782,50 +721,49 @@ export const EnhancedDashboard = () => {
         </Card>
 
         {/* Main Content with Enhanced Tabs */}
-        <Tabs defaultValue="progress" className="space-y-4 sm:space-y-6 w-full">
-          <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 h-auto">
-            <TabsTrigger value="progress" className="font-consciousness text-xs sm:text-sm py-2 sm:py-3">
-              Course Progress
-            </TabsTrigger>
-            <TabsTrigger value="achievements" className="font-consciousness text-xs sm:text-sm py-2 sm:py-3">
-              Achievements
-            </TabsTrigger>
-            <TabsTrigger value="activity" className="font-consciousness text-xs sm:text-sm py-2 sm:py-3">
-              Recent Activity
-            </TabsTrigger>
-            <TabsTrigger value="analytics" className="font-consciousness text-xs sm:text-sm py-2 sm:py-3">
-              Analytics
-            </TabsTrigger>
+        <Tabs defaultValue="progress" className="space-y-12 w-full">
+          <TabsList className="flex flex-wrap gap-3 w-full p-2 bg-white/5 rounded-2xl border border-white/8 justify-center h-auto">
+            {['progress', 'achievements', 'activity', 'analytics'].map((tab) => (
+              <TabsTrigger
+                key={tab}
+                value={tab}
+                className="flex-1 font-body text-xs uppercase tracking-widest px-6 py-3 rounded-xl transition-all data-[state=active]:bg-violet-600 data-[state=active]:text-white"
+              >
+                {tab.charAt(0).toUpperCase() + tab.slice(1)}
+              </TabsTrigger>
+            ))}
           </TabsList>
 
-          <TabsContent value="progress" className="space-y-4 sm:space-y-6 w-full">
+          <TabsContent value="progress" className="space-y-12 w-full">
             {/* Continue Learning Section */}
             {inProgress.length > 0 && (
               <div className="w-full">
-                <h2 className="text-lg sm:text-xl font-consciousness font-semibold text-foreground mb-3 sm:mb-4">
+                <h2 className="font-consciousness text-xl font-bold text-white mb-6">
                   Continue Learning
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 w-full">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
                   {inProgress.map(course => (
                     <Card 
                       key={course.id}
-                      className="p-6 bg-card/60 border-border hover:border-primary/40 transition-all cursor-pointer group"
+                      className="p-8 bg-white/3 border border-white/8 rounded-2xl hover:border-violet-500/30 transition-all cursor-pointer group"
                       onClick={() => navigate(`/courses/${course.id}`)}
                     >
-                      <div className="flex items-start justify-between mb-4">
-                        <div className="flex items-center gap-2">
-                          <Play className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
-                          <span className="text-sm font-medium text-primary">Continue</span>
+                      <div className="flex items-start justify-between mb-6">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:scale-110 transition-transform">
+                            <Play className="w-5 h-5 fill-current" />
+                          </div>
+                          <span className="font-body text-xs uppercase tracking-widest text-violet-400">Continue</span>
                         </div>
-                        <Badge className={getCategoryColor(course.category)}>
+                        <Badge className="font-body text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-400">
                           {course.category === "free" ? "Free" : "Premium"}
                         </Badge>
                       </div>
-                      <h3 className="font-consciousness font-semibold text-foreground mb-3 line-clamp-2">
+                      <h3 className="font-consciousness text-lg font-bold text-white mb-4 line-clamp-2">
                         {course.title}
                       </h3>
-                      <div className="flex items-center gap-4 mb-4 text-sm text-muted-foreground">
-                        <span className="flex items-center gap-1">
+                      <div className="flex items-center gap-6 mb-8 font-body text-xs uppercase tracking-widest text-white/40">
+                        <span className="flex items-center gap-2">
                           <Clock className="w-4 h-4" />
                           {course.duration}
                         </span>
@@ -833,15 +771,17 @@ export const EnhancedDashboard = () => {
                           {course.difficulty}
                         </span>
                       </div>
-                      <div className="space-y-2">
-                        <div className="flex justify-between text-sm">
+                      <div className="space-y-3">
+                        <div className="flex justify-between font-body text-xs uppercase tracking-widest text-white/40">
                           <span>Progress</span>
-                          <span>{Math.round(courseProgress[course.id]?.completion_percentage || 0)}%</span>
+                          <span className="text-white">{Math.round(courseProgress[course.id]?.completion_percentage || 0)}%</span>
                         </div>
-                        <Progress 
-                          value={courseProgress[course.id]?.completion_percentage || 0} 
-                          className="h-2"
-                        />
+                        <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                          <div
+                            className="h-full bg-violet-600 transition-all duration-1000"
+                            style={{ width: `${courseProgress[course.id]?.completion_percentage || 0}%` }}
+                          />
+                        </div>
                       </div>
                     </Card>
                   ))}
@@ -1042,61 +982,51 @@ export const EnhancedDashboard = () => {
             </Card>
           </TabsContent>
 
-          <TabsContent value="analytics" className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
-              <Card className="p-6">
-                <h3 className="font-consciousness font-semibold mb-4 flex items-center gap-2">
-                  <BarChart3 className="w-5 h-5" />
+          <TabsContent value="analytics" className="space-y-12">
+            <div className="grid md:grid-cols-2 gap-8">
+              <Card className="p-8 bg-white/3 border border-white/8 rounded-2xl">
+                <h3 className="font-consciousness text-lg font-bold text-white mb-8 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400">
+                    <BarChart3 className="w-5 h-5" />
+                  </div>
                   Learning Statistics
                 </h3>
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center">
-                    <span>Total Study Time</span>
-                    <span className="font-semibold">{analyticsStats.totalStudyTime}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span>Average Session</span>
-                    <span className="font-semibold">{analyticsStats.averageSession}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span>Best Day</span>
-                    <span className="font-semibold">{analyticsStats.bestDay}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span>Modules Completed</span>
-                    <span className="font-semibold">{analyticsStats.modulesCompleted}</span>
-                  </div>
+                <div className="space-y-6">
+                  {[
+                    { label: 'Total Study Time', value: analyticsStats.totalStudyTime },
+                    { label: 'Average Session', value: analyticsStats.averageSession },
+                    { label: 'Best Day', value: analyticsStats.bestDay },
+                    { label: 'Modules Completed', value: analyticsStats.modulesCompleted }
+                  ].map((stat, i) => (
+                    <div key={i} className="flex justify-between items-center py-4 border-b border-white/5 last:border-0">
+                      <span className="font-body text-sm text-white/40 uppercase tracking-widest">{stat.label}</span>
+                      <span className="font-consciousness text-lg font-bold text-white">{stat.value}</span>
+                    </div>
+                  ))}
                 </div>
               </Card>
 
-              <Card className="p-6">
-                <h3 className="font-consciousness font-semibold mb-4 flex items-center gap-2">
-                  <Brain className="w-5 h-5" />
+              <Card className="p-8 bg-white/3 border border-white/8 rounded-2xl">
+                <h3 className="font-consciousness text-lg font-bold text-white mb-8 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400">
+                    <Brain className="w-5 h-5" />
+                  </div>
                   Quiz Performance
                 </h3>
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center">
-                    <span>Quizzes Taken</span>
-                    <span className="font-semibold">{quizStats.completedQuizzes}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span>Pass Rate</span>
-                    <span className="font-semibold">
-                      {quizStats.completedQuizzes > 0 
-                        ? Math.round((quizStats.passedQuizzes / quizStats.completedQuizzes) * 100)
-                        : 0}%
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span>Highest Score</span>
-                    <span className="font-semibold">{analyticsStats.highestScore}%</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span>Improvement Trend</span>
-                    <span className={`font-semibold ${analyticsStats.improvementTrend >= 0 ? 'text-awareness' : 'text-destructive'}`}>
-                      {analyticsStats.improvementTrend >= 0 ? '+' : ''}{analyticsStats.improvementTrend}%
-                    </span>
-                  </div>
+                <div className="space-y-6">
+                  {[
+                    { label: 'Quizzes Taken', value: quizStats.completedQuizzes },
+                    { label: 'Pass Rate', value: `${quizStats.completedQuizzes > 0 ? Math.round((quizStats.passedQuizzes / quizStats.completedQuizzes) * 100) : 0}%` },
+                    { label: 'Highest Score', value: `${analyticsStats.highestScore}%` },
+                    { label: 'Improvement Trend', value: `${analyticsStats.improvementTrend >= 0 ? '+' : ''}${analyticsStats.improvementTrend}%`, trend: true }
+                  ].map((stat, i) => (
+                    <div key={i} className="flex justify-between items-center py-4 border-b border-white/5 last:border-0">
+                      <span className="font-body text-sm text-white/40 uppercase tracking-widest">{stat.label}</span>
+                      <span className={`font-consciousness text-lg font-bold ${stat.trend ? (analyticsStats.improvementTrend >= 0 ? 'text-emerald-400' : 'text-red-400') : 'text-white'}`}>
+                        {stat.value}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </Card>
             </div>

@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { ProgressBar } from '@/components/progress/ProgressBar';
 import { useAuth } from '@/components/auth/AuthProvider';
 import { useProgress } from '@/components/progress/ProgressProvider';
-import { LucideIcon, Star, Lock, Clock, CheckCircle2 } from 'lucide-react';
+import { LucideIcon, Star, Lock, Clock, CheckCircle2, ChevronRight } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 interface Course {
@@ -59,80 +59,91 @@ export const CourseCard = ({ course, index, onStartCourse, onAuthRequired }: Cou
     return diffDays > 0 ? diffDays : 0;
   };
 
+  const getDifficultyColor = (difficulty: string) => {
+    switch (difficulty) {
+      case "Beginner": return "text-emerald-400 border-emerald-500/30 bg-emerald-500/10";
+      case "Intermediate": return "text-violet-400 border-violet-500/30 bg-violet-500/10";
+      case "Advanced": return "text-amber-400 border-amber-500/30 bg-amber-500/10";
+      default: return "text-white/40 border-white/15 bg-white/5";
+    }
+  };
+
   return (
     <Card 
-      className={`p-5 sm:p-6 bg-card border-border hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 group w-full flex flex-col ${
-        course.isLocked ? 'opacity-75' : ''
-      }`}
+      className="relative bg-white/3 border border-white/8 rounded-2xl overflow-hidden hover:border-violet-500/30 transition-all duration-300 group flex flex-col h-full"
       style={{ animationDelay: `${index * 0.1}s` }}
     >
-      <div className="flex items-center justify-between gap-4 mb-4">
-        <div className="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center flex-shrink-0">
-          <course.icon className="w-6 h-6 text-primary group-hover:text-primary-glow transition-colors" />
+      <div className="p-6 pb-4">
+        <div className="flex items-center justify-between mb-6">
+          <div className="w-12 h-12 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:scale-110 transition-transform duration-300">
+            <course.icon className="w-6 h-6" />
+          </div>
+          <div className="flex items-center gap-2">
+            {course.isEarlyAccess && (
+              <Badge className="bg-violet-600 text-white font-body text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full border-none">
+                Early Access
+              </Badge>
+            )}
+            <Badge className={`font-body text-[10px] uppercase tracking-widest px-3 py-1 rounded-full border ${getDifficultyColor(course.difficulty || "Beginner")}`}>
+              {course.difficulty || "Beginner"}
+            </Badge>
+          </div>
         </div>
-        <div className="flex items-center gap-2">
-          {course.isEarlyAccess && (
-            <Badge className="bg-primary/20 text-primary border-primary/30 text-xs px-2 py-0.5 flex items-center gap-1">
-              <Star className="w-3 h-3" />
-              Early Access
-            </Badge>
-          )}
-          {course.isLocked ? (
-            <Badge className="bg-muted text-muted-foreground border-border text-xs px-3 py-1 flex items-center gap-1">
-              <Lock className="w-3 h-3" />
-              Annual Only
-            </Badge>
-          ) : (
-            <Badge className="bg-awareness/20 text-awareness border-awareness/30 text-xs px-3 py-1">
-              Free
-            </Badge>
-          )}
+
+        <h3 className="font-consciousness text-lg font-bold text-white mb-2 line-clamp-2">
+          {course.title}
+        </h3>
+
+        <div className="flex items-center gap-4 font-body text-[10px] uppercase tracking-widest text-white/30">
+          <span className="flex items-center gap-1.5">
+            <Clock className="w-3 h-3" />
+            {course.duration}
+          </span>
+          <span className="flex items-center gap-1.5 text-emerald-400">
+            <Star className="w-3 h-3 fill-current" />
+            4.8
+          </span>
         </div>
       </div>
       
-      <h3 className="text-base sm:text-lg font-consciousness font-semibold text-foreground mb-3 leading-tight">
-        {course.title}
-      </h3>
-      
-      <p className="text-sm text-foreground/70 font-consciousness mb-5 leading-relaxed flex-1">
-        {course.description}
-      </p>
+      <div className="p-6 pt-0 flex-1 flex flex-col">
+        <p className="font-body text-sm text-white/50 leading-relaxed mb-8 line-clamp-3">
+          {course.description}
+        </p>
 
-      {user && !course.isLocked && (
-        <ProgressBar 
-          courseId={course.id} 
-          className="mb-5"
-        />
-      )}
-      
-      <div className="flex flex-col gap-3 mt-auto">
-        {course.isLocked && course.public_release_date && (
-          <div className="flex items-center justify-center gap-1.5 text-awareness text-[10px] sm:text-xs font-consciousness animate-pulse py-1">
-            <Clock className="w-3 h-3" />
-            <span>Public release in {getDaysUntil(course.public_release_date)} days</span>
-          </div>
-        )}
-        {isMobile && (
-          <p className="text-xs text-foreground/60 text-center">
-            Fully usable on mobile. Best experience on desktop.
-          </p>
-        )}
-        <Button
-          variant={course.isLocked ? "outline" : isCompleted ? "outline" : "awareness"}
-          size="default"
-          className={`font-consciousness w-full min-h-[48px] ${
-            isCompleted ? 'border-primary text-primary hover:bg-primary/10' : ''
-          }`}
-          onClick={handleStartCourse}
-        >
-          {isCompleted && <CheckCircle2 className="w-4 h-4 mr-2" />}
-          {getButtonText()}
-        </Button>
-        <div className="text-center pt-1">
-          <span className="text-xs text-foreground/60 font-system">
-            {course.duration}
-          </span>
+        <div className="space-y-6 mt-auto">
+          {user && !course.isLocked && (
+            <div className="space-y-3 pt-6 border-t border-white/5">
+              <div className="flex justify-between font-body text-[10px] uppercase tracking-widest text-white/40">
+                <span>Progress</span>
+                <span className="text-white">Active</span>
+              </div>
+              <ProgressBar courseId={course.id} className="h-1.5" />
+            </div>
+          )}
         </div>
+      </div>
+
+      <div className="p-6 pt-4">
+        <Button
+          className="w-full font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl py-6 transition-all"
+          onClick={handleStartCourse}
+          disabled={course.isLocked}
+        >
+          {course.isLocked ? (
+            <span className="flex items-center gap-2">
+              <Lock className="h-4 w-4" />
+              Locked
+            </span>
+          ) : isCompleted ? (
+            "Review Course"
+          ) : (
+            <span className="flex items-center">
+              {isStarted ? "Continue Learning" : "Start Course"}
+              <ChevronRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+            </span>
+          )}
+        </Button>
       </div>
     </Card>
   );

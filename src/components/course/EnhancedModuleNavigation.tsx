@@ -174,13 +174,13 @@ export const EnhancedModuleNavigation = ({
   }
 
   return (
-    <Card className="p-4 sm:p-6">
+    <Card className="p-4 sm:p-6 bg-white/3 border-white/8 rounded-2xl">
       {/* Header */}
       <div className="mb-4 sm:mb-6 text-center sm:text-left">
-        <h3 className="text-lg sm:text-xl font-consciousness font-semibold mb-2 break-words">Course Navigation</h3>
+        <h3 className="font-consciousness text-lg font-bold text-white mb-2 break-words">Course Navigation</h3>
         {showProgress && (
           <div className="space-y-1.5 sm:space-y-2">
-            <div className="flex items-center justify-between text-xs sm:text-sm">
+            <div className="flex items-center justify-between font-body text-xs text-white/40">
               <span>{courseStats.completedModules} of {courseStats.totalModules} modules completed</span>
               <span>{Math.round(overallProgress)}%</span>
             </div>
@@ -190,34 +190,34 @@ export const EnhancedModuleNavigation = ({
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3 md:gap-4 mb-4 sm:mb-6">
-        <div className="bg-muted/50 p-2.5 sm:p-3 rounded-lg">
-          <div className="flex items-center gap-1.5 sm:gap-2">
-            <Target className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary flex-shrink-0" />
-            <span className="text-xs sm:text-sm font-medium break-words">Progress</span>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+        <div className="bg-white/5 border border-white/8 p-3 rounded-xl">
+          <div className="flex items-center gap-2 mb-1">
+            <Target className="w-4 h-4 text-violet-400" />
+            <span className="font-body text-[10px] uppercase tracking-widest text-white/40">Progress</span>
           </div>
-          <p className="text-base sm:text-lg font-bold">{Math.round(overallProgress)}%</p>
+          <p className="font-consciousness text-lg text-white">{Math.round(overallProgress)}%</p>
         </div>
-        <div className="bg-muted/50 p-2.5 sm:p-3 rounded-lg">
-          <div className="flex items-center gap-1.5 sm:gap-2">
-            <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-awareness flex-shrink-0" />
-            <span className="text-xs sm:text-sm font-medium break-words">Completed</span>
+        <div className="bg-white/5 border border-white/8 p-3 rounded-xl">
+          <div className="flex items-center gap-2 mb-1">
+            <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+            <span className="font-body text-[10px] uppercase tracking-widest text-white/40">Completed</span>
           </div>
-          <p className="text-base sm:text-lg font-bold">{courseStats.completedModules}</p>
+          <p className="font-consciousness text-lg text-white">{courseStats.completedModules}</p>
         </div>
-        <div className="bg-muted/50 p-2.5 sm:p-3 rounded-lg">
-          <div className="flex items-center gap-1.5 sm:gap-2">
-            <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary flex-shrink-0" />
-            <span className="text-xs sm:text-sm font-medium break-words">Time Left</span>
+        <div className="bg-white/5 border border-white/8 p-3 rounded-xl">
+          <div className="flex items-center gap-2 mb-1">
+            <Clock className="w-4 h-4 text-violet-400" />
+            <span className="font-body text-[10px] uppercase tracking-widest text-white/40">Time Left</span>
           </div>
-          <p className="text-base sm:text-lg font-bold">{courseStats.totalDuration - courseStats.completedDuration}m</p>
+          <p className="font-consciousness text-lg text-white">{courseStats.totalDuration - courseStats.completedDuration}m</p>
         </div>
-        <div className="bg-muted/50 p-2.5 sm:p-3 rounded-lg">
-          <div className="flex items-center gap-1.5 sm:gap-2">
-            <BookOpen className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-accent flex-shrink-0" />
-            <span className="text-xs sm:text-sm font-medium break-words">Total</span>
+        <div className="bg-white/5 border border-white/8 p-3 rounded-xl">
+          <div className="flex items-center gap-2 mb-1">
+            <BookOpen className="w-4 h-4 text-violet-400" />
+            <span className="font-body text-[10px] uppercase tracking-widest text-white/40">Total</span>
           </div>
-          <p className="text-base sm:text-lg font-bold">{courseStats.totalModules}</p>
+          <p className="font-consciousness text-lg text-white">{courseStats.totalModules}</p>
         </div>
       </div>
 
@@ -291,48 +291,50 @@ export const EnhancedModuleNavigation = ({
           return (
             <Card
               key={module.id}
-              className={`p-3 sm:p-4 cursor-pointer transition-all hover:shadow-md min-h-[80px] ${
-                isCurrent ? "border-primary bg-primary/5" : ""
-              } ${isCompleted ? "border-awareness bg-awareness/10" : ""}`}
+              className={`p-4 cursor-pointer transition-all bg-white/3 border-white/8 hover:border-violet-500/30 min-h-[80px] ${
+                isCurrent ? "border-violet-500/50 bg-violet-500/5" : ""
+              } ${isCompleted ? "border-emerald-500/30 bg-emerald-500/5" : ""}`}
               onClick={() => handleModuleClick(module.id)}
             >
               {/* Top Row: Checkmark and Current Badge */}
-              <div className="flex items-start justify-between gap-2 mb-2 sm:mb-3">
-                <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
+              <div className="flex items-start justify-between gap-2 mb-3">
+                <div className="flex items-center gap-2 flex-shrink-0">
                   {isCompleted ? (
-                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-awareness" />
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400" />
                   ) : (
-                    <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-muted-foreground rounded-full flex items-center justify-center">
-                      <span className="text-[10px] sm:text-xs font-medium">{moduleIndex + 1}</span>
+                    <div className="w-5 h-5 border border-white/20 rounded-full flex items-center justify-center">
+                      <span className="font-body text-[10px] text-white/40">{moduleIndex + 1}</span>
                     </div>
                   )}
-                  <Badge variant="outline" className={`${getTypeColor(module.type)} text-[10px] sm:text-xs`}>
-                    <Icon className="w-2.5 h-2.5 sm:w-3 sm:h-3 mr-1" />
+                  <Badge variant="outline" className={`${getTypeColor(module.type)} font-body text-[10px] uppercase tracking-widest`}>
+                    <Icon className="w-3 h-3 mr-1" />
                     {module.type}
                   </Badge>
                 </div>
                 {isCurrent && (
-                  <Badge variant="default" className="text-[10px] sm:text-xs">
+                  <Badge className="bg-violet-600 text-white font-body text-[10px] uppercase tracking-widest">
                     Current
                   </Badge>
                 )}
               </div>
 
               {/* Title */}
-              <h4 className="font-semibold text-xs sm:text-sm leading-snug text-foreground mb-1.5 sm:mb-2 break-words">
+              <h4 className="font-consciousness text-sm font-bold text-white mb-2 break-words">
                 {module.title}
               </h4>
 
               {/* Bottom Row: Duration and Progress */}
-              <div className="flex items-center justify-between gap-2 sm:gap-3">
-                <div className="flex items-center gap-1 text-[10px] sm:text-xs text-muted-foreground">
-                  <Clock className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center gap-1 font-body text-[10px] uppercase tracking-widest text-white/30">
+                  <Clock className="w-3 h-3" />
                   {module.duration}m
                 </div>
                 {moduleProgress > 0 && (
-                  <div className="flex items-center gap-1.5 sm:gap-2 flex-1 max-w-[100px] sm:max-w-[120px]">
-                    <Progress value={moduleProgress} className="h-1 sm:h-1.5 flex-1" />
-                    <span className="text-[10px] sm:text-xs text-muted-foreground whitespace-nowrap">{moduleProgress}%</span>
+                  <div className="flex items-center gap-2 flex-1 max-w-[120px]">
+                    <div className="h-1 flex-1 bg-white/5 rounded-full overflow-hidden">
+                      <div className="h-full bg-violet-600" style={{ width: `${moduleProgress}%` }} />
+                    </div>
+                    <span className="font-body text-[10px] text-white/40 whitespace-nowrap">{moduleProgress}%</span>
                   </div>
                 )}
               </div>

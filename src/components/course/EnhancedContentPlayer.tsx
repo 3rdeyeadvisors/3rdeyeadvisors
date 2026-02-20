@@ -501,7 +501,7 @@ export const EnhancedContentPlayer = ({
             <Button
               onClick={() => setIsFullscreenViewerOpen(true)}
               className="absolute top-3 right-3 z-10 bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg gap-2 px-4"
-              title="Full Screen Mode - Immersive view with swipe navigation"
+              title="Full Screen Mode : Immersive view with swipe navigation"
             >
               <Maximize2 className="h-4 w-4" />
               <span className="font-medium">Full Screen</span>

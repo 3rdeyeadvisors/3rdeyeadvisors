@@ -10,6 +10,7 @@ import SEO from "@/components/SEO";
 import { MerchandiseCard } from "@/components/store/MerchandiseCard";
 import { NFTStoreCard } from "@/components/store/NFTStoreCard";
 import { usePullToRefresh } from "@/hooks/usePullToRefresh";
+import PageHero from "@/components/PageHero";
 import { PullToRefreshIndicator } from "@/components/ui/pull-to-refresh";
 import { isAdminEmail } from "@/lib/admin";
 
@@ -179,46 +180,42 @@ const Store = () => {
         isRefreshing={isRefreshing}
         isTriggered={isTriggered}
       />
-      <div className="py-12 md:py-16 lg:py-20 w-full overflow-x-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          {/* Header */}
-          <div className="text-center mb-8 md:mb-10">
-            <h1 className="text-4xl md:text-5xl font-consciousness font-bold text-foreground mb-4">
-              Store
-            </h1>
-            <p className="text-xl text-muted-foreground font-consciousness max-w-2xl mx-auto mb-2">
-              Show your commitment to financial freedom with 3EA merchandise
-            </p>
-            <p className="text-sm text-muted-foreground/80 font-consciousness max-w-2xl mx-auto mb-4">
-              Every purchase supports independent DeFi education
-            </p>
-            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full">
+      <div className="min-h-screen bg-black relative overflow-hidden">
+        {/* Nebula Glow */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-500/5 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/5 blur-[100px] rounded-full pointer-events-none" />
+
+        <PageHero
+          eyebrow="Merch"
+          title="Represent the Movement"
+          subtitle="Consciousness-inspired apparel and accessories for the decentralized generation."
+        />
+
+        <div className="max-w-7xl mx-auto px-6 pb-20 relative z-10">
+          <div className="flex justify-center mb-12 -mt-4">
+            <div className="inline-flex items-center gap-2 bg-violet-500/10 text-violet-400 border border-violet-500/20 px-4 py-2 rounded-full">
               <Package className="w-4 h-4" />
-              <span className="text-sm font-consciousness font-medium">Free Shipping on All Orders</span>
+              <span className="font-body text-xs uppercase tracking-widest">Free Shipping on All Orders</span>
             </div>
           </div>
 
           {/* Category Toggle Buttons */}
-          <div className="flex justify-center mb-8 md:mb-10">
-            <div className="inline-flex rounded-lg bg-muted p-1 gap-1">
-              <Button
-                variant={activeCategory === 'merchandise' ? 'default' : 'ghost'}
-                size="sm"
+          <div className="flex justify-center mb-16">
+            <div className="inline-flex rounded-2xl bg-white/5 border border-white/8 p-1.5 gap-1.5">
+              <button
                 onClick={() => setActiveCategory('merchandise')}
-                className="gap-2 font-consciousness min-h-[44px] px-4 md:px-6"
+                className={`flex items-center gap-2 px-6 py-3 rounded-xl font-body text-xs uppercase tracking-widest transition-all ${activeCategory === 'merchandise' ? 'bg-violet-600 text-white' : 'text-white/40 hover:text-white'}`}
               >
                 <Package className="h-4 w-4" />
                 <span>Physical Products</span>
-              </Button>
-              <Button
-                variant={activeCategory === 'digital' ? 'default' : 'ghost'}
-                size="sm"
+              </button>
+              <button
                 onClick={() => setActiveCategory('digital')}
-                className="gap-2 font-consciousness min-h-[44px] px-4 md:px-6"
+                className={`flex items-center gap-2 px-6 py-3 rounded-xl font-body text-xs uppercase tracking-widest transition-all ${activeCategory === 'digital' ? 'bg-violet-600 text-white' : 'text-white/40 hover:text-white'}`}
               >
                 <Sparkles className="h-4 w-4" />
                 <span>Digital Collectibles</span>
-              </Button>
+              </button>
             </div>
           </div>
 

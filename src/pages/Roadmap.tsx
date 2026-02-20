@@ -9,6 +9,7 @@ import { FeatureSuggestionsList } from '@/components/roadmap/FeatureSuggestionsL
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import SEO from '@/components/SEO';
+import PageHero from "@/components/PageHero";
 
 const Roadmap = () => {
   const { user } = useAuth();
@@ -46,30 +47,20 @@ const Roadmap = () => {
         keywords="roadmap, voting, features, defi education platform"
       />
 
-      <div className="min-h-screen bg-background">
-        {/* Hero Section */}
-        <section className="relative pt-8 pb-6 md:pt-12 md:pb-10 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
-          <div className="absolute inset-0 mt-4 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent opacity-50" />
-          
+      <div className="min-h-screen bg-black overflow-hidden relative">
+        {/* Nebula Glow */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-500/5 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/5 blur-[100px] rounded-full pointer-events-none" />
+
+        <PageHero
+          eyebrow="Community Driven"
+          title="What Gets Built Next"
+          subtitle="You vote on the features. The platform is community run and your input shapes every release."
+        />
+
+        <section className="relative pb-10 z-10">
           <div className="container mx-auto px-4 relative">
             <div className="max-w-3xl mx-auto text-center space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20">
-                <Map className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium text-primary">Platform Roadmap</span>
-              </div>
-
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-consciousness font-bold leading-tight">
-                Shape the{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-primary/60">
-                  Future
-                </span>
-              </h1>
-
-              <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-                Your voice matters. Vote on the features you want to see next.
-              </p>
-
               {/* Voting Power Explainer */}
               <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-2 sm:gap-3 pt-2">
                 <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/30">
@@ -135,7 +126,7 @@ const Roadmap = () => {
         </section>
 
         {/* Roadmap Items */}
-        <section className="py-4 md:py-6">
+        <section className="py-4 md:py-6 relative z-10">
           <div className="container mx-auto px-4">
             {loading ? (
               <div className="flex items-center justify-center py-10">
@@ -272,7 +263,7 @@ const Roadmap = () => {
         </section>
 
         {/* Feature Suggestions Section */}
-        <section className="py-8 md:py-12 border-t border-border/50">
+        <section className="py-8 md:py-12 border-t border-white/5 relative z-10">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto space-y-6">
               <div className="text-center mb-6">

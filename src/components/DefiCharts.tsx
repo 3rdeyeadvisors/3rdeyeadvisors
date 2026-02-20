@@ -217,11 +217,11 @@ export const DefiCharts = () => {
         setError('Using cached data due to network issues.');
         setData(cachedData);
       } else if (!data) {
-        setError('Using sample data - no cached data available.');
+        setError('Using sample data : no cached data available.');
         setData(generateFallbackData());
       } else {
         // We already have data, just show the error message
-        setError('Network issue - showing previous data.');
+        setError('Network issue : showing previous data.');
       }
       
       // Set next refresh time

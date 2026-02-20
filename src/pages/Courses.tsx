@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Filter, LogIn, Search, Star } from "lucide-react";
 import { CourseCard } from "@/components/course/CourseCard";
 import { AuthModal } from "@/components/auth/AuthModal";
+import PageHero from "@/components/PageHero";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { useSubscription } from "@/hooks/useSubscription";
 import { BookOpen } from "lucide-react";
@@ -320,44 +321,44 @@ const Courses = () => {
         isRefreshing={isRefreshing}
         isTriggered={isTriggered}
       />
-      <div className="py-12 md:py-20 lg:py-24">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-        {/* Header */}
-        <div className="text-center mb-8 md:mb-12">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-consciousness font-bold text-foreground">
-              Courses and Tools
-            </h1>
+      <div className="min-h-screen bg-black relative overflow-hidden">
+        {/* Nebula Glow */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-500/5 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/5 blur-[100px] rounded-full pointer-events-none" />
+
+        <PageHero
+          eyebrow="Education"
+          title="Master DeFi From the Ground Up"
+          subtitle="Five structured courses that take you from complete beginner to confident DeFi participant. Start anywhere. Go at your own pace."
+        />
+
+        <div className="max-w-7xl mx-auto px-6 pb-20 relative z-10">
+          <div className="flex justify-center mb-8 -mt-4">
             <ParticipantTracker contentType="course" contentId="courses-page" />
           </div>
-          {!user && (
-            <div className="flex justify-center mb-4 sm:mb-6">
+          <div className="flex justify-center mb-12">
+            {!user ? (
               <Button
                 variant="outline"
                 size="sm"
                 onClick={() => setShowAuthModal(true)}
-                className="font-consciousness text-xs sm:text-sm min-h-[48px] px-4 sm:px-5 flex items-center justify-center gap-2"
+                className="font-body text-xs uppercase tracking-widest border-white/10 hover:border-violet-500/30 bg-white/5 px-6 py-6 rounded-xl flex items-center gap-2"
               >
-                <LogIn className="w-4 h-4 flex-shrink-0" />
+                <LogIn className="w-4 h-4" />
                 <span>Track Progress</span>
               </Button>
-            </div>
-          )}
-          <p className="text-sm sm:text-base md:text-lg text-foreground/70 font-consciousness max-w-2xl mx-auto leading-relaxed">
-            Learn to protect your assets, beat inflation, and take control of your financial future.
-          </p>
-          {user && (
-            <p className="text-awareness font-consciousness mt-3 text-sm sm:text-base">
-              Welcome back! Your progress is being tracked.
-            </p>
-          )}
-          {isPremiumMember && (
-            <div className="flex items-center justify-center gap-2 mt-3 text-primary">
-              <Star className="w-4 h-4" />
-              <span className="text-sm font-consciousness">Premium Member: {ANNUAL_BENEFITS.earlyAccessDays} day early access to new courses</span>
-            </div>
-          )}
-        </div>
+            ) : (
+              <div className="text-center">
+                <p className="font-body text-sm text-emerald-400 mb-2">Welcome back! Your progress is being tracked.</p>
+                {isPremiumMember && (
+                  <div className="flex items-center justify-center gap-2 text-violet-400">
+                    <Star className="w-4 h-4 fill-current" />
+                    <span className="text-xs font-body uppercase tracking-widest">Premium Member: Early Access Enabled</span>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
 
         {/* Search Bar */}
         <div className="max-w-md mx-auto mb-6 sm:mb-8">
@@ -373,23 +374,25 @@ const Courses = () => {
         </div>
 
         {/* Filters */}
-        <div className="flex flex-wrap justify-center gap-3 mb-8 md:mb-10">
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
           {filters.map((filter) => (
-            <Button
+            <button
               key={filter.id}
-              variant={activeFilter === filter.id ? "cosmic" : "system"}
               onClick={() => setActiveFilter(filter.id)}
-              className="font-consciousness text-sm min-h-[48px] px-4 flex items-center justify-center gap-2"
+              className={`font-body text-xs uppercase tracking-widest px-6 py-2 rounded-full border transition-all ${
+                activeFilter === filter.id
+                  ? "bg-violet-600 border-violet-600 text-white"
+                  : "border-white/15 text-white/50 hover:border-violet-500/30 hover:text-white"
+              }`}
             >
-              <Filter className="w-4 h-4 flex-shrink-0" />
-              <span>{filter.label}</span>
-            </Button>
+              {filter.label}
+            </button>
           ))}
         </div>
 
         {/* Course Grid */}
         {filteredCourses.length > 0 ? (
-          <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-2 xl:grid-cols-3 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredCourses.map((course, index) => (
               <CourseCard
                 key={course.id}
