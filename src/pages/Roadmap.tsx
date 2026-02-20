@@ -59,7 +59,7 @@ const Roadmap = () => {
         keywords="roadmap, voting, features, defi education platform"
       />
 
-      <div className="min-h-screen bg-black overflow-hidden relative">
+      <div className="min-h-screen bg-transparent overflow-hidden relative">
         {/* Nebula Glow */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-500/10 blur-[120px] rounded-full pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/10 blur-[100px] rounded-full pointer-events-none" />

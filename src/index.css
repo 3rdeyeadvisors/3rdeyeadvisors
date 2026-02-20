@@ -82,6 +82,73 @@
   animation-delay: 2s;
 }
 
+@keyframes nebula-drift-1 {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  33% { transform: translate(-45%, -55%) scale(1.05); }
+  66% { transform: translate(-55%, -45%) scale(0.97); }
+}
+
+@keyframes nebula-drift-2 {
+  0%, 100% { transform: translate(25%, 25%) scale(1); }
+  33% { transform: translate(20%, 30%) scale(1.08); }
+  66% { transform: translate(30%, 20%) scale(0.95); }
+}
+
+@keyframes nebula-drift-3 {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-48%, -52%) scale(1.04); }
+}
+
+@keyframes star-drift-1 {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-30px, -20px); }
+}
+
+@keyframes star-drift-2 {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(20px, -30px); }
+}
+
+@keyframes star-drift-3 {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-15px, 25px); }
+}
+
+.animate-nebula-1 {
+  animation: nebula-drift-1 30s ease-in-out infinite;
+}
+
+.animate-nebula-2 {
+  animation: nebula-drift-2 40s ease-in-out infinite;
+}
+
+.animate-nebula-3 {
+  animation: nebula-drift-3 25s ease-in-out infinite;
+}
+
+.animate-drift-1 {
+  animation: star-drift-1 120s linear infinite alternate;
+}
+
+.animate-drift-2 {
+  animation: star-drift-2 90s linear infinite alternate;
+}
+
+.animate-drift-3 {
+  animation: star-drift-3 150s linear infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-nebula-1,
+  .animate-nebula-2,
+  .animate-nebula-3,
+  .animate-drift-1,
+  .animate-drift-2,
+  .animate-drift-3 {
+    animation: none;
+  }
+}
+
 @layer utilities {
   .mobile-typography-center {
     @apply text-center md:text-left;

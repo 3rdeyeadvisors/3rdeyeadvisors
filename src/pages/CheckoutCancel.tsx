@@ -11,7 +11,7 @@ const CheckoutCancel = () => {
         description="Your checkout was canceled. Your spot is still available."
         url="https://www.the3rdeyeadvisors.com/checkout/cancel"
       />
-      <div className="min-h-screen bg-black flex items-center justify-center px-6">
+      <div className="min-h-screen bg-transparent flex items-center justify-center px-6">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-white/2 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="relative z-10 max-w-md w-full text-center">

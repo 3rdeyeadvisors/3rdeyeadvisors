@@ -82,7 +82,7 @@ const ModuleViewer = () => {
   const showSignInPrompt = !user;
 
   return (
-    <div className="min-h-screen bg-black pt-20 pb-12">
+    <div className="min-h-screen bg-transparent pt-20 pb-12">
       <OrientationSuggestion />
 
       <div className="flex flex-col lg:flex-row gap-6 max-w-7xl mx-auto px-4 md:px-6 py-6">

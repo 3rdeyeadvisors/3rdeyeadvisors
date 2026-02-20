@@ -29,7 +29,7 @@ const VaultAccess = () => {
         description="Access the exclusive 3EA Enzyme Vault. Three tiers of education and institutional grade DeFi management strategies."
       />
 
-      <div className="min-h-screen bg-black pb-20">
+      <div className="min-h-screen bg-transparent pb-20">
         <PageHero
           eyebrow="The Vault"
           title="Knowledge at Every Level"

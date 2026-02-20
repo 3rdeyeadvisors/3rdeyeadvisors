@@ -222,7 +222,7 @@ const Earn = () => {
         keywords="referral program, earn crypto, affiliate program, defi education"
       />
 
-      <div className="min-h-screen bg-black relative overflow-hidden">
+      <div className="min-h-screen bg-transparent relative overflow-hidden">
         {/* Nebula Glow */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-500/5 blur-[120px] rounded-full pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/5 blur-[100px] rounded-full pointer-events-none" />

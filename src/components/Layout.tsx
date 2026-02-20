@@ -5,6 +5,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { AnimatePresence } from "framer-motion";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
+import GalaxyBackground from "@/components/landing/GalaxyBackground";
 import { usePullToRefresh } from "@/hooks/usePullToRefresh";
 import { PullToRefreshIndicator } from "./ui/pull-to-refresh";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -68,7 +69,8 @@ const Layout = ({ children }: LayoutProps) => {
         isRefreshing={isRefreshing}
         isTriggered={isTriggered}
       />
-      <div className="min-h-screen bg-black flex flex-col">
+      <div className="min-h-screen bg-transparent flex flex-col">
+        <GalaxyBackground />
         <Navigation />
         <main className="pt-16 md:pt-20 flex-1">
           <AnimatePresence mode="wait">

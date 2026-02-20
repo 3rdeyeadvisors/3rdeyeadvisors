@@ -104,7 +104,7 @@ const Contact = () => {
         keywords="contact 3rdeyeadvisors, DeFi education support, financial consciousness contact, crypto education inquiry"
         url="https://www.the3rdeyeadvisors.com/contact"
       />
-      <div className="min-h-screen bg-black overflow-hidden relative">
+      <div className="min-h-screen bg-transparent overflow-hidden relative">
         {/* Nebula Glow */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-500/5 blur-[120px] rounded-full pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/5 blur-[100px] rounded-full pointer-events-none" />

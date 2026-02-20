@@ -2,7 +2,6 @@ import SEO from '@/components/SEO';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Shield, BookOpen, Users, Building, GraduationCap, FileText, ArrowRight, CheckCircle2 } from 'lucide-react';
-import GalaxyBackground from '@/components/landing/GalaxyBackground';
 import AnimatedSection from '@/components/landing/AnimatedSection';
 
 const Institutional = () => {
@@ -14,9 +13,7 @@ const Institutional = () => {
         url="https://www.the3rdeyeadvisors.com/institutional"
       />
 
-      <div className="min-h-screen bg-black relative">
-        <GalaxyBackground />
-
+      <div className="min-h-screen bg-transparent relative">
         <div className="relative z-10">
 
           {/* Hero */}
