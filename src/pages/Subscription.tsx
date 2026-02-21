@@ -11,6 +11,9 @@ import { Check, Crown, Loader2, Sparkles, Calendar, CreditCard, Clock, AlertTria
 import SEO from '@/components/SEO';
 import { PRICING, ANNUAL_BENEFITS, COMMISSION_RATES } from '@/lib/constants';
 
+/**
+ * Subscription Page - Audited for pricing consistency with constants.ts
+ */
 const Subscription = () => {
   const { user, session } = useAuth();
   const { subscription, loading: subLoading, checkSubscription, hasAccess, isTrialing, isDbTrial, daysRemaining, trialExpired } = useSubscription();

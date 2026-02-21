@@ -226,7 +226,7 @@ const Tutorials = () => {
         <PageHero
           eyebrow="Hands-On Learning"
           title="Learn by Doing"
-          subtitle="Twelve hands-on tutorials that walk you through real DeFi actions. Follow along step by step and leave knowing exactly what you did and why."
+          subtitle="Eleven hands-on tutorials that walk you through real DeFi actions. Follow along step by step and leave knowing exactly what you did and why."
         />
 
         <div className="max-w-7xl mx-auto px-6 pb-20 relative z-10">

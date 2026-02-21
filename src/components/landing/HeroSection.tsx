@@ -62,12 +62,12 @@ const HeroSection = () => {
           </div>
           <div className="w-px h-8 bg-white/10 hidden sm:block" />
           <div className="flex items-center gap-2">
-            <span className="font-consciousness text-2xl font-bold text-white/70">5</span>
+            <span className="font-consciousness text-2xl font-bold text-white/70">6</span>
             <span className="font-body text-xs uppercase tracking-wider">Core Courses</span>
           </div>
           <div className="w-px h-8 bg-white/10 hidden sm:block" />
           <div className="flex items-center gap-2">
-            <span className="font-consciousness text-2xl font-bold text-white/70">12+</span>
+            <span className="font-consciousness text-2xl font-bold text-white/70">11+</span>
             <span className="font-body text-xs uppercase tracking-wider">Hands-On Tutorials</span>
           </div>
           <div className="w-px h-8 bg-white/10 hidden sm:block" />

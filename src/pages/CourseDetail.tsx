@@ -181,8 +181,8 @@ const CourseDetail = () => {
           </div>
           <div className="w-px bg-white/10 hidden sm:block" />
           <div>
-            <p className="font-consciousness text-lg font-bold text-white">{(course as any).estimated_hours || '—'}h</p>
-            <p className="font-body text-xs uppercase tracking-widest text-white/40">Est. Duration</p>
+            <p className="font-consciousness text-lg font-bold text-white">{course.estimatedTime || '—'}</p>
+            <p className="font-body text-xs uppercase tracking-widest text-white/40">Duration</p>
           </div>
         </div>
 
@@ -309,7 +309,12 @@ const CourseDetail = () => {
                         {module.title}
                       </h3>
                       <p className="font-body text-xs text-white/40 uppercase tracking-wider mt-0.5">
-                        {module.duration} min • {module.type}
+                        {module.duration} min • {
+                          module.type === 'text' ? 'Reading' :
+                          module.type === 'video' ? 'Video' :
+                          module.type === 'interactive' ? 'Interactive' :
+                          module.type
+                        }
                       </p>
                     </div>
                   </div>

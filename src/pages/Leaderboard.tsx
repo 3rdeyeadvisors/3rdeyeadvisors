@@ -172,7 +172,7 @@ const Leaderboard = () => {
                 </div>
 
                 {/* Desktop: original 3-column podium — hidden on mobile */}
-                <div className="hidden md:grid grid-cols-3 gap-6 items-end">
+                <div className="hidden md:grid grid-cols-3 gap-6 items-end mt-10">
                   {topThree[1] && (
                     <div
                       onClick={() => navigate(`/profile/${topThree[1].user_id}`)}

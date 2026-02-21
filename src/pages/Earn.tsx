@@ -218,7 +218,7 @@ const Earn = () => {
     <>
       <SEO
         title="Earn While You Learn DeFi | 3rdeyeadvisors"
-        description="Earn points, unlock rewards, and earn referral commissions by learning DeFi. Share 3rdeyeadvisors and earn 10 to 70 percent commission."
+        description="Earn points, unlock rewards, and earn referral commissions by learning DeFi. Monthly subscribers earn 50%, annual subscribers earn 60%, Founding 33 members earn 70%."
         keywords="earn crypto education, DeFi referral program, learn to earn, crypto commissions, DeFi rewards"
         url="https://www.the3rdeyeadvisors.com/earn"
       />
@@ -250,7 +250,7 @@ const Earn = () => {
 
             <Card className="bg-white/3 border border-white/8 rounded-2xl p-8 hover:border-violet-500/30 transition-all flex flex-col">
               <h3 className="font-consciousness text-lg font-bold text-white mb-2">Refer Friends</h3>
-              <div className="font-consciousness text-4xl font-bold text-violet-400 mb-4">60% USD</div>
+              <div className="font-consciousness text-4xl font-bold text-violet-400 mb-4">{Math.round(COMMISSION_RATES.annual * 100)}% USD</div>
               <p className="font-body text-sm text-white/50 mb-8 flex-grow">
                 Invite others to join the movement. Earn massive commissions on every successful subscription you refer.
               </p>
@@ -290,8 +290,8 @@ const Earn = () => {
                   </CardTitle>
                   <CardDescription className="font-body text-white/50">
                     {subscription?.plan === 'annual'
-                      ? "As an annual subscriber, you earn 60% on all referrals"
-                      : "Upgrade to annual to unlock 60% commission on all referrals"
+                      ? `As an annual subscriber, you earn ${COMMISSION_RATES.annual * 100}% on all referrals`
+                      : `Upgrade to annual to unlock ${COMMISSION_RATES.annual * 100}% commission on all referrals`
                     }
                   </CardDescription>
                 </div>
@@ -299,7 +299,10 @@ const Earn = () => {
                 <div className="flex flex-col items-end">
                   <span className="font-body text-[10px] uppercase tracking-widest text-white/40 mb-1">Your Rate</span>
                   <div className="font-consciousness text-5xl font-bold text-violet-400">
-                    {subscription?.plan === 'annual' ? '60%' : '50%'}
+                    {subscription?.plan === 'annual'
+                      ? `${COMMISSION_RATES.annual * 100}%`
+                      : `${COMMISSION_RATES.monthly * 100}%`
+                    }
                   </div>
                 </div>
               </div>
@@ -315,8 +318,8 @@ const Earn = () => {
                   <div className="text-right">
                     <div className="font-consciousness text-3xl font-bold text-violet-400">
                       ${subscription?.plan === 'annual' 
-                        ? (PRICING.monthly.amount * 0.6).toFixed(2)
-                        : (PRICING.monthly.amount * 0.5).toFixed(2)
+                        ? (PRICING.monthly.amount * COMMISSION_RATES.annual).toFixed(2)
+                        : (PRICING.monthly.amount * COMMISSION_RATES.monthly).toFixed(2)
                       }
                     </div>
                     <p className="font-body text-[10px] uppercase tracking-widest text-white/40">Earnings</p>
@@ -330,8 +333,8 @@ const Earn = () => {
                   <div className="text-right">
                     <div className="font-consciousness text-3xl font-bold text-violet-400">
                       ${subscription?.plan === 'annual' 
-                        ? (PRICING.annual.amount * 0.6).toFixed(2)
-                        : (PRICING.annual.amount * 0.5).toFixed(2)
+                        ? (PRICING.annual.amount * COMMISSION_RATES.annual).toFixed(2)
+                        : (PRICING.annual.amount * COMMISSION_RATES.monthly).toFixed(2)
                       }
                     </div>
                     <p className="font-body text-[10px] uppercase tracking-widest text-white/40">Earnings</p>
@@ -347,9 +350,9 @@ const Earn = () => {
                       <Crown className="w-5 h-5" />
                     </div>
                     <div className="flex-1">
-                      <p className="font-consciousness text-lg font-bold text-white mb-1">Upgrade to Annual for 60% Commission</p>
+                      <p className="font-consciousness text-lg font-bold text-white mb-1">Upgrade to Annual for {COMMISSION_RATES.annual * 100}% Commission</p>
                       <p className="font-body text-sm text-white/50 leading-relaxed mb-6">
-                        Annual subscribers earn 60% on all referrals instead of 50%. Maximize your earnings across the platform.
+                        Annual subscribers earn {COMMISSION_RATES.annual * 100}% on all referrals instead of {COMMISSION_RATES.monthly * 100}%. Maximize your earnings across the platform.
                       </p>
                       <Button asChild className="font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl px-8 transition-all">
                         <Link to="/subscription">Upgrade Now</Link>
@@ -403,9 +406,9 @@ const Earn = () => {
                   {/* Commission rates */}
                   <div className="grid grid-cols-3 gap-3 mb-6">
                     {[
-                      { tier: "Monthly Member", rate: "10%", color: "text-white/60" },
-                      { tier: "Annual Member", rate: "20%", color: "text-violet-400" },
-                      { tier: "Founding 33", rate: "70%", color: "text-amber-400" },
+                      { tier: "Monthly Member", rate: `${COMMISSION_RATES.monthly * 100}%`, color: "text-white/60" },
+                      { tier: "Annual Member", rate: `${COMMISSION_RATES.annual * 100}%`, color: "text-violet-400" },
+                      { tier: "Founding 33", rate: `${COMMISSION_RATES.founding_33 * 100}%`, color: "text-amber-400" },
                     ].map((item) => (
                       <div key={item.tier} className="text-center p-3 bg-white/3 rounded-xl border border-white/8">
                         <p className={`font-consciousness text-xl sm:text-2xl font-bold ${item.color} mb-1`}>{item.rate}</p>
