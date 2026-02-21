@@ -426,13 +426,15 @@ export const EnhancedContentPlayer = ({
                 Quiz Available
               </Badge>
             )}
-            <button
-              onClick={() => setShowAudio(true)}
-              className="flex items-center gap-2 font-body text-xs text-white/50 hover:text-violet-400 transition-colors bg-white/5 hover:bg-white/8 border border-white/10 hover:border-violet-500/30 rounded-xl px-3 py-2"
-            >
-              <Volume2 className="w-3.5 h-3.5" />
-              Listen
-            </button>
+            {module.content.text && module.content.text.trim().length > 200 && (
+              <button
+                onClick={() => setShowAudio(true)}
+                className="flex items-center gap-2 font-body text-xs text-white/50 hover:text-violet-400 transition-colors bg-white/5 hover:bg-white/8 border border-white/10 hover:border-violet-500/30 rounded-xl px-3 py-2"
+              >
+                <Volume2 className="w-3.5 h-3.5" />
+                Listen
+              </button>
+            )}
           </div>
           
           <div className="flex items-center justify-center md:justify-end gap-1.5 sm:gap-2">
@@ -692,7 +694,7 @@ export const EnhancedContentPlayer = ({
           </div>
         )}
       </div>
-      {showAudio && module.content.text && (
+      {showAudio && module.content.text && module.content.text.trim().length > 200 && (
         <AudioPlayer
           text={module.content.text}
           title={module.title}
