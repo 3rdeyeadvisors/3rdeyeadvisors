@@ -14,7 +14,7 @@ const ReferralTerms = () => {
         keywords="referral terms, affiliate program terms, commission terms"
       />
 
-      <div className="min-h-screen bg-background py-16 md:py-20 px-6">
+      <div className="min-h-screen bg-black py-16 md:py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-4 text-center">
             Referral Program Terms & Conditions

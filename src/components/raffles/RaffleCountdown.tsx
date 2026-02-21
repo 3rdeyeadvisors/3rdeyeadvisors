@@ -50,7 +50,7 @@ const RaffleCountdown = ({ endDate }: RaffleCountdownProps) => {
       <div className="bg-primary/10 rounded-lg px-2 sm:px-4 py-2 sm:py-3 min-w-[50px] sm:min-w-[70px] text-center">
         <span className="text-lg sm:text-2xl font-bold text-primary">{value.toString().padStart(2, '0')}</span>
       </div>
-      <span className="text-[10px] sm:text-xs text-muted-foreground mt-1">{label}</span>
+      <span className="text-[10px] sm:text-xs text-white/50 mt-1">{label}</span>
     </div>
   );
 
@@ -59,11 +59,11 @@ const RaffleCountdown = ({ endDate }: RaffleCountdownProps) => {
       <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
       <div className="flex items-center justify-center gap-1 sm:gap-2">
         <TimeBlock value={timeRemaining.days} label="Days" />
-        <span className="text-lg sm:text-2xl font-bold text-muted-foreground">:</span>
+        <span className="text-lg sm:text-2xl font-bold text-white/50">:</span>
         <TimeBlock value={timeRemaining.hours} label="Hours" />
-        <span className="text-lg sm:text-2xl font-bold text-muted-foreground">:</span>
+        <span className="text-lg sm:text-2xl font-bold text-white/50">:</span>
         <TimeBlock value={timeRemaining.minutes} label="Min" />
-        <span className="text-lg sm:text-2xl font-bold text-muted-foreground">:</span>
+        <span className="text-lg sm:text-2xl font-bold text-white/50">:</span>
         <TimeBlock value={timeRemaining.seconds} label="Sec" />
       </div>
     </div>

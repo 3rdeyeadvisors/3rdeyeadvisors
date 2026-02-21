@@ -20,7 +20,7 @@ export const TermDefinition: React.FC<TermDefinitionProps> = ({ term, definition
           <Info className="w-3 h-3 opacity-70" />
         </span>
       </PopoverTrigger>
-      <PopoverContent className="w-80 p-4 bg-card border-border shadow-xl z-[10001]">
+      <PopoverContent className="w-80 p-4 bg-white/3 border-white/8 shadow-xl z-[10001]">
         <div className="space-y-2">
           <h4 className="font-consciousness font-bold text-primary">{term}</h4>
           <p className="text-sm text-foreground/90 leading-relaxed">

@@ -169,28 +169,28 @@ const RwaOvertakesDex2025 = () => {
                 </BlogParagraph>
 
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
-                  <div className="bg-muted/30 rounded-lg p-5">
+                  <div className="bg-white/5 rounded-lg p-5">
                     <h3 className="text-lg font-semibold text-foreground mb-3">Ondo Finance</h3>
                     <p className="text-foreground/80 text-sm leading-relaxed">
                       Leading tokenized treasury provider with products like USDY and OUSG for on-chain government bond exposure.
                     </p>
                   </div>
 
-                  <div className="bg-muted/30 rounded-lg p-5">
+                  <div className="bg-white/5 rounded-lg p-5">
                     <h3 className="text-lg font-semibold text-foreground mb-3">BlackRock BUIDL</h3>
                     <p className="text-foreground/80 text-sm leading-relaxed">
                       Institutional-grade tokenized money market fund bringing TradFi credibility to on-chain assets.
                     </p>
                   </div>
 
-                  <div className="bg-muted/30 rounded-lg p-5">
+                  <div className="bg-white/5 rounded-lg p-5">
                     <h3 className="text-lg font-semibold text-foreground mb-3">Maple Finance</h3>
                     <p className="text-foreground/80 text-sm leading-relaxed">
                       Institutional lending protocol connecting corporate borrowers with on-chain capital.
                     </p>
                   </div>
 
-                  <div className="bg-muted/30 rounded-lg p-5">
+                  <div className="bg-white/5 rounded-lg p-5">
                     <h3 className="text-lg font-semibold text-foreground mb-3">Centrifuge</h3>
                     <p className="text-foreground/80 text-sm leading-relaxed">
                       Infrastructure for tokenizing real-world assets including invoices, real estate, and supply chain finance.

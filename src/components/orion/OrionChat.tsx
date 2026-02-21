@@ -75,7 +75,7 @@ const OrionChat = () => {
             transition={{ type: "spring", damping: 20, stiffness: 300 }}
             className="absolute bottom-16 right-0 w-64 md:w-72"
           >
-            <div className="relative bg-card border border-white/8 rounded-2xl rounded-br-sm p-4 shadow-xl">
+            <div className="relative bg-white/3 border border-white/8 rounded-2xl rounded-br-sm p-4 shadow-xl">
               <button
                 onClick={dismissGreeting}
                 className="absolute top-2 right-2 p-1 rounded-full hover:bg-white/5 transition-colors"
@@ -94,7 +94,7 @@ const OrionChat = () => {
               </Button>
             </div>
             {/* Bubble pointer */}
-            <div className="absolute -bottom-2 right-6 w-4 h-4 bg-card border-r border-b border-white/8 transform rotate-45" />
+            <div className="absolute -bottom-2 right-6 w-4 h-4 bg-white/3 border-r border-b border-white/8 transform rotate-45" />
           </motion.div>
         )}
       </AnimatePresence>
@@ -107,7 +107,7 @@ const OrionChat = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="absolute bottom-16 right-0 w-[calc(100vw-2rem)] max-w-sm md:w-96 bg-card border border-white/8 rounded-2xl shadow-2xl overflow-hidden"
+            className="absolute bottom-16 right-0 w-[calc(100vw-2rem)] max-w-sm md:w-96 bg-white/3 border border-white/8 rounded-2xl shadow-2xl overflow-hidden"
           >
             {/* Header */}
             <div className="flex items-center justify-between p-4 border-b border-white/8 bg-white/5">

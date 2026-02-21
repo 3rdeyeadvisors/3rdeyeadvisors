@@ -107,7 +107,7 @@ const Subscription = () => {
         keywords="defi subscription, crypto education, blockchain courses, defi membership"
       />
 
-      <div className="min-h-screen bg-background py-16 md:py-20 px-6">
+      <div className="min-h-screen bg-black py-16 md:py-20 px-6">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12 md:mb-16">

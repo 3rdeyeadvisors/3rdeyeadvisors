@@ -437,10 +437,10 @@ export const Comments = ({ contentType, contentId, title }: CommentsProps) => {
     return (
       <div className="space-y-4">
         <div className="animate-pulse">
-          <div className="h-4 bg-muted rounded w-1/4 mb-4"></div>
+          <div className="h-4 bg-white/5 rounded w-1/4 mb-4"></div>
           <div className="space-y-3">
-            <div className="h-20 bg-muted rounded"></div>
-            <div className="h-20 bg-muted rounded"></div>
+            <div className="h-20 bg-white/5 rounded"></div>
+            <div className="h-20 bg-white/5 rounded"></div>
           </div>
         </div>
       </div>
@@ -509,8 +509,8 @@ export const Comments = ({ contentType, contentId, title }: CommentsProps) => {
         ) : (
           <Card>
             <CardContent className="p-8 text-center">
-              <MessageSquare className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-              <p className="text-muted-foreground">
+              <MessageSquare className="w-12 h-12 text-white/50 mx-auto mb-4" />
+              <p className="text-white/50">
                 No comments yet. Be the first to share your thoughts!
               </p>
             </CardContent>

@@ -213,16 +213,16 @@ export const IQTest: React.FC<{ onComplete: (iq: number, score: number) => void 
           <Award className="w-24 h-24 text-primary mx-auto mb-4 glow-primary" />
           <h2 className="text-4xl font-bold mb-2 font-consciousness">Assessment Complete</h2>
           <div className="text-6xl font-bold text-primary my-6 tracking-tighter">IQ {roundedIQ}</div>
-          <p className="text-xl text-muted-foreground mb-8">{getDescription(roundedIQ)}</p>
+          <p className="text-xl text-white/50 mb-8">{getDescription(roundedIQ)}</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
           <Card className="p-4 bg-primary/5 border-primary/20">
-            <p className="text-sm text-muted-foreground">World Percentile</p>
+            <p className="text-sm text-white/50">World Percentile</p>
             <p className="text-2xl font-bold">Top {getPercentile(roundedIQ)}</p>
           </Card>
           <Card className="p-4 bg-primary/5 border-primary/20">
-            <p className="text-sm text-muted-foreground">Accuracy</p>
+            <p className="text-sm text-white/50">Accuracy</p>
             <p className="text-2xl font-bold">{Math.round((answers.filter((ans, idx) => ans === QUESTIONS[idx].correct).length / QUESTIONS.length) * 100)}%</p>
           </Card>
         </div>
@@ -248,7 +248,7 @@ export const IQTest: React.FC<{ onComplete: (iq: number, score: number) => void 
           </Button>
         </div>
 
-        <p className="text-xs text-muted-foreground max-w-md italic mt-4">
+        <p className="text-xs text-white/50 max-w-md italic mt-4">
           Disclaimer: This is a simplified cognitive assessment for entertainment and educational purposes.
           Actual clinical IQ tests are much more comprehensive.
         </p>
@@ -301,7 +301,7 @@ export const IQTest: React.FC<{ onComplete: (iq: number, score: number) => void 
         </motion.div>
       </AnimatePresence>
 
-      <div className="flex items-center gap-2 justify-center text-muted-foreground text-sm">
+      <div className="flex items-center gap-2 justify-center text-white/50 text-sm">
         <CheckCircle2 className="w-4 h-4" />
         Scientifically-inspired cognitive assessment
       </div>

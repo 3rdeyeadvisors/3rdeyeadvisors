@@ -380,11 +380,11 @@ const DefaiRevolution2025 = () => {
               Listen to this article
             </button>
 
-            <p className="text-lg text-muted-foreground font-consciousness mb-6 leading-relaxed">
+            <p className="text-lg text-white/50 font-consciousness mb-6 leading-relaxed">
               {blogPost.excerpt}
             </p>
 
-            <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-6 text-sm text-white/50">
               <div className="flex items-center gap-2">
                 <User className="w-4 h-4" />
                 <span>{BRAND_AUTHOR}</span>
@@ -400,7 +400,7 @@ const DefaiRevolution2025 = () => {
             </div>
 
             {/* Key highlights */}
-            <div className="mt-6 p-4 bg-background/50 rounded-lg border border-primary/10">
+            <div className="mt-6 p-4 bg-white/5 rounded-lg border border-primary/10">
               <div className="flex items-center gap-2 mb-3">
                 <Zap className="w-5 h-5 text-primary" />
                 <span className="font-semibold text-sm">Key Highlights</span>
@@ -436,7 +436,7 @@ const DefaiRevolution2025 = () => {
             <div className="mt-12 p-6 bg-gradient-consciousness rounded-lg border border-primary/20">
               <div className="text-center">
                 <h3 className="text-xl font-consciousness font-bold mb-3">Ready to Explore DeFAI?</h3>
-                <p className="text-muted-foreground mb-4">
+                <p className="text-white/50 mb-4">
                   Master the fundamentals of DeFi before diving into AI-powered strategies. Our comprehensive courses will prepare you for the DeFAI revolution.
                 </p>
                 <div className="flex flex-wrap justify-center gap-3">

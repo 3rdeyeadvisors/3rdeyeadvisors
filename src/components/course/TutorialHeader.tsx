@@ -35,7 +35,7 @@ export const TutorialHeader = ({
       case "Advanced":
         return "bg-primary-glow/20 text-primary-glow border-primary-glow/30";
       default:
-        return "bg-muted/20 text-muted-foreground border-border";
+        return "bg-white/3 text-white/50 border-white/8";
     }
   };
 
@@ -52,7 +52,7 @@ export const TutorialHeader = ({
       </Button>
 
       {/* Header Card */}
-      <div className="bg-card border border-border rounded-lg p-4 md:p-6">
+      <div className="bg-white/3 border border-white/8 rounded-lg p-4 md:p-6">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
           <div className="flex items-center gap-3">
             <div className="p-2 rounded-lg bg-primary/20">
@@ -64,8 +64,8 @@ export const TutorialHeader = ({
                 <Badge className={getDifficultyColor(difficulty)} variant="outline">
                   {difficulty}
                 </Badge>
-                <span className="text-sm text-muted-foreground">• {duration}</span>
-                <span className="text-sm text-muted-foreground">
+                <span className="text-sm text-white/50">• {duration}</span>
+                <span className="text-sm text-white/50">
                   • Step {currentStep} of {totalSteps}
                 </span>
               </div>
@@ -76,7 +76,7 @@ export const TutorialHeader = ({
         {/* Progress Bar */}
         <div className="space-y-2">
           <div className="flex justify-between text-sm">
-            <span className="text-muted-foreground">Progress</span>
+            <span className="text-white/50">Progress</span>
             <span className="font-medium text-foreground">
               {completedSteps.length}/{totalSteps} steps completed
             </span>

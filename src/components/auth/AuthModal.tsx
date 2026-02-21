@@ -225,7 +225,7 @@ export const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
                   required
                   minLength={8}
                 />
-                <p className="text-xs text-muted-foreground mt-1">
+                <p className="text-xs text-white/50 mt-1">
                   Password must be at least 8 characters and include uppercase, lowercase, and a number
                 </p>
               </div>

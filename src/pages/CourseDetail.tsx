@@ -242,7 +242,7 @@ const CourseDetail = () => {
                   <h3 className="font-consciousness font-semibold text-foreground mb-2 text-sm sm:text-base break-words">
                     Track Your Progress
                   </h3>
-                  <p className="text-muted-foreground font-consciousness text-xs sm:text-sm break-words leading-relaxed">
+                  <p className="text-white/50 font-consciousness text-xs sm:text-sm break-words leading-relaxed">
                     Sign in to save your progress and earn completion badges.
                   </p>
                 </div>
@@ -334,7 +334,7 @@ const CourseDetail = () => {
             <h3 className="text-xl font-consciousness font-semibold text-primary mb-2">
               Course Complete! 🎉
             </h3>
-            <p className="text-muted-foreground font-consciousness">
+            <p className="text-white/50 font-consciousness">
               Congratulations on completing this course. You've taken an important step in your DeFi journey.
             </p>
           </Card>

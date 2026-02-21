@@ -26,7 +26,7 @@ export const PointsBadge = ({ showRank = false }: PointsBadgeProps) => {
       <Star className="w-3 h-3 mr-1" />
       {totalPoints.toLocaleString()}
       {showRank && rank && rank.rank > 0 && (
-        <span className="ml-1 text-muted-foreground">#{rank.rank}</span>
+        <span className="ml-1 text-white/50">#{rank.rank}</span>
       )}
     </Badge>
   );

@@ -117,7 +117,7 @@ export const MemoryMatch: React.FC<{ onComplete: (score: number) => void }> = ({
                   animate={{ rotateY: 0, opacity: 1 }}
                   exit={{ rotateY: -180, opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="w-full h-full bg-card border-2 border-border rounded-xl flex items-center justify-center text-primary"
+                  className="w-full h-full bg-white/3 border-2 border-white/8 rounded-xl flex items-center justify-center text-primary"
                 >
                   <Brain className="w-8 h-8 opacity-20" />
                 </motion.div>
@@ -134,7 +134,7 @@ export const MemoryMatch: React.FC<{ onComplete: (score: number) => void }> = ({
           className="text-center mt-4"
         >
           <h3 className="text-2xl font-bold text-primary glow-text">Congratulations!</h3>
-          <p className="text-muted-foreground">You matched all pairs in {moves} moves.</p>
+          <p className="text-white/50">You matched all pairs in {moves} moves.</p>
         </motion.div>
       )}
     </div>

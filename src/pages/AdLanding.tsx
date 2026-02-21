@@ -26,7 +26,7 @@ const AdLanding = () => {
       <div className="min-h-screen w-full overflow-x-hidden">
         {/* SECTION 1: Hook */}
         <section className="relative py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 w-full overflow-hidden">
-          <div className="absolute inset-0 bg-background" />
+          <div className="absolute inset-0 bg-black" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/0.15),transparent_70%)]" />
           
           <div className="relative max-w-4xl mx-auto text-center w-full">
@@ -68,7 +68,7 @@ const AdLanding = () => {
               </p>
             </div>
 
-            <Card className="border-primary/30 bg-card backdrop-blur w-full">
+            <Card className="border-primary/30 bg-white/3 backdrop-blur w-full">
               <CardContent className="p-6 sm:p-8 md:p-10">
                 <div className="grid gap-4 sm:gap-6">
                   {[
@@ -138,7 +138,7 @@ const AdLanding = () => {
                   description: "Unlock XP, rewards, and new layers as you learn and participate."
                 }
               ].map((item, index) => (
-                <Card key={index} className="border-primary/30 bg-card backdrop-blur hover:border-primary/50 transition-all duration-300 w-full">
+                <Card key={index} className="border-primary/30 bg-white/3 backdrop-blur hover:border-primary/50 transition-all duration-300 w-full">
                   <CardContent className="p-6 sm:p-8">
                     <div className="text-4xl sm:text-5xl font-consciousness font-bold text-primary/50 mb-4">
                       {item.step}
@@ -177,7 +177,7 @@ const AdLanding = () => {
               </h2>
             </div>
 
-            <Card className="border-primary/30 bg-card backdrop-blur w-full">
+            <Card className="border-primary/30 bg-white/3 backdrop-blur w-full">
               <CardContent className="p-8 sm:p-10 md:p-12">
                 <p className="text-base sm:text-lg md:text-xl text-card-foreground leading-relaxed mb-6">
                   3EA is not a trading group or hype project. We don't promise overnight riches or "secret strategies."
@@ -195,7 +195,7 @@ const AdLanding = () => {
 
         {/* SECTION 5: Final CTA */}
         <section className="relative py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 w-full overflow-hidden">
-          <div className="absolute inset-0 bg-background" />
+          <div className="absolute inset-0 bg-black" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/0.15),transparent_70%)]" />
           
           <div className="relative max-w-4xl mx-auto text-center w-full">

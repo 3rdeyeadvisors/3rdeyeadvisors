@@ -250,11 +250,11 @@ Whether you're a gamer looking to monetize your skills, an investor seeking new 
               Listen to this article
             </button>
 
-            <p className="text-lg text-muted-foreground font-consciousness mb-6 leading-relaxed">
+            <p className="text-lg text-white/50 font-consciousness mb-6 leading-relaxed">
               {blogPost.excerpt}
             </p>
 
-            <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-6 text-sm text-white/50">
               <div className="flex items-center gap-2">
                 <User className="w-4 h-4" />
                 <span>{BRAND_AUTHOR}</span>

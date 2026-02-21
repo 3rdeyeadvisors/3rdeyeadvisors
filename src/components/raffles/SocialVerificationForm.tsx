@@ -95,7 +95,7 @@ const SocialVerificationForm = ({
             <h4 className="font-semibold text-sm mb-1">
               {platform} Verification
             </h4>
-            <p className="text-xs text-muted-foreground mb-2">
+            <p className="text-xs text-white/50 mb-2">
               Follow {platformHandle} and share/retweet content
             </p>
             <a
@@ -120,7 +120,7 @@ const SocialVerificationForm = ({
             <CheckCircle2 className="w-5 h-5 text-green-500" />
             <div>
               <p className="text-sm font-semibold text-green-500">✅ Verified</p>
-              <p className="text-xs text-muted-foreground">@{existingUsername}</p>
+              <p className="text-xs text-white/50">@{existingUsername}</p>
             </div>
           </div>
         ) : verificationStatus === 'submitted' && !isEditing ? (
@@ -129,7 +129,7 @@ const SocialVerificationForm = ({
               <Clock className="w-5 h-5 text-yellow-500" />
               <div className="flex-1">
                 <p className="text-sm font-semibold text-yellow-500">⏳ Pending Verification</p>
-                <p className="text-xs text-muted-foreground">@{existingUsername}</p>
+                <p className="text-xs text-white/50">@{existingUsername}</p>
               </div>
             </div>
             <Button 

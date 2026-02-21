@@ -160,7 +160,7 @@ const NewsletterSignup = ({ variant = "default", className = "" }: NewsletterSig
             <h3 className="text-xl font-consciousness font-bold text-foreground mb-2">
               Stay ahead of the curve
             </h3>
-            <p className="text-muted-foreground font-consciousness">
+            <p className="text-white/50 font-consciousness">
               Weekly DeFi education, platform updates, and insights delivered to your inbox.
             </p>
           </div>

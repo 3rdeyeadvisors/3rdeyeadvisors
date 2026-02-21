@@ -412,7 +412,7 @@ const VaultDepositTutorial = () => {
             <div className="bg-white/5 rounded-lg p-3 md:p-4 space-y-2">
               <p className="text-xs md:text-sm font-medium">Vault Token Contract Address:</p>
               <div className="flex items-center gap-2">
-                <code className="flex-1 text-[10px] md:text-sm bg-background rounded px-2 md:px-3 py-2 overflow-x-auto break-all">
+                <code className="flex-1 text-[10px] md:text-sm bg-black rounded px-2 md:px-3 py-2 overflow-x-auto break-all">
                   {VAULT_TOKEN_ADDRESS}
                 </code>
                 <Button 

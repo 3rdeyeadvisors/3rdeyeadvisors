@@ -441,10 +441,10 @@ export const QASection = ({ courseId, moduleId }: QASectionProps) => {
     return (
       <Card className="p-6">
         <div className="animate-pulse space-y-4">
-          <div className="h-4 bg-muted rounded w-1/3"></div>
+          <div className="h-4 bg-white/5 rounded w-1/3"></div>
           <div className="space-y-3">
-            <div className="h-4 bg-muted rounded"></div>
-            <div className="h-4 bg-muted rounded w-5/6"></div>
+            <div className="h-4 bg-white/5 rounded"></div>
+            <div className="h-4 bg-white/5 rounded w-5/6"></div>
           </div>
         </div>
       </Card>
@@ -514,7 +514,7 @@ export const QASection = ({ courseId, moduleId }: QASectionProps) => {
         {/* Questions List */}
         <div className="space-y-6 pt-2">
           {questions.length === 0 ? (
-            <div className="text-center py-8 text-muted-foreground">
+            <div className="text-center py-8 text-white/50">
               <HelpCircle className="w-12 h-12 mx-auto mb-3 opacity-50" />
               <p className="font-consciousness text-sm">No questions yet. Be the first to ask!</p>
             </div>
@@ -636,7 +636,7 @@ export const QASection = ({ courseId, moduleId }: QASectionProps) => {
                     .map((reply) => (
                     <Card 
                       key={reply.id} 
-                      className={`p-3 ${reply.is_solution ? 'bg-success/10 border-success/30' : 'bg-muted/20'}`}
+                      className={`p-3 ${reply.is_solution ? 'bg-success/10 border-success/30' : 'bg-white/3'}`}
                     >
                       <div className="flex items-start gap-2">
                         <Avatar className="w-6 h-6">
@@ -653,7 +653,7 @@ export const QASection = ({ courseId, moduleId }: QASectionProps) => {
                                 </span>
                                 {foundingMembers.has(reply.user_id) && <FoundingMemberBadge className="w-3 h-3" />}
                               </div>
-                              <span className="text-xs text-muted-foreground">
+                              <span className="text-xs text-white/50">
                                 {formatDistanceToNow(new Date(reply.created_at), { addSuffix: true })}
                               </span>
                               {reply.is_solution && (

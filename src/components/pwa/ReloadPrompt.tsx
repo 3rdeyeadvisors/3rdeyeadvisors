@@ -116,7 +116,7 @@ function ReloadPrompt() {
   if (!offlineReady && !needRefresh) return null;
 
   return (
-    <div className="fixed bottom-4 right-4 z-[100] p-3 rounded-lg bg-card border border-border shadow-cosmic animate-in fade-in slide-in-from-bottom-4 duration-300">
+    <div className="fixed bottom-4 right-4 z-[100] p-3 rounded-lg bg-white/3 border border-white/8 shadow-cosmic animate-in fade-in slide-in-from-bottom-4 duration-300">
       <div className="flex flex-col gap-3">
         <div className="text-sm font-consciousness">
           {offlineReady ? (

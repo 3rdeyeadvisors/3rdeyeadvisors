@@ -103,7 +103,7 @@ export const MathSprint: React.FC<{ onComplete: (score: number) => void }> = ({ 
         </div>
       </div>
 
-      <div className="w-full aspect-video bg-card border-2 border-border rounded-3xl flex flex-col items-center justify-center relative overflow-hidden">
+      <div className="w-full aspect-video bg-white/3 border-2 border-white/8 rounded-3xl flex flex-col items-center justify-center relative overflow-hidden">
         <AnimatePresence>
           {feedback === 'correct' && (
             <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1.2 }} exit={{ opacity: 0 }} className="absolute inset-0 bg-green-500/10 flex items-center justify-center z-10">
@@ -136,7 +136,7 @@ export const MathSprint: React.FC<{ onComplete: (score: number) => void }> = ({ 
               type="number"
               value={userInput}
               onChange={(e) => setUserInput(e.target.value)}
-              className="text-center text-3xl h-16 bg-background/50 border-primary/30 focus:border-primary"
+              className="text-center text-3xl h-16 bg-white/5 border-primary/30 focus:border-primary"
               placeholder="Answer"
             />
           </motion.form>
@@ -151,7 +151,7 @@ export const MathSprint: React.FC<{ onComplete: (score: number) => void }> = ({ 
         )}
       </div>
 
-      <p className="text-xs text-muted-foreground text-center italic">
+      <p className="text-xs text-white/50 text-center italic">
         Speed and accuracy are the keys to mental agility.
       </p>
     </div>

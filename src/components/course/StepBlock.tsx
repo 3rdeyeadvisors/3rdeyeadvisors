@@ -8,7 +8,7 @@ interface StepBlockProps {
 
 export const StepBlock = ({ steps, title }: StepBlockProps) => {
   return (
-    <Card className="border-muted bg-muted/10 w-full">
+    <Card className="border-muted bg-white/3 w-full">
       <CardContent className="px-4 py-4 sm:px-6 sm:py-5 space-y-3">
         {title && <h4 className="font-semibold mb-3 text-sm sm:text-base break-words">{title}</h4>}
         <ol className="space-y-3">
