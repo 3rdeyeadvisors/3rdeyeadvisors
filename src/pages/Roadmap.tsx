@@ -101,7 +101,7 @@ const Roadmap = () => {
                 </div>
               ) : !canVote ? (
                 <div className="pt-2">
-                  <p className="text-xs sm:text-sm text-muted-foreground mb-2">
+                  <p className="font-body text-xs sm:text-sm text-white/50 mb-2">
                     Upgrade to Annual or join Founding 33 to unlock voting
                   </p>
                   <Button asChild variant="outline" size="sm">
@@ -169,7 +169,7 @@ const Roadmap = () => {
                 </p>
               </div>
             ) : (
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-stretch">
                 {filteredItems.map((item) => (
                   <RoadmapCard
                     key={item.id}
@@ -204,7 +204,7 @@ const Roadmap = () => {
                 <h2 className="text-xl md:text-2xl font-consciousness font-bold mb-2">
                   Have a Feature Idea?
                 </h2>
-                <p className="text-sm text-muted-foreground max-w-md mx-auto">
+                <p className="font-body text-sm text-white/50 max-w-md mx-auto">
                   Premium members can submit ideas for consideration. Popular suggestions may be promoted to the public roadmap.
                 </p>
               </div>

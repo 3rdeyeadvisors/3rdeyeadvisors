@@ -29,7 +29,7 @@ interface RoadmapCardProps {
 const statusConfig = {
   proposed: {
     label: 'Proposed',
-    className: 'bg-muted text-muted-foreground border-muted',
+    className: 'bg-white/8 text-white/50 border-white/15',
   },
   in_progress: {
     label: 'In Progress',
@@ -223,7 +223,7 @@ export const RoadmapCard = ({
   return (
     <>
       <div
-        className="bg-white/3 border border-white/8 rounded-2xl p-5 hover:border-violet-500/20 transition-all cursor-pointer h-full flex flex-col group"
+        className="bg-white/3 border border-white/8 rounded-2xl p-5 hover:border-violet-500/20 transition-all cursor-pointer h-full flex flex-col group overflow-hidden"
         onClick={handleCardClick}
       >
         <div className="flex items-start justify-between gap-4 mb-4">
@@ -250,12 +250,12 @@ export const RoadmapCard = ({
             </p>
             <p className="font-body text-[10px] uppercase tracking-widest text-white/40">Net Votes</p>
           </div>
-          <div className="flex-1 max-w-[160px]">
+          <div className="flex-1 min-w-0">
             <VotingButtons />
           </div>
         </div>
 
-        <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-between">
+        <div className="mt-4 pt-4 border-t border-white/5 flex flex-wrap items-center justify-between gap-2">
           <VoteWeightBadge />
           {!isCompleted && timeRemaining && (
             <span className={`font-body text-[10px] uppercase tracking-widest ${timeRemaining.urgent ? 'text-amber-400' : 'text-white/40'}`}>
@@ -282,10 +282,10 @@ export const RoadmapCard = ({
               {!isCompleted && timeRemaining && (
                 <div className={`flex items-center gap-1 text-xs ${
                   timeRemaining.expired
-                    ? 'text-muted-foreground'
+                    ? 'text-white/50'
                     : timeRemaining.urgent
                       ? 'text-amber-400'
-                      : 'text-muted-foreground'
+                      : 'text-white/50'
                 }`}>
                   {timeRemaining.urgent && !timeRemaining.expired ? (
                     <AlertTriangle className="w-3 h-3" />
@@ -301,18 +301,18 @@ export const RoadmapCard = ({
           <div className="space-y-4 mt-4">
             {/* Full Description */}
             {description && (
-              <DialogDescription className="text-sm text-foreground/80 leading-relaxed whitespace-pre-wrap">
+              <DialogDescription className="text-sm text-white/70 leading-relaxed whitespace-pre-wrap">
                 {description}
               </DialogDescription>
             )}
 
             {/* Vote Progress */}
-            <div className="space-y-2 p-4 rounded-lg bg-muted/30 border border-border/50">
+            <div className="space-y-2 p-4 rounded-lg bg-white/5 border border-white/8">
               <div className="flex items-center justify-between text-sm">
-                <span className="text-muted-foreground">Current Support</span>
+                <span className="text-white/50">Current Support</span>
                 <span className="font-medium">
                   <span className="text-emerald-400">+{yesVotes} yes</span>
-                  <span className="text-muted-foreground mx-2">|</span>
+                  <span className="text-white/50 mx-2">|</span>
                   <span className="text-red-400">-{noVotes} no</span>
                 </span>
               </div>
@@ -328,7 +328,7 @@ export const RoadmapCard = ({
             <div className="flex items-center justify-center gap-3 flex-wrap">
               <VoteWeightBadge />
               {userVoteType && (
-                <span className="text-sm text-muted-foreground">
+                <span className="text-sm text-white/50">
                   Your vote: <span className={userVoteType === 'yes' ? 'text-emerald-400' : 'text-red-400'}>
                     {userVoteType === 'yes' ? 'Yes (Support)' : 'No (Oppose)'}
                   </span>
