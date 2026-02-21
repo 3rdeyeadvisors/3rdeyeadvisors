@@ -613,7 +613,7 @@ const SpottingScamsTutorial = () => {
       case "Critical": return "text-destructive bg-destructive/10 border-destructive/50";
       case "High": return "text-destructive bg-destructive/10 border-destructive/30";
       case "Medium": return "text-accent bg-accent/10 border-accent/30";
-      default: return "text-muted-foreground bg-muted border-border";
+      default: return "text-white/50 bg-white/5 border-white/8";
     }
   };
 
@@ -640,7 +640,7 @@ const SpottingScamsTutorial = () => {
             </div>
             <div>
               <h1 className="text-3xl font-bold">Spotting DeFi Scams</h1>
-              <p className="text-muted-foreground">Essential security skills for safe DeFi navigation</p>
+              <p className="text-white/50">Essential security skills for safe DeFi navigation</p>
             </div>
           </div>
 
@@ -733,7 +733,7 @@ const SpottingScamsTutorial = () => {
             </CardHeader>
 
             <CardContent className="space-y-4 md:space-y-6 p-4 md:p-6">
-              <p className="text-muted-foreground text-sm md:text-base">{currentStepData.content.overview}</p>
+              <p className="text-white/50 text-sm md:text-base">{currentStepData.content.overview}</p>
 
               {/* Step 1: Common Scam Types */}
               {currentStep === 1 && (
@@ -774,7 +774,7 @@ const SpottingScamsTutorial = () => {
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-center sm:text-left">
                             <div className="min-w-0">
                               <p className="font-medium mb-0.5 text-xs md:text-sm">Scammer's goal:</p>
-                              <p className="text-muted-foreground break-words text-xs md:text-sm">{scam.goal}</p>
+                              <p className="text-white/50 break-words text-xs md:text-sm">{scam.goal}</p>
                             </div>
                             <div className="min-w-0">
                               <p className="font-medium mb-0.5 text-xs md:text-sm">Example:</p>
@@ -869,7 +869,7 @@ const SpottingScamsTutorial = () => {
                         <Card key={index} className="border-l-4 border-destructive/50">
                           <CardContent className="p-3 md:p-4 text-center sm:text-left">
                             <h4 className="font-medium mb-1 text-sm md:text-base text-destructive">{request.type}</h4>
-                            <p className="text-xs md:text-sm text-muted-foreground mb-2 break-words">{request.description}</p>
+                            <p className="text-xs md:text-sm text-white/50 mb-2 break-words">{request.description}</p>
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-2 text-xs md:text-sm">
                               <div className="min-w-0">
                                 <div className="flex items-center gap-1 mb-0.5 justify-center sm:justify-start">
@@ -911,7 +911,7 @@ const SpottingScamsTutorial = () => {
                               </Badge>
                               <div className="flex-1 min-w-0">
                                 <h4 className="font-medium mb-1 text-sm md:text-base break-words">{analysis.step}</h4>
-                                <p className="text-xs md:text-sm text-muted-foreground mb-1.5 break-words">{analysis.what}</p>
+                                <p className="text-xs md:text-sm text-white/50 mb-1.5 break-words">{analysis.what}</p>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs md:text-sm">
                                   <div className="min-w-0">
                                     <span className="font-medium text-destructive">⚠️ Red Flag: </span>
@@ -945,11 +945,11 @@ const SpottingScamsTutorial = () => {
                             <div className="space-y-2 text-xs md:text-sm">
                               <div className="min-w-0">
                                 <span className="font-medium">Scenario: </span>
-                                <span className="text-muted-foreground break-words">{tactic.scenario}</span>
+                                <span className="text-white/50 break-words">{tactic.scenario}</span>
                               </div>
                               <div className="min-w-0">
                                 <span className="font-medium">Approach: </span>
-                                <span className="text-muted-foreground break-words">{tactic.approach}</span>
+                                <span className="text-white/50 break-words">{tactic.approach}</span>
                               </div>
                               <div className="min-w-0">
                                 <span className="font-medium text-destructive">Goal: </span>
@@ -987,7 +987,7 @@ const SpottingScamsTutorial = () => {
                               </div>
                               <div className="min-w-0">
                                 <span className="font-medium text-success mb-1.5 block text-xs">Safety Tips:</span>
-                                <p className="text-muted-foreground break-words">{platform.safety}</p>
+                                <p className="text-white/50 break-words">{platform.safety}</p>
                               </div>
                             </div>
                           </CardContent>
@@ -1131,7 +1131,7 @@ const SpottingScamsTutorial = () => {
                               <h4 className="font-medium break-words text-sm md:text-base">{tool.tool}</h4>
                               <Badge variant="outline" className="w-fit text-[10px] md:text-xs break-all mx-auto sm:mx-0">{tool.url}</Badge>
                             </div>
-                            <p className="text-xs md:text-sm text-muted-foreground mb-1.5 md:mb-2 break-words">{tool.purpose}</p>
+                            <p className="text-xs md:text-sm text-white/50 mb-1.5 md:mb-2 break-words">{tool.purpose}</p>
                             <div className="flex items-start gap-1.5 text-xs md:text-sm text-primary justify-center sm:justify-start">
                               <ExternalLink className="h-2.5 w-2.5 md:h-3 md:w-3 flex-shrink-0 mt-0.5" />
                               <span className="break-words">Usage: {tool.usage}</span>

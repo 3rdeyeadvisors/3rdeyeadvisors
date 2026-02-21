@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Textarea } from '@/components/ui/textarea';
+
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
 import { useFullscreen } from '@/hooks/useFullscreen';
@@ -215,7 +215,7 @@ export const FullscreenContentViewer: React.FC<FullscreenContentViewerProps> = (
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[9999] bg-background overflow-hidden"
+      className="fixed inset-0 z-[9999] bg-[#080808] overflow-hidden"
       onClick={toggleUI}
       onTouchStart={handleTouchStart}
       onTouchMove={swipeHandlers.onTouchMove}
@@ -235,7 +235,7 @@ export const FullscreenContentViewer: React.FC<FullscreenContentViewerProps> = (
                 variant="ghost"
                 size="icon"
                 onClick={handleClose}
-                className="bg-background/20 backdrop-blur-md rounded-full w-10 h-10 border border-white/10"
+                className="bg-white/5 backdrop-blur-md rounded-full w-10 h-10 border border-white/10"
                 aria-label="Exit focus mode"
               >
                 <X className="w-5 h-5" />
@@ -254,7 +254,7 @@ export const FullscreenContentViewer: React.FC<FullscreenContentViewerProps> = (
           transition={{ duration: 0.3, ease: "easeInOut" }}
           className="absolute top-0 left-0 right-0 z-50 flex flex-col"
         >
-          <div className="flex items-center justify-between px-4 py-3 border-b border-border bg-background/95 backdrop-blur-sm safe-area-inset-top">
+          <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-[#080808]/95 backdrop-blur-sm safe-area-inset-top">
             <div className="flex items-center gap-3 flex-1 min-w-0">
               <Button
                 variant="ghost"
@@ -267,7 +267,7 @@ export const FullscreenContentViewer: React.FC<FullscreenContentViewerProps> = (
               </Button>
               <div className="min-w-0">
                 {courseTitle && (
-                  <p className="text-xs text-muted-foreground truncate">{courseTitle}</p>
+                  <p className="text-xs text-white/50 truncate">{courseTitle}</p>
                 )}
                 <h1 className="text-sm font-semibold text-foreground truncate">
                   {title}
@@ -276,7 +276,7 @@ export const FullscreenContentViewer: React.FC<FullscreenContentViewerProps> = (
             </div>
 
             <div className="flex items-center gap-2 shrink-0">
-              <span className="text-sm text-muted-foreground whitespace-nowrap mr-2">
+              <span className="text-sm text-white/50 whitespace-nowrap mr-2">
                 {currentIndex + 1} / {totalModules}
               </span>
 
@@ -313,7 +313,7 @@ export const FullscreenContentViewer: React.FC<FullscreenContentViewerProps> = (
           </div>
 
           {/* Progress dots */}
-          <div className="flex justify-center gap-1.5 py-2 bg-background/80 border-b border-border/10">
+          <div className="flex justify-center gap-1.5 py-2 bg-[#080808]/80 border-b border-white/5">
             {Array.from({ length: totalModules }).map((_, i) => (
               <div
                 key={i}
@@ -323,7 +323,7 @@ export const FullscreenContentViewer: React.FC<FullscreenContentViewerProps> = (
                     ? "bg-primary"
                     : i < currentIndex
                     ? "bg-primary/40"
-                    : "bg-muted"
+                    : "bg-white/5"
                 )}
               />
             ))}
@@ -346,7 +346,7 @@ export const FullscreenContentViewer: React.FC<FullscreenContentViewerProps> = (
               showSidebar ? "max-w-4xl" : "max-w-6xl"
             )}>
               {type === 'video' && videoUrl && (
-                <div className="aspect-video bg-black rounded-xl overflow-hidden mb-8 shadow-2xl border border-border">
+                <div className="aspect-video bg-black rounded-xl overflow-hidden mb-8 shadow-2xl border border-white/10">
                   <iframe
                     src={videoUrl}
                     className="w-full h-full"
@@ -366,9 +366,9 @@ export const FullscreenContentViewer: React.FC<FullscreenContentViewerProps> = (
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: 350, opacity: 0 }}
                 transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                className="hidden lg:flex w-[350px] border-l border-border bg-background/50 backdrop-blur-md flex-col overflow-hidden pt-16"
+                className="hidden lg:flex w-[350px] border-l border-white/10 bg-[#080808]/50 backdrop-blur-md flex-col overflow-hidden pt-16"
               >
-                <div className="p-4 border-b border-border flex items-center justify-between">
+                <div className="p-4 border-b border-white/10 flex items-center justify-between">
                   <h2 className="font-consciousness font-semibold flex items-center gap-2">
                     <Save className="w-4 h-4 text-primary" />
                     Study Tools
@@ -398,10 +398,28 @@ export const FullscreenContentViewer: React.FC<FullscreenContentViewerProps> = (
                   </div>
 
                   <TabsContent value="notes" className="flex-1 overflow-hidden flex flex-col p-4 mt-0">
-                    <NotesEditor
-                      initialValue={notes}
-                      onSave={onNotesChange || (() => {})}
-                      onClear={() => onNotesChange?.('')}
+                    <textarea
+                      style={{
+                        width: '100%',
+                        flex: 1,
+                        minHeight: '180px',
+                        background: 'rgba(255,255,255,0.05)',
+                        border: '1px solid rgba(255,255,255,0.12)',
+                        borderRadius: '12px',
+                        padding: '12px 16px',
+                        color: 'rgba(255,255,255,0.85)',
+                        fontSize: '14px',
+                        lineHeight: '1.6',
+                        fontFamily: 'Inter, sans-serif',
+                        resize: 'none',
+                        outline: 'none',
+                        boxSizing: 'border-box',
+                      }}
+                      onFocus={e => e.target.style.borderColor = 'rgba(139,92,246,0.5)'}
+                      onBlur={e => e.target.style.borderColor = 'rgba(255,255,255,0.12)'}
+                      value={notes}
+                      onChange={(e) => onNotesChange?.(e.target.value)}
+                      placeholder="Take notes while you learn..."
                     />
                   </TabsContent>
 
@@ -413,11 +431,11 @@ export const FullscreenContentViewer: React.FC<FullscreenContentViewerProps> = (
                           {resources.map((resource, index) => (
                             <div
                               key={index}
-                              className="group p-3 rounded-lg border border-border bg-muted/20 hover:bg-muted/40 transition-all cursor-pointer"
+                              className="group p-3 rounded-lg border border-white/10 bg-white/3 hover:bg-white/8 transition-all cursor-pointer"
                               onClick={() => window.open(resource.url, '_blank')}
                             >
                               <div className="flex items-start gap-3">
-                                <div className="p-2 rounded-md bg-background border border-border text-primary group-hover:scale-110 transition-transform">
+                                <div className="p-2 rounded-md bg-[#080808] border border-white/10 text-primary group-hover:scale-110 transition-transform">
                                   {resource.type === 'pdf' && <FileText className="w-4 h-4" />}
                                   {resource.type === 'link' && <ExternalLink className="w-4 h-4" />}
                                   {resource.type === 'download' && <Download className="w-4 h-4" />}
@@ -426,7 +444,7 @@ export const FullscreenContentViewer: React.FC<FullscreenContentViewerProps> = (
                                   <p className="text-xs font-medium leading-tight group-hover:text-primary transition-colors line-clamp-2">
                                     {resource.title}
                                   </p>
-                                  <p className="text-[10px] text-muted-foreground mt-1 capitalize">
+                                  <p className="text-[10px] text-white/50 mt-1 capitalize">
                                     {resource.type}
                                   </p>
                                 </div>
@@ -436,16 +454,16 @@ export const FullscreenContentViewer: React.FC<FullscreenContentViewerProps> = (
                         </div>
                       ) : (
                         <div className="text-center py-12 px-4 border-2 border-dashed border-muted rounded-xl">
-                          <FileText className="w-8 h-8 text-muted-foreground/30 mx-auto mb-2" />
-                          <p className="text-xs text-muted-foreground">No resources for this module</p>
+                          <FileText className="w-8 h-8 text-white/30 mx-auto mb-2" />
+                          <p className="text-xs text-white/50">No resources for this module</p>
                         </div>
                       )}
                     </ScrollArea>
                   </TabsContent>
                 </Tabs>
 
-                <div className="p-4 border-t border-border bg-muted/10">
-                  <p className="text-[10px] text-center text-muted-foreground">
+                <div className="p-4 border-t border-white/10 bg-white/3">
+                  <p className="text-[10px] text-center text-white/50">
                     Notes are synced across your devices automatically
                   </p>
                 </div>
@@ -462,7 +480,7 @@ export const FullscreenContentViewer: React.FC<FullscreenContentViewerProps> = (
             opacity: showUI ? 1 : 0
           }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="absolute bottom-0 left-0 right-0 border-t border-border bg-background/95 backdrop-blur-sm px-4 py-3 safe-area-inset-bottom z-50"
+          className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-[#080808]/95 backdrop-blur-sm px-4 py-3 safe-area-inset-bottom z-50"
         >
           <div className="flex items-center justify-between max-w-4xl mx-auto">
             <Button
@@ -476,7 +494,7 @@ export const FullscreenContentViewer: React.FC<FullscreenContentViewerProps> = (
             </Button>
 
             <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2 text-sm text-white/50">
                 <span className="hidden sm:inline">Swipe or use arrows to navigate</span>
                 <span className="sm:hidden">← Swipe →</span>
               </div>
@@ -519,7 +537,7 @@ export const FullscreenContentViewer: React.FC<FullscreenContentViewerProps> = (
           className="absolute inset-0 pointer-events-none flex items-center justify-center"
           aria-hidden="true"
         >
-          <div className="flex items-center gap-4 text-muted-foreground/50 text-lg">
+          <div className="flex items-center gap-4 text-white/50 text-lg">
             <ChevronLeft className="w-8 h-8 animate-pulse" />
             <span>Swipe to navigate</span>
             <ChevronRight className="w-8 h-8 animate-pulse" />

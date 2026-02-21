@@ -709,7 +709,7 @@ const CrossChainBridgingTutorial = () => {
             </div>
             <div>
               <h1 className="text-3xl font-bold">Cross-Chain Bridging Safely</h1>
-              <p className="text-muted-foreground">Master secure multi-chain DeFi navigation</p>
+              <p className="text-white/50">Master secure multi-chain DeFi navigation</p>
             </div>
           </div>
 
@@ -800,7 +800,7 @@ const CrossChainBridgingTutorial = () => {
             </CardHeader>
 
             <CardContent className="space-y-4 md:space-y-6 p-3 md:p-6">
-              <p className="text-muted-foreground text-sm md:text-base">{currentStepData.content.overview}</p>
+              <p className="text-white/50 text-sm md:text-base">{currentStepData.content.overview}</p>
 
               {/* Step 1: Understanding Bridges */}
               {currentStep === 1 && (
@@ -834,15 +834,15 @@ const CrossChainBridgingTutorial = () => {
                             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 text-xs md:text-sm mb-3">
                               <div>
                                 <span className="font-medium">Speed:</span>
-                                <p className="text-muted-foreground">{bridge.speed}</p>
+                                <p className="text-white/50">{bridge.speed}</p>
                               </div>
                               <div>
                                 <span className="font-medium">Cost:</span>
-                                <p className="text-muted-foreground">{bridge.cost}</p>
+                                <p className="text-white/50">{bridge.cost}</p>
                               </div>
                               <div>
                                 <span className="font-medium">Best for:</span>
-                                <p className="text-muted-foreground">{bridge.bestFor}</p>
+                                <p className="text-white/50">{bridge.bestFor}</p>
                               </div>
                               <div>
                                 <span className="font-medium">Examples:</span>
@@ -875,15 +875,15 @@ const CrossChainBridgingTutorial = () => {
                             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3 text-xs md:text-sm">
                               <div>
                                 <span className="font-medium">Fees: </span>
-                                <span className="text-muted-foreground">{chain.fees}</span>
+                                <span className="text-white/50">{chain.fees}</span>
                               </div>
                               <div>
                                 <span className="font-medium">Security: </span>
-                                <span className="text-muted-foreground">{chain.security}</span>
+                                <span className="text-white/50">{chain.security}</span>
                               </div>
                               <div>
                                 <span className="font-medium">Ecosystem: </span>
-                                <span className="text-muted-foreground">{chain.ecosystem}</span>
+                                <span className="text-white/50">{chain.ecosystem}</span>
                               </div>
                             </div>
                             <div className="mt-2">

@@ -577,7 +577,7 @@ const LiquidityPoolBasicsTutorial = () => {
         {/* Header */}
         <div className="mb-8">
           <Link to="/tutorials?tab=practical">
-            <Button variant="ghost" className="mb-4 hover:bg-muted/50">
+            <Button variant="ghost" className="mb-4 hover:bg-white/5">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Practical DeFi Actions
             </Button>
@@ -589,14 +589,14 @@ const LiquidityPoolBasicsTutorial = () => {
             </div>
             <div>
               <h1 className="text-2xl md:text-3xl font-bold text-foreground">Liquidity Pool Basics</h1>
-              <p className="text-sm md:text-base text-muted-foreground">Understanding and participating in liquidity pools safely</p>
+              <p className="text-sm md:text-base text-white/50">Understanding and participating in liquidity pools safely</p>
             </div>
           </div>
 
           {/* Progress Bar */}
           <div className="space-y-2">
             <div className="flex justify-between text-xs md:text-sm">
-              <span className="text-muted-foreground">
+              <span className="text-white/50">
                 Step {currentStep} of {totalSteps}
               </span>
               <span className="text-primary font-medium">{Math.round(progress)}% Complete</span>
@@ -630,7 +630,7 @@ const LiquidityPoolBasicsTutorial = () => {
 
         {/* Current Step Card */}
         <Card className="mb-6 border-primary/20 shadow-lg">
-          <CardHeader className="border-b border-border/50 bg-gradient-to-br from-card via-card to-primary/5 p-3 md:p-6">
+          <CardHeader className="border-b border-white/8 bg-gradient-to-br from-card via-card to-primary/5 p-3 md:p-6">
             <div className="flex flex-col gap-3">
               <div className="flex flex-col items-center gap-3 md:flex-row md:justify-between">
                 <div className="flex items-center gap-3">
@@ -662,14 +662,14 @@ const LiquidityPoolBasicsTutorial = () => {
               <div className="space-y-6">
                 <div className="space-y-3">
                   <h3 className="font-semibold text-foreground text-lg">What Is a Liquidity Pool?</h3>
-                  <div className="bg-muted/30 rounded-lg p-4 space-y-3">
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                  <div className="bg-white/5 rounded-lg p-4 space-y-3">
+                    <p className="text-sm text-white/50 leading-relaxed">
                       <strong>Simple:</strong> {currentStepData.content.definition.simple}
                     </p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-sm text-white/50 leading-relaxed">
                       <strong>Technical:</strong> {currentStepData.content.definition.technical}
                     </p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-sm text-white/50 leading-relaxed">
                       <strong>Analogy:</strong> {currentStepData.content.definition.analogy}
                     </p>
                   </div>
@@ -679,9 +679,9 @@ const LiquidityPoolBasicsTutorial = () => {
                   <h3 className="font-semibold text-foreground text-lg">Key Components</h3>
                   <div className="grid gap-3">
                     {currentStepData.content.keyComponents.map((comp, idx) => (
-                      <div key={idx} className="bg-card border border-border/50 rounded-lg p-4">
+                      <div key={idx} className="bg-card border border-white/8 rounded-lg p-4">
                         <h4 className="font-medium text-foreground mb-2">{comp.component}</h4>
-                        <p className="text-sm text-muted-foreground mb-2">{comp.description}</p>
+                        <p className="text-sm text-white/50 mb-2">{comp.description}</p>
                         <p className="text-xs text-primary font-mono">{comp.example}</p>
                       </div>
                     ))}
@@ -693,7 +693,7 @@ const LiquidityPoolBasicsTutorial = () => {
                   <div className="bg-primary/5 rounded-lg p-4">
                     <ol className="space-y-2">
                       {Object.entries(currentStepData.content.howItWorks).map(([key, value], idx) => (
-                        <li key={key} className="text-sm text-muted-foreground flex gap-2">
+                        <li key={key} className="text-sm text-white/50 flex gap-2">
                           <span className="font-bold text-primary">{idx + 1}.</span>
                           <span>{value}</span>
                         </li>
@@ -712,10 +712,10 @@ const LiquidityPoolBasicsTutorial = () => {
                     <p className="text-2xl font-mono font-bold text-primary mb-2 whitespace-nowrap">
                       {currentStepData.content.constantProduct.formula}
                     </p>
-                    <p className="text-sm text-muted-foreground mb-2">
+                    <p className="text-sm text-white/50 mb-2">
                       {currentStepData.content.constantProduct.meaning}
                     </p>
-                    <p className="text-xs text-muted-foreground font-mono">
+                    <p className="text-xs text-white/50 font-mono">
                       Example: {currentStepData.content.constantProduct.example}
                     </p>
                   </div>
@@ -725,22 +725,22 @@ const LiquidityPoolBasicsTutorial = () => {
                   <h3 className="font-semibold text-foreground text-lg">Price Calculation Examples</h3>
                   <div className="space-y-3">
                     {currentStepData.content.priceCalculation.map((calc, idx) => (
-                      <div key={idx} className="bg-card border border-border/50 rounded-lg p-4">
+                      <div key={idx} className="bg-card border border-white/8 rounded-lg p-4">
                         <h4 className="font-medium text-foreground mb-3">{calc.scenario}</h4>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
                           <div>
-                            <span className="text-muted-foreground">ETH:</span>
+                            <span className="text-white/50">ETH:</span>
                             <span className="ml-2 font-mono text-foreground">{calc.ethAmount}</span>
                           </div>
                           <div>
-                            <span className="text-muted-foreground">USDC:</span>
+                            <span className="text-white/50">USDC:</span>
                             <span className="ml-2 font-mono text-foreground">{calc.usdcAmount}</span>
                           </div>
                           <div className="col-span-2">
-                            <span className="text-muted-foreground">ETH Price:</span>
+                            <span className="text-white/50">ETH Price:</span>
                             <span className="ml-2 font-bold text-primary">{calc.ethPrice}</span>
                           </div>
-                          <div className="col-span-2 text-xs text-muted-foreground italic mt-2">
+                          <div className="col-span-2 text-xs text-white/50 italic mt-2">
                             {calc.calculation}
                           </div>
                         </div>
@@ -780,16 +780,16 @@ const LiquidityPoolBasicsTutorial = () => {
                   <h3 className="font-semibold text-foreground text-lg">Real Examples</h3>
                   <div className="space-y-3">
                     {currentStepData.content.examples.map((example, idx) => (
-                      <div key={idx} className="bg-card border border-border/50 rounded-lg p-4">
+                      <div key={idx} className="bg-card border border-white/8 rounded-lg p-4">
                         <h4 className="font-medium text-foreground mb-3 flex items-center gap-2">
                           {example.scenario}
                         </h4>
                         <div className="space-y-2 text-sm">
-                          <p><span className="text-muted-foreground">Initial:</span> <span className="ml-2">{example.initial}</span></p>
-                          <p><span className="text-muted-foreground">Final:</span> <span className="ml-2">{example.final}</span></p>
-                          <p><span className="text-muted-foreground">If You Just Held:</span> <span className="ml-2 font-bold">{example.holdValue}</span></p>
-                          <p><span className="text-muted-foreground">Pool Value:</span> <span className="ml-2">{example.poolValue}</span></p>
-                          <p className="font-medium pt-2 border-t border-border/50">{example.result}</p>
+                          <p><span className="text-white/50">Initial:</span> <span className="ml-2">{example.initial}</span></p>
+                          <p><span className="text-white/50">Final:</span> <span className="ml-2">{example.final}</span></p>
+                          <p><span className="text-white/50">If You Just Held:</span> <span className="ml-2 font-bold">{example.holdValue}</span></p>
+                          <p><span className="text-white/50">Pool Value:</span> <span className="ml-2">{example.poolValue}</span></p>
+                          <p className="font-medium pt-2 border-t border-white/8">{example.result}</p>
                         </div>
                       </div>
                     ))}
@@ -798,11 +798,11 @@ const LiquidityPoolBasicsTutorial = () => {
 
                 <div className="space-y-3">
                   <h3 className="font-semibold text-foreground text-lg">IL by Price Change</h3>
-                  <div className="bg-muted/30 rounded-lg p-4">
+                  <div className="bg-white/5 rounded-lg p-4">
                     <div className="space-y-2">
                       {currentStepData.content.ilByPriceChange.map((row, idx) => (
                         <div key={idx} className="flex justify-between items-center text-sm">
-                          <span className="text-muted-foreground">{row.priceChange}</span>
+                          <span className="text-white/50">{row.priceChange}</span>
                           <span className="font-mono text-destructive font-medium">{row.ilPercent} loss</span>
                         </div>
                       ))}
@@ -814,7 +814,7 @@ const LiquidityPoolBasicsTutorial = () => {
                   <h3 className="font-semibold text-foreground text-lg">How to Mitigate IL</h3>
                   <ul className="space-y-2">
                     {currentStepData.content.mitigation.map((tip, idx) => (
-                      <li key={idx} className="text-sm text-muted-foreground flex gap-2">
+                      <li key={idx} className="text-sm text-white/50 flex gap-2">
                         <CheckCircle className="h-4 w-4 text-primary shrink-0 mt-0.5" />
                         <span>{tip}</span>
                       </li>
@@ -830,19 +830,19 @@ const LiquidityPoolBasicsTutorial = () => {
                   <h3 className="font-semibold text-foreground text-lg">Pool Categories</h3>
                   <div className="space-y-3">
                     {currentStepData.content.poolCategories.map((cat, idx) => (
-                      <div key={idx} className="bg-card border border-border/50 rounded-lg p-4">
+                      <div key={idx} className="bg-card border border-white/8 rounded-lg p-4">
                         <div className="flex items-center justify-between mb-3">
                           <h4 className="font-medium text-foreground">{cat.category}</h4>
                           <Badge variant="outline">{cat.apyRange} APY</Badge>
                         </div>
                         <div className="space-y-2 text-sm">
-                          <p><span className="text-muted-foreground">Examples:</span> <span className="ml-2 font-mono">{cat.examples}</span></p>
-                          <p><span className="text-muted-foreground">IL Risk:</span> <span className="ml-2">{cat.ilRisk}</span></p>
-                          <p><span className="text-muted-foreground">Best For:</span> <span className="ml-2">{cat.bestFor}</span></p>
-                          <div className="pt-2 border-t border-border/50">
+                          <p><span className="text-white/50">Examples:</span> <span className="ml-2 font-mono">{cat.examples}</span></p>
+                          <p><span className="text-white/50">IL Risk:</span> <span className="ml-2">{cat.ilRisk}</span></p>
+                          <p><span className="text-white/50">Best For:</span> <span className="ml-2">{cat.bestFor}</span></p>
+                          <div className="pt-2 border-t border-white/8">
                             <ul className="space-y-1">
                               {cat.considerations.map((point, pidx) => (
-                                <li key={pidx} className="text-muted-foreground">• {point}</li>
+                                <li key={pidx} className="text-white/50">• {point}</li>
                               ))}
                             </ul>
                           </div>
@@ -856,14 +856,14 @@ const LiquidityPoolBasicsTutorial = () => {
                   <h3 className="font-semibold text-foreground text-lg">Pool Evaluation Criteria</h3>
                   <div className="space-y-2">
                     {currentStepData.content.evaluationCriteria.map((crit, idx) => (
-                      <div key={idx} className="bg-muted/30 rounded-lg p-3">
+                      <div key={idx} className="bg-white/5 rounded-lg p-3">
                         <div className="flex items-center justify-between mb-2">
                           <h4 className="font-medium text-foreground text-sm">{crit.criterion}</h4>
                           <Badge variant={crit.importance === "High" ? "default" : "secondary"} className="text-xs">
                             {crit.importance}
                           </Badge>
                         </div>
-                        <p className="text-xs text-muted-foreground mb-1">✅ {crit.whatToLookFor}</p>
+                        <p className="text-xs text-white/50 mb-1">✅ {crit.whatToLookFor}</p>
                         <p className="text-xs text-destructive">🚩 {crit.redFlag}</p>
                       </div>
                     ))}
@@ -878,7 +878,7 @@ const LiquidityPoolBasicsTutorial = () => {
                   <h3 className="font-semibold text-foreground text-lg">Prerequisites</h3>
                   <ul className="space-y-2">
                     {currentStepData.content.prerequisites.map((prereq, idx) => (
-                      <li key={idx} className="text-sm text-muted-foreground flex gap-2">
+                      <li key={idx} className="text-sm text-white/50 flex gap-2">
                         <CheckCircle className="h-4 w-4 text-primary shrink-0 mt-0.5" />
                         <span>{prereq}</span>
                       </li>
@@ -888,7 +888,7 @@ const LiquidityPoolBasicsTutorial = () => {
 
                 <div className="space-y-4">
                   {currentStepData.content.steps.map((step, idx) => (
-                    <div key={idx} className="bg-card border border-border/50 rounded-lg p-4">
+                    <div key={idx} className="bg-card border border-white/8 rounded-lg p-4">
                       <div className="flex items-start gap-3">
                         <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold shrink-0">
                           {step.step}
@@ -898,13 +898,13 @@ const LiquidityPoolBasicsTutorial = () => {
                             <h4 className="font-medium text-foreground">{step.action}</h4>
                             <Badge variant="outline" className="text-xs">{step.time}</Badge>
                           </div>
-                          <p className="text-sm text-muted-foreground">{step.details}</p>
+                          <p className="text-sm text-white/50">{step.details}</p>
                           
                           {step.feeTiers && (
-                            <div className="bg-muted/30 rounded p-2 mt-2">
+                            <div className="bg-white/5 rounded p-2 mt-2">
                               <p className="text-xs font-medium text-foreground mb-1">Fee Tiers:</p>
                               {step.feeTiers.map((tier, tidx) => (
-                                <p key={tidx} className="text-xs text-muted-foreground">
+                                <p key={tidx} className="text-xs text-white/50">
                                   • {tier.tier}: {tier.bestFor}
                                 </p>
                               ))}
@@ -914,9 +914,9 @@ const LiquidityPoolBasicsTutorial = () => {
                           {step.options && (
                             <div className="space-y-2 mt-2">
                               {step.options.map((opt, oidx) => (
-                                <div key={oidx} className="bg-muted/30 rounded p-2">
+                                <div key={oidx} className="bg-white/5 rounded p-2">
                                   <p className="text-xs font-medium text-foreground">{opt.option}</p>
-                                  <p className="text-xs text-muted-foreground">{opt.description}</p>
+                                  <p className="text-xs text-white/50">{opt.description}</p>
                                   <p className="text-xs text-primary">✅ {opt.pros}</p>
                                   <p className="text-xs text-destructive">⚠️ {opt.cons}</p>
                                 </div>
@@ -936,7 +936,7 @@ const LiquidityPoolBasicsTutorial = () => {
                           )}
 
                           {step.gasNote && (
-                            <p className="text-xs text-muted-foreground mt-2">⚡ {step.gasNote}</p>
+                            <p className="text-xs text-white/50 mt-2">⚡ {step.gasNote}</p>
                           )}
 
                           {step.tip && (
@@ -948,14 +948,14 @@ const LiquidityPoolBasicsTutorial = () => {
                               <p className="text-xs font-medium text-foreground mb-1">What happens:</p>
                               <ul className="space-y-1">
                                 {step.whatHappens.map((item, widx) => (
-                                  <li key={widx} className="text-xs text-muted-foreground">• {item}</li>
+                                  <li key={widx} className="text-xs text-white/50">• {item}</li>
                                 ))}
                               </ul>
                             </div>
                           )}
 
                           {step.tracking && (
-                            <p className="text-xs text-muted-foreground mt-2">📊 {step.tracking}</p>
+                            <p className="text-xs text-white/50 mt-2">📊 {step.tracking}</p>
                           )}
                         </div>
                       </div>
@@ -979,13 +979,13 @@ const LiquidityPoolBasicsTutorial = () => {
                   <h3 className="font-semibold text-foreground text-lg">Monitoring Metrics</h3>
                   <div className="space-y-3">
                     {currentStepData.content.monitoringMetrics.map((metric, idx) => (
-                      <div key={idx} className="bg-card border border-border/50 rounded-lg p-4">
+                      <div key={idx} className="bg-card border border-white/8 rounded-lg p-4">
                         <div className="flex items-center justify-between mb-2">
                           <h4 className="font-medium text-foreground">{metric.metric}</h4>
                           <Badge variant="outline" className="text-xs">{metric.frequency}</Badge>
                         </div>
                         <p className="text-sm text-primary mb-1">✅ {metric.goodSign}</p>
-                        <p className="text-sm text-muted-foreground">→ {metric.action}</p>
+                        <p className="text-sm text-white/50">→ {metric.action}</p>
                       </div>
                     ))}
                   </div>
@@ -995,7 +995,7 @@ const LiquidityPoolBasicsTutorial = () => {
                   <h3 className="font-semibold text-foreground text-lg">When to Exit</h3>
                   <ul className="space-y-2">
                     {currentStepData.content.whenToExit.map((reason, idx) => (
-                      <li key={idx} className="text-sm text-muted-foreground flex gap-2">
+                      <li key={idx} className="text-sm text-white/50 flex gap-2">
                         <AlertTriangle className="h-4 w-4 text-destructive shrink-0 mt-0.5" />
                         <span>{reason}</span>
                       </li>
@@ -1007,9 +1007,9 @@ const LiquidityPoolBasicsTutorial = () => {
                   <h3 className="font-semibold text-foreground text-lg">Exit Process</h3>
                   <div className="space-y-2">
                     {currentStepData.content.exitProcess.map((step, idx) => (
-                      <div key={idx} className="bg-muted/30 rounded-lg p-3">
+                      <div key={idx} className="bg-white/5 rounded-lg p-3">
                         <h4 className="font-medium text-foreground text-sm mb-1">{step.step}</h4>
-                        <p className="text-xs text-muted-foreground">{step.details}</p>
+                        <p className="text-xs text-white/50">{step.details}</p>
                       </div>
                     ))}
                   </div>
@@ -1029,15 +1029,15 @@ const LiquidityPoolBasicsTutorial = () => {
                   <h3 className="font-semibold text-foreground text-lg">Advanced Strategies</h3>
                   <div className="space-y-3">
                     {currentStepData.content.strategies.map((strategy, idx) => (
-                      <div key={idx} className="bg-card border border-border/50 rounded-lg p-4">
+                      <div key={idx} className="bg-card border border-white/8 rounded-lg p-4">
                         <h4 className="font-medium text-foreground mb-2">{strategy.strategy}</h4>
-                        <p className="text-sm text-muted-foreground mb-3">{strategy.description}</p>
+                        <p className="text-sm text-white/50 mb-3">{strategy.description}</p>
                         <div className="space-y-1 text-sm">
-                          <p><span className="text-muted-foreground">Example:</span> <span className="ml-2">{strategy.example}</span></p>
+                          <p><span className="text-white/50">Example:</span> <span className="ml-2">{strategy.example}</span></p>
                           <p><span className="text-primary">APY Boost:</span> <span className="ml-2 font-medium">{strategy.apyBoost}</span></p>
                           <p><span className="text-destructive">Risk:</span> <span className="ml-2">{strategy.risk}</span></p>
                           {strategy.platforms && (
-                            <p><span className="text-muted-foreground">Platforms:</span> <span className="ml-2">{strategy.platforms}</span></p>
+                            <p><span className="text-white/50">Platforms:</span> <span className="ml-2">{strategy.platforms}</span></p>
                           )}
                           {strategy.bestFor && (
                             <p><span className="text-accent">Best For:</span> <span className="ml-2">{strategy.bestFor}</span></p>
@@ -1046,7 +1046,7 @@ const LiquidityPoolBasicsTutorial = () => {
                             <p><span className="text-primary">Benefit:</span> <span className="ml-2">{strategy.benefit}</span></p>
                           )}
                           {strategy.cost && (
-                            <p><span className="text-muted-foreground">Cost:</span> <span className="ml-2">{strategy.cost}</span></p>
+                            <p><span className="text-white/50">Cost:</span> <span className="ml-2">{strategy.cost}</span></p>
                           )}
                         </div>
                       </div>
@@ -1076,9 +1076,9 @@ const LiquidityPoolBasicsTutorial = () => {
                   <h3 className="font-semibold text-foreground text-lg">Common Mistakes</h3>
                   <div className="space-y-3">
                     {currentStepData.content.commonMistakes.map((mistake, idx) => (
-                      <div key={idx} className="bg-card border border-border/50 rounded-lg p-4">
+                      <div key={idx} className="bg-card border border-white/8 rounded-lg p-4">
                         <h4 className="font-medium text-destructive mb-2">❌ {mistake.mistake}</h4>
-                        <p className="text-sm text-muted-foreground mb-2">
+                        <p className="text-sm text-white/50 mb-2">
                           <strong>Consequence:</strong> {mistake.consequence}
                         </p>
                         <p className="text-sm text-primary">
@@ -1093,9 +1093,9 @@ const LiquidityPoolBasicsTutorial = () => {
                   <h3 className="font-semibold text-foreground text-lg">Best Practices</h3>
                   <div className="space-y-2">
                     {currentStepData.content.bestPractices.map((practice, idx) => (
-                      <div key={idx} className="bg-muted/30 rounded-lg p-3">
+                      <div key={idx} className="bg-white/5 rounded-lg p-3">
                         <h4 className="font-medium text-foreground text-sm mb-1">✅ {practice.practice}</h4>
-                        <p className="text-xs text-muted-foreground mb-1">{practice.details}</p>
+                        <p className="text-xs text-white/50 mb-1">{practice.details}</p>
                         {practice.timeframe && (
                           <Badge variant="outline" className="text-xs">{practice.timeframe}</Badge>
                         )}
@@ -1131,7 +1131,7 @@ const LiquidityPoolBasicsTutorial = () => {
             )}
 
             {/* Navigation */}
-            <div className="flex flex-col sm:flex-row gap-3 justify-between items-stretch sm:items-center pt-6 border-t border-border/50">
+            <div className="flex flex-col sm:flex-row gap-3 justify-between items-stretch sm:items-center pt-6 border-t border-white/8">
               <Button
                 variant="outline"
                 onClick={handlePrevious}

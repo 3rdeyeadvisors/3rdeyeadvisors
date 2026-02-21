@@ -205,7 +205,7 @@ serve(async (req) => {
     <!-- Footer -->
     <div style="text-align: center; padding-top: 20px; border-top: 1px solid #333;">
       <p style="color: #6b7280; font-size: 12px; margin: 0;">
-        3rd Eye Advisors • DeFi Education for the Awakened
+        3rdeyeadvisors • DeFi Education for the Awakened
       </p>
     </div>
 
@@ -216,7 +216,7 @@ serve(async (req) => {
 
       try {
         await resend.emails.send({
-          from: "3rd Eye Advisors <courses@the3rdeyeadvisors.com>",
+          from: "3rdeyeadvisors <courses@the3rdeyeadvisors.com>",
           to: [recipient.email],
           subject: `🎓 New Course Available: ${course_title} — You Have Early Access!`,
           html: emailHtml,

@@ -588,7 +588,7 @@ const PortfolioRebalancingTutorial = () => {
         {/* Back Button */}
         <div className="mb-6">
           <Link to="/tutorials?tab=practical">
-            <Button variant="ghost" className="gap-2 hover:bg-muted">
+            <Button variant="ghost" className="gap-2 hover:bg-white/5">
               <ArrowLeft className="w-4 h-4" />
               Back to Practical DeFi Actions
             </Button>
@@ -603,7 +603,7 @@ const PortfolioRebalancingTutorial = () => {
             </div>
             <div>
               <h1 className="text-3xl font-bold">Portfolio Rebalancing Techniques</h1>
-              <p className="text-muted-foreground">Master systematic portfolio optimization strategies</p>
+              <p className="text-white/50">Master systematic portfolio optimization strategies</p>
             </div>
           </div>
 
@@ -694,7 +694,7 @@ const PortfolioRebalancingTutorial = () => {
             </CardHeader>
 
             <CardContent className="space-y-4 md:space-y-6 p-3 md:p-6">
-              <p className="text-muted-foreground text-sm md:text-base">{currentStepData.content.overview}</p>
+              <p className="text-white/50 text-sm md:text-base">{currentStepData.content.overview}</p>
 
               {/* Render Step-Specific Content */}
               {currentStep === 1 && currentStepData.content.whyRebalance && (
@@ -714,7 +714,7 @@ const PortfolioRebalancingTutorial = () => {
                         </CardHeader>
                         <CardContent className="space-y-2 text-xs md:text-sm p-3 md:p-6 pt-0">
                           <p>{trigger.description}</p>
-                          <p className="text-xs text-muted-foreground">Best for: {trigger.bestFor}</p>
+                          <p className="text-xs text-white/50">Best for: {trigger.bestFor}</p>
                         </CardContent>
                       </Card>
                     ))}
@@ -731,7 +731,7 @@ const PortfolioRebalancingTutorial = () => {
                               {portfolio.riskLevel}
                             </Badge>
                           </div>
-                          <p className="text-xs md:text-sm text-muted-foreground mb-2">{portfolio.allocation}</p>
+                          <p className="text-xs md:text-sm text-white/50 mb-2">{portfolio.allocation}</p>
                           <div className="flex flex-wrap gap-2 md:gap-4 text-xs">
                             <span>Frequency: {portfolio.rebalanceFreq}</span>
                             <span>Target: {portfolio.targetAPY}</span>
@@ -756,20 +756,20 @@ const PortfolioRebalancingTutorial = () => {
                         <div className="grid md:grid-cols-2 gap-2 mt-2">
                           <div>
                             <p className="font-semibold text-xs mb-1">Advantages:</p>
-                            <ul className="text-xs space-y-1 text-muted-foreground">
+                            <ul className="text-xs space-y-1 text-white/50">
                               {strategy.advantages.map((adv, i) => <li key={i}>• {adv}</li>)}
                             </ul>
                           </div>
                           <div>
                             <p className="font-semibold text-xs mb-1">Disadvantages:</p>
-                            <ul className="text-xs space-y-1 text-muted-foreground">
+                            <ul className="text-xs space-y-1 text-white/50">
                               {strategy.disadvantages.map((dis, i) => <li key={i}>• {dis}</li>)}
                             </ul>
                           </div>
                         </div>
                         <div className="flex gap-2 text-xs pt-2 border-t">
                           <Badge variant="outline">Gas: {strategy.gasEfficiency}</Badge>
-                          <span className="text-muted-foreground">{strategy.bestMarkets}</span>
+                          <span className="text-white/50">{strategy.bestMarkets}</span>
                         </div>
                       </CardContent>
                     </Card>
@@ -790,7 +790,7 @@ const PortfolioRebalancingTutorial = () => {
                         <CardDescription>{phase.description}</CardDescription>
                       </CardHeader>
                       <CardContent className="space-y-2 text-sm">
-                        <div className="flex gap-2 text-xs text-muted-foreground">
+                        <div className="flex gap-2 text-xs text-white/50">
                           <Clock className="h-3 w-3" />
                           {phase.timeRequired}
                         </div>
@@ -816,7 +816,7 @@ const PortfolioRebalancingTutorial = () => {
                         </CardTitle>
                       </CardHeader>
                       <CardContent className="space-y-2 text-sm">
-                        <p className="text-xs text-muted-foreground">Causes: {issue.causes.join(", ")}</p>
+                        <p className="text-xs text-white/50">Causes: {issue.causes.join(", ")}</p>
                         <div>
                           <p className="text-xs font-semibold mb-1">Solutions:</p>
                           <ul className="space-y-1 text-xs">
@@ -888,7 +888,7 @@ const PortfolioRebalancingTutorial = () => {
                       <CardContent className="space-y-1 text-sm">
                         <p className="text-xs"><strong>Calculation:</strong> {metric.calculation}</p>
                         <p className="text-xs"><strong>Target:</strong> {metric.target}</p>
-                        <p className="text-xs text-muted-foreground">{metric.interpretation}</p>
+                        <p className="text-xs text-white/50">{metric.interpretation}</p>
                       </CardContent>
                     </Card>
                   ))}
@@ -902,7 +902,7 @@ const PortfolioRebalancingTutorial = () => {
                         </CardHeader>
                         <CardContent className="text-xs space-y-1">
                           <p>{benchmark.description}</p>
-                          <p className="text-muted-foreground">{benchmark.useCase}</p>
+                          <p className="text-white/50">{benchmark.useCase}</p>
                         </CardContent>
                       </Card>
                     ))}

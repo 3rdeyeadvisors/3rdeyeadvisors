@@ -88,7 +88,7 @@ serve(async (req) => {
         Dear ${displayName},
       </p>
       <p style="color: #d4d4d4; font-size: 16px; line-height: 1.6; margin: 0 0 20px;">
-        Congratulations on becoming one of the <strong style="color: #f59e0b;">Founding 33</strong> – an exclusive group of visionaries who believed in the 3rd Eye Advisors mission from the very beginning.
+        Congratulations on becoming one of the <strong style="color: #f59e0b;">Founding 33</strong> – an exclusive group of visionaries who believed in the 3rdeyeadvisors mission from the very beginning.
       </p>
       <p style="color: #d4d4d4; font-size: 16px; line-height: 1.6; margin: 0;">
         Your seat number <strong style="color: #f59e0b;">#${seat_number}</strong> is permanently yours. This is your genesis mark in the 3EA ecosystem.
@@ -158,7 +158,7 @@ serve(async (req) => {
         Welcome to the inner circle. We're honored to have you.
       </p>
       <p style="color: #6b7280; font-size: 12px; margin: 0;">
-        3rd Eye Advisors • DeFi Education for the Awakened
+        3rdeyeadvisors • DeFi Education for the Awakened
       </p>
     </div>
 
@@ -168,7 +168,7 @@ serve(async (req) => {
     `;
 
     const { data, error } = await resend.emails.send({
-      from: "3rd Eye Advisors <founder@the3rdeyeadvisors.com>",
+      from: "3rdeyeadvisors <founder@the3rdeyeadvisors.com>",
       to: [customer_email],
       subject: `🎉 Welcome to the Founding 33 – Seat #${seat_number} is Yours!`,
       html: emailHtml,

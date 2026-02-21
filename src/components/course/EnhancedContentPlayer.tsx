@@ -367,7 +367,7 @@ export const EnhancedContentPlayer = ({
       case 'video': return 'bg-destructive/10 text-destructive border-destructive/20';
       case 'text': return 'bg-primary/10 text-primary border-primary/20';
       case 'interactive': return 'bg-awareness/10 text-awareness border-awareness/20';
-      default: return 'bg-muted text-muted-foreground border-border';
+      default: return 'bg-white/8 text-white/60 border-white/15';
     }
   };
 
@@ -423,7 +423,7 @@ export const EnhancedContentPlayer = ({
             <Badge className={`${getTypeColor(module.type)} text-xs md:text-sm`}>
               {getTypeIcon(module.type)} {module.type.charAt(0).toUpperCase() + module.type.slice(1)}
             </Badge>
-            <div className="flex items-center gap-1 md:gap-2 text-muted-foreground">
+            <div className="flex items-center gap-1 md:gap-2 text-white/50">
               <Clock className="w-3 h-3 md:w-4 md:h-4" />
               <span className="text-xs md:text-sm">{module.duration} min</span>
             </div>
@@ -455,7 +455,7 @@ export const EnhancedContentPlayer = ({
               variant="ghost"
               size="sm"
               onClick={toggleBookmark}
-              className="text-muted-foreground hover:text-foreground p-1 sm:p-1.5 md:p-2 min-h-[36px] sm:min-h-[40px]"
+              className="text-white/50 hover:text-white p-1 sm:p-1.5 md:p-2 min-h-[36px] sm:min-h-[40px]"
             >
               {isBookmarked ? (
                 <BookmarkCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
@@ -463,13 +463,13 @@ export const EnhancedContentPlayer = ({
                 <Bookmark className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               )}
             </Button>
-            <span className="text-xs md:text-sm text-muted-foreground">
+            <span className="text-xs md:text-sm text-white/50">
               {currentModuleIndex + 1} of {totalModules}
             </span>
           </div>
         </div>
 
-        <h1 className="text-lg sm:text-xl md:text-3xl font-consciousness font-bold text-foreground mb-2.5 sm:mb-3 md:mb-4 text-center break-words leading-tight px-2 sm:px-0">
+        <h1 className="text-lg sm:text-xl md:text-3xl font-consciousness font-bold text-white mb-2.5 sm:mb-3 md:mb-4 text-center break-words leading-tight px-2 sm:px-0">
           {module.title}
         </h1>
 
@@ -478,8 +478,8 @@ export const EnhancedContentPlayer = ({
           {module.type === 'text' && (
             <div>
               <div className="flex items-center justify-between mb-1.5 sm:mb-2">
-                <span className="text-xs sm:text-sm text-muted-foreground">Reading Progress</span>
-                <span className="text-xs sm:text-sm text-muted-foreground">{Math.round(readingProgress)}%</span>
+                <span className="text-xs sm:text-sm text-white/50">Reading Progress</span>
+                <span className="text-xs sm:text-sm text-white/50">{Math.round(readingProgress)}%</span>
               </div>
               <Progress value={readingProgress} className="h-1.5 sm:h-2" />
             </div>
@@ -487,8 +487,8 @@ export const EnhancedContentPlayer = ({
           
           <div>
             <div className="flex items-center justify-between mb-1.5 sm:mb-2">
-              <span className="text-xs sm:text-sm text-muted-foreground">Time Spent</span>
-              <span className="text-xs sm:text-sm text-muted-foreground">{timeSpent} min</span>
+              <span className="text-xs sm:text-sm text-white/50">Time Spent</span>
+              <span className="text-xs sm:text-sm text-white/50">{timeSpent} min</span>
             </div>
             <Progress value={Math.min((timeSpent / module.duration) * 100, 100)} className="h-1.5 sm:h-2" />
           </div>
@@ -557,7 +557,7 @@ export const EnhancedContentPlayer = ({
 
               {module.type === 'video' && module.content.videoUrl && (
                 <div className="space-y-4">
-                  <div className="aspect-video bg-black rounded-xl overflow-hidden shadow-2xl border border-border">
+                  <div className="aspect-video bg-black rounded-xl overflow-hidden shadow-2xl border border-white/8">
                     <iframe
                       src={module.content.videoUrl}
                       className="w-full h-full"
@@ -567,13 +567,13 @@ export const EnhancedContentPlayer = ({
                   </div>
                   
                   {/* Video Progress Tracker (Simulated) */}
-                  <div className="space-y-2 bg-muted/30 p-4 rounded-lg">
+                  <div className="space-y-2 bg-white/5 p-4 rounded-lg">
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-xs font-medium text-muted-foreground">Video Progress</span>
-                      <span className="text-xs font-medium text-muted-foreground">45% Complete</span>
+                      <span className="text-xs font-medium text-white/50">Video Progress</span>
+                      <span className="text-xs font-medium text-white/50">45% Complete</span>
                     </div>
                     <Progress value={45} className="h-2" />
-                    <div className="flex justify-between text-[10px] text-muted-foreground">
+                    <div className="flex justify-between text-[10px] text-white/50">
                       <span>05:23</span>
                       <span>12:45</span>
                     </div>
@@ -651,14 +651,14 @@ export const EnhancedContentPlayer = ({
             {module.resources && module.resources.length > 0 ? (
               <div className="space-y-3">
                 {module.resources.map((resource, index) => (
-                  <div key={index} className="flex items-center justify-between p-4 bg-muted rounded-lg hover:bg-muted/80 transition-colors">
+                  <div key={index} className="flex items-center justify-between p-4 bg-white/5 rounded-lg hover:bg-white/8 transition-colors">
                     <div className="flex items-center gap-3">
                       {resource.type === 'pdf' && <FileText className="w-5 h-5 text-red-600" />}
                       {resource.type === 'link' && <ExternalLink className="w-5 h-5 text-blue-600" />}
                       {resource.type === 'download' && <Download className="w-5 h-5 text-green-600" />}
                       <div>
                         <span className="font-medium">{resource.title}</span>
-                        <p className="text-sm text-muted-foreground capitalize">{resource.type}</p>
+                        <p className="text-sm text-white/50 capitalize">{resource.type}</p>
                       </div>
                     </div>
                     <Button 
@@ -672,7 +672,7 @@ export const EnhancedContentPlayer = ({
                 ))}
               </div>
             ) : (
-              <p className="text-center text-muted-foreground py-8">
+              <p className="text-center text-white/50 py-8">
                 No additional resources available for this module.
               </p>
             )}

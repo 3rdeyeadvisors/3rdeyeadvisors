@@ -67,7 +67,7 @@ const PortfolioTrackingTutorial = () => {
                   Track Performance
                 </CardTitle>
               </CardHeader>
-              <CardContent className="text-sm text-muted-foreground">
+              <CardContent className="text-sm text-white/50">
                 Monitor returns across protocols, identify winning strategies, and cut losing positions early.
               </CardContent>
             </Card>
@@ -79,7 +79,7 @@ const PortfolioTrackingTutorial = () => {
                   Risk Management
                 </CardTitle>
               </CardHeader>
-              <CardContent className="text-sm text-muted-foreground">
+              <CardContent className="text-sm text-white/50">
                 Spot concentration risks, monitor liquidation levels, and maintain balanced exposure.
               </CardContent>
             </Card>
@@ -91,7 +91,7 @@ const PortfolioTrackingTutorial = () => {
                   Tax Reporting
                 </CardTitle>
               </CardHeader>
-              <CardContent className="text-sm text-muted-foreground">
+              <CardContent className="text-sm text-white/50">
                 Accurate transaction history makes tax time painless and ensures compliance.
               </CardContent>
             </Card>
@@ -103,7 +103,7 @@ const PortfolioTrackingTutorial = () => {
                   Optimize Allocation
                 </CardTitle>
               </CardHeader>
-              <CardContent className="text-sm text-muted-foreground">
+              <CardContent className="text-sm text-white/50">
                 See where capital is working best and rebalance to maximize returns.
               </CardContent>
             </Card>
@@ -263,7 +263,7 @@ const PortfolioTrackingTutorial = () => {
             </CardHeader>
             <CardContent className="space-y-2 text-sm">
               <p>Use clear wallet labels to track strategy:</p>
-              <ul className="space-y-1 ml-4 text-muted-foreground">
+              <ul className="space-y-1 ml-4 text-white/50">
                 <li>• "Conservative Stables": Low-risk stable farming</li>
                 <li>• "High Yield Farming": Aggressive strategies</li>
                 <li>• "Long-term Holdings": Buy and hold positions</li>
@@ -278,7 +278,7 @@ const PortfolioTrackingTutorial = () => {
             </CardHeader>
             <CardContent className="space-y-2 text-sm">
               <p>Most trackers let you set notifications for:</p>
-              <ul className="space-y-1 ml-4 text-muted-foreground">
+              <ul className="space-y-1 ml-4 text-white/50">
                 <li>• Large price movements (±10%)</li>
                 <li>• Liquidation warnings</li>
                 <li>• Yield rate changes</li>
@@ -295,7 +295,7 @@ const PortfolioTrackingTutorial = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div>
                   <p className="font-semibold text-xs mb-1">Essential Metrics:</p>
-                  <ul className="space-y-1 text-xs text-muted-foreground">
+                  <ul className="space-y-1 text-xs text-white/50">
                     <li>• Total portfolio value (USD)</li>
                     <li>• 24h change %</li>
                     <li>• Asset allocation by chain</li>
@@ -304,7 +304,7 @@ const PortfolioTrackingTutorial = () => {
                 </div>
                 <div>
                   <p className="font-semibold text-xs mb-1">Advanced Metrics:</p>
-                  <ul className="space-y-1 text-xs text-muted-foreground">
+                  <ul className="space-y-1 text-xs text-white/50">
                     <li>• Realized vs unrealized gains</li>
                     <li>• Average entry prices</li>
                     <li>• Yield generated per protocol</li>
@@ -339,7 +339,7 @@ const PortfolioTrackingTutorial = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="text-sm space-y-2">
-                <ul className="space-y-1 ml-4 text-muted-foreground">
+                <ul className="space-y-1 ml-4 text-white/50">
                   <li>✓ Check total portfolio value</li>
                   <li>✓ Review overnight performance</li>
                   <li>✓ Scan for any alerts or warnings</li>
@@ -356,7 +356,7 @@ const PortfolioTrackingTutorial = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="text-sm space-y-2">
-                <ul className="space-y-1 ml-4 text-muted-foreground">
+                <ul className="space-y-1 ml-4 text-white/50">
                   <li>✓ Review day's performance by protocol</li>
                   <li>✓ Check for yield rate changes</li>
                   <li>✓ Note any positions that need attention</li>
@@ -373,7 +373,7 @@ const PortfolioTrackingTutorial = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="text-sm space-y-2">
-                <ul className="space-y-1 ml-4 text-muted-foreground">
+                <ul className="space-y-1 ml-4 text-white/50">
                   <li>✓ Compare performance to last week</li>
                   <li>✓ Analyze winning and losing positions</li>
                   <li>✓ Review allocation vs targets</li>
@@ -408,7 +408,7 @@ const PortfolioTrackingTutorial = () => {
             </CardHeader>
             <CardContent className="space-y-2 text-sm">
               <p>Portfolio trackers can export your complete transaction history:</p>
-              <ul className="space-y-1 ml-4 text-muted-foreground">
+              <ul className="space-y-1 ml-4 text-white/50">
                 <li>• All swaps, deposits, and withdrawals</li>
                 <li>• Yield earned per protocol</li>
                 <li>• Realized gains/losses</li>
@@ -426,15 +426,15 @@ const PortfolioTrackingTutorial = () => {
               <div className="space-y-2">
                 <div>
                   <p className="font-semibold">CoinTracker</p>
-                  <p className="text-xs text-muted-foreground">Imports from most DeFi protocols, generates tax forms</p>
+                  <p className="text-xs text-white/50">Imports from most DeFi protocols, generates tax forms</p>
                 </div>
                 <div>
                   <p className="font-semibold">Koinly</p>
-                  <p className="text-xs text-muted-foreground">Great for complex DeFi transactions, supports 20+ countries</p>
+                  <p className="text-xs text-white/50">Great for complex DeFi transactions, supports 20+ countries</p>
                 </div>
                 <div>
                   <p className="font-semibold">TokenTax</p>
-                  <p className="text-xs text-muted-foreground">Specialized in DeFi yield farming and LP taxation</p>
+                  <p className="text-xs text-white/50">Specialized in DeFi yield farming and LP taxation</p>
                 </div>
               </div>
             </CardContent>
@@ -446,7 +446,7 @@ const PortfolioTrackingTutorial = () => {
             </CardHeader>
             <CardContent className="space-y-2 text-sm">
               <p>Compare your returns against:</p>
-              <ul className="space-y-1 ml-4 text-muted-foreground">
+              <ul className="space-y-1 ml-4 text-white/50">
                 <li>• DeFi Pulse Index (overall DeFi market)</li>
                 <li>• ETH performance (baseline)</li>
                 <li>• Top protocol yields</li>
@@ -549,7 +549,7 @@ const PortfolioTrackingTutorial = () => {
         {/* Back Button */}
         <div className="mb-6">
           <Link to="/tutorials?tab=practical">
-            <Button variant="ghost" className="gap-2 hover:bg-muted">
+            <Button variant="ghost" className="gap-2 hover:bg-white/5">
               <ArrowLeft className="w-4 h-4" />
               Back to Practical DeFi Actions
             </Button>
@@ -561,7 +561,7 @@ const PortfolioTrackingTutorial = () => {
           <div className="flex items-center justify-between mb-4">
             <div>
               <h1 className="text-3xl font-bold mb-2">Portfolio Tracking Setup</h1>
-              <p className="text-muted-foreground">Set up comprehensive DeFi portfolio tracking and monitoring</p>
+              <p className="text-white/50">Set up comprehensive DeFi portfolio tracking and monitoring</p>
             </div>
             <Badge variant="secondary">Medium Priority</Badge>
           </div>
@@ -606,7 +606,7 @@ const PortfolioTrackingTutorial = () => {
                 {isStepCompleted(step.id) ? (
                   <CheckCircle className="h-4 w-4 text-awareness flex-shrink-0" />
                 ) : (
-                  <Circle className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+                  <Circle className="h-4 w-4 text-white/50 flex-shrink-0" />
                 )}
                 <span className="text-xs font-medium truncate">Step {step.id}</span>
               </CardContent>

@@ -144,28 +144,28 @@ const PredictionMarketsDeFi2025 = () => {
                 </BlogParagraph>
 
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
-                  <div className="bg-muted/30 rounded-lg p-5">
+                  <div className="bg-white/5 rounded-lg p-5">
                     <h3 className="text-lg font-semibold text-foreground mb-3">Skin in the Game</h3>
                     <p className="text-foreground/80 text-sm leading-relaxed">
                       When traders must stake real money on their predictions, biases become expensive. Wishful thinking, political loyalty, and overconfidence all cost money in prediction markets.
                     </p>
                   </div>
 
-                  <div className="bg-muted/30 rounded-lg p-5">
+                  <div className="bg-white/5 rounded-lg p-5">
                     <h3 className="text-lg font-semibold text-foreground mb-3">Information Aggregation</h3>
                     <p className="text-foreground/80 text-sm leading-relaxed">
                       Markets aggregate dispersed information. A trader with unique insight: perhaps industry knowledge or local information: can profit by trading on that insight, contributing it to the market price.
                     </p>
                   </div>
 
-                  <div className="bg-muted/30 rounded-lg p-5">
+                  <div className="bg-white/5 rounded-lg p-5">
                     <h3 className="text-lg font-semibold text-foreground mb-3">Continuous Updating</h3>
                     <p className="text-foreground/80 text-sm leading-relaxed">
                       Unlike polls conducted weekly or monthly, prediction markets update in real-time as new information emerges. Prices respond to news within minutes, not days.
                     </p>
                   </div>
 
-                  <div className="bg-muted/30 rounded-lg p-5">
+                  <div className="bg-white/5 rounded-lg p-5">
                     <h3 className="text-lg font-semibold text-foreground mb-3">Arbitrage Pressure</h3>
                     <p className="text-foreground/80 text-sm leading-relaxed">
                       When prices deviate from reality, informed traders can profit by correcting the mispricing. This creates constant pressure toward accuracy that traditional forecasts lack.
@@ -173,33 +173,33 @@ const PredictionMarketsDeFi2025 = () => {
                   </div>
                 </div>
 
-                <div className="bg-muted/30 rounded-lg p-6 mb-6 overflow-x-auto">
+                <div className="bg-white/5 rounded-lg p-6 mb-6 overflow-x-auto">
                   <h3 className="text-xl font-semibold text-foreground mb-4">Traditional Forecasting vs. Prediction Markets</h3>
                   <table className="w-full text-sm">
                     <thead>
-                      <tr className="border-b border-border">
+                      <tr className="border-b border-white/8">
                         <th className="text-left py-3 text-foreground font-semibold">Aspect</th>
                         <th className="text-left py-3 text-foreground font-semibold">Polls/Pundits</th>
                         <th className="text-left py-3 text-foreground font-semibold">Prediction Markets</th>
                       </tr>
                     </thead>
                     <tbody className="text-foreground/80">
-                      <tr className="border-b border-border/50">
+                      <tr className="border-b border-white/8">
                         <td className="py-3">Accountability</td>
                         <td className="py-3">Reputational only</td>
                         <td className="py-3">Financial stake</td>
                       </tr>
-                      <tr className="border-b border-border/50">
+                      <tr className="border-b border-white/8">
                         <td className="py-3">Update Frequency</td>
                         <td className="py-3">Days/weeks</td>
                         <td className="py-3">Real-time</td>
                       </tr>
-                      <tr className="border-b border-border/50">
+                      <tr className="border-b border-white/8">
                         <td className="py-3">Bias Correction</td>
                         <td className="py-3">Limited</td>
                         <td className="py-3">Profitable to correct</td>
                       </tr>
-                      <tr className="border-b border-border/50">
+                      <tr className="border-b border-white/8">
                         <td className="py-3">Information Sources</td>
                         <td className="py-3">Survey responses</td>
                         <td className="py-3">All available data</td>
@@ -220,28 +220,28 @@ const PredictionMarketsDeFi2025 = () => {
                 </BlogParagraph>
 
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
-                  <div className="bg-muted/30 rounded-lg p-5">
+                  <div className="bg-white/5 rounded-lg p-5">
                     <h3 className="text-lg font-semibold text-foreground mb-3">Crypto Markets</h3>
                     <p className="text-foreground/80 text-sm leading-relaxed">
                       Markets on ETF approvals, protocol upgrades, token prices, and regulatory decisions provide real-time probability assessments for crypto-specific events.
                     </p>
                   </div>
 
-                  <div className="bg-muted/30 rounded-lg p-5">
+                  <div className="bg-white/5 rounded-lg p-5">
                     <h3 className="text-lg font-semibold text-foreground mb-3">Economic Indicators</h3>
                     <p className="text-foreground/80 text-sm leading-relaxed">
                       Federal Reserve decisions, inflation readings, and employment data can all be traded before official announcements.
                     </p>
                   </div>
 
-                  <div className="bg-muted/30 rounded-lg p-5">
+                  <div className="bg-white/5 rounded-lg p-5">
                     <h3 className="text-lg font-semibold text-foreground mb-3">Sports & Entertainment</h3>
                     <p className="text-foreground/80 text-sm leading-relaxed">
                       Award shows, box office performance, and sporting events provide entertainment-focused prediction opportunities.
                     </p>
                   </div>
 
-                  <div className="bg-muted/30 rounded-lg p-5">
+                  <div className="bg-white/5 rounded-lg p-5">
                     <h3 className="text-lg font-semibold text-foreground mb-3">Science & Technology</h3>
                     <p className="text-foreground/80 text-sm leading-relaxed">
                       Markets on AI development timelines, scientific discoveries, and technology adoption rates help forecast innovation.

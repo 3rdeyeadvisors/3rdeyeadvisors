@@ -43,34 +43,34 @@ const NftDefiTutorial = () => {
                 <Image className="w-5 h-5 text-primary" />
                 <h4 className="font-semibold">Non-Fungible</h4>
               </div>
-              <p className="text-sm text-muted-foreground">Each NFT is unique and cannot be replaced by another identical item</p>
+              <p className="text-sm text-white/50">Each NFT is unique and cannot be replaced by another identical item</p>
             </Card>
             <Card className="p-4 border-accent/20">
               <div className="flex items-center gap-3 mb-2">
                 <Lock className="w-5 h-5 text-accent" />
                 <h4 className="font-semibold">Blockchain Verified</h4>
               </div>
-              <p className="text-sm text-muted-foreground">Ownership and authenticity are verified on the blockchain</p>
+              <p className="text-sm text-white/50">Ownership and authenticity are verified on the blockchain</p>
             </Card>
             <Card className="p-4 border-awareness/20">
               <div className="flex items-center gap-3 mb-2">
                 <Zap className="w-5 h-5 text-awareness" />
                 <h4 className="font-semibold">Programmable</h4>
               </div>
-              <p className="text-sm text-muted-foreground">Smart contracts can add utility and functionality</p>
+              <p className="text-sm text-white/50">Smart contracts can add utility and functionality</p>
             </Card>
           </div>
           
           <div className="border rounded p-4">
             <h4 className="font-semibold mb-2">Common NFT Standards</h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div className="p-2 bg-muted rounded">
+              <div className="p-2 bg-white/5 rounded">
                 <h5 className="font-medium text-sm">ERC-721</h5>
-                <p className="text-xs text-muted-foreground">Individual unique tokens</p>
+                <p className="text-xs text-white/50">Individual unique tokens</p>
               </div>
-              <div className="p-2 bg-muted rounded">
+              <div className="p-2 bg-white/5 rounded">
                 <h5 className="font-medium text-sm">ERC-1155</h5>
-                <p className="text-xs text-muted-foreground">Semi-fungible tokens</p>
+                <p className="text-xs text-white/50">Semi-fungible tokens</p>
               </div>
             </div>
           </div>
@@ -86,7 +86,7 @@ const NftDefiTutorial = () => {
           
           <Card className="p-4 bg-accent/10 border-accent">
             <h4 className="font-semibold text-foreground mb-2">How It Works</h4>
-            <ol className="text-sm text-muted-foreground space-y-1">
+            <ol className="text-sm text-white/50 space-y-1">
               <li>1. Deposit your NFT as collateral</li>
               <li>2. Receive a loan in cryptocurrency (usually ETH or stablecoins)</li>
               <li>3. Pay interest over the loan period</li>
@@ -140,7 +140,7 @@ const NftDefiTutorial = () => {
                 <Lock className="w-5 h-5 text-success" />
                 <h4 className="font-semibold">NFT Staking</h4>
               </div>
-              <p className="text-sm text-muted-foreground mb-2">Lock your NFTs to earn token rewards</p>
+              <p className="text-sm text-white/50 mb-2">Lock your NFTs to earn token rewards</p>
               <ul className="text-xs space-y-1">
                 <li>• Keep ownership while earning passive income</li>
                 <li>• Rewards often paid in project tokens</li>
@@ -153,7 +153,7 @@ const NftDefiTutorial = () => {
                 <Coins className="w-5 h-5 text-accent" />
                 <h4 className="font-semibold">Liquidity Mining</h4>
               </div>
-              <p className="text-sm text-muted-foreground mb-2">Provide NFT liquidity to earn trading fees</p>
+              <p className="text-sm text-white/50 mb-2">Provide NFT liquidity to earn trading fees</p>
               <ul className="text-xs space-y-1">
                 <li>• Deposit NFTs into liquidity pools</li>
                 <li>• Earn from trading fees and incentives</li>
@@ -166,7 +166,7 @@ const NftDefiTutorial = () => {
                 <TrendingUp className="w-5 h-5 text-primary" />
                 <h4 className="font-semibold">Fractionalized Ownership</h4>
               </div>
-              <p className="text-sm text-muted-foreground mb-2">Own fractions of expensive NFTs</p>
+              <p className="text-sm text-white/50 mb-2">Own fractions of expensive NFTs</p>
               <ul className="text-xs space-y-1">
                 <li>• Split expensive NFTs into tradeable tokens</li>
                 <li>• Lower barrier to entry</li>
@@ -177,7 +177,7 @@ const NftDefiTutorial = () => {
           
           <Card className="p-4 bg-awareness/10 border-awareness">
             <h4 className="font-semibold text-foreground mb-2">⚠️ Yield Farming Risks</h4>
-            <ul className="text-sm text-muted-foreground space-y-1">
+            <ul className="text-sm text-white/50 space-y-1">
               <li>• Smart contract vulnerabilities</li>
               <li>• Token price volatility</li>
               <li>• Liquidity risks when unstaking</li>
@@ -201,21 +201,21 @@ const NftDefiTutorial = () => {
                 <div className="flex justify-between items-center p-2 border rounded">
                   <div>
                     <span className="font-medium">OpenSea</span>
-                    <p className="text-xs text-muted-foreground">Largest NFT marketplace</p>
+                    <p className="text-xs text-white/50">Largest NFT marketplace</p>
                   </div>
                   <Badge variant="outline">2.5% fee</Badge>
                 </div>
                 <div className="flex justify-between items-center p-2 border rounded">
                   <div>
                     <span className="font-medium">LooksRare</span>
-                    <p className="text-xs text-muted-foreground">Rewards for trading</p>
+                    <p className="text-xs text-white/50">Rewards for trading</p>
                   </div>
                   <Badge variant="outline">2% fee</Badge>
                 </div>
                 <div className="flex justify-between items-center p-2 border rounded">
                   <div>
                     <span className="font-medium">X2Y2</span>
-                    <p className="text-xs text-muted-foreground">Lower fees</p>
+                    <p className="text-xs text-white/50">Lower fees</p>
                   </div>
                   <Badge variant="outline">0.5% fee</Badge>
                 </div>
@@ -227,19 +227,19 @@ const NftDefiTutorial = () => {
               <div className="space-y-3">
                 <div className="p-3 border rounded">
                   <h5 className="font-medium text-sm">Floor Sweeping</h5>
-                  <p className="text-xs text-muted-foreground">Buy multiple NFTs at floor price</p>
+                  <p className="text-xs text-white/50">Buy multiple NFTs at floor price</p>
                 </div>
                 <div className="p-3 border rounded">
                   <h5 className="font-medium text-sm">Trait Sniping</h5>
-                  <p className="text-xs text-muted-foreground">Target undervalued rare traits</p>
+                  <p className="text-xs text-white/50">Target undervalued rare traits</p>
                 </div>
                 <div className="p-3 border rounded">
                   <h5 className="font-medium text-sm">Flip Trading</h5>
-                  <p className="text-xs text-muted-foreground">Quick buy and sell for profit</p>
+                  <p className="text-xs text-white/50">Quick buy and sell for profit</p>
                 </div>
                 <div className="p-3 border rounded">
                   <h5 className="font-medium text-sm">Long-term Holding</h5>
-                  <p className="text-xs text-muted-foreground">Accumulate blue-chip collections</p>
+                  <p className="text-xs text-white/50">Accumulate blue-chip collections</p>
                 </div>
               </div>
             </Card>
@@ -270,15 +270,15 @@ const NftDefiTutorial = () => {
               <div className="space-y-2">
                 <div className="p-2 border rounded">
                   <h5 className="font-medium text-sm">In-Game Assets</h5>
-                  <p className="text-xs text-muted-foreground">Weapons, characters, skins that you truly own</p>
+                  <p className="text-xs text-white/50">Weapons, characters, skins that you truly own</p>
                 </div>
                 <div className="p-2 border rounded">
                   <h5 className="font-medium text-sm">Play-to-Earn</h5>
-                  <p className="text-xs text-muted-foreground">Earn NFTs and tokens by playing games</p>
+                  <p className="text-xs text-white/50">Earn NFTs and tokens by playing games</p>
                 </div>
                 <div className="p-2 border rounded">
                   <h5 className="font-medium text-sm">Cross-Game Utility</h5>
-                  <p className="text-xs text-muted-foreground">Use NFTs across multiple games/platforms</p>
+                  <p className="text-xs text-white/50">Use NFTs across multiple games/platforms</p>
                 </div>
               </div>
             </Card>
@@ -288,15 +288,15 @@ const NftDefiTutorial = () => {
               <div className="space-y-2">
                 <div className="p-2 border rounded">
                   <h5 className="font-medium text-sm">Land Ownership</h5>
-                  <p className="text-xs text-muted-foreground">Own virtual plots in metaverse worlds</p>
+                  <p className="text-xs text-white/50">Own virtual plots in metaverse worlds</p>
                 </div>
                 <div className="p-2 border rounded">
                   <h5 className="font-medium text-sm">Development Rights</h5>
-                  <p className="text-xs text-muted-foreground">Build experiences on your land</p>
+                  <p className="text-xs text-white/50">Build experiences on your land</p>
                 </div>
                 <div className="p-2 border rounded">
                   <h5 className="font-medium text-sm">Rental Income</h5>
-                  <p className="text-xs text-muted-foreground">Lease land to other users/brands</p>
+                  <p className="text-xs text-white/50">Lease land to other users/brands</p>
                 </div>
               </div>
             </Card>
@@ -307,19 +307,19 @@ const NftDefiTutorial = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="p-3 border rounded">
                 <h5 className="font-medium text-sm">Axie Infinity</h5>
-                <p className="text-xs text-muted-foreground">Pet battling game</p>
+                <p className="text-xs text-white/50">Pet battling game</p>
               </div>
               <div className="p-3 border rounded">
                 <h5 className="font-medium text-sm">The Sandbox</h5>
-                <p className="text-xs text-muted-foreground">Voxel metaverse</p>
+                <p className="text-xs text-white/50">Voxel metaverse</p>
               </div>
               <div className="p-3 border rounded">
                 <h5 className="font-medium text-sm">Decentraland</h5>
-                <p className="text-xs text-muted-foreground">Virtual world platform</p>
+                <p className="text-xs text-white/50">Virtual world platform</p>
               </div>
               <div className="p-3 border rounded">
                 <h5 className="font-medium text-sm">Gods Unchained</h5>
-                <p className="text-xs text-muted-foreground">Trading card game</p>
+                <p className="text-xs text-white/50">Trading card game</p>
               </div>
             </div>
           </Card>
@@ -339,19 +339,19 @@ const NftDefiTutorial = () => {
               <div className="space-y-2">
                 <div className="p-2 border border-destructive/30 rounded">
                   <h5 className="font-medium text-sm text-destructive">Liquidity Risk</h5>
-                  <p className="text-xs text-muted-foreground">NFTs can become illiquid quickly</p>
+                  <p className="text-xs text-white/50">NFTs can become illiquid quickly</p>
                 </div>
                 <div className="p-2 border border-destructive/30 rounded">
                   <h5 className="font-medium text-sm text-destructive">Volatility Risk</h5>
-                  <p className="text-xs text-muted-foreground">Prices can swing dramatically</p>
+                  <p className="text-xs text-white/50">Prices can swing dramatically</p>
                 </div>
                 <div className="p-2 border border-destructive/30 rounded">
                   <h5 className="font-medium text-sm text-destructive">Technical Risk</h5>
-                  <p className="text-xs text-muted-foreground">Smart contract bugs and exploits</p>
+                  <p className="text-xs text-white/50">Smart contract bugs and exploits</p>
                 </div>
                 <div className="p-2 border border-destructive/30 rounded">
                   <h5 className="font-medium text-sm text-destructive">Regulatory Risk</h5>
-                  <p className="text-xs text-muted-foreground">Uncertain legal framework</p>
+                  <p className="text-xs text-white/50">Uncertain legal framework</p>
                 </div>
               </div>
             </Card>
@@ -438,7 +438,7 @@ const NftDefiTutorial = () => {
         <div className="flex items-center justify-between mb-4">
           <div>
             <h1 className="text-3xl font-bold">NFT & DeFi Integration</h1>
-            <p className="text-muted-foreground">Discover how NFTs and DeFi protocols work together</p>
+            <p className="text-white/50">Discover how NFTs and DeFi protocols work together</p>
           </div>
           <Badge variant="secondary">Medium Priority</Badge>
         </div>
@@ -486,7 +486,7 @@ const NftDefiTutorial = () => {
                 <div
                   key={index}
                   className={`p-3 rounded cursor-pointer transition-colors ${
-                    currentStep === index ? 'bg-primary text-primary-foreground' : 'hover:bg-muted'
+                    currentStep === index ? 'bg-primary text-primary-foreground' : 'hover:bg-white/5'
                   }`}
                   onClick={() => handleStepChange(index)}
                 >

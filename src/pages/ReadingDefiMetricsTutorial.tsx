@@ -832,7 +832,7 @@ const ReadingDefiMetricsTutorial = () => {
         {/* Back to Tutorials Button */}
         <div className="mb-6">
           <Link to="/tutorials">
-            <Button variant="ghost" className="gap-2 hover:bg-muted">
+            <Button variant="ghost" className="gap-2 hover:bg-white/5">
               <ArrowLeft className="h-4 w-4" />
               Back to Tutorials
             </Button>
@@ -847,7 +847,7 @@ const ReadingDefiMetricsTutorial = () => {
             </div>
             <div>
               <h1 className="text-3xl font-bold">Reading DeFi Metrics</h1>
-              <p className="text-muted-foreground">Master data-driven DeFi investment decisions</p>
+              <p className="text-white/50">Master data-driven DeFi investment decisions</p>
             </div>
           </div>
 
@@ -938,7 +938,7 @@ const ReadingDefiMetricsTutorial = () => {
             </CardHeader>
 
             <CardContent className="space-y-4 md:space-y-6 p-3 md:p-6">
-              <p className="text-muted-foreground text-sm md:text-base">{currentStepData.content.overview}</p>
+              <p className="text-white/50 text-sm md:text-base">{currentStepData.content.overview}</p>
 
               {/* Content implementation would go here */}
 

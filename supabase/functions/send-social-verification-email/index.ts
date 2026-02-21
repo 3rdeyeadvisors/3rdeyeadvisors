@@ -50,7 +50,7 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     const displayName = profile?.display_name || "there";
-    const platform = taskType === 'instagram' ? 'Instagram' : 'X (Twitter)';
+    const platform = 'Instagram';
     const platformHandle = taskType === 'instagram' ? '@3rdeyeadvisors' : '@3rdeyeadvisors';
 
     const emailHtml = `

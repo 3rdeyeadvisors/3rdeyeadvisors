@@ -75,13 +75,13 @@ const OrionChat = () => {
             transition={{ type: "spring", damping: 20, stiffness: 300 }}
             className="absolute bottom-16 right-0 w-64 md:w-72"
           >
-            <div className="relative bg-card border border-border rounded-2xl rounded-br-sm p-4 shadow-xl">
+            <div className="relative bg-card border border-white/8 rounded-2xl rounded-br-sm p-4 shadow-xl">
               <button
                 onClick={dismissGreeting}
-                className="absolute top-2 right-2 p-1 rounded-full hover:bg-muted transition-colors"
+                className="absolute top-2 right-2 p-1 rounded-full hover:bg-white/5 transition-colors"
                 aria-label="Dismiss greeting"
               >
-                <X className="w-4 h-4 text-muted-foreground" />
+                <X className="w-4 h-4 text-white/50" />
               </button>
               <p className="text-sm text-foreground pr-6">{greeting}</p>
               <Button
@@ -94,7 +94,7 @@ const OrionChat = () => {
               </Button>
             </div>
             {/* Bubble pointer */}
-            <div className="absolute -bottom-2 right-6 w-4 h-4 bg-card border-r border-b border-border transform rotate-45" />
+            <div className="absolute -bottom-2 right-6 w-4 h-4 bg-card border-r border-b border-white/8 transform rotate-45" />
           </motion.div>
         )}
       </AnimatePresence>
@@ -107,23 +107,23 @@ const OrionChat = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="absolute bottom-16 right-0 w-[calc(100vw-2rem)] max-w-sm md:w-96 bg-card border border-border rounded-2xl shadow-2xl overflow-hidden"
+            className="absolute bottom-16 right-0 w-[calc(100vw-2rem)] max-w-sm md:w-96 bg-card border border-white/8 rounded-2xl shadow-2xl overflow-hidden"
           >
             {/* Header */}
-            <div className="flex items-center justify-between p-4 border-b border-border bg-muted/50">
+            <div className="flex items-center justify-between p-4 border-b border-white/8 bg-white/5">
               <div className="flex items-center gap-3">
                 <OrionAvatar size="sm" isThinking={isLoading} />
                 <div>
                   <h3 className="font-semibold text-foreground">Orion</h3>
-                  <p className="text-xs text-muted-foreground">3EA Assistant</p>
+                  <p className="text-xs text-white/50">3EA Assistant</p>
                 </div>
               </div>
               <button
                 onClick={closeChat}
-                className="p-2 rounded-full hover:bg-muted transition-colors"
+                className="p-2 rounded-full hover:bg-white/5 transition-colors"
                 aria-label="Close chat"
               >
-                <X className="w-5 h-5 text-muted-foreground" />
+                <X className="w-5 h-5 text-white/50" />
               </button>
             </div>
 
@@ -142,7 +142,7 @@ const OrionChat = () => {
                       className={`max-w-[85%] rounded-2xl px-4 py-2 ${
                         msg.role === "user"
                           ? "bg-primary text-primary-foreground rounded-br-sm"
-                          : "bg-muted text-foreground rounded-bl-sm"
+                          : "bg-white/5 text-foreground rounded-bl-sm"
                       }`}
                     >
                       <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
@@ -156,7 +156,7 @@ const OrionChat = () => {
                     animate={{ opacity: 1 }}
                     className="flex justify-start"
                   >
-                    <div className="bg-muted rounded-2xl rounded-bl-sm px-4 py-3">
+                    <div className="bg-white/5 rounded-2xl rounded-bl-sm px-4 py-3">
                       <div className="flex gap-1">
                         <motion.div
                           className="w-2 h-2 bg-primary/60 rounded-full"
@@ -181,7 +181,7 @@ const OrionChat = () => {
                 {/* Quick Actions - show only if few messages */}
                 {messages.length <= 1 && (
                   <div className="pt-2">
-                    <p className="text-xs text-muted-foreground mb-2">Quick questions:</p>
+                    <p className="text-xs text-white/50 mb-2">Quick questions:</p>
                     <div className="flex flex-wrap gap-2">
                       {quickActions.map((action) => (
                         <button
@@ -199,7 +199,7 @@ const OrionChat = () => {
             </ScrollArea>
 
             {/* Input */}
-            <div className="p-4 border-t border-border bg-muted/30">
+            <div className="p-4 border-t border-white/8 bg-white/5">
               <div className="flex gap-2">
                 <Input
                   ref={inputRef}

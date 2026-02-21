@@ -43,7 +43,7 @@ export const FeatureSuggestionsList = ({
 
   if (loading) {
     return (
-      <Card className="border-border/50 h-full">
+      <Card className="border-white/8 h-full">
         <CardContent className="flex items-center justify-center py-10 px-4 h-full">
           <Loader2 className="w-6 h-6 animate-spin text-primary" />
         </CardContent>
@@ -53,11 +53,11 @@ export const FeatureSuggestionsList = ({
 
   if (suggestions.length === 0) {
     return (
-      <Card className="border-border/50 h-full">
+      <Card className="border-white/8 h-full">
         <CardContent className="flex flex-col items-center justify-center py-10 px-4 text-center gap-2 h-full">
-          <MessageSquare className="w-10 h-10 text-muted-foreground/50" />
-          <p className="text-sm font-medium text-muted-foreground">No community ideas yet</p>
-          <p className="text-xs text-muted-foreground/70">Be the first to submit one!</p>
+          <MessageSquare className="w-10 h-10 text-white/50" />
+          <p className="text-sm font-medium text-white/50">No community ideas yet</p>
+          <p className="text-xs text-white/70">Be the first to submit one!</p>
         </CardContent>
       </Card>
     );
@@ -65,7 +65,7 @@ export const FeatureSuggestionsList = ({
 
   return (
     <div className="h-full">
-      <Card className="border-border/50 h-full flex flex-col">
+      <Card className="border-white/8 h-full flex flex-col">
         <CardHeader className="pb-3 text-center flex-shrink-0">
           <CardTitle className="text-base md:text-lg flex flex-col items-center gap-2">
             <MessageSquare className="w-4 h-4 text-primary" />
@@ -86,7 +86,7 @@ export const FeatureSuggestionsList = ({
                   <button
                     key={suggestion.id}
                     onClick={() => setSelectedSuggestion(suggestion)}
-                    className="w-full p-4 rounded-lg border border-border/50 bg-card/50 hover:bg-muted/50 hover:border-primary/30 transition-all group"
+                    className="w-full p-4 rounded-lg border border-white/8 bg-card/50 hover:bg-white/5 hover:border-primary/30 transition-all group"
                   >
                     <div className="flex flex-col items-center gap-3 text-center">
                       <Badge variant="outline" className={`text-xs py-0.5 ${status.className}`}>
@@ -96,10 +96,10 @@ export const FeatureSuggestionsList = ({
                       <h4 className="font-medium text-sm break-words group-hover:text-primary transition-colors">
                         {suggestion.title}
                       </h4>
-                      <p className="text-xs text-muted-foreground line-clamp-2 break-words">
+                      <p className="text-xs text-white/50 line-clamp-2 break-words">
                         {suggestion.description}
                       </p>
-                      <div className="flex items-center justify-between w-full flex-wrap gap-2 text-xs text-muted-foreground/70 pt-1 border-t border-border/30">
+                      <div className="flex items-center justify-between w-full flex-wrap gap-2 text-xs text-white/70 pt-1 border-t border-white/8">
                         <span>by {suggestion.submitter_name}</span>
                         <span className="flex items-center gap-1">
                           Click to read more <ChevronRight className="w-3 h-3" />
@@ -136,7 +136,7 @@ export const FeatureSuggestionsList = ({
                       </Badge>
                     );
                   })()}
-                  <span className="text-xs text-muted-foreground">
+                  <span className="text-xs text-white/50">
                     {formatDistanceToNow(new Date(selectedSuggestion.created_at), { addSuffix: true })}
                   </span>
                 </div>
@@ -148,8 +148,8 @@ export const FeatureSuggestionsList = ({
                 </DialogDescription>
               </ScrollArea>
 
-              <div className="flex items-center justify-between pt-2 border-t border-border/50">
-                <span className="text-xs text-muted-foreground">
+              <div className="flex items-center justify-between pt-2 border-t border-white/8">
+                <span className="text-xs text-white/50">
                   Submitted by {selectedSuggestion.submitter_name}
                 </span>
                 {selectedSuggestion.status === 'promoted' && (

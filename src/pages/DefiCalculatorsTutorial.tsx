@@ -416,7 +416,7 @@ const DefiCalculatorsTutorial = () => {
             </div>
             <div>
               <h1 className="text-3xl font-bold">Using DeFi Calculators</h1>
-              <p className="text-muted-foreground">Master the tools for smart DeFi investing</p>
+              <p className="text-white/50">Master the tools for smart DeFi investing</p>
             </div>
           </div>
 
@@ -506,7 +506,7 @@ const DefiCalculatorsTutorial = () => {
             </CardHeader>
 
             <CardContent className="space-y-6">
-              <p className="text-muted-foreground">{currentStepData.content.overview}</p>
+              <p className="text-white/50">{currentStepData.content.overview}</p>
 
               {/* Step 1: Understanding Calculators */}
               {currentStep === 1 && (
@@ -530,11 +530,11 @@ const DefiCalculatorsTutorial = () => {
                             <div className="space-y-3 text-sm">
                               <div>
                                 <p className="font-medium mb-1">When to use:</p>
-                                <p className="text-muted-foreground">{calc.when}</p>
+                                <p className="text-white/50">{calc.when}</p>
                               </div>
                               <div>
                                 <p className="font-medium mb-1">How it helps:</p>
-                                <p className="text-muted-foreground">{calc.helps}</p>
+                                <p className="text-white/50">{calc.helps}</p>
                               </div>
                             </div>
                           </CardContent>
@@ -652,15 +652,15 @@ const DefiCalculatorsTutorial = () => {
                         <div className="space-y-4">
                           <h4 className="font-semibold">Results:</h4>
                           <div className="space-y-3">
-                            <div className="flex justify-between items-center p-3 bg-muted rounded-lg">
+                            <div className="flex justify-between items-center p-3 bg-white/5 rounded-lg">
                               <span className="font-medium">Final Amount:</span>
                               <span className="text-awareness font-bold">${yieldResults.finalAmount}</span>
                             </div>
-                            <div className="flex justify-between items-center p-3 bg-muted rounded-lg">
+                            <div className="flex justify-between items-center p-3 bg-white/5 rounded-lg">
                               <span className="font-medium">Total Return:</span>
                               <span className="text-awareness font-bold">${yieldResults.totalReturn}</span>
                             </div>
-                            <div className="flex justify-between items-center p-3 bg-muted rounded-lg">
+                            <div className="flex justify-between items-center p-3 bg-white/5 rounded-lg">
                               <span className="font-medium">Effective APY:</span>
                               <span className="text-awareness font-bold">{yieldResults.effectiveAPY}%</span>
                             </div>
@@ -678,7 +678,7 @@ const DefiCalculatorsTutorial = () => {
                         <Card key={index}>
                           <CardContent className="p-4">
                             <h4 className="font-medium mb-2">{input.name}</h4>
-                            <p className="text-sm text-muted-foreground mb-2">{input.description}</p>
+                            <p className="text-sm text-white/50 mb-2">{input.description}</p>
                             <div className="flex items-center justify-between text-sm">
                               <span className="text-primary">Example: {input.example}</span>
                               <span className="text-awareness">💡 {input.tips}</span>
@@ -697,7 +697,7 @@ const DefiCalculatorsTutorial = () => {
                         <Card key={index}>
                           <CardContent className="p-4">
                             <h4 className="font-medium mb-2">{result.metric}</h4>
-                            <p className="text-sm text-muted-foreground mb-2">{result.meaning}</p>
+                            <p className="text-sm text-white/50 mb-2">{result.meaning}</p>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
                               <div className="flex items-center gap-2">
                                 <CheckCircle className="h-3 w-3 text-awareness" />
@@ -898,13 +898,13 @@ const DefiCalculatorsTutorial = () => {
                             </div>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
                               <div>
-                                <span className="text-muted-foreground">Token A:</span> {scenario.tokenA}
+                                <span className="text-white/50">Token A:</span> {scenario.tokenA}
                               </div>
                               <div>
-                                <span className="text-muted-foreground">Token B:</span> {scenario.tokenB}
+                                <span className="text-white/50">Token B:</span> {scenario.tokenB}
                               </div>
                             </div>
-                            <p className="text-sm text-muted-foreground">{scenario.meaning}</p>
+                            <p className="text-sm text-white/50">{scenario.meaning}</p>
                           </CardContent>
                         </Card>
                       ))}
@@ -945,7 +945,7 @@ const DefiCalculatorsTutorial = () => {
                         <Card key={index}>
                           <CardContent className="p-4">
                             <h4 className="font-medium mb-2 text-success">{practice.practice}</h4>
-                            <p className="text-sm text-muted-foreground mb-2">{practice.reason}</p>
+                            <p className="text-sm text-white/50 mb-2">{practice.reason}</p>
                             <div className="flex items-center gap-2 text-sm text-accent">
                               <Target className="h-3 w-3" />
                               <span>Action: {practice.action}</span>

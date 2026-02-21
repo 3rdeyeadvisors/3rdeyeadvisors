@@ -59,11 +59,11 @@ const DefiVaultsExplained = () => {
               Listen to this article
             </button>
 
-            <p className="text-lg text-muted-foreground font-consciousness mb-6 leading-relaxed">
+            <p className="text-lg text-white/50 font-consciousness mb-6 leading-relaxed">
               {blogPost.excerpt}
             </p>
 
-            <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-6 text-sm text-white/50">
               <div className="flex items-center gap-2">
                 <User className="w-4 h-4" />
                 <span>{BRAND_AUTHOR}</span>
@@ -109,7 +109,7 @@ const DefiVaultsExplained = () => {
                   Unlike traditional investment funds, everything about a DeFi vault is transparent:
                 </p>
 
-                <div className="bg-muted/30 rounded-lg p-6 mb-6">
+                <div className="bg-white/5 rounded-lg p-6 mb-6">
                   <ul className="space-y-3 text-foreground/90">
                     <li><strong className="text-foreground">The Strategy:</strong> The exact rules are written in open-source code that anyone can read</li>
                     <li><strong className="text-foreground">The Holdings:</strong> Every asset the vault holds is visible on the blockchain in real-time</li>
@@ -179,7 +179,7 @@ const DefiVaultsExplained = () => {
                   </div>
                 </div>
 
-                <div className="bg-muted/30 rounded-lg p-6 mb-6">
+                <div className="bg-white/5 rounded-lg p-6 mb-6">
                   <h3 className="text-xl font-semibold text-foreground mb-4">The 2022 CeFi Collapse: A Case Study</h3>
                   <ul className="space-y-3 text-foreground/90">
                     <li><strong className="text-foreground">Celsius Network:</strong> Halted withdrawals and filed bankruptcy, revealing a $4.7 billion hole that customers never saw coming</li>
@@ -206,28 +206,28 @@ const DefiVaultsExplained = () => {
                 </p>
 
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
-                  <div className="bg-muted/30 rounded-lg p-5">
+                  <div className="bg-white/5 rounded-lg p-5">
                     <h3 className="text-lg font-semibold text-foreground mb-3">On-Chain Visibility</h3>
                     <p className="text-foreground/80 text-sm leading-relaxed">
                       At any moment, you can see exactly what assets the vault holds. Not a quarterly report, not a delayed disclosure, but the actual current state of the portfolio.
                     </p>
                   </div>
 
-                  <div className="bg-muted/30 rounded-lg p-5">
+                  <div className="bg-white/5 rounded-lg p-5">
                     <h3 className="text-lg font-semibold text-foreground mb-3">Transaction History</h3>
                     <p className="text-foreground/80 text-sm leading-relaxed">
                       Every trade, every yield harvest, every fee payment is recorded on the blockchain forever. You can trace exactly what happened with your money at any point.
                     </p>
                   </div>
 
-                  <div className="bg-muted/30 rounded-lg p-5">
+                  <div className="bg-white/5 rounded-lg p-5">
                     <h3 className="text-lg font-semibold text-foreground mb-3">Open-Source Code</h3>
                     <p className="text-foreground/80 text-sm leading-relaxed">
                       The vault's strategy is literally written in code that anyone can read. If the vault claims to invest only in blue-chip protocols, you can verify this by examining the smart contract.
                     </p>
                   </div>
 
-                  <div className="bg-muted/30 rounded-lg p-5">
+                  <div className="bg-white/5 rounded-lg p-5">
                     <h3 className="text-lg font-semibold text-foreground mb-3">Self-Custody</h3>
                     <p className="text-foreground/80 text-sm leading-relaxed">
                       Your assets are held by the smart contract, not by a company. The contract enforces the rules, and only you can withdraw your share.
@@ -280,33 +280,33 @@ const DefiVaultsExplained = () => {
                 </div>
 
                 {/* Comparison Table */}
-                <div className="bg-muted/30 rounded-lg p-6 mb-6 overflow-x-auto">
+                <div className="bg-white/5 rounded-lg p-6 mb-6 overflow-x-auto">
                   <h3 className="text-xl font-semibold text-foreground mb-4">Traditional Fund vs. DeFi Vault</h3>
                   <table className="w-full text-sm">
                     <thead>
-                      <tr className="border-b border-border">
+                      <tr className="border-b border-white/8">
                         <th className="text-left py-3 text-foreground font-semibold">Aspect</th>
                         <th className="text-left py-3 text-foreground font-semibold">Traditional Fund</th>
                         <th className="text-left py-3 text-foreground font-semibold">DeFi Vault</th>
                       </tr>
                     </thead>
                     <tbody className="text-foreground/80">
-                      <tr className="border-b border-border/50">
+                      <tr className="border-b border-white/8">
                         <td className="py-3">Strategy Execution</td>
                         <td className="py-3">Manager discretion</td>
                         <td className="py-3">Smart contract code</td>
                       </tr>
-                      <tr className="border-b border-border/50">
+                      <tr className="border-b border-white/8">
                         <td className="py-3">Rule Enforcement</td>
                         <td className="py-3">Trust-based</td>
                         <td className="py-3">Code-enforced</td>
                       </tr>
-                      <tr className="border-b border-border/50">
+                      <tr className="border-b border-white/8">
                         <td className="py-3">Strategy Changes</td>
                         <td className="py-3">Manager can change anytime</td>
                         <td className="py-3">Requires governance</td>
                       </tr>
-                      <tr className="border-b border-border/50">
+                      <tr className="border-b border-white/8">
                         <td className="py-3">Verification</td>
                         <td className="py-3">Periodic reports</td>
                         <td className="py-3">Real-time on-chain</td>
@@ -335,28 +335,28 @@ const DefiVaultsExplained = () => {
                 </p>
 
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
-                  <div className="bg-muted/30 rounded-lg p-5">
+                  <div className="bg-white/5 rounded-lg p-5">
                     <h3 className="text-lg font-semibold text-foreground mb-3">Yield Aggregator Vaults</h3>
                     <p className="text-foreground/80 text-sm leading-relaxed">
                       Automatically move capital between yield-generating protocols to maximize returns. Examples include Yearn Finance vaults.
                     </p>
                   </div>
 
-                  <div className="bg-muted/30 rounded-lg p-5">
+                  <div className="bg-white/5 rounded-lg p-5">
                     <h3 className="text-lg font-semibold text-foreground mb-3">Lending Vaults</h3>
                     <p className="text-foreground/80 text-sm leading-relaxed">
                       Participate in decentralized lending markets, earning interest on deposited assets through protocols like Aave and Compound.
                     </p>
                   </div>
 
-                  <div className="bg-muted/30 rounded-lg p-5">
+                  <div className="bg-white/5 rounded-lg p-5">
                     <h3 className="text-lg font-semibold text-foreground mb-3">Liquidity Provider Vaults</h3>
                     <p className="text-foreground/80 text-sm leading-relaxed">
                       Provide liquidity to DEXs and earn trading fees, with strategies to minimize impermanent loss.
                     </p>
                   </div>
 
-                  <div className="bg-muted/30 rounded-lg p-5">
+                  <div className="bg-white/5 rounded-lg p-5">
                     <h3 className="text-lg font-semibold text-foreground mb-3">Delta-Neutral Vaults</h3>
                     <p className="text-foreground/80 text-sm leading-relaxed">
                       Generate yield while minimizing price exposure through hedging strategies that maintain market-neutral positions.
@@ -423,7 +423,7 @@ const DefiVaultsExplained = () => {
                 </p>
 
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-muted/30 rounded-lg p-5">
+                  <div className="bg-white/5 rounded-lg p-5">
                     <h3 className="text-lg font-semibold text-foreground mb-3">Security</h3>
                     <ul className="space-y-2 text-foreground/80 text-sm">
                       <li>• Has the smart contract been audited?</li>
@@ -432,7 +432,7 @@ const DefiVaultsExplained = () => {
                     </ul>
                   </div>
 
-                  <div className="bg-muted/30 rounded-lg p-5">
+                  <div className="bg-white/5 rounded-lg p-5">
                     <h3 className="text-lg font-semibold text-foreground mb-3">Strategy</h3>
                     <ul className="space-y-2 text-foreground/80 text-sm">
                       <li>• Can you understand how it generates returns?</li>
@@ -441,7 +441,7 @@ const DefiVaultsExplained = () => {
                     </ul>
                   </div>
 
-                  <div className="bg-muted/30 rounded-lg p-5">
+                  <div className="bg-white/5 rounded-lg p-5">
                     <h3 className="text-lg font-semibold text-foreground mb-3">Transparency</h3>
                     <ul className="space-y-2 text-foreground/80 text-sm">
                       <li>• Is the code open-source and verified?</li>
@@ -450,7 +450,7 @@ const DefiVaultsExplained = () => {
                     </ul>
                   </div>
 
-                  <div className="bg-muted/30 rounded-lg p-5">
+                  <div className="bg-white/5 rounded-lg p-5">
                     <h3 className="text-lg font-semibold text-foreground mb-3">Governance</h3>
                     <ul className="space-y-2 text-foreground/80 text-sm">
                       <li>• Who built and maintains the vault?</li>
@@ -487,8 +487,8 @@ const DefiVaultsExplained = () => {
               </div>
 
               {/* Disclaimer */}
-              <div className="border-t border-border pt-8">
-                <p className="text-sm text-muted-foreground italic leading-relaxed">
+              <div className="border-t border-white/8 pt-8">
+                <p className="text-sm text-white/50 italic leading-relaxed">
                   This content is provided for educational purposes only. It does not constitute financial advice. All investments involve risk, including potential loss of principal. Always conduct your own research and consult with qualified professionals before making investment decisions. Past performance is not indicative of future results.
                 </p>
               </div>

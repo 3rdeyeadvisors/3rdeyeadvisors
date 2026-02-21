@@ -499,7 +499,7 @@ export const EnhancedDashboard = () => {
     switch (category) {
       case "free": return "bg-awareness/20 text-awareness border-awareness/30";
       case "paid": return "bg-primary/20 text-primary border-primary/30";
-      default: return "bg-muted/20 text-muted-foreground border-border";
+      default: return "bg-white/3 text-white/50 border-white/8";
     }
   };
 
@@ -508,7 +508,7 @@ export const EnhancedDashboard = () => {
       case "Beginner": return "text-awareness";
       case "Intermediate": return "text-accent";
       case "Advanced": return "text-destructive";
-      default: return "text-muted-foreground";
+      default: return "text-white/50";
     }
   };
 
@@ -711,7 +711,7 @@ export const EnhancedDashboard = () => {
               );
             })}
           </div>
-          <div className="mt-4 flex items-center gap-4 text-xs text-muted-foreground justify-center sm:justify-start">
+          <div className="mt-4 flex items-center gap-4 text-xs text-white/50 justify-center sm:justify-start">
             <div className="flex items-center gap-1">
               <div className="w-2 h-2 rounded-full bg-primary" />
               <span>Goal: 60m / day</span>
@@ -816,7 +816,7 @@ export const EnhancedDashboard = () => {
                       <h3 className="font-consciousness font-semibold text-foreground mb-3 line-clamp-2">
                         {course.title}
                       </h3>
-                      <div className="flex items-center gap-4 mb-4 text-sm text-muted-foreground">
+                      <div className="flex items-center gap-4 mb-4 text-sm text-white/50">
                         <span className="flex items-center gap-1">
                           <Clock className="w-4 h-4" />
                           {course.duration}
@@ -848,7 +848,7 @@ export const EnhancedDashboard = () => {
                   {notStarted.map(course => (
                     <Card
                       key={course.id}
-                      className="p-6 bg-card/60 border-border hover:border-primary/40 transition-all cursor-pointer group"
+                      className="p-6 bg-card/60 border-white/8 hover:border-primary/40 transition-all cursor-pointer group"
                       onClick={() => navigate(`/courses/${course.id}`)}
                     >
                       <div className="flex items-start justify-between mb-4">
@@ -863,7 +863,7 @@ export const EnhancedDashboard = () => {
                       <h3 className="font-consciousness font-semibold text-foreground mb-3 line-clamp-2">
                         {course.title}
                       </h3>
-                      <div className="flex items-center gap-4 mb-4 text-sm text-muted-foreground">
+                      <div className="flex items-center gap-4 mb-4 text-sm text-white/50">
                         <span className="flex items-center gap-1">
                           <Clock className="w-4 h-4" />
                           {course.duration}
@@ -894,15 +894,15 @@ export const EnhancedDashboard = () => {
                   className={`p-6 transition-all ${
                     achievement.earned 
                       ? "bg-gradient-to-br from-primary/10 to-primary/5 border-primary/30 shadow-lg" 
-                      : "bg-card/60 border-border opacity-60"
+                      : "bg-card/60 border-white/8 opacity-60"
                   }`}
                 >
                   <div className="flex items-center gap-3 mb-3">
                     <div className={`p-2 rounded-full ${
-                      achievement.earned ? "bg-primary/20" : "bg-muted"
+                      achievement.earned ? "bg-primary/20" : "bg-white/5"
                     }`}>
                       <achievement.icon className={`w-6 h-6 ${
-                        achievement.earned ? "text-primary" : "text-muted-foreground"
+                        achievement.earned ? "text-primary" : "text-white/50"
                       }`} />
                     </div>
                     <div>
@@ -910,13 +910,13 @@ export const EnhancedDashboard = () => {
                         {achievement.title}
                       </h3>
                       {achievement.earned && achievement.date && (
-                        <p className="text-xs text-muted-foreground">
+                        <p className="text-xs text-white/50">
                           Earned {achievement.date}
                         </p>
                       )}
                     </div>
                   </div>
-                  <p className="text-sm text-muted-foreground font-consciousness">
+                  <p className="text-sm text-white/50 font-consciousness">
                     {achievement.description}
                   </p>
                 </Card>
@@ -925,7 +925,7 @@ export const EnhancedDashboard = () => {
           </TabsContent>
 
           <TabsContent value="activity" className="space-y-6">
-            <Card className="p-6 bg-card/60 border-border">
+            <Card className="p-6 bg-card/60 border-white/8">
               <div className="flex items-center gap-3 mb-4">
                 <Calendar className="w-6 h-6 text-primary" />
                 <h3 className="font-consciousness font-semibold text-foreground">
@@ -937,7 +937,7 @@ export const EnhancedDashboard = () => {
                   recentActivity.map((activity) => {
                     const isQuiz = activity.type === 'quiz';
                     return (
-                      <div key={activity.id} className="flex items-center gap-3 p-3 bg-muted/20 rounded-lg">
+                      <div key={activity.id} className="flex items-center gap-3 p-3 bg-white/3 rounded-lg">
                         <div className={`p-2 rounded-full ${
                           isQuiz
                             ? (activity.passed ? "bg-awareness/20 text-awareness" : "bg-destructive/20 text-destructive")
@@ -959,7 +959,7 @@ export const EnhancedDashboard = () => {
                               activity.action_type === 'tutorial_completed' ? 'Finished a tutorial' : 'Earned points'
                             )}
                           </p>
-                          <p className="text-xs text-muted-foreground">
+                          <p className="text-xs text-white/50">
                             {new Date(activity.created_at).toLocaleDateString()} • {new Date(activity.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                           </p>
                         </div>
@@ -976,7 +976,7 @@ export const EnhancedDashboard = () => {
                     );
                   })
                 ) : (
-                  <p className="text-center text-muted-foreground font-consciousness py-8">
+                  <p className="text-center text-white/50 font-consciousness py-8">
                     No recent activity. Start learning to see your progress here!
                   </p>
                 )}
@@ -1059,7 +1059,7 @@ export const EnhancedDashboard = () => {
                   >
                     <div className="flex items-center justify-between mb-2">
                       <h4 className="font-semibold text-foreground line-clamp-1">{course.title}</h4>
-                      <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary" />
+                      <ExternalLink className="w-4 h-4 text-white/50 group-hover:text-primary" />
                     </div>
                     <div className="flex items-center gap-2 mb-3">
                       <Badge className={getCategoryColor(course.category)} variant="outline">
@@ -1076,7 +1076,7 @@ export const EnhancedDashboard = () => {
                   </Card>
                 ))
               ) : (
-                <p className="text-center text-muted-foreground py-8">
+                <p className="text-center text-white/50 py-8">
                   No courses enrolled yet. Start learning!
                 </p>
               )}
@@ -1109,7 +1109,7 @@ export const EnhancedDashboard = () => {
                       <h4 className="font-semibold text-foreground line-clamp-1">{course.title}</h4>
                       <div className="flex items-center gap-2">
                         <CheckCircle2 className="w-4 h-4 text-awareness" />
-                        <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-awareness" />
+                        <ExternalLink className="w-4 h-4 text-white/50 group-hover:text-awareness" />
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
@@ -1123,7 +1123,7 @@ export const EnhancedDashboard = () => {
                   </Card>
                 ))
               ) : (
-                <p className="text-center text-muted-foreground py-8">
+                <p className="text-center text-white/50 py-8">
                   No courses completed yet. Keep learning!
                 </p>
               )}
@@ -1160,7 +1160,7 @@ export const EnhancedDashboard = () => {
                       </h4>
                       <Badge className="bg-awareness/20 text-awareness">{quiz.score}%</Badge>
                     </div>
-                    <div className="flex items-center justify-between text-sm text-muted-foreground">
+                    <div className="flex items-center justify-between text-sm text-white/50">
                       <span>Passed on {new Date(quiz.created_at).toLocaleDateString()}</span>
                       {quiz.time_taken && (
                         <span className="flex items-center gap-1">
@@ -1172,7 +1172,7 @@ export const EnhancedDashboard = () => {
                   </Card>
                 ))
               ) : (
-                <p className="text-center text-muted-foreground py-8">
+                <p className="text-center text-white/50 py-8">
                   No quizzes passed yet. Take a quiz to get started!
                 </p>
               )}
@@ -1217,7 +1217,7 @@ export const EnhancedDashboard = () => {
                         {quiz.score}%
                       </Badge>
                     </div>
-                    <div className="flex items-center justify-between text-sm text-muted-foreground">
+                    <div className="flex items-center justify-between text-sm text-white/50">
                       <span className="flex items-center gap-1">
                         {quiz.passed ? (
                           <CheckCircle2 className="w-3 h-3 text-awareness" />
@@ -1231,7 +1231,7 @@ export const EnhancedDashboard = () => {
                   </Card>
                 ))
               ) : (
-                <p className="text-center text-muted-foreground py-8">
+                <p className="text-center text-white/50 py-8">
                   No quiz attempts yet. Take a quiz to get started!
                 </p>
               )}
@@ -1251,26 +1251,26 @@ export const EnhancedDashboard = () => {
             </SheetHeader>
             <div className="space-y-4 mt-6">
               {/* Summary Stats */}
-              <Card className="p-4 bg-muted/30">
+              <Card className="p-4 bg-white/5">
                 <div className="grid grid-cols-3 gap-4 text-center">
                   <div>
                     <p className="text-2xl font-bold text-primary">{enrolledCourses}</p>
-                    <p className="text-xs text-muted-foreground">Enrolled</p>
+                    <p className="text-xs text-white/50">Enrolled</p>
                   </div>
                   <div>
                     <p className="text-2xl font-bold text-awareness">{completedCourses}</p>
-                    <p className="text-xs text-muted-foreground">Completed</p>
+                    <p className="text-xs text-white/50">Completed</p>
                   </div>
                   <div>
                     <p className="text-2xl font-bold text-accent">{analyticsStats.modulesCompleted}</p>
-                    <p className="text-xs text-muted-foreground">Modules</p>
+                    <p className="text-xs text-white/50">Modules</p>
                   </div>
                 </div>
               </Card>
 
               {/* Per-course breakdown */}
               <div className="space-y-3">
-                <h4 className="font-semibold text-sm text-muted-foreground">Course Breakdown</h4>
+                <h4 className="font-semibold text-sm text-white/50">Course Breakdown</h4>
                 {courses.map(course => {
                   const progress = courseProgress[course.id]?.completion_percentage || 0;
                   const isCompleted = progress === 100;
@@ -1284,7 +1284,7 @@ export const EnhancedDashboard = () => {
                           ? 'bg-awareness/5 hover:border-awareness/40' 
                           : isStarted 
                           ? 'hover:border-primary/40' 
-                          : 'hover:border-border'
+                          : 'hover:border-white/8'
                       }`}
                       onClick={() => {
                         setOpenDetail(null);

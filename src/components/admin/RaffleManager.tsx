@@ -619,7 +619,7 @@ const RaffleManager = () => {
     <div className="space-y-6 font-body">
       <div>
         <h2 className="text-3xl font-bold mb-2 font-consciousness">Raffle Manager</h2>
-        <p className="text-muted-foreground font-body">
+        <p className="text-white/50 font-body">
           Manage Learn-to-Earn raffles and track participant progress
         </p>
       </div>
@@ -747,7 +747,7 @@ const RaffleManager = () => {
 
               <div className="mt-8 pt-8 border-t">
                 <h3 className="text-lg font-semibold mb-4">Send Announcement Email</h3>
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-sm text-white/50 mb-4">
                   Send the raffle announcement to all newsletter subscribers and registered users.
                 </p>
                 <Button 
@@ -780,7 +780,7 @@ const RaffleManager = () => {
             <CardContent>
               <div className="space-y-4">
                 {raffles.length === 0 ? (
-                  <p className="text-center text-muted-foreground py-8">
+                  <p className="text-center text-white/50 py-8">
                     No raffles created yet
                   </p>
                 ) : (
@@ -789,7 +789,7 @@ const RaffleManager = () => {
                       <div className="flex items-start justify-between">
                         <div>
                           <h3 className="font-semibold">{raffle.title}</h3>
-                          <p className="text-sm text-muted-foreground">
+                          <p className="text-sm text-white/50">
                             ${raffle.prize_amount} {raffle.prize}
                           </p>
                         </div>
@@ -797,7 +797,7 @@ const RaffleManager = () => {
                           {raffle.is_active ? "Active" : "Inactive"}
                         </Badge>
                       </div>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <div className="flex items-center gap-2 text-sm text-white/50">
                         <span>Ends: {new Date(raffle.end_date).toLocaleDateString()}</span>
                       </div>
                       <div className="flex flex-wrap gap-2">
@@ -932,7 +932,7 @@ const RaffleManager = () => {
             </CardHeader>
             <CardContent>
               {verificationTasks.length === 0 ? (
-                <p className="text-center text-muted-foreground py-8">
+                <p className="text-center text-white/50 py-8">
                   No pending verifications. Select "Check Verifications" from the Manage tab.
                 </p>
               ) : (
@@ -942,8 +942,8 @@ const RaffleManager = () => {
                       <div className="flex items-start justify-between">
                         <div>
                           <h3 className="font-semibold">{task.display_name}</h3>
-                          <p className="text-sm text-muted-foreground">{task.email}</p>
-                          <p className="text-xs text-muted-foreground mt-1">
+                          <p className="text-sm text-white/50">{task.email}</p>
+                          <p className="text-xs text-white/50 mt-1">
                             Submitted: {new Date(task.created_at).toLocaleDateString()}
                           </p>
                         </div>
@@ -1045,7 +1045,7 @@ const RaffleManager = () => {
             </CardHeader>
             <CardContent>
               {verifiedTasksHistory.length === 0 ? (
-                <p className="text-center text-muted-foreground py-8">
+                <p className="text-center text-white/50 py-8">
                   No verification history yet. Click "Load History" to view verified/rejected tasks.
                 </p>
               ) : (
@@ -1055,8 +1055,8 @@ const RaffleManager = () => {
                       <div className="flex items-start justify-between">
                         <div>
                           <h3 className="font-semibold">{task.display_name}</h3>
-                          <p className="text-sm text-muted-foreground">{task.email}</p>
-                          <div className="flex items-center gap-4 text-xs text-muted-foreground mt-1">
+                          <p className="text-sm text-white/50">{task.email}</p>
+                          <div className="flex items-center gap-4 text-xs text-white/50 mt-1">
                             <span>Submitted: {new Date(task.created_at).toLocaleDateString()}</span>
                             {task.verified_at && (
                               <span className="font-medium">
@@ -1106,7 +1106,7 @@ const RaffleManager = () => {
                   <CardTitle className="font-consciousness">
                     Raffle Participants
                     {participants.length > 0 && (
-                      <span className="text-muted-foreground ml-2">
+                      <span className="text-white/50 ml-2">
                         ({participants.length})
                       </span>
                     )}
@@ -1193,14 +1193,14 @@ const RaffleManager = () => {
                 <div className="flex items-center justify-center py-12">
                   <div className="text-center space-y-3">
                     <Loader2 className="w-8 h-8 animate-spin mx-auto text-primary" />
-                    <p className="text-muted-foreground">Loading participants...</p>
+                    <p className="text-white/50">Loading participants...</p>
                   </div>
                 </div>
               ) : participants.length === 0 ? (
                 <div className="text-center py-12 space-y-3">
-                  <Users className="w-12 h-12 mx-auto text-muted-foreground/50" />
-                  <p className="text-muted-foreground font-medium">No participants yet</p>
-                  <p className="text-sm text-muted-foreground">
+                  <Users className="w-12 h-12 mx-auto text-white/50" />
+                  <p className="text-white/50 font-medium">No participants yet</p>
+                  <p className="text-sm text-white/50">
                     Click "View Participants" from the Manage tab or use the Refresh button
                   </p>
                 </div>
@@ -1233,14 +1233,14 @@ const RaffleManager = () => {
                                   <Badge variant="outline" className="mr-2">
                                     {ticket.ticket_source}
                                   </Badge>
-                                  <span className="text-muted-foreground">
+                                  <span className="text-white/50">
                                     {new Date(ticket.earned_at).toLocaleString()}
                                   </span>
                                 </div>
                               ))}
                             </div>
                           ) : (
-                            <span className="text-xs text-muted-foreground">No ticket history</span>
+                            <span className="text-xs text-white/50">No ticket history</span>
                           )}
                         </TableCell>
                       </TableRow>

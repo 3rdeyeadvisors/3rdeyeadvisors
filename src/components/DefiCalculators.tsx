@@ -110,14 +110,14 @@ const DefiCalculators = () => {
             DeFi Calculators
           </h2>
         </div>
-        <p className="text-muted-foreground font-consciousness max-w-2xl mx-auto">
+        <p className="text-white/50 font-consciousness max-w-2xl mx-auto">
           Essential tools to help you make informed decisions in the DeFi space. 
           Calculate yields, assess risks, and optimize your strategies.
         </p>
       </div>
 
       <Tabs defaultValue="yield" className="w-full">
-        <TabsList className="grid w-full grid-cols-3 bg-muted/50">
+        <TabsList className="grid w-full grid-cols-3 bg-white/5">
           <TabsTrigger value="yield" className="font-consciousness">
             <TrendingUp className="w-4 h-4 mr-2" />
             Yield Calculator
@@ -133,7 +133,7 @@ const DefiCalculators = () => {
         </TabsList>
 
         <TabsContent value="yield">
-          <Card className="p-6 bg-card/60 border-border">
+          <Card className="p-6 bg-card/60 border-white/8">
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-6">
                 <h3 className="text-xl font-consciousness font-semibold text-foreground mb-4">
@@ -193,30 +193,30 @@ const DefiCalculators = () => {
                 {yieldResults ? (
                   <div className="space-y-4">
                     <div className="flex justify-between items-center p-3 bg-primary/10 rounded-lg">
-                      <span className="font-consciousness text-muted-foreground">Final Amount:</span>
+                      <span className="font-consciousness text-white/50">Final Amount:</span>
                       <span className="font-consciousness font-semibold text-primary">
                         ${yieldResults.finalAmount.toLocaleString('en-US', {maximumFractionDigits: 2})}
                       </span>
                     </div>
                     
                     <div className="flex justify-between items-center p-3 bg-accent/10 rounded-lg">
-                      <span className="font-consciousness text-muted-foreground">Total Profit:</span>
+                      <span className="font-consciousness text-white/50">Total Profit:</span>
                       <span className="font-consciousness font-semibold text-accent">
                         ${yieldResults.totalProfit.toLocaleString('en-US', {maximumFractionDigits: 2})}
                       </span>
                     </div>
                     
-                    <div className="flex justify-between items-center p-3 bg-muted/20 rounded-lg">
-                      <span className="font-consciousness text-muted-foreground">Daily Earnings:</span>
+                    <div className="flex justify-between items-center p-3 bg-white/3 rounded-lg">
+                      <span className="font-consciousness text-white/50">Daily Earnings:</span>
                       <span className="font-consciousness font-semibold text-foreground">
                         ${yieldResults.dailyEarnings.toLocaleString('en-US', {maximumFractionDigits: 2})}
                       </span>
                     </div>
                   </div>
                 ) : (
-                  <div className="text-center p-8 bg-muted/10 rounded-lg">
-                    <Percent className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-                    <p className="text-muted-foreground font-consciousness">
+                  <div className="text-center p-8 bg-white/3 rounded-lg">
+                    <Percent className="w-12 h-12 text-white/50 mx-auto mb-4" />
+                    <p className="text-white/50 font-consciousness">
                       Enter values to see projected returns
                     </p>
                   </div>
@@ -227,7 +227,7 @@ const DefiCalculators = () => {
         </TabsContent>
 
         <TabsContent value="liquidity">
-          <Card className="p-6 bg-card/60 border-border">
+          <Card className="p-6 bg-card/60 border-white/8">
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-6">
                 <h3 className="text-xl font-consciousness font-semibold text-foreground mb-4">
@@ -291,21 +291,21 @@ const DefiCalculators = () => {
                 {liquidityResults ? (
                   <div className="space-y-4">
                     <div className="flex justify-between items-center p-3 bg-primary/10 rounded-lg">
-                      <span className="font-consciousness text-muted-foreground">Total Pool Value:</span>
+                      <span className="font-consciousness text-white/50">Total Pool Value:</span>
                       <span className="font-consciousness font-semibold text-primary">
                         ${liquidityResults.totalValue.toLocaleString('en-US', {maximumFractionDigits: 2})}
                       </span>
                     </div>
                     
-                    <div className="flex justify-between items-center p-3 bg-muted/20 rounded-lg">
-                      <span className="font-consciousness text-muted-foreground">Token 1 Value:</span>
+                    <div className="flex justify-between items-center p-3 bg-white/3 rounded-lg">
+                      <span className="font-consciousness text-white/50">Token 1 Value:</span>
                       <span className="font-consciousness font-semibold text-foreground">
                         ${liquidityResults.token1Value.toLocaleString('en-US', {maximumFractionDigits: 2})}
                       </span>
                     </div>
                     
-                    <div className="flex justify-between items-center p-3 bg-muted/20 rounded-lg">
-                      <span className="font-consciousness text-muted-foreground">Token 2 Value:</span>
+                    <div className="flex justify-between items-center p-3 bg-white/3 rounded-lg">
+                      <span className="font-consciousness text-white/50">Token 2 Value:</span>
                       <span className="font-consciousness font-semibold text-foreground">
                         ${liquidityResults.token2Value.toLocaleString('en-US', {maximumFractionDigits: 2})}
                       </span>
@@ -313,12 +313,12 @@ const DefiCalculators = () => {
                     
                     <div className="p-3 bg-accent/10 rounded-lg">
                       <div className="flex justify-between items-center mb-2">
-                        <span className="font-consciousness text-muted-foreground">Balance Deviation:</span>
+                        <span className="font-consciousness text-white/50">Balance Deviation:</span>
                         <span className="font-consciousness font-semibold text-accent">
                           {liquidityResults.balance.toFixed(1)}%
                         </span>
                       </div>
-                      <p className="text-sm text-muted-foreground font-consciousness">
+                      <p className="text-sm text-white/50 font-consciousness">
                         {liquidityResults.balance < 5 ? "✅ Well balanced" : 
                          liquidityResults.balance < 15 ? "⚠️ Slightly imbalanced" : 
                          "❌ Significantly imbalanced"}
@@ -326,9 +326,9 @@ const DefiCalculators = () => {
                     </div>
                   </div>
                 ) : (
-                  <div className="text-center p-8 bg-muted/10 rounded-lg">
-                    <DollarSign className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-                    <p className="text-muted-foreground font-consciousness">
+                  <div className="text-center p-8 bg-white/3 rounded-lg">
+                    <DollarSign className="w-12 h-12 text-white/50 mx-auto mb-4" />
+                    <p className="text-white/50 font-consciousness">
                       Enter token amounts and prices
                     </p>
                   </div>
@@ -339,7 +339,7 @@ const DefiCalculators = () => {
         </TabsContent>
 
         <TabsContent value="risk">
-          <Card className="p-6 bg-card/60 border-border">
+          <Card className="p-6 bg-card/60 border-white/8">
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-6">
                 <h3 className="text-xl font-consciousness font-semibold text-foreground mb-4">
@@ -363,7 +363,7 @@ const DefiCalculators = () => {
                     <select 
                       value={riskData.riskTolerance}
                       onChange={(e) => setRiskData({...riskData, riskTolerance: e.target.value})}
-                      className="w-full p-2 border border-border rounded-md bg-background font-consciousness text-base min-h-[44px]"
+                      className="w-full p-2 border border-white/8 rounded-md bg-black font-consciousness text-base min-h-[44px]"
                     >
                       <option value="low">Conservative</option>
                       <option value="medium">Moderate</option>
@@ -398,11 +398,11 @@ const DefiCalculators = () => {
                     </div>
                     
                     <div className="space-y-3">
-                      <div className="p-3 bg-muted/10 rounded-lg">
+                      <div className="p-3 bg-white/3 rounded-lg">
                         <h5 className="font-consciousness font-semibold text-foreground mb-2">
                           Recommendations:
                         </h5>
-                        <ul className="text-sm text-muted-foreground font-consciousness space-y-1">
+                        <ul className="text-sm text-white/50 font-consciousness space-y-1">
                           {riskResults.riskLevel === "High" && (
                             <>
                               <li>• Consider reducing position sizes</li>
@@ -432,9 +432,9 @@ const DefiCalculators = () => {
                     </div>
                   </div>
                 ) : (
-                  <div className="text-center p-8 bg-muted/10 rounded-lg">
-                    <AlertTriangle className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-                    <p className="text-muted-foreground font-consciousness">
+                  <div className="text-center p-8 bg-white/3 rounded-lg">
+                    <AlertTriangle className="w-12 h-12 text-white/50 mx-auto mb-4" />
+                    <p className="text-white/50 font-consciousness">
                       Complete the assessment for risk analysis
                     </p>
                   </div>
@@ -452,7 +452,7 @@ const DefiCalculators = () => {
             <h4 className="font-consciousness font-semibold text-foreground mb-2">
               Important Disclaimer
             </h4>
-            <p className="text-sm text-muted-foreground font-consciousness leading-relaxed">
+            <p className="text-sm text-white/50 font-consciousness leading-relaxed">
               These calculators are educational tools and do not constitute financial advice. 
               DeFi involves significant risks including smart contract vulnerabilities, impermanent loss, 
               and market volatility. Always do your own research and never invest more than you can afford to lose.

@@ -500,7 +500,7 @@ const FirstDexSwapTutorial = () => {
         {/* Back to Tutorials Button */}
         <div className="mb-6">
           <Link to="/tutorials">
-            <Button variant="ghost" className="gap-2 hover:bg-muted">
+            <Button variant="ghost" className="gap-2 hover:bg-white/5">
               <ArrowLeft className="h-4 w-4" />
               Back to Tutorials
             </Button>
@@ -527,7 +527,7 @@ const FirstDexSwapTutorial = () => {
               </div>
               <div>
                 <h1 className="text-2xl md:text-3xl font-bold">Your First DEX Swap</h1>
-                <p className="text-sm md:text-base text-muted-foreground">Step-by-step guide to safe decentralized trading</p>
+                <p className="text-sm md:text-base text-white/50">Step-by-step guide to safe decentralized trading</p>
               </div>
             </div>
 
@@ -620,7 +620,7 @@ const FirstDexSwapTutorial = () => {
             </CardHeader>
 
             <CardContent className="space-y-4 md:space-y-6 p-3 md:p-6">
-              <p className="text-sm md:text-base text-muted-foreground text-center sm:text-left">{currentStepData.content.overview}</p>
+              <p className="text-sm md:text-base text-white/50 text-center sm:text-left">{currentStepData.content.overview}</p>
 
               {/* Step 1: Choose DEX */}
               {currentStep === 1 && (
@@ -671,9 +671,9 @@ const FirstDexSwapTutorial = () => {
                             </ul>
                           </div>
                         </div>
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <div className="flex items-center gap-2 text-sm text-white/50">
                           <Globe className="h-4 w-4" />
-                          <code className="bg-muted px-2 py-1 rounded">{dex.url}</code>
+                          <code className="bg-white/5 px-2 py-1 rounded">{dex.url}</code>
                         </div>
                       </CardContent>
                     </Card>
@@ -914,7 +914,7 @@ const FirstDexSwapTutorial = () => {
                               <h4 className="font-medium">{item.item}</h4>
                               <CheckCircle className="h-4 w-4 text-awareness" />
                             </div>
-                            <p className="text-sm text-muted-foreground mb-2">{item.description}</p>
+                            <p className="text-sm text-white/50 mb-2">{item.description}</p>
                             <div className="flex items-center gap-2 text-sm text-destructive">
                               <AlertTriangle className="h-3 w-3" />
                               <span>Red flag: {item.redFlag}</span>
@@ -935,7 +935,7 @@ const FirstDexSwapTutorial = () => {
                               <h4 className="font-medium">{setting.setting}</h4>
                               <Badge variant="outline">{setting.recommended}</Badge>
                             </div>
-                            <p className="text-sm text-muted-foreground">{setting.description}</p>
+                            <p className="text-sm text-white/50">{setting.description}</p>
                           </CardContent>
                         </Card>
                       ))}
@@ -959,7 +959,7 @@ const FirstDexSwapTutorial = () => {
                               </Badge>
                               <div className="flex-1">
                                 <h4 className="font-medium">{step.step}</h4>
-                                <p className="text-sm text-muted-foreground">{step.description}</p>
+                                <p className="text-sm text-white/50">{step.description}</p>
                               </div>
                             </div>
                             <div className="flex items-center gap-2 text-sm text-primary ml-9">
@@ -1021,7 +1021,7 @@ const FirstDexSwapTutorial = () => {
                     </CardHeader>
                     <CardContent>
                       <p className="text-sm mb-3">
-                        Visit <code className="bg-muted text-muted-foreground px-2 py-1 rounded">{currentStepData.content.transactionExplorer?.url}</code> to verify your transaction.
+                        Visit <code className="bg-white/5 text-white/50 px-2 py-1 rounded">{currentStepData.content.transactionExplorer?.url}</code> to verify your transaction.
                       </p>
                       <div className="space-y-2">
                         <h4 className="font-medium">What to check:</h4>
@@ -1044,7 +1044,7 @@ const FirstDexSwapTutorial = () => {
                         <Card key={index}>
                           <CardContent className="p-4">
                             <h4 className="font-medium mb-2">{practice.practice}</h4>
-                            <p className="text-sm text-muted-foreground mb-2">{practice.reason}</p>
+                            <p className="text-sm text-white/50 mb-2">{practice.reason}</p>
                             <div className="flex items-center gap-2 text-sm text-primary">
                               <TrendingUp className="h-3 w-3" />
                               <span>How: {practice.how}</span>

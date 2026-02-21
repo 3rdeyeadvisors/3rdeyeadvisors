@@ -36,7 +36,7 @@ const VaultWithdrawalTutorial = () => {
 
       <div className="container max-w-3xl px-4 py-8 md:py-12 space-y-6 md:space-y-8">
         {/* Back Navigation */}
-        <Link to="/vault-access" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm">
+        <Link to="/vault-access" className="inline-flex items-center gap-2 text-white/50 hover:text-foreground transition-colors text-sm">
           <ArrowLeft className="h-4 w-4" />
           Back to Vault Access
         </Link>
@@ -48,7 +48,7 @@ const VaultWithdrawalTutorial = () => {
             Tutorial
           </Badge>
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">How to Withdraw from the 3EA Vault</h1>
-          <p className="text-base md:text-lg text-muted-foreground">
+          <p className="text-base md:text-lg text-white/50">
             A complete guide to redeeming your vault shares and getting your funds back.
           </p>
 
@@ -92,7 +92,7 @@ const VaultWithdrawalTutorial = () => {
             </div>
           </CardHeader>
           <CardContent className="space-y-4 p-4 pt-0 md:p-6 md:pt-0">
-            <p className="text-sm md:text-base text-muted-foreground">
+            <p className="text-sm md:text-base text-white/50">
               Navigate to the 3EA vault on Enzyme Finance and connect the same wallet you used to deposit.
             </p>
             
@@ -141,7 +141,7 @@ const VaultWithdrawalTutorial = () => {
             </div>
           </CardHeader>
           <CardContent className="space-y-4 p-4 pt-0 md:p-6 md:pt-0">
-            <p className="text-sm md:text-base text-muted-foreground">
+            <p className="text-sm md:text-base text-white/50">
               Before withdrawing, review the current value of your vault shares.
             </p>
             
@@ -160,7 +160,7 @@ const VaultWithdrawalTutorial = () => {
               </div>
             </div>
 
-            <Alert variant="default" className="bg-muted/50">
+            <Alert variant="default" className="bg-white/5">
               <div className="flex gap-3">
                 <DollarSign className="h-4 w-4 shrink-0 mt-0.5" />
                 <p className="text-sm">
@@ -188,7 +188,7 @@ const VaultWithdrawalTutorial = () => {
             </div>
           </CardHeader>
           <CardContent className="space-y-4 p-4 pt-0 md:p-6 md:pt-0">
-            <p className="text-sm md:text-base text-muted-foreground">
+            <p className="text-sm md:text-base text-white/50">
               Click the Redeem button to start the withdrawal process.
             </p>
             
@@ -237,7 +237,7 @@ const VaultWithdrawalTutorial = () => {
             </div>
           </CardHeader>
           <CardContent className="space-y-4 p-4 pt-0 md:p-6 md:pt-0">
-            <p className="text-sm md:text-base text-muted-foreground">
+            <p className="text-sm md:text-base text-white/50">
               MetaMask will pop up asking you to confirm the redemption transaction.
             </p>
             
@@ -260,7 +260,7 @@ const VaultWithdrawalTutorial = () => {
               </div>
             </div>
 
-            <Alert variant="default" className="bg-muted/50">
+            <Alert variant="default" className="bg-white/5">
               <div className="flex gap-3">
                 <Clock className="h-4 w-4 shrink-0 mt-0.5" />
                 <p className="text-sm">
@@ -288,7 +288,7 @@ const VaultWithdrawalTutorial = () => {
             </div>
           </CardHeader>
           <CardContent className="space-y-4 p-4 pt-0 md:p-6 md:pt-0">
-            <p className="text-sm md:text-base text-muted-foreground">
+            <p className="text-sm md:text-base text-white/50">
               Once the transaction is confirmed, your funds will appear in your MetaMask wallet.
             </p>
             
@@ -320,7 +320,7 @@ const VaultWithdrawalTutorial = () => {
               <CheckCircle2 className="h-5 w-5 md:h-6 md:w-6 text-green-500 shrink-0" />
               <div>
                 <p className="font-semibold text-sm md:text-base">Withdrawal Complete!</p>
-                <p className="text-xs md:text-sm text-muted-foreground">
+                <p className="text-xs md:text-sm text-white/50">
                   Your funds are now back in your wallet. You can re-deposit at any time as long as you still hold the access NFT.
                 </p>
               </div>

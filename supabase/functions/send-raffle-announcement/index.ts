@@ -120,7 +120,6 @@ const handler = async (req: Request): Promise<Response> => {
                                   ✅ <strong>Follow us on Instagram</strong> @3rdeyeadvisors
                                 </p>
                                 <p style="font-size: 16px; line-height: 2; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; margin: 8px 0;">
-                                  ✅ <strong>Follow us on X (Twitter)</strong> @3rdeyeadvisors
                                 </p>
                                 <p style="font-size: 16px; line-height: 2; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; margin: 8px 0;">
                                   ✅ <strong>Subscribe to the newsletter</strong> (you're already in! 🎉)

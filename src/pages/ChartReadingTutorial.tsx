@@ -45,21 +45,21 @@ const ChartReadingTutorial = () => {
                 <LineChart className="w-5 h-5 text-primary" />
                 <h4 className="font-semibold">Line Charts</h4>
               </div>
-              <p className="text-sm text-muted-foreground">Simple price movements over time, best for trend identification</p>
+              <p className="text-sm text-white/50">Simple price movements over time, best for trend identification</p>
             </Card>
             <Card className="p-4">
               <div className="flex items-center gap-3 mb-2">
                 <BarChart3 className="w-5 h-5 text-awareness" />
                 <h4 className="font-semibold">Candlestick Charts</h4>
               </div>
-              <p className="text-sm text-muted-foreground">Shows open, high, low, close prices: most detailed view</p>
+              <p className="text-sm text-white/50">Shows open, high, low, close prices: most detailed view</p>
             </Card>
             <Card className="p-4">
               <div className="flex items-center gap-3 mb-2">
                 <Activity className="w-5 h-5 text-accent" />
                 <h4 className="font-semibold">Volume Charts</h4>
               </div>
-              <p className="text-sm text-muted-foreground">Trading volume indicating market strength and conviction</p>
+              <p className="text-sm text-white/50">Trading volume indicating market strength and conviction</p>
             </Card>
           </div>
           
@@ -67,19 +67,19 @@ const ChartReadingTutorial = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="p-3 border rounded">
               <h5 className="font-medium text-sm">Short-term (1m to 1h)</h5>
-              <p className="text-xs text-muted-foreground">Day trading, quick entries/exits</p>
+              <p className="text-xs text-white/50">Day trading, quick entries/exits</p>
             </div>
             <div className="p-3 border rounded">
               <h5 className="font-medium text-sm">Medium-term (4h to 1d)</h5>
-              <p className="text-xs text-muted-foreground">Swing trading, position management</p>
+              <p className="text-xs text-white/50">Swing trading, position management</p>
             </div>
             <div className="p-3 border rounded">
               <h5 className="font-medium text-sm">Long-term (1w to 1M)</h5>
-              <p className="text-xs text-muted-foreground">Investment decisions, major trends</p>
+              <p className="text-xs text-white/50">Investment decisions, major trends</p>
             </div>
             <div className="p-3 border rounded">
               <h5 className="font-medium text-sm">Multi-timeframe</h5>
-              <p className="text-xs text-muted-foreground">Complete market picture</p>
+              <p className="text-xs text-white/50">Complete market picture</p>
             </div>
           </div>
         </div>
@@ -98,7 +98,7 @@ const ChartReadingTutorial = () => {
           <Card className="p-4 bg-awareness/10 border-awareness/20">
             <h4 className="font-semibold text-awareness mb-2">Support Levels</h4>
             <p className="text-sm text-foreground">Price levels where buying pressure is strong enough to prevent further decline</p>
-            <ul className="text-xs text-muted-foreground mt-2 space-y-1">
+            <ul className="text-xs text-white/50 mt-2 space-y-1">
               <li>• Previous lows that held multiple times</li>
               <li>• Round numbers (psychological levels)</li>
               <li>• Moving averages acting as dynamic support</li>
@@ -108,7 +108,7 @@ const ChartReadingTutorial = () => {
           <Card className="p-4 bg-destructive/10 border-destructive/20">
             <h4 className="font-semibold text-destructive mb-2">Resistance Levels</h4>
             <p className="text-sm text-foreground">Price levels where selling pressure prevents further upward movement</p>
-            <ul className="text-xs text-muted-foreground mt-2 space-y-1">
+            <ul className="text-xs text-white/50 mt-2 space-y-1">
               <li>• Previous highs that rejected price</li>
               <li>• Major round numbers</li>
               <li>• Trend lines and moving averages</li>
@@ -143,7 +143,7 @@ const ChartReadingTutorial = () => {
                 <h4 className="font-semibold text-awareness">Uptrend</h4>
               </div>
               <p className="text-sm mb-2">Higher highs and higher lows</p>
-              <div className="text-xs text-muted-foreground">
+              <div className="text-xs text-white/50">
                 <p>• Price consistently breaks above previous highs</p>
                 <p>• Pullbacks don't break previous support</p>
                 <p>• Increasing volume on upward moves</p>
@@ -156,7 +156,7 @@ const ChartReadingTutorial = () => {
                 <h4 className="font-semibold text-destructive">Downtrend</h4>
               </div>
               <p className="text-sm mb-2">Lower highs and lower lows</p>
-              <div className="text-xs text-muted-foreground">
+              <div className="text-xs text-white/50">
                 <p>• Price consistently breaks below previous lows</p>
                 <p>• Rallies fail at previous support (now resistance)</p>
                 <p>• Increasing volume on downward moves</p>
@@ -165,11 +165,11 @@ const ChartReadingTutorial = () => {
             
             <Card className="p-4">
               <div className="flex items-center gap-2 mb-2">
-                <Activity className="w-5 h-5 text-muted-foreground" />
+                <Activity className="w-5 h-5 text-white/50" />
                 <h4 className="font-semibold text-foreground">Sideways/Consolidation</h4>
               </div>
               <p className="text-sm mb-2">Price moves within a range</p>
-              <div className="text-xs text-muted-foreground">
+              <div className="text-xs text-white/50">
                 <p>• Price bounces between support and resistance</p>
                 <p>• No clear direction</p>
                 <p>• Often precedes major moves</p>
@@ -202,12 +202,12 @@ const ChartReadingTutorial = () => {
           <div className="space-y-4">
             <Card className="p-4">
               <h4 className="font-semibold mb-2">Moving Averages (MA)</h4>
-              <p className="text-sm text-muted-foreground mb-2">Smooth out price data to identify trend direction</p>
+              <p className="text-sm text-white/50 mb-2">Smooth out price data to identify trend direction</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                <div className="p-2 bg-muted rounded">
+                <div className="p-2 bg-white/5 rounded">
                   <strong>Simple MA (SMA):</strong> Average of closing prices
                 </div>
-                <div className="p-2 bg-muted rounded">
+                <div className="p-2 bg-white/5 rounded">
                   <strong>Exponential MA (EMA):</strong> More weight on recent prices
                 </div>
               </div>
@@ -215,7 +215,7 @@ const ChartReadingTutorial = () => {
             
             <Card className="p-4">
               <h4 className="font-semibold mb-2">RSI (Relative Strength Index)</h4>
-              <p className="text-sm text-muted-foreground mb-2">Measures overbought/oversold conditions (0 to 100)</p>
+              <p className="text-sm text-white/50 mb-2">Measures overbought/oversold conditions (0 to 100)</p>
               <div className="flex flex-wrap gap-2">
                 <Badge variant="destructive" className="whitespace-nowrap">Oversold: &lt;30</Badge>
                 <Badge variant="secondary" className="whitespace-nowrap">Neutral: 30 to 70</Badge>
@@ -225,7 +225,7 @@ const ChartReadingTutorial = () => {
             
             <Card className="p-4">
               <h4 className="font-semibold mb-2">MACD (Moving Average Convergence Divergence)</h4>
-              <p className="text-sm text-muted-foreground mb-2">Shows relationship between two moving averages</p>
+              <p className="text-sm text-white/50 mb-2">Shows relationship between two moving averages</p>
               <ul className="text-xs space-y-1">
                 <li>• MACD line crossing above signal line = bullish</li>
                 <li>• MACD line crossing below signal line = bearish</li>
@@ -235,7 +235,7 @@ const ChartReadingTutorial = () => {
             
             <Card className="p-4">
               <h4 className="font-semibold mb-2">Volume Indicators</h4>
-              <p className="text-sm text-muted-foreground mb-2">Confirm price movements with volume analysis</p>
+              <p className="text-sm text-white/50 mb-2">Confirm price movements with volume analysis</p>
               <ul className="text-xs space-y-1">
                 <li>• High volume + price increase = strong bullish signal</li>
                 <li>• High volume + price decrease = strong bearish signal</li>
@@ -330,15 +330,15 @@ const ChartReadingTutorial = () => {
             <div className="space-y-3">
               <div className="p-3 border rounded">
                 <h5 className="font-medium text-sm">Risk Per Trade: 1 to 2% of Portfolio</h5>
-                <p className="text-xs text-muted-foreground">Never risk more than you can afford to lose on a single trade</p>
+                <p className="text-xs text-white/50">Never risk more than you can afford to lose on a single trade</p>
               </div>
               <div className="p-3 border rounded">
                 <h5 className="font-medium text-sm">Stop Loss Placement</h5>
-                <p className="text-xs text-muted-foreground">Use chart levels: below support for longs, above resistance for shorts</p>
+                <p className="text-xs text-white/50">Use chart levels: below support for longs, above resistance for shorts</p>
               </div>
               <div className="p-3 border rounded">
                 <h5 className="font-medium text-sm">Risk-Reward Ratio</h5>
-                <p className="text-xs text-muted-foreground">Aim for minimum 1:2 ratio (risk $1 to make $2)</p>
+                <p className="text-xs text-white/50">Aim for minimum 1:2 ratio (risk $1 to make $2)</p>
               </div>
             </div>
           </Card>
@@ -348,7 +348,7 @@ const ChartReadingTutorial = () => {
             <div className="grid gap-3">
               <div className="p-3 bg-success/10 border border-success rounded">
                 <h5 className="font-medium text-sm text-success">Entry Signals</h5>
-                <ul className="text-xs text-muted-foreground mt-1 space-y-1">
+                <ul className="text-xs text-white/50 mt-1 space-y-1">
                   <li>• Breakout above resistance with volume</li>
                   <li>• Bounce off support level</li>
                   <li>• Pattern completion</li>
@@ -358,7 +358,7 @@ const ChartReadingTutorial = () => {
               
               <div className="p-3 bg-destructive/10 border border-destructive rounded">
                 <h5 className="font-medium text-sm text-destructive">Exit Signals</h5>
-                <ul className="text-xs text-muted-foreground mt-1 space-y-1">
+                <ul className="text-xs text-white/50 mt-1 space-y-1">
                   <li>• Price hits predetermined target</li>
                   <li>• Stop loss triggered</li>
                   <li>• Pattern failure or reversal</li>

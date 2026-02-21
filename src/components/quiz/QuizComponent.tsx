@@ -481,7 +481,7 @@ export const QuizComponent = ({ courseId, moduleId, quiz, onComplete }: QuizComp
             <h3 className="font-semibold mb-3">Previous Attempts</h3>
             <div className="space-y-2">
               {attempts.slice(0, 3).map((attempt, index) => (
-                <div key={attempt.id} className="flex items-center justify-between p-3 bg-muted rounded-lg">
+                <div key={attempt.id} className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                   <span>Attempt {attempts.length - index}</span>
                   <div className="flex items-center gap-2">
                     <Badge variant={attempt.passed ? "default" : "destructive"}>
@@ -499,7 +499,7 @@ export const QuizComponent = ({ courseId, moduleId, quiz, onComplete }: QuizComp
           {hasPassedBefore ? (
             <div className="mb-4">
               <Badge variant="default" className="mb-2">Quiz Passed</Badge>
-              <p className="text-sm text-muted-foreground">You've already passed this quiz!</p>
+              <p className="text-sm text-white/50">You've already passed this quiz!</p>
             </div>
           ) : (
             <div className="mb-4">

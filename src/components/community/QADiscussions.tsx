@@ -240,10 +240,10 @@ export const QADiscussions = ({ contentType, contentId, title }: QADiscussionsPr
     return (
       <div className="space-y-4">
         <div className="animate-pulse">
-          <div className="h-6 bg-muted rounded w-1/3 mb-4"></div>
+          <div className="h-6 bg-white/5 rounded w-1/3 mb-4"></div>
           <div className="space-y-3">
-            <div className="h-20 bg-muted rounded"></div>
-            <div className="h-20 bg-muted rounded"></div>
+            <div className="h-20 bg-white/5 rounded"></div>
+            <div className="h-20 bg-white/5 rounded"></div>
           </div>
         </div>
       </div>
@@ -301,7 +301,7 @@ export const QADiscussions = ({ contentType, contentId, title }: QADiscussionsPr
                     value={newDiscussion.tags}
                     onChange={(e) => setNewDiscussion(prev => ({ ...prev, tags: e.target.value }))}
                   />
-                  <p className="text-xs text-muted-foreground mt-1">Separate tags with commas</p>
+                  <p className="text-xs text-white/50 mt-1">Separate tags with commas</p>
                 </div>
                 
                 <div className="flex gap-2">
@@ -359,13 +359,13 @@ export const QADiscussions = ({ contentType, contentId, title }: QADiscussionsPr
                         )}
                       </div>
                       
-                      <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
+                      <p className="text-sm text-white/50 mb-3 line-clamp-2">
                         {discussion.description}
                       </p>
                       
                       {discussion.tags.length > 0 && (
                         <div className="flex items-center gap-1 mb-3">
-                          <Tag className="w-3 h-3 text-muted-foreground" />
+                          <Tag className="w-3 h-3 text-white/50" />
                           {discussion.tags.slice(0, 3).map((tag, index) => (
                             <Badge key={index} variant="secondary" className="text-xs">
                               {tag}
@@ -374,7 +374,7 @@ export const QADiscussions = ({ contentType, contentId, title }: QADiscussionsPr
                         </div>
                       )}
                       
-                      <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                      <div className="flex items-center gap-4 text-xs text-white/50">
                         <span className="flex items-center gap-1">
                           <Clock className="w-3 h-3" />
                           {formatDate(discussion.created_at)}
@@ -398,8 +398,8 @@ export const QADiscussions = ({ contentType, contentId, title }: QADiscussionsPr
           ) : (
             <Card>
               <CardContent className="p-8 text-center">
-                <HelpCircle className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-                <p className="text-muted-foreground">
+                <HelpCircle className="w-12 h-12 text-white/50 mx-auto mb-4" />
+                <p className="text-white/50">
                   No discussions yet. Start the conversation by asking a question!
                 </p>
               </CardContent>
@@ -447,7 +447,7 @@ export const QADiscussions = ({ contentType, contentId, title }: QADiscussionsPr
                 
                 {selectedDiscussion.tags.length > 0 && (
                   <div className="flex items-center gap-2 mb-4">
-                    <Tag className="w-4 h-4 text-muted-foreground" />
+                    <Tag className="w-4 h-4 text-white/50" />
                     {selectedDiscussion.tags.map((tag, index) => (
                       <Badge key={index} variant="secondary">
                         {tag}
@@ -456,7 +456,7 @@ export const QADiscussions = ({ contentType, contentId, title }: QADiscussionsPr
                   </div>
                 )}
                 
-                <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                <div className="flex items-center gap-4 text-sm text-white/50">
                   <span>by {profiles[selectedDiscussion.user_id]?.display_name || 'Anonymous'}</span>
                   <span>{formatDate(selectedDiscussion.created_at)}</span>
                   <span>{selectedDiscussion.views_count} views</span>
@@ -484,7 +484,7 @@ export const QADiscussions = ({ contentType, contentId, title }: QADiscussionsPr
                       <span className="font-medium text-sm">
                         {profiles[reply.user_id]?.display_name || 'Anonymous User'}
                       </span>
-                      <span className="text-xs text-muted-foreground">
+                      <span className="text-xs text-white/50">
                         {formatDate(reply.created_at)}
                       </span>
                       {reply.is_solution && (
@@ -502,7 +502,7 @@ export const QADiscussions = ({ contentType, contentId, title }: QADiscussionsPr
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="text-xs text-muted-foreground hover:text-primary"
+                        className="text-xs text-white/50 hover:text-primary"
                       >
                         <Heart className="w-4 h-4 mr-1" />
                         {reply.likes_count}
@@ -547,7 +547,7 @@ export const QADiscussions = ({ contentType, contentId, title }: QADiscussionsPr
           ) : (
             <Card>
               <CardContent className="p-4 text-center">
-                <p className="text-muted-foreground mb-3">Sign in to reply to this discussion</p>
+                <p className="text-white/50 mb-3">Sign in to reply to this discussion</p>
                 <Button variant="outline" onClick={() => navigate('/auth')}>
                   Sign In
                 </Button>

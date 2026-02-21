@@ -47,7 +47,7 @@ const VaultDepositTutorial = () => {
 
       <div className="container max-w-3xl px-4 py-8 md:py-12 space-y-6 md:space-y-8">
         {/* Back Navigation */}
-        <Link to="/vault-access" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm">
+        <Link to="/vault-access" className="inline-flex items-center gap-2 text-white/50 hover:text-foreground transition-colors text-sm">
           <ArrowLeft className="h-4 w-4" />
           Back to Vault Access
         </Link>
@@ -59,7 +59,7 @@ const VaultDepositTutorial = () => {
             Tutorial
           </Badge>
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">How to Deposit into the 3EA Vault</h1>
-          <p className="text-base md:text-lg text-muted-foreground">
+          <p className="text-base md:text-lg text-white/50">
             A complete guide to depositing into our Enzyme vault and viewing your vault tokens in MetaMask.
           </p>
 
@@ -93,7 +93,7 @@ const VaultDepositTutorial = () => {
             </div>
           </CardHeader>
           <CardContent className="space-y-4 p-4 pt-0 md:p-6 md:pt-0">
-            <p className="text-sm md:text-base text-muted-foreground">
+            <p className="text-sm md:text-base text-white/50">
               MetaMask is a browser extension wallet that lets you interact with Ethereum dApps like Enzyme Finance.
             </p>
             
@@ -142,7 +142,7 @@ const VaultDepositTutorial = () => {
             </div>
           </CardHeader>
           <CardContent className="space-y-4 p-4 pt-0 md:p-6 md:pt-0">
-            <p className="text-sm md:text-base text-muted-foreground">
+            <p className="text-sm md:text-base text-white/50">
               You'll need ETH in your wallet to purchase the NFT and pay for gas fees on all transactions.
             </p>
             
@@ -165,7 +165,7 @@ const VaultDepositTutorial = () => {
               </div>
             </div>
 
-            <Alert variant="default" className="bg-muted/50">
+            <Alert variant="default" className="bg-white/5">
               <div className="flex gap-3">
                 <Shield className="h-4 w-4 shrink-0 mt-0.5" />
                 <p className="text-sm">
@@ -193,7 +193,7 @@ const VaultDepositTutorial = () => {
             </div>
           </CardHeader>
           <CardContent className="space-y-4 p-4 pt-0 md:p-6 md:pt-0">
-            <p className="text-sm md:text-base text-muted-foreground">
+            <p className="text-sm md:text-base text-white/50">
               The 3EA Earth Access NFT is required to deposit into the vault. Without it, you won't be able to access the vault even if you connect your wallet.
             </p>
             
@@ -242,7 +242,7 @@ const VaultDepositTutorial = () => {
             </div>
           </CardHeader>
           <CardContent className="space-y-4 p-4 pt-0 md:p-6 md:pt-0">
-            <p className="text-sm md:text-base text-muted-foreground">
+            <p className="text-sm md:text-base text-white/50">
               After purchasing the NFT, your wallet address needs to be whitelisted on the Enzyme vault. This is a manual process that can take up to 7 days.
             </p>
             
@@ -293,7 +293,7 @@ const VaultDepositTutorial = () => {
             </div>
           </CardHeader>
           <CardContent className="space-y-4 p-4 pt-0 md:p-6 md:pt-0">
-            <p className="text-sm md:text-base text-muted-foreground">
+            <p className="text-sm md:text-base text-white/50">
               Navigate to our vault on Enzyme Finance and connect your MetaMask wallet.
             </p>
             
@@ -346,7 +346,7 @@ const VaultDepositTutorial = () => {
             </div>
           </CardHeader>
           <CardContent className="space-y-4 p-4 pt-0 md:p-6 md:pt-0">
-            <p className="text-sm md:text-base text-muted-foreground">
+            <p className="text-sm md:text-base text-white/50">
               Once connected, you can deposit ETH into the vault to receive vault shares.
             </p>
             
@@ -377,7 +377,7 @@ const VaultDepositTutorial = () => {
               </div>
             </div>
 
-            <Alert variant="default" className="bg-muted/50">
+            <Alert variant="default" className="bg-white/5">
               <Shield className="h-4 w-4 shrink-0" />
               <AlertDescription className="text-sm">
                 <strong>Note:</strong> Once deposited, your funds are managed by the vault strategy. 
@@ -404,12 +404,12 @@ const VaultDepositTutorial = () => {
             </div>
           </CardHeader>
           <CardContent className="space-y-4 p-4 pt-0 md:p-6 md:pt-0">
-            <p className="text-sm md:text-base text-muted-foreground">
+            <p className="text-sm md:text-base text-white/50">
               Your vault shares are ERC-20 tokens. To see them in MetaMask, you need to manually add the token.
             </p>
 
             {/* Token Address Box */}
-            <div className="bg-muted/50 rounded-lg p-3 md:p-4 space-y-2">
+            <div className="bg-white/5 rounded-lg p-3 md:p-4 space-y-2">
               <p className="text-xs md:text-sm font-medium">Vault Token Contract Address:</p>
               <div className="flex items-center gap-2">
                 <code className="flex-1 text-[10px] md:text-sm bg-background rounded px-2 md:px-3 py-2 overflow-x-auto break-all">

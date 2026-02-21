@@ -51,42 +51,42 @@ const DaoParticipationTutorial = () => {
                 <Users className="w-5 h-5 text-awareness" />
                 <h4 className="font-semibold">Decentralized Governance</h4>
               </div>
-              <p className="text-sm text-muted-foreground">No single entity controls decisions; power is distributed among token holders</p>
+              <p className="text-sm text-white/50">No single entity controls decisions; power is distributed among token holders</p>
             </Card>
             <Card className="p-4">
               <div className="flex items-center gap-3 mb-2">
                 <Shield className="w-5 h-5 text-primary" />
                 <h4 className="font-semibold">Transparent Operations</h4>
               </div>
-              <p className="text-sm text-muted-foreground">All activities and decisions are recorded on the blockchain</p>
+              <p className="text-sm text-white/50">All activities and decisions are recorded on the blockchain</p>
             </Card>
             <Card className="p-4">
               <div className="flex items-center gap-3 mb-2">
                 <Coins className="w-5 h-5 text-accent" />
                 <h4 className="font-semibold">Token-Based Voting</h4>
               </div>
-              <p className="text-sm text-muted-foreground">Governance tokens represent voting power and membership rights</p>
+              <p className="text-sm text-white/50">Governance tokens represent voting power and membership rights</p>
             </Card>
           </div>
           
           <div className="border rounded p-4">
             <h4 className="font-semibold mb-2">Types of DAOs</h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div className="p-2 bg-muted rounded">
+              <div className="p-2 bg-white/5 rounded">
                 <h5 className="font-medium text-sm">Protocol DAOs</h5>
-                <p className="text-xs text-muted-foreground">Govern DeFi protocols</p>
+                <p className="text-xs text-white/50">Govern DeFi protocols</p>
               </div>
-              <div className="p-2 bg-muted rounded">
+              <div className="p-2 bg-white/5 rounded">
                 <h5 className="font-medium text-sm">Investment DAOs</h5>
-                <p className="text-xs text-muted-foreground">Collective investment funds</p>
+                <p className="text-xs text-white/50">Collective investment funds</p>
               </div>
-              <div className="p-2 bg-muted rounded">
+              <div className="p-2 bg-white/5 rounded">
                 <h5 className="font-medium text-sm">Service DAOs</h5>
-                <p className="text-xs text-muted-foreground">Provide services to Web3</p>
+                <p className="text-xs text-white/50">Provide services to Web3</p>
               </div>
-              <div className="p-2 bg-muted rounded">
+              <div className="p-2 bg-white/5 rounded">
                 <h5 className="font-medium text-sm">Social DAOs</h5>
-                <p className="text-xs text-muted-foreground">Community-focused</p>
+                <p className="text-xs text-white/50">Community-focused</p>
               </div>
             </div>
           </div>
@@ -106,7 +106,7 @@ const DaoParticipationTutorial = () => {
           <div className="grid gap-4">
             <Card className="p-4">
               <h4 className="font-semibold mb-2">Purchase on Exchanges</h4>
-              <p className="text-sm text-muted-foreground mb-2">Buy tokens directly from centralized or decentralized exchanges</p>
+              <p className="text-sm text-white/50 mb-2">Buy tokens directly from centralized or decentralized exchanges</p>
               <ul className="text-xs space-y-1">
                 <li>• Check major exchanges like Coinbase, Binance</li>
                 <li>• Use DEXs like Uniswap, SushiSwap</li>
@@ -116,7 +116,7 @@ const DaoParticipationTutorial = () => {
             
             <Card className="p-4">
               <h4 className="font-semibold mb-2">Participate in Protocol</h4>
-              <p className="text-sm text-muted-foreground mb-2">Earn tokens through active participation</p>
+              <p className="text-sm text-white/50 mb-2">Earn tokens through active participation</p>
               <ul className="text-xs space-y-1">
                 <li>• Provide liquidity to earn tokens</li>
                 <li>• Use the protocol's services</li>
@@ -126,7 +126,7 @@ const DaoParticipationTutorial = () => {
             
             <Card className="p-4">
               <h4 className="font-semibold mb-2">Airdrops</h4>
-              <p className="text-sm text-muted-foreground mb-2">Receive free tokens for early participation</p>
+              <p className="text-sm text-white/50 mb-2">Receive free tokens for early participation</p>
               <ul className="text-xs space-y-1">
                 <li>• Follow project announcements</li>
                 <li>• Meet eligibility criteria</li>
@@ -162,19 +162,19 @@ const DaoParticipationTutorial = () => {
             <div className="space-y-3">
               <div className="p-3 border rounded">
                 <h5 className="font-medium text-sm">Title & Summary</h5>
-                <p className="text-xs text-muted-foreground">Brief description of what's being proposed</p>
+                <p className="text-xs text-white/50">Brief description of what's being proposed</p>
               </div>
               <div className="p-3 border rounded">
                 <h5 className="font-medium text-sm">Background & Motivation</h5>
-                <p className="text-xs text-muted-foreground">Why this change is needed</p>
+                <p className="text-xs text-white/50">Why this change is needed</p>
               </div>
               <div className="p-3 border rounded">
                 <h5 className="font-medium text-sm">Specification</h5>
-                <p className="text-xs text-muted-foreground">Technical details of the implementation</p>
+                <p className="text-xs text-white/50">Technical details of the implementation</p>
               </div>
               <div className="p-3 border rounded">
                 <h5 className="font-medium text-sm">Impact Analysis</h5>
-                <p className="text-xs text-muted-foreground">Expected effects on the protocol and users</p>
+                <p className="text-xs text-white/50">Expected effects on the protocol and users</p>
               </div>
             </div>
           </Card>
@@ -231,7 +231,7 @@ const DaoParticipationTutorial = () => {
                 <Vote className="w-5 h-5 text-primary" />
                 <h4 className="font-semibold">Voting Power</h4>
               </div>
-              <p className="text-sm text-muted-foreground mb-2">Your voting power is typically proportional to your token holdings</p>
+              <p className="text-sm text-white/50 mb-2">Your voting power is typically proportional to your token holdings</p>
               <ul className="text-xs space-y-1">
                 <li>• 1 token = 1 vote (most common)</li>
                 <li>• Some DAOs use quadratic voting</li>
@@ -263,19 +263,19 @@ const DaoParticipationTutorial = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="p-3 border rounded">
                 <h5 className="font-medium text-sm">Snapshot</h5>
-                <p className="text-xs text-muted-foreground">Off-chain voting (gas-free)</p>
+                <p className="text-xs text-white/50">Off-chain voting (gas-free)</p>
               </div>
               <div className="p-3 border rounded">
                 <h5 className="font-medium text-sm">Tally</h5>
-                <p className="text-xs text-muted-foreground">On-chain governance dashboard</p>
+                <p className="text-xs text-white/50">On-chain governance dashboard</p>
               </div>
               <div className="p-3 border rounded">
                 <h5 className="font-medium text-sm">Governor Alpha/Bravo</h5>
-                <p className="text-xs text-muted-foreground">On-chain voting contracts</p>
+                <p className="text-xs text-white/50">On-chain voting contracts</p>
               </div>
               <div className="p-3 border rounded">
                 <h5 className="font-medium text-sm">Commonwealth</h5>
-                <p className="text-xs text-muted-foreground">Discussion & voting platform</p>
+                <p className="text-xs text-white/50">Discussion & voting platform</p>
               </div>
             </div>
           </Card>
@@ -309,15 +309,15 @@ const DaoParticipationTutorial = () => {
               <div className="space-y-2">
                 <div className="p-2 border rounded">
                   <h5 className="font-medium text-sm">Discord/Forum Participation</h5>
-                  <p className="text-xs text-muted-foreground">Join discussions, ask questions, share insights</p>
+                  <p className="text-xs text-white/50">Join discussions, ask questions, share insights</p>
                 </div>
                 <div className="p-2 border rounded">
                   <h5 className="font-medium text-sm">Working Groups</h5>
-                  <p className="text-xs text-muted-foreground">Contribute to specific initiatives and projects</p>
+                  <p className="text-xs text-white/50">Contribute to specific initiatives and projects</p>
                 </div>
                 <div className="p-2 border rounded">
                   <h5 className="font-medium text-sm">Proposal Writing</h5>
-                  <p className="text-xs text-muted-foreground">Draft and submit your own proposals</p>
+                  <p className="text-xs text-white/50">Draft and submit your own proposals</p>
                 </div>
               </div>
             </Card>
@@ -350,15 +350,15 @@ const DaoParticipationTutorial = () => {
             <div className="space-y-3">
               <div className="p-3 border rounded">
                 <h5 className="font-medium text-sm">Committee Member</h5>
-                <p className="text-xs text-muted-foreground">Join governance, treasury, or technical committees</p>
+                <p className="text-xs text-white/50">Join governance, treasury, or technical committees</p>
               </div>
               <div className="p-3 border rounded">
                 <h5 className="font-medium text-sm">Delegate</h5>
-                <p className="text-xs text-muted-foreground">Receive delegated voting power from others</p>
+                <p className="text-xs text-white/50">Receive delegated voting power from others</p>
               </div>
               <div className="p-3 border rounded">
                 <h5 className="font-medium text-sm">Steward/Guardian</h5>
-                <p className="text-xs text-muted-foreground">Take on formal leadership roles</p>
+                <p className="text-xs text-white/50">Take on formal leadership roles</p>
               </div>
             </div>
           </Card>
@@ -451,7 +451,7 @@ const DaoParticipationTutorial = () => {
           
           <Card className="p-4 bg-success/10 border-success">
             <h4 className="font-semibold text-foreground mb-2">Best Practices</h4>
-            <ul className="text-sm text-muted-foreground space-y-1">
+            <ul className="text-sm text-white/50 space-y-1">
               <li>• Start with smaller, established DAOs to learn</li>
               <li>• Diversify across multiple DAOs to reduce risk</li>
               <li>• Stay informed about governance developments</li>

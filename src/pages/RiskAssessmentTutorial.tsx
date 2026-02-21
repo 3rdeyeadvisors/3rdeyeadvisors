@@ -49,21 +49,21 @@ const RiskAssessmentTutorial = () => {
                 <TrendingDown className="w-4 h-4 md:w-5 md:h-5 text-destructive flex-shrink-0" />
                 <h4 className="font-semibold text-sm md:text-base">Market Risk</h4>
               </div>
-              <p className="text-xs md:text-sm text-muted-foreground break-words">Price volatility, impermanent loss, liquidity risks</p>
+              <p className="text-xs md:text-sm text-white/50 break-words">Price volatility, impermanent loss, liquidity risks</p>
             </Card>
             <Card className="p-3 md:p-4 border-awareness/20 text-center sm:text-left">
               <div className="flex items-center gap-2 md:gap-3 mb-1.5 md:mb-2 justify-center sm:justify-start">
                 <Shield className="w-4 h-4 md:w-5 md:h-5 text-awareness flex-shrink-0" />
                 <h4 className="font-semibold text-sm md:text-base">Smart Contract Risk</h4>
               </div>
-              <p className="text-xs md:text-sm text-muted-foreground break-words">Code vulnerabilities, bugs, exploits</p>
+              <p className="text-xs md:text-sm text-white/50 break-words">Code vulnerabilities, bugs, exploits</p>
             </Card>
             <Card className="p-3 md:p-4 border-accent/20 text-center sm:text-left">
               <div className="flex items-center gap-2 md:gap-3 mb-1.5 md:mb-2 justify-center sm:justify-start">
                 <Users className="w-4 h-4 md:w-5 md:h-5 text-accent flex-shrink-0" />
                 <h4 className="font-semibold text-sm md:text-base">Counterparty Risk</h4>
               </div>
-              <p className="text-xs md:text-sm text-muted-foreground break-words">Protocol governance, admin keys, centralization</p>
+              <p className="text-xs md:text-sm text-white/50 break-words">Protocol governance, admin keys, centralization</p>
             </Card>
           </div>
         </div>
@@ -122,7 +122,7 @@ const RiskAssessmentTutorial = () => {
               "Test with small amounts first"
             ].map((item, index) => (
               <div key={index} className="flex items-center gap-2 p-2 md:p-2.5 border rounded text-center sm:text-left justify-center sm:justify-start">
-                <Circle className="w-3 h-3 md:w-4 md:h-4 text-muted-foreground flex-shrink-0" />
+                <Circle className="w-3 h-3 md:w-4 md:h-4 text-white/50 flex-shrink-0" />
                 <span className="text-xs md:text-sm break-words">{item}</span>
               </div>
             ))}
@@ -139,19 +139,19 @@ const RiskAssessmentTutorial = () => {
           <div className="grid gap-2.5 md:gap-4">
             <Card className="p-3 md:p-4 text-center sm:text-left">
               <h4 className="font-semibold mb-1.5 md:mb-2 text-sm md:text-base">Diversification</h4>
-              <p className="text-xs md:text-sm text-muted-foreground break-words">Spread investments across multiple protocols and asset types</p>
+              <p className="text-xs md:text-sm text-white/50 break-words">Spread investments across multiple protocols and asset types</p>
             </Card>
             <Card className="p-3 md:p-4 text-center sm:text-left">
               <h4 className="font-semibold mb-1.5 md:mb-2 text-sm md:text-base">Position Sizing</h4>
-              <p className="text-xs md:text-sm text-muted-foreground break-words">Never invest more than you can afford to lose</p>
+              <p className="text-xs md:text-sm text-white/50 break-words">Never invest more than you can afford to lose</p>
             </Card>
             <Card className="p-3 md:p-4 text-center sm:text-left">
               <h4 className="font-semibold mb-1.5 md:mb-2 text-sm md:text-base">Dollar-Cost Averaging</h4>
-              <p className="text-xs md:text-sm text-muted-foreground break-words">Enter positions gradually over time</p>
+              <p className="text-xs md:text-sm text-white/50 break-words">Enter positions gradually over time</p>
             </Card>
             <Card className="p-3 md:p-4 text-center sm:text-left">
               <h4 className="font-semibold mb-1.5 md:mb-2 text-sm md:text-base">Stop Losses</h4>
-              <p className="text-xs md:text-sm text-muted-foreground break-words">Set clear exit criteria for losing positions</p>
+              <p className="text-xs md:text-sm text-white/50 break-words">Set clear exit criteria for losing positions</p>
             </Card>
           </div>
         </div>
@@ -271,7 +271,7 @@ const RiskAssessmentTutorial = () => {
         {/* Back to Tutorials Button */}
         <div className="mb-6">
           <Link to="/tutorials?tab=practical">
-            <Button variant="ghost" className="gap-2 hover:bg-muted min-h-[44px]">
+            <Button variant="ghost" className="gap-2 hover:bg-white/5 min-h-[44px]">
               <ArrowLeft className="w-4 h-4" />
               <span className="hidden sm:inline">Back to Practical DeFi Actions</span>
               <span className="sm:hidden">Back</span>
@@ -283,7 +283,7 @@ const RiskAssessmentTutorial = () => {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
             <div>
               <h1 className="text-2xl md:text-3xl font-bold">Risk Assessment in Action</h1>
-              <p className="text-sm md:text-base text-muted-foreground">Learn to evaluate and manage DeFi risks systematically</p>
+              <p className="text-sm md:text-base text-white/50">Learn to evaluate and manage DeFi risks systematically</p>
             </div>
             <Badge variant="secondary" className="w-fit mx-auto sm:mx-0 text-xs">Medium Priority</Badge>
           </div>
@@ -331,7 +331,7 @@ const RiskAssessmentTutorial = () => {
                   <div
                     key={index}
                     className={`p-2.5 md:p-3 rounded cursor-pointer transition-colors text-center sm:text-left ${
-                      currentStep === index ? 'bg-primary text-primary-foreground' : 'hover:bg-muted'
+                      currentStep === index ? 'bg-primary text-primary-foreground' : 'hover:bg-white/5'
                     }`}
                     onClick={() => setCurrentStep(index)}
                   >
