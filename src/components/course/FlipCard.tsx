@@ -19,14 +19,14 @@ export const FlipCard = ({ front, back }: FlipCardProps) => {
         {!isFlipped ? (
           <>
             <p className="font-semibold text-foreground text-sm sm:text-base mb-3 break-words">{front}</p>
-            <RotateCw className="h-4 w-4 text-muted-foreground mt-2" />
-            <p className="text-xs text-muted-foreground mt-1">Click to reveal</p>
+            <RotateCw className="h-4 w-4 text-white/50 mt-2" />
+            <p className="text-xs text-white/50 mt-1">Click to reveal</p>
           </>
         ) : (
           <>
             <p className="text-foreground text-sm sm:text-base mb-3 break-words leading-relaxed">{back}</p>
-            <RotateCw className="h-4 w-4 text-muted-foreground mt-2" />
-            <p className="text-xs text-muted-foreground mt-1">Click to flip back</p>
+            <RotateCw className="h-4 w-4 text-white/50 mt-2" />
+            <p className="text-xs text-white/50 mt-1">Click to flip back</p>
           </>
         )}
       </CardContent>

@@ -11,7 +11,7 @@ interface BlogListProps {
 
 const BlogList: React.FC<BlogListProps> = ({ items }) => {
   return (
-    <div className="bg-muted/30 rounded-lg p-6 mb-6">
+    <div className="bg-white/5 rounded-lg p-6 mb-6">
       <ul className="space-y-3 text-foreground/90">
         {items.map((item, index) => (
           <li key={index}>

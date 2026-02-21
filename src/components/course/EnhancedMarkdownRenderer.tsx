@@ -164,15 +164,15 @@ export const EnhancedMarkdownRenderer = ({ content, heroImage }: EnhancedMarkdow
             blockquote: ({ node, ...props }) => (
               <Card className="my-4 border-l-4 border-primary">
                 <CardContent className="p-4">
-                  <blockquote className="text-muted-foreground italic" {...props} />
+                  <blockquote className="text-white/50 italic" {...props} />
                 </CardContent>
               </Card>
             ),
             code: ({ inline, ...props }: React.ComponentPropsWithoutRef<'code'> & { inline?: boolean }) =>
               inline ? (
-                <code className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono text-primary" {...props} />
+                <code className="bg-white/5 px-1.5 py-0.5 rounded text-sm font-mono text-primary" {...props} />
               ) : (
-                <code className="block bg-muted p-4 rounded-lg my-4 overflow-x-auto font-mono text-sm" {...props} />
+                <code className="block bg-white/5 p-4 rounded-lg my-4 overflow-x-auto font-mono text-sm" {...props} />
               ),
             strong: ({ node, ...props }) => (
               <strong className="font-bold text-primary" {...props} />

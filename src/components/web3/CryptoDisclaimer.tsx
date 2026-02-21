@@ -26,12 +26,12 @@ export const CryptoDisclaimer = ({ onAccept, onDecline }: CryptoDisclaimerProps)
       </CardHeader>
       <CardContent className="space-y-6">
         <div className="space-y-4 text-sm">
-          <div className="rounded-lg bg-background/50 p-4 space-y-2">
+          <div className="rounded-lg bg-white/5 p-4 space-y-2">
             <h4 className="font-semibold flex items-center gap-2">
               <Shield className="h-4 w-4" />
               External Wallet & Transactions
             </h4>
-            <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+            <ul className="list-disc list-inside space-y-1 text-white/50">
               <li>All transactions are processed through your external wallet (MetaMask, Coinbase, etc.)</li>
               <li>Purchases are made using cryptocurrency, not through this app's payment system</li>
               <li>You are solely responsible for managing your private keys and wallet security</li>
@@ -39,12 +39,12 @@ export const CryptoDisclaimer = ({ onAccept, onDecline }: CryptoDisclaimerProps)
             </ul>
           </div>
 
-          <div className="rounded-lg bg-background/50 p-4 space-y-2">
+          <div className="rounded-lg bg-white/5 p-4 space-y-2">
             <h4 className="font-semibold flex items-center gap-2">
               <ExternalLink className="h-4 w-4" />
               Third-Party Services
             </h4>
-            <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+            <ul className="list-disc list-inside space-y-1 text-white/50">
               <li>Enzyme Finance is an independent, third-party DeFi protocol</li>
               <li>Vault deposits and withdrawals occur on Enzyme's external platform</li>
               <li>3EA does not custody your funds: you maintain full control</li>
@@ -52,12 +52,12 @@ export const CryptoDisclaimer = ({ onAccept, onDecline }: CryptoDisclaimerProps)
             </ul>
           </div>
 
-          <div className="rounded-lg bg-background/50 p-4 space-y-2">
+          <div className="rounded-lg bg-white/5 p-4 space-y-2">
             <h4 className="font-semibold flex items-center gap-2">
               <AlertTriangle className="h-4 w-4" />
               Investment Risks
             </h4>
-            <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+            <ul className="list-disc list-inside space-y-1 text-white/50">
               <li>Cryptocurrency investments are highly volatile and speculative</li>
               <li>Past performance does not guarantee future results</li>
               <li>You may lose some or all of your investment</li>

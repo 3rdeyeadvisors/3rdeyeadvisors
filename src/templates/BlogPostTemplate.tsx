@@ -81,12 +81,12 @@ const BlogPostTemplate = () => {
             </h1>
 
             {/* Excerpt */}
-            <p className="text-lg text-muted-foreground font-consciousness mb-6 leading-relaxed">
+            <p className="text-lg text-white/50 font-consciousness mb-6 leading-relaxed">
               {blogPost.excerpt}
             </p>
 
             {/* Meta Info Row */}
-            <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-6 text-sm text-white/50">
               <div className="flex items-center gap-2">
                 <User className="w-4 h-4" />
                 <span>{BRAND_AUTHOR}</span>
@@ -148,7 +148,7 @@ const BlogPostTemplate = () => {
               </div>
 
               {/* PATTERN: Info box with background */}
-              <div className="bg-muted/30 rounded-lg p-6 mb-6">
+              <div className="bg-white/5 rounded-lg p-6 mb-6">
                 <h3 className="text-xl font-semibold text-foreground mb-4">Box Title</h3>
                 <ul className="space-y-3 text-foreground/90">
                   <li><strong className="text-foreground">Item 1:</strong> Description here.</li>
@@ -158,7 +158,7 @@ const BlogPostTemplate = () => {
 
               {/* PATTERN: Grid of info cards */}
               <div className="grid md:grid-cols-2 gap-6 mb-6">
-                <div className="bg-muted/30 rounded-lg p-5">
+                <div className="bg-white/5 rounded-lg p-5">
                   <h3 className="text-lg font-semibold text-foreground mb-3">Card Title</h3>
                   <p className="text-foreground/80 text-sm leading-relaxed">
                     Card description text.
@@ -191,7 +191,7 @@ const BlogPostTemplate = () => {
               </div>
 
               {/* PATTERN: Disclaimer - Required for all blogs */}
-              <div className="border-t border-border/50 pt-8">
+              <div className="border-t border-white/8 pt-8">
                 <h2 className="text-lg font-semibold text-foreground mb-4">Educational Disclaimer</h2>
                 <p className="text-foreground/70 text-sm leading-relaxed">
                   This content is provided for educational and informational purposes only. It does not constitute financial advice, investment advice, trading advice, or any other type of advice. You should not treat any of the content as such. The 3rdeyeadvisors Research Team does not recommend that any cryptocurrency, token, or investment strategy is suitable for any specific person.

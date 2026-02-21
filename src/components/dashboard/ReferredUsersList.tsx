@@ -104,7 +104,7 @@ export const ReferredUsersList = () => {
 
   if (referredUsers.length === 0) {
     return (
-      <div className="text-center py-6 text-muted-foreground">
+      <div className="text-center py-6 text-white/50">
         <User className="w-8 h-8 mx-auto mb-2 opacity-50" />
         <p className="text-sm">No referrals yet</p>
         <p className="text-xs mt-1">Share your link to start earning!</p>
@@ -118,7 +118,7 @@ export const ReferredUsersList = () => {
         <Link
           key={referredUser.id}
           to={`/profile/${referredUser.id}`}
-          className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent/10 transition-colors cursor-pointer border border-transparent hover:border-border"
+          className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent/10 transition-colors cursor-pointer border border-transparent hover:border-white/8"
         >
           <Avatar className="w-10 h-10">
             <AvatarImage src={referredUser.avatar_url || ""} />
@@ -143,7 +143,7 @@ export const ReferredUsersList = () => {
                 </Badge>
               )}
             </div>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-xs text-white/50">
               {format(new Date(referredUser.signed_up_at), "MMM d, yyyy")}
             </p>
           </div>
@@ -155,7 +155,7 @@ export const ReferredUsersList = () => {
                 {(referredUser.commission_amount / 100).toFixed(2)}
               </div>
               {referredUser.commission_status === 'pending' ? (
-                <span className="text-xs text-muted-foreground flex items-center gap-1">
+                <span className="text-xs text-white/50 flex items-center gap-1">
                   <Clock className="w-3 h-3" />
                   Pending
                 </span>

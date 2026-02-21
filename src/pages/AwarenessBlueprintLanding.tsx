@@ -50,7 +50,7 @@ const AwarenessBlueprintLanding = () => {
         keywords="DeFi education, blockchain awareness, financial literacy, tokenization, AI finance"
       />
       
-      <div className="min-h-screen bg-background flex items-center justify-center px-4 py-12">
+      <div className="min-h-screen bg-black flex items-center justify-center px-4 py-12">
         <div className="max-w-2xl w-full space-y-12 text-center">
           
           {/* SECTION 1 :  HEADLINE + SUBHEADLINE */}
@@ -58,7 +58,7 @@ const AwarenessBlueprintLanding = () => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
               The Financial System Is Shifting Faster Than Anyone Realizes
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground">
+            <p className="text-xl md:text-2xl text-white/50">
               Stay ahead instead of catching up.
             </p>
           </div>
@@ -112,7 +112,7 @@ const AwarenessBlueprintLanding = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-foreground">
                 Download The Awareness Blueprint (FREE)
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-lg text-white/50">
                 No fluff. No noise. No pressure.
               </p>
             </div>
@@ -139,7 +139,7 @@ const AwarenessBlueprintLanding = () => {
 
           {/* SECTION 6 :  FINAL LINE */}
           <div className="pt-8">
-            <p className="text-lg md:text-xl text-muted-foreground italic">
+            <p className="text-lg md:text-xl text-white/50 italic">
               Knowledge is free. Awareness is the real currency.
             </p>
           </div>

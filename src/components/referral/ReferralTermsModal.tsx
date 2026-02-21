@@ -113,7 +113,7 @@ export const ReferralTermsModal = ({ open, onOpenChange, onAccepted }: ReferralT
               </ul>
             </div>
 
-            <div className="pt-2 border-t border-border">
+            <div className="pt-2 border-t border-white/8">
               <Link 
                 to="/referral-terms" 
                 target="_blank"
@@ -126,7 +126,7 @@ export const ReferralTermsModal = ({ open, onOpenChange, onAccepted }: ReferralT
           </div>
         </ScrollArea>
 
-        <div className="flex items-start gap-3 py-4 border-t border-border">
+        <div className="flex items-start gap-3 py-4 border-t border-white/8">
           <Checkbox 
             id="agree-terms" 
             checked={agreed}

@@ -17,7 +17,7 @@ export const ProgressBar = ({ courseId, showBadge = true, className }: ProgressB
     return (
       <div className={className}>
         <div className="flex items-center justify-between mb-2">
-          <span className="text-sm text-muted-foreground">Not started</span>
+          <span className="text-sm text-white/50">Not started</span>
           {showBadge && badge && (
             <Badge variant="outline" className="text-xs">
               {badge}
@@ -32,7 +32,7 @@ export const ProgressBar = ({ courseId, showBadge = true, className }: ProgressB
   return (
     <div className={className}>
       <div className="flex items-center justify-between mb-2">
-        <span className="text-sm text-muted-foreground font-medium">
+        <span className="text-sm text-white/50 font-medium">
           {progress.completion_percentage > 0
             ? `${progress.completion_percentage.toFixed(0)}% complete`
             : "In Progress"}

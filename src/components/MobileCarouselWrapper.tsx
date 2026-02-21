@@ -231,7 +231,7 @@ export const MobileCarouselWrapper: React.FC<MobileCarouselWrapperProps> = ({
                 "w-2 h-2 rounded-full transition-all duration-200",
                 index === renderIndex 
                   ? 'bg-primary w-4' 
-                  : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                  : 'bg-white/20 hover:bg-white/30'
               )}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -240,7 +240,7 @@ export const MobileCarouselWrapper: React.FC<MobileCarouselWrapperProps> = ({
       )}
       
       <div className="text-center mt-2">
-        <span className="text-xs text-muted-foreground">← Swipe to see more →</span>
+        <span className="text-xs text-white/50">← Swipe to see more →</span>
       </div>
     </div>
   );

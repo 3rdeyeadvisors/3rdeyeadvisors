@@ -64,7 +64,7 @@ export const ReactionTime: React.FC<{ onComplete: (score: number) => void }> = (
       case 'waiting': return 'bg-red-500/20 border-red-500/50';
       case 'ready': return 'bg-primary/40 border-primary shadow-[0_0_30px_rgba(var(--primary),0.3)]';
       case 'tooEarly': return 'bg-orange-500/20 border-orange-500/50';
-      default: return 'bg-card border-border';
+      default: return 'bg-white/3 border-white/8';
     }
   };
 
@@ -88,7 +88,7 @@ export const ReactionTime: React.FC<{ onComplete: (score: number) => void }> = (
             {gameState === 'clicked' && (
               <div className="flex flex-col items-center">
                 <span className="text-4xl font-bold text-primary mb-2">{reactionTime}ms</span>
-                <span className="text-sm text-muted-foreground">
+                <span className="text-sm text-white/50">
                   {reactionTime! < 200 ? 'Superhuman! 🚀' :
                    reactionTime! < 250 ? 'Elite! ⚡' :
                    reactionTime! < 300 ? 'Great! 👍' : 'Good. Try again!'}
@@ -100,7 +100,7 @@ export const ReactionTime: React.FC<{ onComplete: (score: number) => void }> = (
         </AnimatePresence>
       </div>
 
-      <p className="text-xs text-muted-foreground text-center px-4">
+      <p className="text-xs text-white/50 text-center px-4">
         Average human reaction time is ~250-300ms. Can you beat the average?
       </p>
     </div>

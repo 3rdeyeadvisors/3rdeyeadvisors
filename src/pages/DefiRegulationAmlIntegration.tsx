@@ -75,9 +75,9 @@ const DefiRegulationAmlIntegration = () => {
       <div className="min-h-screen bg-gradient-to-br from-background via-background/95 to-primary/5">
         <div className="container mx-auto px-4 py-8 max-w-4xl">
           {/* Header */}
-          <Card className="p-8 mb-8 border-border/10 bg-card/50 backdrop-blur-sm">
+          <Card className="p-8 mb-8 border-white/5 bg-card/50 backdrop-blur-sm">
             <div className="space-y-4">
-              <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
+              <div className="flex flex-wrap items-center gap-3 text-sm text-white/50">
                 <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
                   {blogPost.category}
                 </Badge>
@@ -109,7 +109,7 @@ const DefiRegulationAmlIntegration = () => {
                 Listen to this article
               </button>
               
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-white/50 leading-relaxed">
                 {blogPost.excerpt}
               </p>
               
@@ -124,8 +124,8 @@ const DefiRegulationAmlIntegration = () => {
           </Card>
 
           {/* Main Content */}
-          <Card className="p-8 border-border/10 bg-card/50 backdrop-blur-sm">
-            <article className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-li:text-muted-foreground prose-h2:text-2xl prose-h2:font-bold prose-h2:mb-4 prose-h2:mt-8 prose-h3:text-xl prose-h3:font-semibold prose-h3:mb-3 prose-h3:mt-6 prose-h4:text-lg prose-h4:font-medium prose-h4:mb-2 prose-h4:mt-4">
+          <Card className="p-8 border-white/5 bg-card/50 backdrop-blur-sm">
+            <article className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-white/50 prose-strong:text-foreground prose-li:text-white/50 prose-h2:text-2xl prose-h2:font-bold prose-h2:mb-4 prose-h2:mt-8 prose-h3:text-xl prose-h3:font-semibold prose-h3:mb-3 prose-h3:mt-6 prose-h4:text-lg prose-h4:font-medium prose-h4:mb-2 prose-h4:mt-4">
               <div dangerouslySetInnerHTML={{ 
                 __html: DOMPurify.sanitize(blogPost.content
                   .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')

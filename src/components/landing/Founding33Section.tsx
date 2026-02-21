@@ -117,7 +117,7 @@ const Founding33Section = ({ totalSpots = 33, claimedSpots: initialClaimed = 0 }
           </h2>
           
           {/* Subheading */}
-          <p className="text-lg md:text-xl text-muted-foreground font-body max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-white/50 font-body max-w-2xl mx-auto">
             Secure lifetime access to the 3EA ecosystem. Only 33 spots available.
           </p>
         </AnimatedSection>
@@ -164,13 +164,13 @@ const Founding33Section = ({ totalSpots = 33, claimedSpots: initialClaimed = 0 }
               </div>
               
               {/* Progress Bar */}
-              <div className="w-full h-3 bg-background/50 rounded-full overflow-hidden">
+              <div className="w-full h-3 bg-white/5 rounded-full overflow-hidden">
                 <div 
                   className="h-full bg-gradient-to-r from-amber-500 to-amber-400 rounded-full transition-all duration-1000 ease-out"
                   style={{ width: `${percentageClaimed}%` }}
                 />
               </div>
-              <p className="text-xs text-muted-foreground mt-2 text-center font-body">
+              <p className="text-xs text-white/50 mt-2 text-center font-body">
                 {spotsData.claimed} founding members have already claimed their spot
               </p>
             </div>
@@ -179,7 +179,7 @@ const Founding33Section = ({ totalSpots = 33, claimedSpots: initialClaimed = 0 }
             {isSoldOut ? (
               <Button 
                 size="lg"
-                className="w-full py-7 text-lg font-body font-semibold bg-muted text-muted-foreground border-0 cursor-not-allowed"
+                className="w-full py-7 text-lg font-body font-semibold bg-white/5 text-white/50 border-0 cursor-not-allowed"
                 disabled
               >
               <Lock className="w-5 h-5" />
@@ -210,7 +210,7 @@ const Founding33Section = ({ totalSpots = 33, claimedSpots: initialClaimed = 0 }
 
         {/* Trust note */}
         <AnimatedSection delay={300}>
-          <p className="text-center text-sm text-muted-foreground font-body mt-6">
+          <p className="text-center text-sm text-white/50 font-body mt-6">
             Instant lifetime access. No recurring fees ever.
           </p>
         </AnimatedSection>

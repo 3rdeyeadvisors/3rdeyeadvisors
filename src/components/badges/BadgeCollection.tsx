@@ -16,7 +16,7 @@ export const BadgeCollection = ({ compact = false, showLocked = true }: BadgeCol
     return (
       <Card>
         <CardContent className="flex items-center justify-center p-6">
-          <Loader2 className="w-6 h-6 animate-spin text-muted-foreground" />
+          <Loader2 className="w-6 h-6 animate-spin text-white/50" />
         </CardContent>
       </Card>
     );
@@ -35,7 +35,7 @@ export const BadgeCollection = ({ compact = false, showLocked = true }: BadgeCol
     
     if (earnedBadges.length === 0) {
       return (
-        <div className="flex items-center gap-2 text-muted-foreground text-sm">
+        <div className="flex items-center gap-2 text-white/50 text-sm">
           <Award className="w-4 h-4" />
           <span>No badges earned yet</span>
         </div>

@@ -330,7 +330,7 @@ export default function MerchandiseDetail() {
             <div className="space-y-4">
               <Card className="overflow-hidden relative group">
                 <div
-                  className="relative aspect-square bg-background cursor-zoom-in"
+                  className="relative aspect-square bg-black cursor-zoom-in"
                   onClick={() => setIsLightboxOpen(true)}
                 >
                   <img

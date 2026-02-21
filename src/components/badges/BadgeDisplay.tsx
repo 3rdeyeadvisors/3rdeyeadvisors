@@ -46,7 +46,7 @@ export const BadgeDisplay = ({
         sizeClasses[size],
         earned 
           ? `${definition.bgColor} ${definition.color} ring-2 ring-offset-2 ring-offset-background` 
-          : 'bg-muted/50 text-muted-foreground opacity-50 grayscale',
+          : 'bg-muted/50 text-white/50 opacity-50 grayscale',
         earned && 'hover:scale-110',
         className
       )}
@@ -71,14 +71,14 @@ export const BadgeDisplay = ({
         <TooltipContent side="top" className="max-w-[200px]">
           <div className="text-center">
             <p className="font-semibold">{definition.name}</p>
-            <p className="text-xs text-muted-foreground">{definition.description}</p>
+            <p className="text-xs text-white/50">{definition.description}</p>
             {earnedAt && earned && (
-              <p className="text-xs text-muted-foreground mt-1">
+              <p className="text-xs text-white/50 mt-1">
                 Earned: {new Date(earnedAt).toLocaleDateString()}
               </p>
             )}
             {!earned && (
-              <p className="text-xs text-muted-foreground mt-1 italic">
+              <p className="text-xs text-white/50 mt-1 italic">
                 Not yet earned
               </p>
             )}

@@ -854,23 +854,23 @@ const DefiCalculatorsTutorial = () => {
                         <div className="space-y-4">
                           <h4 className="font-semibold">Impermanent Loss Results:</h4>
                           <div className="space-y-3">
-                            <div className="flex justify-between items-center p-3 bg-card rounded-lg border">
+                            <div className="flex justify-between items-center p-3 bg-white/3 rounded-lg border">
                               <span className="font-medium">IL Percentage:</span>
                               <span className={`font-bold ${Number(ilResults.ilPercentage) < 0 ? 'text-destructive' : 'text-success'}`}>
                                 {ilResults.ilPercentage}%
                               </span>
                             </div>
-                            <div className="flex justify-between items-center p-3 bg-card rounded-lg border">
+                            <div className="flex justify-between items-center p-3 bg-white/3 rounded-lg border">
                               <span className="font-medium">IL Amount:</span>
                               <span className={`font-bold ${Number(ilResults.ilAmount) < 0 ? 'text-destructive' : 'text-success'}`}>
                                 ${ilResults.ilAmount}
                               </span>
                             </div>
-                            <div className="flex justify-between items-center p-3 bg-card rounded-lg border">
+                            <div className="flex justify-between items-center p-3 bg-white/3 rounded-lg border">
                               <span className="font-medium">LP Position Value:</span>
                               <span className="font-bold text-accent">${ilResults.finalLpValue}</span>
                             </div>
-                            <div className="flex justify-between items-center p-3 bg-card rounded-lg border">
+                            <div className="flex justify-between items-center p-3 bg-white/3 rounded-lg border">
                               <span className="font-medium">Hold Value:</span>
                               <span className="font-bold text-success">${ilResults.finalHoldValue}</span>
                             </div>

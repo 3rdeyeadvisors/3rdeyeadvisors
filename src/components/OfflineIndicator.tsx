@@ -100,7 +100,7 @@ export const OfflineIndicator = () => {
           </div>
 
           {/* Last Sync */}
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <div className="flex items-center gap-2 text-sm text-white/50">
             <Clock className="w-4 h-4" />
             <span>Last synced: {formatLastSync()}</span>
           </div>
@@ -109,10 +109,10 @@ export const OfflineIndicator = () => {
           <div className="space-y-2">
             <div className="flex items-center justify-between text-sm">
               <div className="flex items-center gap-2">
-                <HardDrive className="w-4 h-4 text-muted-foreground" />
+                <HardDrive className="w-4 h-4 text-white/50" />
                 <span>Storage Used</span>
               </div>
-              <span className="text-muted-foreground">
+              <span className="text-white/50">
                 {storageUsed} / {storageQuota}
               </span>
             </div>
@@ -142,7 +142,7 @@ export const OfflineIndicator = () => {
           </div>
 
           {/* Actions */}
-          <div className="flex gap-2 pt-2 border-t border-border">
+          <div className="flex gap-2 pt-2 border-t border-white/8">
             <Button 
               onClick={handleSync} 
               size="sm" 
@@ -168,7 +168,7 @@ export const OfflineIndicator = () => {
           </div>
 
           {!isOnline && (
-            <p className="text-xs text-muted-foreground text-center">
+            <p className="text-xs text-white/50 text-center">
               Content will sync automatically when you're back online.
             </p>
           )}
