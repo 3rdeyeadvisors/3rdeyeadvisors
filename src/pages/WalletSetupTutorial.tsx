@@ -370,7 +370,7 @@ const WalletSetupTutorial = () => {
           }
         ]}
       />
-      <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted">
+      <div className="min-h-screen bg-gradient-to-br from-background via-background to-white/5">
       <div className="container mx-auto px-4 py-6 md:py-8">
         {/* Authentication Notice */}
         {!user && (
@@ -462,7 +462,7 @@ const WalletSetupTutorial = () => {
             </CardHeader>
 
             <CardContent className="space-y-4 md:space-y-6 p-3 md:p-6">
-              <p className="text-sm md:text-base text-muted-foreground text-center sm:text-left">{currentStepData.content.overview}</p>
+              <p className="text-sm md:text-base text-white/50 text-center sm:text-left">{currentStepData.content.overview}</p>
 
               {/* Step 1: Choose Wallet */}
               {currentStep === 1 && (
@@ -592,7 +592,7 @@ const WalletSetupTutorial = () => {
                   <DidYouKnow fact="Over $4.2 billion in cryptocurrency was stolen in 2024, with 67% of thefts caused by compromised seed phrases. Never share yours with anyone!" />
 
                   {/* Example Seed Phrase */}
-                  <Card className="border-2 border-dashed border-border">
+                  <Card className="border-2 border-dashed border-white/8">
                     <CardHeader>
                       <div className="flex items-center justify-between">
                         <CardTitle className="text-lg">Example Seed Phrase</CardTitle>
@@ -613,7 +613,7 @@ const WalletSetupTutorial = () => {
                       {showSeedPhrase ? (
                         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3">
                           {currentStepData.content.seedPhrase?.map((word, index) => (
-                            <div key={index} className="flex items-center gap-2 p-2 bg-muted rounded min-w-0">
+                            <div key={index} className="flex items-center gap-2 p-2 bg-white/5 rounded min-w-0">
                               <Badge variant="outline" className="text-xs min-w-6 w-6 h-6 flex-shrink-0 flex items-center justify-center">
                                 {index + 1}
                               </Badge>
@@ -622,7 +622,7 @@ const WalletSetupTutorial = () => {
                           ))}
                         </div>
                       ) : (
-                        <p className="text-muted-foreground text-center py-8">
+                        <p className="text-white/50 text-center py-8">
                           Click "Show" to reveal the example seed phrase
                         </p>
                       )}
@@ -654,7 +654,7 @@ const WalletSetupTutorial = () => {
                                 {option.security}
                               </Badge>
                             </div>
-                            <p className="text-sm text-muted-foreground">{option.notes}</p>
+                            <p className="text-sm text-white/50">{option.notes}</p>
                           </CardContent>
                         </Card>
                       ))}
@@ -716,7 +716,7 @@ const WalletSetupTutorial = () => {
                                 {practice.importance}
                               </Badge>
                             </div>
-                            <p className="text-sm text-muted-foreground">{practice.description}</p>
+                            <p className="text-sm text-white/50">{practice.description}</p>
                           </CardContent>
                         </Card>
                       ))}

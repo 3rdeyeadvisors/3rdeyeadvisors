@@ -29,7 +29,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative border-t border-border/50 bg-card/30 backdrop-blur-sm">
+    <footer className="relative border-t border-white/8 bg-white/3 backdrop-blur-sm">
       {/* Top gradient line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       
@@ -46,7 +46,7 @@ const Footer = () => {
                 <li key={link.label}>
                   <Link
                     to={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors font-body min-h-[44px] flex items-center"
+                    className="text-sm text-white/50 hover:text-primary transition-colors font-body min-h-[44px] flex items-center"
                   >
                     {link.label}
                   </Link>
@@ -65,7 +65,7 @@ const Footer = () => {
                 <li key={link.label}>
                   <Link
                     to={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors font-body min-h-[44px] flex items-center"
+                    className="text-sm text-white/50 hover:text-primary transition-colors font-body min-h-[44px] flex items-center"
                   >
                     {link.label}
                   </Link>
@@ -84,7 +84,7 @@ const Footer = () => {
                 <li key={link.label}>
                   <Link
                     to={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors font-body min-h-[44px] flex items-center"
+                    className="text-sm text-white/50 hover:text-primary transition-colors font-body min-h-[44px] flex items-center"
                   >
                     {link.label}
                   </Link>
@@ -105,7 +105,7 @@ const Footer = () => {
                   href={social.href}
                   target={social.href.startsWith('mailto') ? undefined : '_blank'}
                   rel={social.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
-                  className="w-11 h-11 rounded-lg bg-background/50 border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all duration-300"
+                  className="w-11 h-11 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center text-white/50 hover:text-primary hover:border-primary/30 transition-all duration-300"
                   aria-label={social.label}
                 >
                   <social.icon className="w-4 h-4" />
@@ -116,15 +116,15 @@ const Footer = () => {
         </div>
 
         {/* Bottom section */}
-        <div className="pt-4 md:pt-6 border-t border-border/50">
+        <div className="pt-4 md:pt-6 border-t border-white/8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-3">
             <div className="flex items-center gap-2">
               <span className="font-consciousness font-bold text-foreground">3rdeyeadvisors</span>
-              <span className="text-xs text-muted-foreground font-consciousness">
+              <span className="text-xs text-white/50 font-consciousness">
                 © {currentYear} All Rights Reserved
               </span>
             </div>
-            <p className="text-xs text-muted-foreground/70 font-consciousness text-center md:text-right max-w-md">
+            <p className="text-xs text-white/30 font-consciousness text-center md:text-right max-w-md">
               Educational content only. Not financial advice. Always do your own research.
             </p>
           </div>
