@@ -180,8 +180,8 @@ export const RatingSection = ({ courseId, moduleId }: RatingSectionProps) => {
               star <= rating
                 ? "fill-yellow-500 text-yellow-500"
                 : interactive 
-                  ? "fill-none text-muted-foreground hover:fill-yellow-400 hover:text-yellow-400"
-                  : "fill-none text-muted-foreground"
+                  ? "fill-none text-white/50 hover:fill-yellow-400 hover:text-yellow-400"
+                  : "fill-none text-white/50"
             }`}
             style={{ textDecoration: 'none' }}
             onClick={interactive ? () => setSelectedRating(star) : undefined}
@@ -203,7 +203,7 @@ export const RatingSection = ({ courseId, moduleId }: RatingSectionProps) => {
 
         {/* Rating Overview */}
         {ratingData.totalRatings > 0 && (
-          <div className="p-4 bg-muted/20 rounded-lg">
+          <div className="p-4 bg-white/5 rounded-lg">
             <div className="flex flex-col items-center text-center mb-4">
               <div className="flex items-center justify-center gap-2 mb-1">
                 <span className="text-2xl font-consciousness font-bold">
@@ -211,7 +211,7 @@ export const RatingSection = ({ courseId, moduleId }: RatingSectionProps) => {
                 </span>
                 {renderStars(ratingData.averageRating)}
               </div>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-white/50">
                 Based on {ratingData.totalRatings} rating{ratingData.totalRatings !== 1 ? 's' : ''}
               </p>
             </div>
@@ -225,13 +225,13 @@ export const RatingSection = ({ courseId, moduleId }: RatingSectionProps) => {
                 return (
                   <div key={star} className="flex items-center gap-2 text-xs sm:text-sm">
                     <span className="w-6 sm:w-8 flex-shrink-0">{star}★</span>
-                    <div className="flex-1 bg-muted rounded-full h-2">
+                    <div className="flex-1 bg-white/5 rounded-full h-2">
                       <div
                         className="bg-warning rounded-full h-2 transition-all"
                         style={{ width: `${percentage}%` }}
                       />
                     </div>
-                    <span className="w-6 sm:w-8 text-right text-muted-foreground flex-shrink-0">{count}</span>
+                    <span className="w-6 sm:w-8 text-right text-white/50 flex-shrink-0">{count}</span>
                   </div>
                 );
               })}
@@ -282,7 +282,7 @@ export const RatingSection = ({ courseId, moduleId }: RatingSectionProps) => {
         )}
 
         {!user && ratingData.totalRatings === 0 && (
-          <div className="text-center py-6 text-muted-foreground">
+          <div className="text-center py-6 text-white/50">
             <Star className="w-12 h-12 mx-auto mb-3 opacity-50" />
             <p className="font-consciousness text-sm">No ratings yet. Sign in to be the first to rate this content!</p>
           </div>

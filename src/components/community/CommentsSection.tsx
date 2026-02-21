@@ -300,10 +300,10 @@ export const CommentsSection = ({ courseId, moduleId }: CommentsSectionProps) =>
     return (
       <Card className="p-6">
         <div className="animate-pulse space-y-4">
-          <div className="h-4 bg-muted rounded w-1/3"></div>
+          <div className="h-4 bg-white/5 rounded w-1/3"></div>
           <div className="space-y-3">
-            <div className="h-4 bg-muted rounded"></div>
-            <div className="h-4 bg-muted rounded w-5/6"></div>
+            <div className="h-4 bg-white/5 rounded"></div>
+            <div className="h-4 bg-white/5 rounded w-5/6"></div>
           </div>
         </div>
       </Card>
@@ -345,13 +345,13 @@ export const CommentsSection = ({ courseId, moduleId }: CommentsSectionProps) =>
         {/* Comments List */}
         <div className="space-y-4 pt-2">
           {comments.length === 0 ? (
-            <div className="text-center py-8 text-muted-foreground">
+            <div className="text-center py-8 text-white/50">
               <MessageCircle className="w-12 h-12 mx-auto mb-3 opacity-50" />
               <p className="font-consciousness text-sm">No comments yet. Be the first to start the discussion!</p>
             </div>
           ) : (
           comments.map((comment) => (
-            <Card key={comment.id} className="p-3 sm:p-4 bg-muted/20">
+            <Card key={comment.id} className="p-3 sm:p-4 bg-white/5">
               <div className="flex items-start gap-2 sm:gap-3">
                 <Avatar className="w-8 h-8 flex-shrink-0">
                   <AvatarFallback className="text-xs">
@@ -365,7 +365,7 @@ export const CommentsSection = ({ courseId, moduleId }: CommentsSectionProps) =>
                       <span className="font-consciousness font-medium text-sm">
                         {comment.profiles?.display_name || "Anonymous"}
                       </span>
-                      <span className="text-xs text-muted-foreground">
+                      <span className="text-xs text-white/50">
                         {formatDistanceToNow(new Date(comment.created_at), { addSuffix: true })}
                       </span>
                     </div>
@@ -436,7 +436,7 @@ export const CommentsSection = ({ courseId, moduleId }: CommentsSectionProps) =>
                         variant="ghost"
                         size="sm"
                         onClick={() => handleLike(comment.id)}
-                        className="h-8 px-2 text-muted-foreground hover:text-primary"
+                        className="h-8 px-2 text-white/50 hover:text-primary"
                       >
                         <ThumbsUp className="w-3 h-3 mr-1" />
                         {comment.likes_count}

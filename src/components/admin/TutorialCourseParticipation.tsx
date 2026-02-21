@@ -157,7 +157,7 @@ export const TutorialCourseParticipation = () => {
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-2xl font-bold text-foreground">Tutorial & Course Participation</h2>
-          <p className="text-muted-foreground">
+          <p className="text-white/50">
             Real-time tracking of active users in tutorials and courses
             {lastRefresh && (
               <span className="ml-2 text-xs">
@@ -189,7 +189,7 @@ export const TutorialCourseParticipation = () => {
           </CardHeader>
           <CardContent>
             <p className="text-3xl font-bold text-primary">{totalTutorialParticipants}</p>
-            <p className="text-xs text-muted-foreground mt-1">Last 30 minutes</p>
+            <p className="text-xs text-white/50 mt-1">Last 30 minutes</p>
           </CardContent>
         </Card>
 
@@ -202,7 +202,7 @@ export const TutorialCourseParticipation = () => {
           </CardHeader>
           <CardContent>
             <p className="text-3xl font-bold text-awareness">{totalCourseParticipants}</p>
-            <p className="text-xs text-muted-foreground mt-1">Last 30 minutes</p>
+            <p className="text-xs text-white/50 mt-1">Last 30 minutes</p>
           </CardContent>
         </Card>
 
@@ -215,7 +215,7 @@ export const TutorialCourseParticipation = () => {
           </CardHeader>
           <CardContent>
             <p className="text-3xl font-bold text-accent">{totalTutorialParticipants + totalCourseParticipants}</p>
-            <p className="text-xs text-muted-foreground mt-1">All content types</p>
+            <p className="text-xs text-white/50 mt-1">All content types</p>
           </CardContent>
         </Card>
       </div>
@@ -236,7 +236,7 @@ export const TutorialCourseParticipation = () => {
         <TabsContent value="tutorials" className="space-y-3 mt-4">
           {tutorials.length === 0 ? (
             <Card>
-              <CardContent className="py-8 text-center text-muted-foreground">
+              <CardContent className="py-8 text-center text-white/50">
                 No active tutorial participants in the last 30 minutes
               </CardContent>
             </Card>
@@ -287,7 +287,7 @@ export const TutorialCourseParticipation = () => {
         <TabsContent value="courses" className="space-y-3 mt-4">
           {courses.length === 0 ? (
             <Card>
-              <CardContent className="py-8 text-center text-muted-foreground">
+              <CardContent className="py-8 text-center text-white/50">
                 No active course participants in the last 30 minutes
               </CardContent>
             </Card>

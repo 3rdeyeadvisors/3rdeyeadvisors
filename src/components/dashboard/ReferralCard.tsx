@@ -166,14 +166,14 @@ export const ReferralCard = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground">Invite Friends & Earn Rewards</h3>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-white/50">
                     Accept the referral terms to get your unique link
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center gap-4 p-4 bg-muted/30 rounded-lg border border-border">
+            <div className="flex flex-col sm:flex-row items-center gap-4 p-4 bg-white/5 rounded-lg border border-white/8">
               <div className="flex items-center gap-3 flex-1">
                 <Shield className="w-5 h-5 text-primary flex-shrink-0" />
                 <p className="text-sm text-foreground/80">
@@ -208,7 +208,7 @@ export const ReferralCard = () => {
               </div>
               <div>
                 <h3 className="font-semibold text-foreground">Invite Friends & Earn Rewards</h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-white/50">
                   {activeRaffle 
                     ? `Share your referral link and earn bonus entries for "${activeRaffle.title}"`
                     : "Share your referral link: bonus entries will be awarded when a raffle is active"
@@ -251,7 +251,7 @@ export const ReferralCard = () => {
               <Input
                 value={referralLink}
                 readOnly
-                className="pr-10 bg-background/50 text-sm"
+                className="pr-10 bg-black/50 text-sm"
               />
             </div>
             <div className="flex gap-2">
@@ -282,12 +282,12 @@ export const ReferralCard = () => {
           {stats.totalReferrals > 0 && (
             <Collapsible open={showReferrals} onOpenChange={setShowReferrals}>
               <CollapsibleTrigger asChild>
-                <Button variant="ghost" className="w-full justify-between text-sm text-muted-foreground hover:text-foreground">
+                <Button variant="ghost" className="w-full justify-between text-sm text-white/50 hover:text-foreground">
                   <span>View Your Referrals ({stats.totalReferrals})</span>
                   <ChevronDown className={`w-4 h-4 transition-transform ${showReferrals ? 'rotate-180' : ''}`} />
                 </Button>
               </CollapsibleTrigger>
-              <CollapsibleContent className="pt-2 border-t border-border/50 mt-2">
+              <CollapsibleContent className="pt-2 border-t border-white/8 mt-2">
                 <ReferredUsersList />
               </CollapsibleContent>
             </Collapsible>
@@ -295,7 +295,7 @@ export const ReferralCard = () => {
 
           {/* Terms accepted indicator */}
           {acceptance && (
-            <div className="flex items-center justify-between text-xs text-muted-foreground border-t border-border/50 pt-3">
+            <div className="flex items-center justify-between text-xs text-white/50 border-t border-white/8 pt-3">
               <Link to="/referral-terms" className="hover:text-primary transition-colors flex items-center gap-1">
                 <FileText className="w-3 h-3" />
                 View Referral Terms

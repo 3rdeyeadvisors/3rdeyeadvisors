@@ -747,7 +747,7 @@ export const DefiCharts = () => {
                             key={index}
                             onClick={() => carouselApi?.scrollTo(index)}
                             className={`flex-1 h-full transition-colors border-r border-background last:border-r-0 ${
-                              currentSlide === index ? 'bg-primary' : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                              currentSlide === index ? 'bg-primary' : 'bg-white/20 hover:bg-white/30'
                             }`}
                             aria-label={`Go to slide ${index + 1}`}
                           >

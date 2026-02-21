@@ -16,10 +16,10 @@ export const EnzymeVaultCard = ({ isWhitelisted = false, walletAddress }: Enzyme
 
   if (!isWhitelisted) {
     return (
-      <Card className="border-muted">
+      <Card className="border-white/8">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Lock className="h-5 w-5 text-muted-foreground" />
+            <Lock className="h-5 w-5 text-white/50" />
             Enzyme Vault Access
           </CardTitle>
           <CardDescription>
@@ -27,7 +27,7 @@ export const EnzymeVaultCard = ({ isWhitelisted = false, walletAddress }: Enzyme
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="flex items-center justify-center py-8 text-muted-foreground">
+          <div className="flex items-center justify-center py-8 text-white/50">
             <p>Verify your NFT ownership to unlock vault access</p>
           </div>
         </CardContent>
@@ -55,21 +55,21 @@ export const EnzymeVaultCard = ({ isWhitelisted = false, walletAddress }: Enzyme
       <CardContent className="space-y-6">
         {/* Vault Info */}
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-lg bg-muted/50 p-4">
-            <p className="text-sm text-muted-foreground mb-1">Vault Address</p>
+          <div className="rounded-lg bg-white/5 p-4">
+            <p className="text-sm text-white/50 mb-1">Vault Address</p>
             <p className="font-mono text-xs truncate">
               {ENZYME_CONFIG.comptrollerProxy}
             </p>
           </div>
-          <div className="rounded-lg bg-muted/50 p-4">
-            <p className="text-sm text-muted-foreground mb-1">Network</p>
+          <div className="rounded-lg bg-white/5 p-4">
+            <p className="text-sm text-white/50 mb-1">Network</p>
             <p className="font-medium">Ethereum Mainnet</p>
           </div>
         </div>
 
         {/* External Links */}
         <div className="space-y-3">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-white/50">
             Manage your vault position through Enzyme Finance's secure interface:
           </p>
           

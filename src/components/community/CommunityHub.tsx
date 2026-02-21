@@ -31,25 +31,25 @@ export const CommunityHub = ({
             Connect with other learners, share feedback, and get help
           </CardDescription>
           {/* Softer notice for mobile users */}
-          <div className="text-center py-3 px-4 mt-4 bg-muted/30 rounded-lg border border-border md:hidden">
-            <p className="text-xs text-muted-foreground leading-relaxed">
+          <div className="text-center py-3 px-4 mt-4 bg-white/5 rounded-lg border border-white/8 md:hidden">
+            <p className="text-xs text-white/50 leading-relaxed">
               Fully usable on mobile. For the best experience, we recommend using a desktop or laptop.
             </p>
           </div>
         </CardHeader>
         <CardContent className="px-4 sm:px-6 py-5">
           <Tabs defaultValue="comments" className="w-full">
-            <TabsList className="flex flex-wrap gap-3 w-full justify-center p-3 bg-background/60 rounded-lg border border-border mb-8">
+            <TabsList className="flex flex-wrap gap-3 w-full justify-center p-3 bg-black/60 rounded-lg border border-white/8 mb-8">
               <TabsTrigger 
                 value="comments" 
-                className="flex items-center justify-center gap-2 min-h-[44px] px-6 py-3 rounded-md text-sm font-medium data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=inactive]:bg-transparent data-[state=inactive]:text-muted-foreground hover:text-foreground transition-colors"
+                className="flex items-center justify-center gap-2 min-h-[44px] px-6 py-3 rounded-md text-sm font-medium data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=inactive]:bg-transparent data-[state=inactive]:text-white/50 hover:text-foreground transition-colors"
               >
                 <MessageCircle className="w-4 h-4 flex-shrink-0" />
                 <span>Comments</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="ratings" 
-                className="flex items-center justify-center gap-2 min-h-[44px] px-6 py-3 rounded-md text-sm font-medium data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=inactive]:bg-transparent data-[state=inactive]:text-muted-foreground hover:text-foreground transition-colors"
+                className="flex items-center justify-center gap-2 min-h-[44px] px-6 py-3 rounded-md text-sm font-medium data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=inactive]:bg-transparent data-[state=inactive]:text-white/50 hover:text-foreground transition-colors"
               >
                 <Star className="w-4 h-4 flex-shrink-0" />
                 <span>Ratings</span>
@@ -57,7 +57,7 @@ export const CommunityHub = ({
               {showDiscussions && (
                 <TabsTrigger 
                   value="discussions" 
-                  className="flex items-center justify-center gap-2 min-h-[44px] px-6 py-3 rounded-md text-sm font-medium data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=inactive]:bg-transparent data-[state=inactive]:text-muted-foreground hover:text-foreground transition-colors"
+                  className="flex items-center justify-center gap-2 min-h-[44px] px-6 py-3 rounded-md text-sm font-medium data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=inactive]:bg-transparent data-[state=inactive]:text-white/50 hover:text-foreground transition-colors"
                 >
                   <HelpCircle className="w-4 h-4 flex-shrink-0" />
                   <span>Q&A</span>
@@ -81,7 +81,7 @@ export const CommunityHub = ({
                   title={title}
                 />
               ) : (
-                <div className="text-center py-8 text-muted-foreground text-sm">
+                <div className="text-center py-8 text-white/50 text-sm">
                   Ratings are available for tutorials and courses
                 </div>
               )}
