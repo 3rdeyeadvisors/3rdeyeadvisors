@@ -19,7 +19,7 @@ export const PointsDisplay = ({ compact = false }: PointsDisplayProps) => {
   if (loading) {
     return (
       <Card className="p-4 sm:p-6 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20 animate-pulse">
-        <div className="h-24 bg-muted rounded" />
+        <div className="h-24 bg-white/5 rounded" />
       </Card>
     );
   }
@@ -31,7 +31,7 @@ export const PointsDisplay = ({ compact = false }: PointsDisplayProps) => {
       <div className="flex items-center gap-2">
         <Star className="w-4 h-4 text-accent" />
         <span className="font-consciousness font-bold text-white">{totalPoints.toLocaleString()}</span>
-        <span className="text-xs text-muted-foreground font-body">pts</span>
+        <span className="text-xs text-white/50 font-body">pts</span>
       </div>
     );
   }
@@ -45,39 +45,39 @@ export const PointsDisplay = ({ compact = false }: PointsDisplayProps) => {
           </div>
           <div>
             <h3 className="font-consciousness font-bold text-white">Monthly Points</h3>
-            <p className="text-xs text-muted-foreground font-body">{currentMonth}</p>
+            <p className="text-xs text-white/50 font-body">{currentMonth}</p>
           </div>
         </div>
 
         {/* Main Stats */}
         <div className="grid grid-cols-3 gap-3 mb-4">
-          <div className="text-center p-3 bg-background/50 rounded-lg">
+          <div className="text-center p-3 bg-black/50 rounded-lg">
             <div className="text-2xl sm:text-3xl font-bold text-violet-400 font-consciousness">
               {totalPoints.toLocaleString()}
             </div>
-            <div className="text-xs text-muted-foreground font-body">Total Points</div>
+            <div className="text-xs text-white/50 font-body">Total Points</div>
           </div>
           
-          <div className="text-center p-3 bg-background/50 rounded-lg">
+          <div className="text-center p-3 bg-black/50 rounded-lg">
             <div className="flex items-center justify-center gap-1">
               <TrendingUp className="w-4 h-4 text-accent" />
               <span className="text-2xl sm:text-3xl font-bold text-violet-400 font-consciousness">
                 #{rank?.rank || '-'}
               </span>
             </div>
-            <div className="text-xs text-muted-foreground font-body">
+            <div className="text-xs text-white/50 font-body">
               of {rank?.total_users ? rank.total_users.toLocaleString() : '...'}
             </div>
           </div>
           
-          <div className="text-center p-3 bg-background/50 rounded-lg">
+          <div className="text-center p-3 bg-black/50 rounded-lg">
             <div className="flex items-center justify-center gap-1">
-              <Calendar className="w-4 h-4 text-muted-foreground" />
+              <Calendar className="w-4 h-4 text-white/50" />
               <span className="text-2xl sm:text-3xl font-bold text-violet-400 font-consciousness">
                 {daysRemaining}
               </span>
             </div>
-            <div className="text-xs text-muted-foreground font-body">Days Left</div>
+            <div className="text-xs text-white/50 font-body">Days Left</div>
           </div>
         </div>
 

@@ -86,7 +86,7 @@ const CryptoCard = ({ crypto, isRecommended = false }: { crypto: CryptoData; isR
                 <Star className="w-3.5 h-3.5 text-primary fill-primary" />
               )}
             </div>
-            <span className="text-xs text-muted-foreground font-consciousness truncate max-w-[120px] sm:max-w-[80px] block">
+            <span className="text-xs text-white/50 font-consciousness truncate max-w-[120px] sm:max-w-[80px] block">
               {crypto.name}
             </span>
           </div>
@@ -120,7 +120,7 @@ const CryptoCard = ({ crypto, isRecommended = false }: { crypto: CryptoData; isR
           )}
         </div>
         
-        <div className="text-xs text-muted-foreground font-consciousness">
+        <div className="text-xs text-white/50 font-consciousness">
           MCap: {formatMarketCap(crypto.marketCap)}
         </div>
       </div>
@@ -129,7 +129,7 @@ const CryptoCard = ({ crypto, isRecommended = false }: { crypto: CryptoData; isR
 };
 
 const LoadingSkeleton = () => (
-  <Card className="p-4 bg-card/80 border-border">
+  <Card className="p-4 bg-white/3 border-white/8">
     <div className="flex flex-col sm:flex-row items-center sm:items-start sm:justify-between mb-3 gap-2 sm:gap-0">
       <div className="flex flex-col sm:flex-row items-center gap-2">
         <Skeleton className="w-10 h-10 sm:w-8 sm:h-8 rounded-full" />
@@ -213,14 +213,14 @@ export const CryptoPricesWidget = () => {
 
   if (loading) {
     return (
-      <Card className="p-6 bg-card/60 border-border">
+      <Card className="p-6 bg-white/3 border-white/8">
         {/* Loading Header - Centered on mobile */}
         <div className="flex flex-col items-center sm:flex-row sm:items-center sm:justify-between mb-6 gap-4 text-center sm:text-left">
           <div className="flex flex-col sm:flex-row items-center gap-3">
             <Coins className="w-8 h-8 text-primary" />
             <div>
               <h2 className="text-2xl font-consciousness font-bold text-foreground">Live Crypto Prices</h2>
-              <p className="text-sm text-muted-foreground font-consciousness">Loading market data...</p>
+              <p className="text-sm text-white/50 font-consciousness">Loading market data...</p>
             </div>
           </div>
         </div>
@@ -254,13 +254,13 @@ export const CryptoPricesWidget = () => {
 
   if (error && !data) {
     return (
-      <Card className="p-6 bg-card/60 border-border">
+      <Card className="p-6 bg-white/3 border-white/8">
         <div className="flex flex-col items-center justify-center py-12 text-center">
           <AlertTriangle className="w-12 h-12 text-amber-500 mb-4" />
           <h3 className="text-lg font-consciousness font-semibold text-foreground mb-2">
             Unable to Load Prices
           </h3>
-          <p className="text-muted-foreground font-consciousness mb-4">{error}</p>
+          <p className="text-white/50 font-consciousness mb-4">{error}</p>
           <Button onClick={() => fetchPrices(true)} variant="outline" className="min-h-[52px]">
             <RefreshCw className="w-4 h-4 mr-2" />
             Try Again
@@ -278,7 +278,7 @@ export const CryptoPricesWidget = () => {
           <Coins className="w-8 h-8 text-primary" />
           <div>
             <h2 className="text-2xl font-consciousness font-bold text-foreground">Live Crypto Prices</h2>
-            <div className="flex flex-col sm:flex-row items-center gap-2 text-sm text-muted-foreground font-consciousness">
+            <div className="flex flex-col sm:flex-row items-center gap-2 text-sm text-white/50 font-consciousness">
               {lastUpdated && (
                 <span>Updated at {formatLastUpdated(lastUpdated)}</span>
               )}

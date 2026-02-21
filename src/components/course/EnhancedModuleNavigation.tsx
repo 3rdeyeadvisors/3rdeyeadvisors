@@ -107,7 +107,7 @@ export const EnhancedModuleNavigation = ({
       case 'video': return 'text-destructive bg-destructive/10 border-destructive/20';
       case 'text': return 'text-primary bg-primary/10 border-primary/20';
       case 'interactive': return 'text-awareness bg-awareness/10 border-awareness/20';
-      default: return 'text-muted-foreground bg-muted/50 border-border';
+      default: return 'text-white/50 bg-white/5 border-white/8';
     }
   };
 
@@ -163,7 +163,7 @@ export const EnhancedModuleNavigation = ({
                   <p className="text-sm font-medium leading-snug pl-7">{module.title}</p>
                   
                   {/* Duration */}
-                  <p className="text-xs text-muted-foreground pl-7">{module.duration} min</p>
+                  <p className="text-xs text-white/50 pl-7">{module.duration} min</p>
                 </div>
               </Button>
             );
@@ -225,7 +225,7 @@ export const EnhancedModuleNavigation = ({
       <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-4 sm:mb-6">
         <div className="flex-1">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-3.5 h-3.5 sm:w-4 sm:h-4 text-muted-foreground pointer-events-none" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-3.5 h-3.5 sm:w-4 sm:h-4 text-white/50 pointer-events-none" />
             <Input
               placeholder="Search modules by title..."
               value={searchTerm}
@@ -235,7 +235,7 @@ export const EnhancedModuleNavigation = ({
             />
           </div>
           {searchTerm && filteredModules.length > 0 && (
-            <p className="text-xs sm:text-sm text-muted-foreground mt-1.5 sm:mt-2">
+            <p className="text-xs sm:text-sm text-white/50 mt-1.5 sm:mt-2">
               Found {filteredModules.length} module{filteredModules.length !== 1 ? 's' : ''}
             </p>
           )}
@@ -251,17 +251,17 @@ export const EnhancedModuleNavigation = ({
                 <ChevronDown className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-1.5 sm:ml-2" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-card border-border z-50">
-              <DropdownMenuItem onClick={() => setFilterType('all')} className="hover:bg-muted cursor-pointer text-xs sm:text-sm">
+            <DropdownMenuContent className="bg-white/3 border-white/8 z-50">
+              <DropdownMenuItem onClick={() => setFilterType('all')} className="hover:bg-white/5 cursor-pointer text-xs sm:text-sm">
                 All Types
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setFilterType('text')} className="hover:bg-muted cursor-pointer text-xs sm:text-sm">
+              <DropdownMenuItem onClick={() => setFilterType('text')} className="hover:bg-white/5 cursor-pointer text-xs sm:text-sm">
                 Text Only
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setFilterType('video')} className="hover:bg-muted cursor-pointer text-xs sm:text-sm">
+              <DropdownMenuItem onClick={() => setFilterType('video')} className="hover:bg-white/5 cursor-pointer text-xs sm:text-sm">
                 Video Only
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setFilterType('interactive')} className="hover:bg-muted cursor-pointer text-xs sm:text-sm">
+              <DropdownMenuItem onClick={() => setFilterType('interactive')} className="hover:bg-white/5 cursor-pointer text-xs sm:text-sm">
                 Interactive Only
               </DropdownMenuItem>
             </DropdownMenuContent>
@@ -345,8 +345,8 @@ export const EnhancedModuleNavigation = ({
 
       {filteredModules.length === 0 && (
         <div className="text-center py-6 sm:py-8">
-          <BookOpen className="w-10 h-10 sm:w-12 sm:h-12 text-muted-foreground mx-auto mb-3 sm:mb-4" />
-          <p className="text-muted-foreground text-sm sm:text-base">No modules match your search criteria.</p>
+          <BookOpen className="w-10 h-10 sm:w-12 sm:h-12 text-white/50 mx-auto mb-3 sm:mb-4" />
+          <p className="text-white/50 text-sm sm:text-base">No modules match your search criteria.</p>
         </div>
       )}
     </Card>

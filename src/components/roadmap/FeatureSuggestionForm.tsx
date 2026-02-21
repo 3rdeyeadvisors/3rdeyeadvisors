@@ -52,13 +52,13 @@ export const FeatureSuggestionForm = ({
   // Non-premium users see upgrade CTA
   if (!canSubmit) {
     return (
-      <Card className="border-border/50 bg-card/50 h-full">
+      <Card className="border-white/8 bg-white/3 h-full">
         <CardContent className="flex flex-col items-center justify-center py-6 px-4 text-center h-full">
-          <div className="w-10 h-10 rounded-full bg-muted/50 flex items-center justify-center mb-3">
-            <Lock className="w-5 h-5 text-muted-foreground" />
+          <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center mb-3">
+            <Lock className="w-5 h-5 text-white/50" />
           </div>
           <h3 className="text-base font-consciousness font-medium mb-1">Premium Feature</h3>
-          <p className="text-sm text-muted-foreground mb-4 max-w-sm">
+          <p className="text-sm text-white/50 mb-4 max-w-sm">
             Annual and Founding 33 members can submit feature ideas for consideration.
           </p>
           <Button asChild variant="outline" size="sm">
@@ -107,7 +107,7 @@ export const FeatureSuggestionForm = ({
               <div className="space-y-2">
                 <div className="flex items-center justify-between w-full text-left">
                   <label className="text-sm font-medium">Title</label>
-                  <span className="text-xs text-muted-foreground">
+                  <span className="text-xs text-white/50">
                     {title.length}/{MAX_TITLE_LENGTH}
                   </span>
                 </div>
@@ -116,7 +116,7 @@ export const FeatureSuggestionForm = ({
                   value={title}
                   onChange={handleTitleChange}
                   disabled={submitting}
-                  className="bg-background"
+                  className="bg-black"
                 />
               </div>
 
@@ -124,7 +124,7 @@ export const FeatureSuggestionForm = ({
               <div className="space-y-2">
                 <div className="flex items-center justify-between w-full text-left">
                   <label className="text-sm font-medium">Description</label>
-                  <span className="text-xs text-muted-foreground">
+                  <span className="text-xs text-white/50">
                     {description.length}/{MAX_DESCRIPTION_LENGTH}
                   </span>
                 </div>
@@ -134,7 +134,7 @@ export const FeatureSuggestionForm = ({
                   onChange={handleDescriptionChange}
                   disabled={submitting}
                   rows={4}
-                  className="bg-background resize-none"
+                  className="bg-black resize-none"
                 />
               </div>
 

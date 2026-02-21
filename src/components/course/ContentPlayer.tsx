@@ -155,7 +155,7 @@ export const ContentPlayer = ({
       case 'video': return 'bg-destructive/20 text-destructive border-destructive/30';
       case 'text': return 'bg-primary/20 text-primary border-primary/30';
       case 'interactive': return 'bg-awareness/20 text-awareness border-awareness/30';
-      default: return 'bg-muted text-muted-foreground border-border';
+      default: return 'bg-white/5 text-white/50 border-white/8';
     }
   };
 
@@ -168,7 +168,7 @@ export const ContentPlayer = ({
             <Badge className={getTypeColor(module.type)}>
               {getTypeIcon(module.type)} {module.type.charAt(0).toUpperCase() + module.type.slice(1)}
             </Badge>
-            <div className="flex items-center gap-2 text-muted-foreground">
+            <div className="flex items-center gap-2 text-white/50">
               <Clock className="w-4 h-4" />
               <span className="text-sm">{module.duration} min</span>
             </div>
@@ -185,7 +185,7 @@ export const ContentPlayer = ({
               variant="ghost"
               size="sm"
               onClick={toggleBookmark}
-              className="text-muted-foreground hover:text-foreground"
+              className="text-white/50 hover:text-foreground"
             >
               {isBookmarked ? (
                 <BookmarkCheck className="w-4 h-4" />
@@ -193,7 +193,7 @@ export const ContentPlayer = ({
                 <Bookmark className="w-4 h-4" />
               )}
             </Button>
-            <span className="text-sm text-muted-foreground">
+            <span className="text-sm text-white/50">
               {currentModuleIndex + 1} of {totalModules}
             </span>
           </div>
@@ -207,8 +207,8 @@ export const ContentPlayer = ({
         {module.type === 'text' && (
           <div className="mb-4">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm text-muted-foreground">Reading Progress</span>
-              <span className="text-sm text-muted-foreground">{Math.round(readingProgress)}%</span>
+              <span className="text-sm text-white/50">Reading Progress</span>
+              <span className="text-sm text-white/50">{Math.round(readingProgress)}%</span>
             </div>
             <Progress value={readingProgress} className="h-2" />
           </div>
@@ -228,11 +228,11 @@ export const ContentPlayer = ({
           )}
 
           {module.type === 'video' && module.content.videoUrl && (
-            <div className="aspect-video bg-background/95 border-2 border-border rounded-lg flex items-center justify-center">
+            <div className="aspect-video bg-black/95 border-2 border-white/8 rounded-lg flex items-center justify-center">
               <div className="text-foreground text-center">
                 <div className="text-4xl mb-4">🎥</div>
                 <p className="text-lg">Video Player</p>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-white/50">
                   In a real implementation, this would be a video player
                 </p>
                 <Button 
@@ -258,7 +258,7 @@ export const ContentPlayer = ({
             </h3>
             <div className="space-y-3">
               {module.resources.map((resource, index) => (
-                <div key={index} className="flex items-center justify-between p-3 bg-muted rounded-lg">
+                <div key={index} className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                   <div className="flex items-center gap-3">
                     {resource.type === 'pdf' && <FileText className="w-4 h-4 text-red-600" />}
                     {resource.type === 'link' && <ExternalLink className="w-4 h-4 text-blue-600" />}
@@ -309,7 +309,7 @@ export const ContentPlayer = ({
         </div>
 
         <div className="flex items-center gap-4">
-          <div className="text-sm text-muted-foreground">
+          <div className="text-sm text-white/50">
             Time spent: {timeSpent} min{timeSpent !== 1 ? 's' : ''}
           </div>
           

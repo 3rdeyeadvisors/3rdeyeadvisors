@@ -304,7 +304,7 @@ export const OptimizedComments = ({ contentType, contentId, title }: CommentsPro
                   <span className="font-medium text-sm">
                     {profile.display_name || 'Anonymous User'}
                   </span>
-                  <span className="text-xs text-muted-foreground">
+                  <span className="text-xs text-white/50">
                     {formatDate(comment.created_at)}
                   </span>
                   {comment.is_helpful && (
@@ -322,7 +322,7 @@ export const OptimizedComments = ({ contentType, contentId, title }: CommentsPro
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="text-xs text-muted-foreground hover:text-primary"
+                    className="text-xs text-white/50 hover:text-primary"
                     onClick={() => handleLikeComment(comment.id, comment.user_liked || false)}
                   >
                     <Heart className={`w-4 h-4 mr-1 ${comment.user_liked ? 'fill-red-500 text-red-500' : ''}`} />
@@ -333,7 +333,7 @@ export const OptimizedComments = ({ contentType, contentId, title }: CommentsPro
                     <Button
                       variant="ghost"
                       size="sm"
-                      className="text-xs text-muted-foreground hover:text-primary"
+                      className="text-xs text-white/50 hover:text-primary"
                       onClick={() => setReplyingTo(replyingTo === comment.id ? null : comment.id)}
                     >
                       <Reply className="w-4 h-4 mr-1" />
@@ -345,7 +345,7 @@ export const OptimizedComments = ({ contentType, contentId, title }: CommentsPro
                     <Button
                       variant="ghost"
                       size="sm"
-                      className="text-xs text-muted-foreground hover:text-primary"
+                      className="text-xs text-white/50 hover:text-primary"
                       onClick={() => toggleReplies(comment.id)}
                     >
                       {expandedComments.has(comment.id) ? (
@@ -410,10 +410,10 @@ export const OptimizedComments = ({ contentType, contentId, title }: CommentsPro
     return (
       <div className="space-y-4">
         <div className="animate-pulse">
-          <div className="h-4 bg-muted rounded w-1/4 mb-4"></div>
+          <div className="h-4 bg-white/5 rounded w-1/4 mb-4"></div>
           <div className="space-y-3">
-            <div className="h-20 bg-muted rounded"></div>
-            <div className="h-20 bg-muted rounded"></div>
+            <div className="h-20 bg-white/5 rounded"></div>
+            <div className="h-20 bg-white/5 rounded"></div>
           </div>
         </div>
       </div>
@@ -459,7 +459,7 @@ export const OptimizedComments = ({ contentType, contentId, title }: CommentsPro
         ) : (
           <Card className="mb-6">
             <CardContent className="p-4 text-center">
-              <p className="text-muted-foreground mb-3">Sign in to join the discussion</p>
+              <p className="text-white/50 mb-3">Sign in to join the discussion</p>
               <Button variant="outline" onClick={() => navigate('/auth')}>
                 Sign In
               </Button>
@@ -477,8 +477,8 @@ export const OptimizedComments = ({ contentType, contentId, title }: CommentsPro
         ) : (
           <Card>
             <CardContent className="p-8 text-center">
-              <MessageSquare className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-              <p className="text-muted-foreground">
+              <MessageSquare className="w-12 h-12 text-white/50 mx-auto mb-4" />
+              <p className="text-white/50">
                 No comments yet. Be the first to share your thoughts!
               </p>
             </CardContent>

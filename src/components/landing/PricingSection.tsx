@@ -59,7 +59,7 @@ const PricingSection = () => {
           <h2 className="text-3xl md:text-5xl font-consciousness font-bold text-foreground mb-6">
             Start Your Journey Risk Free
           </h2>
-          <p className="text-lg text-muted-foreground font-body max-w-2xl mx-auto">
+          <p className="text-lg text-white/50 font-body max-w-2xl mx-auto">
             Try everything free for 14 days. Cancel anytime.
           </p>
         </AnimatedSection>
@@ -67,18 +67,18 @@ const PricingSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 lg:gap-6 max-w-4xl mx-auto">
           {/* Monthly Plan */}
           <AnimatedSection animation="fade-left" delay={0}>
-            <div className="relative h-full p-5 md:p-6 lg:p-8 rounded-2xl border border-border/50 bg-card/30 backdrop-blur-sm hover:border-primary/30 transition-all duration-300 group">
+            <div className="relative h-full p-5 md:p-6 lg:p-8 rounded-2xl border border-white/8 bg-white/3 backdrop-blur-sm hover:border-primary/30 transition-all duration-300 group">
               <div className="flex flex-col h-full">
                 <div className="text-center mb-6">
                   <h3 className="text-lg font-consciousness font-semibold text-foreground mb-2">
                     Monthly
                   </h3>
-                  <p className="text-sm text-muted-foreground font-body mb-4">
+                  <p className="text-sm text-white/50 font-body mb-4">
                     Full access billed monthly
                   </p>
                   <div className="mb-1">
                     <span className="text-4xl font-consciousness font-bold text-foreground">{PRICING.monthly.display}</span>
-                    <span className="text-muted-foreground font-body">{PRICING.monthly.period}</span>
+                    <span className="text-white/50 font-body">{PRICING.monthly.period}</span>
                   </div>
                 </div>
                 
@@ -100,7 +100,7 @@ const PricingSection = () => {
                 
                 <Button 
                   variant="outline"
-                  className="w-full font-body py-6 border-border hover:border-primary/50 hover:bg-primary/5"
+                  className="w-full font-body py-6 border-white/8 hover:border-primary/50 hover:bg-primary/5"
                   onClick={() => handleSubscribe('monthly')}
                   disabled={checkoutLoading !== null}
                 >
@@ -119,7 +119,7 @@ const PricingSection = () => {
 
           {/* Annual Plan */}
           <AnimatedSection animation="fade-right" delay={100}>
-            <div className="relative h-full p-5 md:p-6 lg:p-8 rounded-2xl border-2 border-primary/50 bg-card/50 backdrop-blur-sm group overflow-hidden">
+            <div className="relative h-full p-5 md:p-6 lg:p-8 rounded-2xl border-2 border-primary/50 bg-white/3 backdrop-blur-sm group overflow-hidden">
               {/* Premium badge */}
               <div className="absolute -top-px left-1/2 -translate-x-1/2">
                 <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider text-primary-foreground bg-primary px-4 py-1.5 rounded-b-lg font-medium">
@@ -136,12 +136,12 @@ const PricingSection = () => {
                   <h3 className="text-lg font-consciousness font-semibold text-foreground mb-2">
                     Annual
                   </h3>
-                  <p className="text-sm text-muted-foreground font-body mb-4">
+                  <p className="text-sm text-white/50 font-body mb-4">
                     Full year commitment
                   </p>
                   <div className="mb-1">
                     <span className="text-4xl font-consciousness font-bold text-foreground">{PRICING.annual.display}</span>
-                    <span className="text-muted-foreground font-body">{PRICING.annual.period}</span>
+                    <span className="text-white/50 font-body">{PRICING.annual.period}</span>
                   </div>
                 </div>
                 
@@ -182,7 +182,7 @@ const PricingSection = () => {
         </div>
 
         <AnimatedSection delay={200}>
-          <p className="text-center text-sm text-muted-foreground font-body mt-8">
+          <p className="text-center text-sm text-white/50 font-body mt-8">
             Cancel anytime during your trial. No questions asked.
           </p>
         </AnimatedSection>
