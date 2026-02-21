@@ -1,29 +1,23 @@
 
-# Fix Mini Games Page Crash
 
-## The Problem
+# Replace Favicon with New 3EA Icons
 
-The mini games page (`src/pages/MiniGames.tsx`) uses a `<SEO>` component on line 164 but has no import statement for it. This causes the page to crash entirely — users see a blank screen or error when navigating to `/mini-games`.
+## What Will Be Done
 
-The build errors listed are all inside Supabase Edge Functions (backend code) and do not affect the frontend. The root cause of the mini games section being broken is solely this missing import.
+Copy all 6 uploaded favicon files into the `public/` directory, replacing the old ones:
 
-## The Fix
+1. `user-uploads://favicon-2.ico` -> `public/favicon.ico`
+2. `user-uploads://favicon-16x16-2.png` -> `public/favicon-16x16.png`
+3. `user-uploads://favicon-32x32-2.png` -> `public/favicon-32x32.png`
+4. `user-uploads://apple-touch-icon-2.png` -> `public/apple-touch-icon.png`
+5. `user-uploads://android-chrome-192x192-2.png` -> `public/android-chrome-192x192.png`
+6. `user-uploads://android-chrome-512x512-2.png` -> `public/android-chrome-512x512.png`
 
-Add one import line at the top of `src/pages/MiniGames.tsx`:
+Then add cache-busting query strings (e.g. `?v=2`) to all favicon references in `index.html` so browsers stop showing the old cached icon.
 
-```
-import SEO from '@/components/SEO';
-```
+## Technical Details
 
-That is the only change needed. No other files need to be touched.
+- Replace 6 files in `public/`
+- Update `index.html` favicon `<link>` tags to append `?v=2`
+- No other files need changes
 
-## What This Restores
-
-Once the import is added, the full mini games page will work again:
-- Memory Match
-- Reaction Test
-- Pattern Sequence
-- Math Sprint
-- IQ Assessment
-- Cognitive Science dashboard
-- Daily points tracking
