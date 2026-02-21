@@ -200,10 +200,10 @@ export const AnalyticsDashboard = () => {
       <div className="min-h-screen py-20">
         <div className="container mx-auto px-4">
           <div className="animate-pulse space-y-6">
-            <div className="h-8 bg-muted rounded w-1/4"></div>
+            <div className="h-8 bg-white/5 rounded w-1/4"></div>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               {[1, 2, 3, 4].map(i => (
-                <div key={i} className="h-32 bg-muted rounded"></div>
+                <div key={i} className="h-32 bg-white/5 rounded"></div>
               ))}
             </div>
           </div>
@@ -219,7 +219,7 @@ export const AnalyticsDashboard = () => {
           <h1 className="text-3xl font-consciousness font-bold text-foreground mb-2">
             Platform Analytics
           </h1>
-          <p className="text-muted-foreground">
+          <p className="text-white/50">
             Insights into learning engagement and community growth
           </p>
         </div>
@@ -231,7 +231,7 @@ export const AnalyticsDashboard = () => {
               <Users className="w-6 h-6 md:w-8 md:h-8 text-primary" />
               <div>
                 <p className="text-xl md:text-2xl font-bold">{analytics.totalUsers}</p>
-                <p className="text-xs md:text-sm text-muted-foreground">Total Users</p>
+                <p className="text-xs md:text-sm text-white/50">Total Users</p>
               </div>
             </div>
           </Card>
@@ -241,7 +241,7 @@ export const AnalyticsDashboard = () => {
               <BookOpen className="w-6 h-6 md:w-8 md:h-8 text-awareness" />
               <div>
                 <p className="text-xl md:text-2xl font-bold">{analytics.totalCourses}</p>
-                <p className="text-xs md:text-sm text-muted-foreground">Tutorials</p>
+                <p className="text-xs md:text-sm text-white/50">Tutorials</p>
               </div>
             </div>
           </Card>
@@ -251,7 +251,7 @@ export const AnalyticsDashboard = () => {
               <MessageCircle className="w-6 h-6 md:w-8 md:h-8 text-accent" />
               <div>
                 <p className="text-xl md:text-2xl font-bold">{analytics.totalComments}</p>
-                <p className="text-xs md:text-sm text-muted-foreground">Comments</p>
+                <p className="text-xs md:text-sm text-white/50">Comments</p>
               </div>
             </div>
           </Card>
@@ -261,7 +261,7 @@ export const AnalyticsDashboard = () => {
               <Star className="w-6 h-6 md:w-8 md:h-8 text-yellow-500" />
               <div>
                 <p className="text-xl md:text-2xl font-bold">{analytics.averageRating.toFixed(1)}</p>
-                <p className="text-xs md:text-sm text-muted-foreground">Avg Rating</p>
+                <p className="text-xs md:text-sm text-white/50">Avg Rating</p>
               </div>
             </div>
           </Card>
@@ -286,14 +286,14 @@ export const AnalyticsDashboard = () => {
               <CardContent>
                 <div className="space-y-4">
                   {analytics.popularTutorials.map((tutorial, index) => (
-                    <div key={tutorial.id} className="flex items-center justify-between p-4 bg-muted/30 rounded-lg">
+                    <div key={tutorial.id} className="flex items-center justify-between p-4 bg-white/5 rounded-lg">
                       <div className="flex items-center gap-4">
                         <Badge variant="outline" className="w-8 h-8 rounded-full flex items-center justify-center">
                           {index + 1}
                         </Badge>
                         <div>
                           <h4 className="font-medium">{tutorial.title}</h4>
-                          <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                          <div className="flex items-center gap-4 text-sm text-white/50">
                             <span>{tutorial.views} views</span>
                             <div className="flex items-center gap-1">
                               <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
@@ -344,14 +344,14 @@ export const AnalyticsDashboard = () => {
               <CardContent>
                 <div className="space-y-4">
                   {analytics.topContributors.map((contributor, index) => (
-                    <div key={contributor.name} className="flex items-center justify-between p-4 bg-muted/30 rounded-lg">
+                    <div key={contributor.name} className="flex items-center justify-between p-4 bg-white/5 rounded-lg">
                       <div className="flex items-center gap-4">
                         <Badge variant="outline" className="w-8 h-8 rounded-full flex items-center justify-center">
                           {index + 1}
                         </Badge>
                         <div>
                           <h4 className="font-medium">{contributor.name}</h4>
-                          <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                          <div className="flex items-center gap-4 text-sm text-white/50">
                             <span>{contributor.contributions} contributions</span>
                             <span>{contributor.badges} badges</span>
                           </div>

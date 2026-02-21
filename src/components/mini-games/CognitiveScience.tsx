@@ -85,7 +85,7 @@ export const CognitiveScience = () => {
   return (
     <div className="space-y-8 w-full">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card className="p-6 bg-card/50 backdrop-blur-sm border-primary/20">
+        <Card className="p-6 bg-white/3 backdrop-blur-sm border-primary/20">
           <div className="flex items-center gap-2 mb-6">
             <Brain className="w-5 h-5 text-primary" />
             <h3 className="text-xl font-bold font-consciousness">Cognitive Profile</h3>
@@ -105,12 +105,12 @@ export const CognitiveScience = () => {
               </RadarChart>
             </ResponsiveContainer>
           </div>
-          <p className="text-xs text-muted-foreground text-center mt-4">
+          <p className="text-xs text-white/50 text-center mt-4">
             Based on your recent exercise performance and accuracy.
           </p>
         </Card>
 
-        <Card className="p-6 bg-card/50 backdrop-blur-sm border-primary/20">
+        <Card className="p-6 bg-white/3 backdrop-blur-sm border-primary/20">
           <div className="flex items-center gap-2 mb-6">
             <TrendingUp className="w-5 h-5 text-primary" />
             <h3 className="text-xl font-bold font-consciousness">Training Intensity</h3>
@@ -148,7 +148,7 @@ export const CognitiveScience = () => {
               </LineChart>
             </ResponsiveContainer>
           </div>
-          <p className="text-xs text-muted-foreground text-center mt-4">
+          <p className="text-xs text-white/50 text-center mt-4">
             Daily points earned through cognitive training.
           </p>
         </Card>
@@ -158,21 +158,21 @@ export const CognitiveScience = () => {
         <Card className="p-4 bg-primary/5 border-primary/10 flex items-center gap-4">
           <Activity className="w-8 h-8 text-primary opacity-50" />
           <div>
-            <div className="text-sm text-muted-foreground">Neural Plasticity</div>
+            <div className="text-sm text-white/50">Neural Plasticity</div>
             <div className="text-lg font-bold">High Average</div>
           </div>
         </Card>
         <Card className="p-4 bg-primary/5 border-primary/10 flex items-center gap-4">
           <Target className="w-8 h-8 text-primary opacity-50" />
           <div>
-            <div className="text-sm text-muted-foreground">Focus Stability</div>
+            <div className="text-sm text-white/50">Focus Stability</div>
             <div className="text-lg font-bold">Improving</div>
           </div>
         </Card>
         <Card className="p-4 bg-primary/5 border-primary/10 flex items-center gap-4">
           <TrendingUp className="w-8 h-8 text-primary opacity-50" />
           <div>
-            <div className="text-sm text-muted-foreground">Processing Speed</div>
+            <div className="text-sm text-white/50">Processing Speed</div>
             <div className="text-lg font-bold">+12% this week</div>
           </div>
         </Card>
