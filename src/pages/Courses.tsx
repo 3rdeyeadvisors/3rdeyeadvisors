@@ -363,7 +363,7 @@ const Courses = () => {
         {/* Search Bar */}
         <div className="max-w-md mx-auto mb-6 sm:mb-8">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-white/50" />
             <Input
               placeholder="Search courses..."
               value={searchQuery}
@@ -405,11 +405,11 @@ const Courses = () => {
           </div>
         ) : (
           <div className="text-center py-12">
-            <BookOpen className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
+            <BookOpen className="w-16 h-16 text-white/50 mx-auto mb-4" />
             <h3 className="text-xl font-consciousness font-semibold text-foreground mb-2">
               No courses found
             </h3>
-            <p className="text-muted-foreground font-consciousness mb-4">
+            <p className="text-white/50 font-consciousness mb-4">
               Try adjusting your search or filter criteria
             </p>
             <div className="flex justify-center">

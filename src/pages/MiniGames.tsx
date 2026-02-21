@@ -206,7 +206,7 @@ const MiniGames = () => {
                   <span className="text-primary font-bold">{dailyMiniGamePoints}/{DAILY_CAP} pts</span>
                 </div>
                 <Progress value={(dailyMiniGamePoints / DAILY_CAP) * 100} className="h-2 mb-2" />
-                <p className="text-xs text-muted-foreground text-center">
+                <p className="text-xs text-white/50 text-center">
                   Daily point cap: 100 points. Keep playing for glory!
                 </p>
               </Card>
@@ -268,7 +268,7 @@ const MiniGames = () => {
                 </div>
                 <div className="flex-1 text-center md:text-left">
                   <h3 className="text-2xl font-bold mb-2">Cognitive Science & Performance</h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-white/50">
                     Regular engagement with these exercises leverages neuroplasticity to improve processing speed,
                     working memory, and problem-solving efficiency. For maximum benefit, train for at least 15 minutes daily.
                   </p>
@@ -316,7 +316,7 @@ const MiniGames = () => {
                 <h2 className="text-3xl font-bold font-consciousness">
                   {GAMES.find(g => g.id === activeGame)?.title}
                 </h2>
-                <p className="text-muted-foreground">
+                <p className="text-white/50">
                   {GAMES.find(g => g.id === activeGame)?.category} training in progress...
                 </p>
               </div>

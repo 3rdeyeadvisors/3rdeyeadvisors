@@ -530,7 +530,7 @@ const Profile = () => {
       <div className="min-h-screen flex items-center justify-center py-20">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-          <p className="text-muted-foreground">Loading profile...</p>
+          <p className="text-white/50">Loading profile...</p>
         </div>
       </div>
     );
@@ -546,9 +546,9 @@ const Profile = () => {
     return (
       <div className="min-h-screen flex items-center justify-center py-20">
         <div className="text-center">
-          <User className="w-16 h-16 mx-auto mb-4 text-muted-foreground" />
+          <User className="w-16 h-16 mx-auto mb-4 text-white/50" />
           <h2 className="text-xl font-semibold mb-2">Profile Not Found</h2>
-          <p className="text-muted-foreground mb-4">This user doesn't have a public profile.</p>
+          <p className="text-white/50 mb-4">This user doesn't have a public profile.</p>
           <Button onClick={() => navigate(-1)}>
             <ArrowLeft className="w-4 h-4 mr-2" />
             Go Back
