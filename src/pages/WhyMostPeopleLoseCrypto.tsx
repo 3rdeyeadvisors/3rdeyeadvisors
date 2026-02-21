@@ -59,11 +59,11 @@ const WhyMostPeopleLoseCrypto = () => {
               Listen to this article
             </button>
 
-            <p className="text-lg text-muted-foreground font-consciousness mb-6 leading-relaxed">
+            <p className="text-lg text-white/50 font-consciousness mb-6 leading-relaxed">
               {blogPost.excerpt}
             </p>
 
-            <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-6 text-sm text-white/50">
               <div className="flex items-center gap-2">
                 <User className="w-4 h-4" />
                 <span>{BRAND_AUTHOR}</span>
@@ -173,7 +173,7 @@ const WhyMostPeopleLoseCrypto = () => {
                     Beyond individual behavioral mistakes, 2022 exposed catastrophic failures in centralized crypto infrastructure. These were not market corrections. They were institutional failures that destroyed customer funds.
                   </p>
 
-                  <div className="bg-muted/30 rounded-lg p-6 mb-6">
+                  <div className="bg-white/5 rounded-lg p-6 mb-6">
                     <h3 className="text-xl font-semibold text-foreground mb-4">The Cascade of Failures</h3>
                     <ul className="space-y-3 text-foreground/90">
                       <li><strong className="text-foreground">Terra/Luna (May 2022):</strong> The algorithmic stablecoin UST lost its peg, triggering a death spiral that erased over $60 billion in market value within days. The collapse was triggered by fundamental design flaws in the algorithmic mechanism.</li>
@@ -206,28 +206,28 @@ const WhyMostPeopleLoseCrypto = () => {
                   </p>
 
                   <div className="grid md:grid-cols-2 gap-6 mb-6">
-                    <div className="bg-muted/30 rounded-lg p-5">
+                    <div className="bg-white/5 rounded-lg p-5">
                       <h3 className="text-lg font-semibold text-foreground mb-3">On-Chain Transparency</h3>
                       <p className="text-foreground/80 text-sm leading-relaxed">
                         Every transaction, every balance, every smart contract is publicly auditable. There's no hidden balance sheet, no commingled funds, no trust required. You can verify instead of trust.
                       </p>
                     </div>
                     
-                    <div className="bg-muted/30 rounded-lg p-5">
+                    <div className="bg-white/5 rounded-lg p-5">
                       <h3 className="text-lg font-semibold text-foreground mb-3">Self-Custody</h3>
                       <p className="text-foreground/80 text-sm leading-relaxed">
                         Your keys, your coins. DeFi protocols do not take custody of your assets. They execute programmable logic while you retain control. No counterparty can freeze, steal, or misappropriate your funds.
                       </p>
                     </div>
                     
-                    <div className="bg-muted/30 rounded-lg p-5">
+                    <div className="bg-white/5 rounded-lg p-5">
                       <h3 className="text-lg font-semibold text-foreground mb-3">Programmable Rules</h3>
                       <p className="text-foreground/80 text-sm leading-relaxed">
                         Smart contracts execute automatically based on code, not human discretion. Liquidation thresholds, interest rates, and collateral requirements operate transparently and predictably.
                       </p>
                     </div>
                     
-                    <div className="bg-muted/30 rounded-lg p-5">
+                    <div className="bg-white/5 rounded-lg p-5">
                       <h3 className="text-lg font-semibold text-foreground mb-3">Composability</h3>
                       <p className="text-foreground/80 text-sm leading-relaxed">
                         DeFi protocols can integrate with each other, creating financial systems that are open, interoperable, and resistant to single points of failure.
@@ -311,7 +311,7 @@ const WhyMostPeopleLoseCrypto = () => {
                     </li>
                   </ul>
 
-                  <div className="bg-muted/30 rounded-lg p-6">
+                  <div className="bg-white/5 rounded-lg p-6">
                     <p className="text-foreground/90 leading-relaxed text-center italic">
                       "The goal isn't to get rich quick. The goal is to understand what you're doing, why you're doing it, and to build a sustainable approach that survives both bull and bear markets."
                     </p>
@@ -327,7 +327,7 @@ const WhyMostPeopleLoseCrypto = () => {
                 </div>
 
                 {/* Disclaimer */}
-                <div className="border-t border-border/50 pt-8">
+                <div className="border-t border-white/8 pt-8">
                   <h2 className="text-lg font-semibold text-foreground mb-4">Educational Disclaimer</h2>
                   <p className="text-foreground/70 text-sm leading-relaxed">
                     This content is provided for educational and informational purposes only. It does not constitute financial advice, investment advice, trading advice, or any other type of advice. You should not treat any of the content as such. The 3rdeyeadvisors Research Team does not recommend that any cryptocurrency, token, or investment strategy is suitable for any specific person.

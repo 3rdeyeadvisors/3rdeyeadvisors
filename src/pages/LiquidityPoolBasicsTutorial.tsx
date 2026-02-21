@@ -679,7 +679,7 @@ const LiquidityPoolBasicsTutorial = () => {
                   <h3 className="font-semibold text-foreground text-lg">Key Components</h3>
                   <div className="grid gap-3">
                     {currentStepData.content.keyComponents.map((comp, idx) => (
-                      <div key={idx} className="bg-card border border-white/8 rounded-lg p-4">
+                      <div key={idx} className="bg-white/3 border border-white/8 rounded-lg p-4">
                         <h4 className="font-medium text-foreground mb-2">{comp.component}</h4>
                         <p className="text-sm text-white/50 mb-2">{comp.description}</p>
                         <p className="text-xs text-primary font-mono">{comp.example}</p>
@@ -725,7 +725,7 @@ const LiquidityPoolBasicsTutorial = () => {
                   <h3 className="font-semibold text-foreground text-lg">Price Calculation Examples</h3>
                   <div className="space-y-3">
                     {currentStepData.content.priceCalculation.map((calc, idx) => (
-                      <div key={idx} className="bg-card border border-white/8 rounded-lg p-4">
+                      <div key={idx} className="bg-white/3 border border-white/8 rounded-lg p-4">
                         <h4 className="font-medium text-foreground mb-3">{calc.scenario}</h4>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
                           <div>
@@ -780,7 +780,7 @@ const LiquidityPoolBasicsTutorial = () => {
                   <h3 className="font-semibold text-foreground text-lg">Real Examples</h3>
                   <div className="space-y-3">
                     {currentStepData.content.examples.map((example, idx) => (
-                      <div key={idx} className="bg-card border border-white/8 rounded-lg p-4">
+                      <div key={idx} className="bg-white/3 border border-white/8 rounded-lg p-4">
                         <h4 className="font-medium text-foreground mb-3 flex items-center gap-2">
                           {example.scenario}
                         </h4>
@@ -830,7 +830,7 @@ const LiquidityPoolBasicsTutorial = () => {
                   <h3 className="font-semibold text-foreground text-lg">Pool Categories</h3>
                   <div className="space-y-3">
                     {currentStepData.content.poolCategories.map((cat, idx) => (
-                      <div key={idx} className="bg-card border border-white/8 rounded-lg p-4">
+                      <div key={idx} className="bg-white/3 border border-white/8 rounded-lg p-4">
                         <div className="flex items-center justify-between mb-3">
                           <h4 className="font-medium text-foreground">{cat.category}</h4>
                           <Badge variant="outline">{cat.apyRange} APY</Badge>
@@ -888,7 +888,7 @@ const LiquidityPoolBasicsTutorial = () => {
 
                 <div className="space-y-4">
                   {currentStepData.content.steps.map((step, idx) => (
-                    <div key={idx} className="bg-card border border-white/8 rounded-lg p-4">
+                    <div key={idx} className="bg-white/3 border border-white/8 rounded-lg p-4">
                       <div className="flex items-start gap-3">
                         <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold shrink-0">
                           {step.step}
@@ -979,7 +979,7 @@ const LiquidityPoolBasicsTutorial = () => {
                   <h3 className="font-semibold text-foreground text-lg">Monitoring Metrics</h3>
                   <div className="space-y-3">
                     {currentStepData.content.monitoringMetrics.map((metric, idx) => (
-                      <div key={idx} className="bg-card border border-white/8 rounded-lg p-4">
+                      <div key={idx} className="bg-white/3 border border-white/8 rounded-lg p-4">
                         <div className="flex items-center justify-between mb-2">
                           <h4 className="font-medium text-foreground">{metric.metric}</h4>
                           <Badge variant="outline" className="text-xs">{metric.frequency}</Badge>
@@ -1029,7 +1029,7 @@ const LiquidityPoolBasicsTutorial = () => {
                   <h3 className="font-semibold text-foreground text-lg">Advanced Strategies</h3>
                   <div className="space-y-3">
                     {currentStepData.content.strategies.map((strategy, idx) => (
-                      <div key={idx} className="bg-card border border-white/8 rounded-lg p-4">
+                      <div key={idx} className="bg-white/3 border border-white/8 rounded-lg p-4">
                         <h4 className="font-medium text-foreground mb-2">{strategy.strategy}</h4>
                         <p className="text-sm text-white/50 mb-3">{strategy.description}</p>
                         <div className="space-y-1 text-sm">
@@ -1076,7 +1076,7 @@ const LiquidityPoolBasicsTutorial = () => {
                   <h3 className="font-semibold text-foreground text-lg">Common Mistakes</h3>
                   <div className="space-y-3">
                     {currentStepData.content.commonMistakes.map((mistake, idx) => (
-                      <div key={idx} className="bg-card border border-white/8 rounded-lg p-4">
+                      <div key={idx} className="bg-white/3 border border-white/8 rounded-lg p-4">
                         <h4 className="font-medium text-destructive mb-2">❌ {mistake.mistake}</h4>
                         <p className="text-sm text-white/50 mb-2">
                           <strong>Consequence:</strong> {mistake.consequence}

@@ -442,12 +442,12 @@ export const DefiCharts = () => {
       <div className="block md:hidden space-y-4">
         <Card>
           <CardHeader className="flex flex-col items-center justify-center space-y-2 pb-2">
-            <DollarSign className="h-4 w-4 text-muted-foreground" />
+            <DollarSign className="h-4 w-4 text-white/50" />
             <CardTitle className="text-sm font-medium text-center">Total Value Locked</CardTitle>
           </CardHeader>
           <CardContent className="text-center">
             <div className="text-2xl font-bold">{formatCurrency(getCurrentTVL())}</div>
-            <div className="flex items-center justify-center text-xs text-muted-foreground">
+            <div className="flex items-center justify-center text-xs text-white/50">
               {parseFloat(getTVLChange()) >= 0 ? (
                 <TrendingUp className="w-4 h-4 text-awareness mr-1" />
               ) : (
@@ -473,7 +473,7 @@ export const DefiCharts = () => {
                 <h3 className="text-lg font-semibold text-foreground">
                   Explore Full Analytics on Desktop
                 </h3>
-                <p className="text-sm text-muted-foreground max-w-xs mx-auto">
+                <p className="text-sm text-white/50 max-w-xs mx-auto">
                   Access comprehensive charts, risk analysis, and detailed protocol data on desktop.
                 </p>
               </div>
@@ -649,7 +649,7 @@ export const DefiCharts = () => {
                           <CarouselItem key={slideIndex}>
                             <div className="space-y-4 overflow-y-auto h-full pr-2">
                               {data.protocols.slice(slideIndex * 4, (slideIndex + 1) * 4).map((protocol, index) => (
-                                <div key={protocol.id} className="p-4 rounded-lg border hover:bg-muted/50 transition-colors">
+                                <div key={protocol.id} className="p-4 rounded-lg border hover:bg-white/5 transition-colors">
                                   <div className="flex items-center justify-between gap-3">
                                     {/* Protocol info */}
                                     <div className="flex items-center gap-3 flex-1">
@@ -671,7 +671,7 @@ export const DefiCharts = () => {
                                             {protocol.category}
                                           </Badge>
                                         </div>
-                                        <div className="text-sm text-muted-foreground">
+                                        <div className="text-sm text-white/50">
                                           TVL: <span className="font-mono font-semibold">{formatCurrency(protocol.tvl)}</span>
                                         </div>
                                       </div>
@@ -681,7 +681,7 @@ export const DefiCharts = () => {
                                     <div className="flex items-center gap-4">
                                       <div className="flex gap-4">
                                         <div className="text-center">
-                                          <div className="text-xs text-muted-foreground mb-1">24h</div>
+                                          <div className="text-xs text-white/50 mb-1">24h</div>
                                           <div className={`flex items-center text-sm font-mono ${protocol.change_1d >= 0 ? 'text-awareness' : 'text-destructive'}`}>
                                             {protocol.change_1d >= 0 ? (
                                               <TrendingUp className="w-3 h-3 mr-1" />
@@ -692,7 +692,7 @@ export const DefiCharts = () => {
                                           </div>
                                         </div>
                                         <div className="text-center">
-                                          <div className="text-xs text-muted-foreground mb-1">7d</div>
+                                          <div className="text-xs text-white/50 mb-1">7d</div>
                                           <div className={`flex items-center text-sm font-mono ${protocol.change_7d >= 0 ? 'text-awareness' : 'text-destructive'}`}>
                                             {protocol.change_7d >= 0 ? (
                                               <TrendingUp className="w-3 h-3 mr-1" />
@@ -730,7 +730,7 @@ export const DefiCharts = () => {
                       {/* Navigation controls inside the carousel */}
                       <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 flex items-center gap-2">
                         <CarouselPrevious />
-                        <span className="text-xs text-muted-foreground px-2">
+                        <span className="text-xs text-white/50 px-2">
                           {currentSlide + 1} of {Math.ceil(data.protocols.length / 4)}
                         </span>
                         <CarouselNext />
@@ -740,7 +740,7 @@ export const DefiCharts = () => {
                   
                   {/* Progress Bar Indicator */}
                   <div className="space-y-3 mt-16 flex-shrink-0">
-                    <div className="w-full bg-muted rounded-full h-2">
+                    <div className="w-full bg-white/5 rounded-full h-2">
                       <div className="flex h-full rounded-full overflow-hidden">
                         {Array.from({ length: Math.ceil(data.protocols.length / 4) }, (_, index) => (
                           <button
@@ -762,7 +762,7 @@ export const DefiCharts = () => {
                 {/* Mobile Carousel */}
                 <MobileCarouselWrapper>
                   {data.protocols.slice(0, 8).map((protocol, index) => (
-                    <div key={protocol.id} className="p-3 rounded-lg border bg-card text-center">
+                    <div key={protocol.id} className="p-3 rounded-lg border bg-white/3 text-center">
                       <div className="flex flex-col items-center gap-2 mb-3">
                         <div className="w-7 h-7 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-xs font-bold text-primary">
                           {index + 1}
@@ -782,19 +782,19 @@ export const DefiCharts = () => {
                       </div>
                       
                       <div className="space-y-3">
-                        <div className="text-sm text-muted-foreground text-center">
+                        <div className="text-sm text-white/50 text-center">
                           TVL: <span className="font-mono font-semibold text-foreground">{formatCurrency(protocol.tvl)}</span>
                         </div>
                         
                         <div className="flex justify-center gap-6 text-sm">
                           <div className="text-center">
-                            <div className="text-xs text-muted-foreground">24h</div>
+                            <div className="text-xs text-white/50">24h</div>
                             <div className={`font-mono font-medium ${protocol.change_1d >= 0 ? 'text-awareness' : 'text-destructive'}`}>
                               {protocol.change_1d >= 0 ? '+' : ''}{protocol.change_1d.toFixed(1)}%
                             </div>
                           </div>
                           <div className="text-center">
-                            <div className="text-xs text-muted-foreground">7d</div>
+                            <div className="text-xs text-white/50">7d</div>
                             <div className={`font-mono font-medium ${protocol.change_7d >= 0 ? 'text-awareness' : 'text-destructive'}`}>
                               {protocol.change_7d >= 0 ? '+' : ''}{protocol.change_7d.toFixed(1)}%
                             </div>
@@ -821,7 +821,7 @@ export const DefiCharts = () => {
                 </MobileCarouselWrapper>
               </>
             ) : (
-              <div className="flex items-center justify-center h-[300px] text-muted-foreground">
+              <div className="flex items-center justify-center h-[300px] text-white/50">
                 <div className="text-center">
                   <BarChart3 className="w-12 h-12 mx-auto mb-4 opacity-50" />
                   <p>Protocol data loading...</p>
@@ -877,7 +877,7 @@ export const DefiCharts = () => {
                   <span className="text-2xl font-bold text-foreground">
                     {data.riskDistribution.reduce((sum, item) => sum + item.value, 0)}%
                   </span>
-                  <span className="text-xs text-muted-foreground">Top 10 TVL</span>
+                  <span className="text-xs text-white/50">Top 10 TVL</span>
                 </div>
               </div>
               
@@ -896,7 +896,7 @@ export const DefiCharts = () => {
                       <span className="text-sm font-mono font-semibold text-foreground">{entry.value}%</span>
                     </div>
                     {/* Progress bar */}
-                    <div className="h-1.5 bg-muted rounded-full overflow-hidden">
+                    <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
                       <div 
                         className="h-full rounded-full transition-all duration-500"
                         style={{ 

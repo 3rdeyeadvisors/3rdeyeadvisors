@@ -190,7 +190,7 @@ const ResetPassword = () => {
           <CardContent className="pt-6">
             <div className="flex items-center justify-center space-x-2">
               <Loader2 className="h-6 w-6 animate-spin text-primary" />
-              <span className="text-muted-foreground">Verifying reset link...</span>
+              <span className="text-white/50">Verifying reset link...</span>
             </div>
           </CardContent>
         </Card>
@@ -209,7 +209,7 @@ const ResetPassword = () => {
             <CardTitle className="text-2xl font-bold text-violet-400">
               Reset Your Password
             </CardTitle>
-            <CardDescription className="text-muted-foreground">
+            <CardDescription className="text-white/50">
               Create a new secure password for your 3rdeyeadvisors account
             </CardDescription>
           </div>
@@ -240,9 +240,9 @@ const ResetPassword = () => {
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? (
-                    <EyeOff className="h-4 w-4 text-muted-foreground" />
+                    <EyeOff className="h-4 w-4 text-white/50" />
                   ) : (
-                    <Eye className="h-4 w-4 text-muted-foreground" />
+                    <Eye className="h-4 w-4 text-white/50" />
                   )}
                 </Button>
               </div>
@@ -271,18 +271,18 @@ const ResetPassword = () => {
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                 >
                   {showConfirmPassword ? (
-                    <EyeOff className="h-4 w-4 text-muted-foreground" />
+                    <EyeOff className="h-4 w-4 text-white/50" />
                   ) : (
-                    <Eye className="h-4 w-4 text-muted-foreground" />
+                    <Eye className="h-4 w-4 text-white/50" />
                   )}
                 </Button>
               </div>
             </div>
 
             {/* Password Requirements */}
-            <div className="bg-muted/50 border border-primary/20 rounded-lg p-4 space-y-2">
+            <div className="bg-white/5 border border-primary/20 rounded-lg p-4 space-y-2">
               <h4 className="text-sm font-medium text-foreground">Password Requirements:</h4>
-              <ul className="text-xs text-muted-foreground space-y-1">
+              <ul className="text-xs text-white/50 space-y-1">
                 <li className={newPassword.length >= 8 ? "text-primary" : ""}>
                   • At least 8 characters long
                 </li>
@@ -311,7 +311,7 @@ const ResetPassword = () => {
           <div className="text-center">
             <Button 
               variant="ghost" 
-              className="text-sm text-muted-foreground hover:text-primary"
+              className="text-sm text-white/50 hover:text-primary"
               onClick={() => navigate('/auth')}
             >
               Back to Sign In

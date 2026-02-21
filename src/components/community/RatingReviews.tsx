@@ -214,7 +214,7 @@ export const RatingReviews = ({ contentType, contentId, title }: RatingStatsProp
               className={`w-5 h-5 transition-colors ${
                 star <= rating 
                   ? 'fill-yellow-500 text-yellow-500' 
-                  : 'fill-none text-muted-foreground'
+                  : 'fill-none text-white/50'
               }`}
               style={{ textDecoration: 'none' }}
             />
@@ -236,8 +236,8 @@ export const RatingReviews = ({ contentType, contentId, title }: RatingStatsProp
     return (
       <div className="space-y-4">
         <div className="animate-pulse">
-          <div className="h-6 bg-muted rounded w-1/3 mb-4"></div>
-          <div className="h-20 bg-muted rounded"></div>
+          <div className="h-6 bg-white/5 rounded w-1/3 mb-4"></div>
+          <div className="h-20 bg-white/5 rounded"></div>
         </div>
       </div>
     );
@@ -260,7 +260,7 @@ export const RatingReviews = ({ contentType, contentId, title }: RatingStatsProp
                   {stats.averageRating.toFixed(1)}
                 </div>
                 <StarRating rating={Math.round(stats.averageRating)} />
-                <p className="text-sm text-muted-foreground mt-2">
+                <p className="text-sm text-white/50 mt-2">
                   Based on {stats.totalReviews} {stats.totalReviews === 1 ? 'review' : 'reviews'}
                 </p>
               </div>
@@ -271,7 +271,7 @@ export const RatingReviews = ({ contentType, contentId, title }: RatingStatsProp
                   <div key={stars} className="flex items-center gap-2">
                     <span className="text-sm w-6">{stars}</span>
                     <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    <div className="flex-1 bg-muted rounded-full h-2">
+                    <div className="flex-1 bg-white/5 rounded-full h-2">
                       <div
                         className="bg-accent h-2 rounded-full"
                         style={{
@@ -279,7 +279,7 @@ export const RatingReviews = ({ contentType, contentId, title }: RatingStatsProp
                         }}
                       />
                     </div>
-                    <span className="text-sm text-muted-foreground w-8">
+                    <span className="text-sm text-white/50 w-8">
                       {stats.distribution[stars - 1]}
                     </span>
                   </div>
@@ -302,7 +302,7 @@ export const RatingReviews = ({ contentType, contentId, title }: RatingStatsProp
                 <div className="space-y-3">
                   <StarRating rating={userRating.rating} />
                   {userRating.review_text && (
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-white/50">
                       "{userRating.review_text}"
                     </p>
                   )}
@@ -387,7 +387,7 @@ export const RatingReviews = ({ contentType, contentId, title }: RatingStatsProp
                             </span>
                             <StarRating rating={rating.rating} />
                           </div>
-                          <span className="text-xs text-muted-foreground">
+                          <span className="text-xs text-white/50">
                             {formatDate(rating.created_at)}
                           </span>
                         </div>
@@ -405,7 +405,7 @@ export const RatingReviews = ({ contentType, contentId, title }: RatingStatsProp
         {!user && (
           <Card>
             <CardContent className="p-6 text-center">
-              <p className="text-muted-foreground mb-3">
+              <p className="text-white/50 mb-3">
                 Sign in to rate and review this content
               </p>
               <Button variant="outline" onClick={() => navigate('/auth')}>
