@@ -205,7 +205,7 @@ const DefiMatured2025 = () => {
                 </p>
               </section>
 
-              <div className="bg-muted/50 p-6 rounded-lg border border-white/8 mt-8 text-center">
+              <div className="bg-white/5 p-6 rounded-lg border border-white/8 mt-8 text-center">
                 <div className="flex items-center justify-center gap-2 mb-3">
                   <AlertTriangle className="h-5 w-5 text-yellow-500" />
                   <span className="font-semibold text-foreground">Educational Disclaimer</span>

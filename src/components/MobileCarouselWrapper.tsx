@@ -212,7 +212,7 @@ export const MobileCarouselWrapper: React.FC<MobileCarouselWrapperProps> = ({
         
         {/* Swipe hint - only show on first slide */}
         {renderIndex === 0 && childCount > 1 && (
-          <div className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground/40 animate-pulse pointer-events-none">
+          <div className="absolute right-4 top-1/2 -translate-y-1/2 text-white/20 animate-pulse pointer-events-none">
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
