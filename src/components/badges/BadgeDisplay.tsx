@@ -46,7 +46,7 @@ export const BadgeDisplay = ({
         sizeClasses[size],
         earned 
           ? `${definition.bgColor} ${definition.color} ring-2 ring-offset-2 ring-offset-background` 
-          : 'bg-muted/50 text-white/50 opacity-50 grayscale',
+          : 'bg-white/5 text-white/50 opacity-50 grayscale',
         earned && 'hover:scale-110',
         className
       )}

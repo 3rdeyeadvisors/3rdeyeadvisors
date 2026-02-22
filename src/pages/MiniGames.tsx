@@ -322,7 +322,7 @@ const MiniGames = () => {
               </div>
             </div>
 
-            <Card className="p-8 bg-card/50 backdrop-blur-md border-primary/20 overflow-hidden relative min-h-[500px] flex items-center justify-center">
+            <Card className="p-8 bg-white/3 backdrop-blur-md border-primary/20 overflow-hidden relative min-h-[500px] flex items-center justify-center">
               <AnimatePresence mode="wait">
                 {ActiveGameComponent && (
                   <ActiveGameComponent onComplete={handleGameComplete} />

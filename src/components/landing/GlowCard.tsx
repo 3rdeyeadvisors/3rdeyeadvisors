@@ -64,7 +64,7 @@ const GlowCard = ({
         }}
       />
       
-      <Card className="relative bg-card/80 backdrop-blur-sm border-white/8 hover:border-primary/30 transition-all duration-300 h-full">
+      <Card className="relative bg-white/3 backdrop-blur-sm border-white/8 hover:border-primary/30 transition-all duration-300 h-full">
         {children}
       </Card>
     </div>

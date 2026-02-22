@@ -274,7 +274,7 @@ export const IQTest: React.FC<{ onComplete: (iq: number, score: number) => void 
           exit={{ x: -20, opacity: 0 }}
           className="space-y-6"
         >
-          <Card className="p-8 border-2 border-primary/20 bg-card/50 backdrop-blur-sm">
+          <Card className="p-8 border-2 border-primary/20 bg-white/3 backdrop-blur-sm">
             <div className="flex items-start gap-4 mb-6">
               <Brain className="w-8 h-8 text-primary shrink-0 mt-1" />
               <h3 className="text-2xl font-medium leading-tight">

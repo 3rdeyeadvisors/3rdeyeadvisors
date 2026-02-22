@@ -20,7 +20,7 @@ export const CommunityTabs = ({ courseId, moduleId }: CommunityTabsProps) => {
       </div>
       
       <Tabs defaultValue="comments" className="w-full">
-        <TabsList className="mt-6 mb-4 flex flex-wrap justify-center w-full rounded-lg bg-card/60 border border-white/8 p-3 gap-3">
+        <TabsList className="mt-6 mb-4 flex flex-wrap justify-center w-full rounded-lg bg-white/3 border border-white/8 p-3 gap-3">
           <TabsTrigger 
             value="comments" 
             className="inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 min-h-[44px] text-sm font-medium data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=inactive]:bg-transparent data-[state=inactive]:text-white/50 hover:text-foreground transition-colors"
