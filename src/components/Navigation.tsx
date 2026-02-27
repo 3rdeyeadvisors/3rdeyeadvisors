@@ -209,7 +209,7 @@ const Navigation = () => {
       {/* Mobile Navigation Overlay - outside nav to avoid backdrop-filter containing block */}
       <div
         className={`fixed inset-x-0 top-[64px] bottom-0 bg-black z-[60] md:hidden transition-transform duration-300 ease-in-out ${
-          isOpen ? "translate-x-0" : "translate-x-full"
+          isOpen ? "translate-x-0 pointer-events-auto" : "translate-x-full pointer-events-none"
         }`}
       >
         <div className="h-full overflow-y-auto flex flex-col">

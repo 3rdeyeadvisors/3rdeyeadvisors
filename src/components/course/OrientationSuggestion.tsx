@@ -51,7 +51,7 @@ export const OrientationSuggestion = () => {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 50 }}
-        className="fixed bottom-24 left-4 right-4 z-[50] bg-primary/95 text-primary-foreground p-4 rounded-xl shadow-2xl flex items-center gap-4 backdrop-blur-sm border border-white/20"
+        className="fixed bottom-24 left-4 right-4 z-40 bg-primary/95 text-primary-foreground p-4 rounded-xl shadow-2xl flex items-center gap-4 backdrop-blur-sm border border-white/20"
       >
         <div className="bg-white/20 p-2 rounded-lg shrink-0">
           <RotateCw className="w-6 h-6 animate-spin-slow" />

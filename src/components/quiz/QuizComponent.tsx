@@ -310,6 +310,7 @@ export const QuizComponent = ({ courseId, moduleId, quiz, onComplete }: QuizComp
           return (
             <button
               key={index}
+              type="button"
               onClick={() => {
                 if (question.type === 'multiple') {
                   const currentAnswers = userAnswer || [];
@@ -592,7 +593,7 @@ export const QuizComponent = ({ courseId, moduleId, quiz, onComplete }: QuizComp
           ) : (
             <Button
               onClick={handleNext}
-              disabled={!answers[currentQuestionData.id]}
+              disabled={answers[currentQuestionData.id] === undefined}
               className="flex-1 sm:flex-none font-body bg-violet-600 hover:bg-violet-500 text-white rounded-xl px-8 h-[48px]"
             >
               Next
