@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Generate 3EA Social Banner</title>
+    <title>Generate Sentinel DeFi Social Banner</title>
     <style>
         body { 
             font-family: Arial, sans-serif; 
@@ -29,10 +29,10 @@
     </style>
 </head>
 <body>
-    <h1>Generate 3EA Social Banner</h1>
+    <h1>Generate Sentinel DeFi Social Banner</h1>
     <p>Click the button below to generate your futuristic decentralized learning hub banner</p>
     
-    <button onclick="generateBanner()" id="generateBtn">Generate 3EA Banner</button>
+    <button onclick="generateBanner()" id="generateBtn">Generate Sentinel DeFi Banner</button>
     <div id="result"></div>
 
     <script>
@@ -42,7 +42,7 @@
             
             btn.disabled = true;
             btn.textContent = 'Generating...';
-            result.innerHTML = '<p class="loading">🎨 Creating your futuristic 3EA banner...</p>';
+            result.innerHTML = '<p class="loading">🎨 Creating your futuristic Sentinel DeFi banner...</p>';
 
             try {
                 const response = await fetch('https://zapbkuaejvzpqerkkcnc.supabase.co/functions/v1/generate-social-banner', {
@@ -52,7 +52,7 @@
                         'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InphcGJrdWFlanZ6cHFlcmtrY25jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI5NjAxMTksImV4cCI6MjA2ODUzNjExOX0.kmzeGjrbpI2qB5UhKoAOoEspxWYGk8UthowEA_f154o'
                     },
                     body: JSON.stringify({
-                        prompt: "Futuristic decentralized learning hub design, glowing abstract network of soft bubble-like nodes connected by smooth lines, with a bold stylized '3EA' in the center, using deep purples (#5B21B6, #7C3AED), dark galaxy tones (#0A0B14, #1A1B2E), and subtle neon accents (#A855F7, #E879F9), minimal and clean layout, professional web3 aesthetic, inviting and trustworthy vibe for education and DeFi learning, smooth gradients, high-tech atmosphere, ultra high resolution, banner format 1792x1024",
+                        prompt: "Futuristic decentralized learning hub design, glowing abstract network of soft bubble-like nodes connected by smooth lines, with a bold stylized 'Sentinel DeFi' in the center, using deep purples (#5B21B6, #7C3AED), dark galaxy tones (#0A0B14, #1A1B2E), and subtle neon accents (#A855F7, #E879F9), minimal and clean layout, professional web3 aesthetic, inviting and trustworthy vibe for education and DeFi learning, smooth gradients, high-tech atmosphere, ultra high resolution, banner format 1792x1024",
                         size: "1792x1024",
                         quality: "high"
                     })
@@ -67,10 +67,10 @@
                 if (data.data && data.data[0] && data.data[0].b64_json) {
                     const imageUrl = `data:image/webp;base64,${data.data[0].b64_json}`;
                     result.innerHTML = `
-                        <h3>✨ Your 3EA Social Banner is Ready!</h3>
-                        <img src="${imageUrl}" alt="3EA Social Banner" />
+                        <h3>✨ Your Sentinel DeFi Social Banner is Ready!</h3>
+                        <img src="${imageUrl}" alt="Sentinel DeFi Social Banner" />
                         <p>
-                            <a href="${imageUrl}" download="3ea-social-banner.webp" 
+                            <a href="${imageUrl}" download="sentinel-defi-social-banner.webp"
                                style="background: #A855F7; color: white; padding: 10px 20px; 
                                       text-decoration: none; border-radius: 5px; display: inline-block;">
                                 📥 Download Banner

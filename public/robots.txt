@@ -15,4 +15,4 @@ Disallow: /admin/upload-resource
 Disallow: /social-banner
 
 # Sitemap
-Sitemap: https://www.the3rdeyeadvisors.com/sitemap.xml
+Sitemap: https://www.sentineldefi.com/sitemap.xml
