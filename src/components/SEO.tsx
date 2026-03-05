@@ -28,17 +28,17 @@ interface SEOProps {
 }
 
 const SEO = ({
-  title = "Decentralized DeFi Education & Wealth Tools | 3rdeyeadvisors",
+  title = "Decentralized DeFi Education & Wealth Tools | Sentinel DeFi",
   description = "Transform your financial future with comprehensive DeFi education. Learn decentralized finance, yield farming, blockchain investing, and cryptocurrency strategies from beginner to advanced levels.",
   keywords = "DeFi education, decentralized finance, yield farming, blockchain investing, cryptocurrency courses, financial consciousness, DeFi beginner guide, crypto education, smart contracts, liquidity pools",
-  image = `${window.location.origin}/social-share-3rdeyeadvisors-fixed.jpg`,
-  url = "https://www.the3rdeyeadvisors.com",
+  image = `${window.location.origin}/social-share-sentinel-defi.jpg`,
+  url = "https://www.sentineldefi.com",
   type = "website",
   article,
   schema,
   faq
 }: SEOProps) => {
-  const siteTitle = "3rdeyeadvisors";
+  const siteTitle = "Sentinel DeFi";
   const fullTitle = title.includes(siteTitle) ? title : `${title} | ${siteTitle}`;
 
   // Generate schema markup based on type
@@ -54,11 +54,11 @@ const SEO = ({
       image: image,
       publisher: {
         "@type": "Organization",
-        name: "3rdeyeadvisors",
-        url: "https://www.the3rdeyeadvisors.com",
+        name: "Sentinel DeFi",
+        url: "https://www.sentineldefi.com",
         logo: {
           "@type": "ImageObject",
-          url: "https://www.the3rdeyeadvisors.com/favicon-3rdeyeadvisors.png"
+          url: "https://www.sentineldefi.com/favicon-sentinel-defi.png"
         }
       },
       ...schema.data
@@ -77,8 +77,8 @@ const SEO = ({
           validFrom: new Date().toISOString(),
           seller: {
             "@type": "Organization",
-            name: "3rdeyeadvisors",
-            url: "https://www.the3rdeyeadvisors.com"
+            name: "Sentinel DeFi",
+            url: "https://www.sentineldefi.com"
           }
         };
       }
@@ -90,7 +90,7 @@ const SEO = ({
           courseMode: "online",
           instructor: {
             "@type": "Person",
-            name: "3rdeyeadvisors Team"
+            name: "Sentinel DeFi Team"
           },
           startDate: new Date().toISOString().split('T')[0], // Today's date
           endDate: "2025-12-31", // Self-paced courses available through end of year
@@ -163,8 +163,8 @@ const SEO = ({
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
-      <meta name="twitter:creator" content="@3rdeyeadvisors" />
-      <meta name="twitter:site" content="@3rdeyeadvisors" />
+      <meta name="twitter:creator" content="@sentineldefi" />
+      <meta name="twitter:site" content="@sentineldefi" />
 
       {/* Article-specific meta tags */}
       {article && (
