@@ -41,11 +41,11 @@ function generateArticleSchema(content: PageContent): SchemaConfig {
       },
       publisher: {
         '@type': 'Organization',
-        name: '3rdeyeadvisors',
-         url: 'https://www.the3rdeyeadvisors.com',
+        name: 'Sentinel DeFi',
+         url: 'https://www.sentineldefi.com',
          logo: {
            '@type': 'ImageObject',
-           url: 'https://www.the3rdeyeadvisors.com/favicon-3ea-new.png'
+           url: 'https://www.sentineldefi.com/favicon-sentinel-defi.png'
          }
       },
       datePublished: content.publishedDate || new Date().toISOString(),
@@ -76,8 +76,8 @@ function generateCourseSchema(content: PageContent): SchemaConfig {
       description: content.description,
       provider: {
         '@type': 'Organization',
-         name: '3rdeyeadvisors',
-         url: 'https://www.the3rdeyeadvisors.com'
+         name: 'Sentinel DeFi',
+         url: 'https://www.sentineldefi.com'
       },
       offers: [
         {
@@ -90,8 +90,8 @@ function generateCourseSchema(content: PageContent): SchemaConfig {
           priceValidUntil: '2025-12-31',
           seller: {
              '@type': 'Organization',
-             name: '3rdeyeadvisors',
-             url: 'https://www.the3rdeyeadvisors.com'
+             name: 'Sentinel DeFi',
+             url: 'https://www.sentineldefi.com'
           }
         }
       ],
@@ -101,7 +101,7 @@ function generateCourseSchema(content: PageContent): SchemaConfig {
           courseMode: 'online',
           instructor: {
             '@type': 'Person',
-            name: '3rdeyeadvisors Team'
+            name: 'Sentinel DeFi Team'
           },
           startDate: new Date().toISOString().split('T')[0],
           courseSchedule: {
@@ -150,13 +150,13 @@ function generateProductSchema(content: PageContent): SchemaConfig {
         url: content.url,
         seller: {
            '@type': 'Organization',
-           name: '3rdeyeadvisors',
-           url: 'https://www.the3rdeyeadvisors.com'
+           name: 'Sentinel DeFi',
+           url: 'https://www.sentineldefi.com'
         }
       },
       brand: {
         '@type': 'Brand',
-        name: '3rdeyeadvisors'
+        name: 'Sentinel DeFi'
       },
       ...(isDigitalProduct ? {
         applicationCategory: 'FinanceApplication',
@@ -188,8 +188,8 @@ function generateWebPageSchema(content: PageContent): SchemaConfig {
       inLanguage: 'en-US',
       isPartOf: {
          '@type': 'WebSite',
-         name: '3rdeyeadvisors',
-         url: 'https://www.the3rdeyeadvisors.com'
+         name: 'Sentinel DeFi',
+         url: 'https://www.sentineldefi.com'
       },
       about: {
         '@type': 'Thing',
@@ -250,13 +250,13 @@ export function generateSchema(content: PageContent): {
       schema = {
         type: 'Organization',
         data: {
-          name: '3rdeyeadvisors',
-           url: 'https://www.the3rdeyeadvisors.com',
-           logo: 'https://www.the3rdeyeadvisors.com/favicon-3ea-new.png',
+          name: 'Sentinel DeFi',
+           url: 'https://www.sentineldefi.com',
+           logo: 'https://www.sentineldefi.com/favicon-sentinel-defi.png',
           description: 'DeFi education platform for financial consciousness and decentralized finance mastery',
           foundingDate: '2024',
           sameAs: [
-            'https://twitter.com/3rdeyeadvisors'
+            'https://twitter.com/sentineldefi'
           ],
           areaServed: 'Worldwide',
           hasOfferCatalog: {
@@ -308,7 +308,7 @@ export function generateDeFiSpecificSchema(content: PageContent): SchemaConfig[]
         category: 'Decentralized Finance',
         provider: {
           '@type': 'Organization',
-          name: '3rdeyeadvisors'
+          name: 'Sentinel DeFi'
         },
         serviceType: 'Educational Resource',
         areaServed: 'Worldwide'

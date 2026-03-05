@@ -225,7 +225,7 @@ export function BroadcastPreview() {
     <body>
       <div class="container">
         <div class="header">
-          <h1>3rdeyeadvisors</h1>
+          <h1>Sentinel DeFi</h1>
           <p style="margin: 5px 0 0 0; opacity: 0.9;">DeFi Education & Insights</p>
         </div>
         
@@ -239,15 +239,15 @@ export function BroadcastPreview() {
           </div>
           
           <div class="cta">
-            <a href="${broadcast.cta_link}">Learn More on 3rdeyeadvisors</a>
+            <a href="${broadcast.cta_link}">Learn More on Sentinel DeFi</a>
           </div>
         </div>
         
         <div class="footer">
-          <p><strong>3rdeyeadvisors</strong> | DeFi Education Platform</p>
+          <p><strong>Sentinel DeFi</strong> | DeFi Education Platform</p>
           <p>
-            <a href="https://the3rdeyeadvisors.com">Visit Website</a> | 
-            <a href="https://the3rdeyeadvisors.com/courses">View Courses</a>
+            <a href="https://www.sentineldefi.com">Visit Website</a> |
+            <a href="https://www.sentineldefi.com/courses">View Courses</a>
           </p>
           <p class="disclaimer">
             Educational purposes only. Not financial advice.

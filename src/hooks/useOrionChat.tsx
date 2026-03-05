@@ -15,11 +15,11 @@ const getTimeOfDay = (): "morning" | "afternoon" | "evening" => {
 const getGreeting = (timeOfDay: string): string => {
   switch (timeOfDay) {
     case "morning":
-      return "Grand Rising! I'm Orion, your guide to 3EA. How may I help you today?";
+      return "Grand Rising! I'm Orion, your guide to Sentinel DeFi. How may I help you today?";
     case "afternoon":
-      return "Great Afternoon! I'm Orion, your guide to 3EA. How may I help you today?";
+      return "Great Afternoon! I'm Orion, your guide to Sentinel DeFi. How may I help you today?";
     default:
-      return "Great Evening! I'm Orion, your guide to 3EA. How may I help you today?";
+      return "Great Evening! I'm Orion, your guide to Sentinel DeFi. How may I help you today?";
   }
 };
 

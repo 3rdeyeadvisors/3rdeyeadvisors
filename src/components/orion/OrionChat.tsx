@@ -8,7 +8,7 @@ import OrionAvatar from "./OrionAvatar";
 import { useOrionChat } from "@/hooks/useOrionChat";
 
 const quickActions = [
-  "What is 3EA?",
+  "What is Sentinel DeFi?",
   "Show me courses",
   "How does pricing work?",
   "I'm new to DeFi",
@@ -115,7 +115,7 @@ const OrionChat = () => {
                 <OrionAvatar size="sm" isThinking={isLoading} />
                 <div>
                   <h3 className="font-semibold text-foreground">Orion</h3>
-                  <p className="text-xs text-white/50">3EA Assistant</p>
+                  <p className="text-xs text-white/50">Sentinel DeFi Assistant</p>
                 </div>
               </div>
               <button

@@ -75,7 +75,7 @@ export function EmailCenter() {
                   </p>
                   
                   <p style="font-size: 16px; line-height: 1.6; margin: 0 0 30px 0; font-family: Arial, sans-serif; color: #333333;">
-                    <strong>3rdeyeadvisors</strong> has officially launched the <strong>Learn-to-Earn Raffle</strong>, rewarding our community for learning and engaging in DeFi education.
+                    <strong>Sentinel DeFi</strong> has officially launched the <strong>Learn-to-Earn Raffle</strong>, rewarding our community for learning and engaging in DeFi education.
                   </p>
                   
                   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #3B82F6; border-radius: 12px; margin: 30px 0;">
@@ -85,8 +85,8 @@ export function EmailCenter() {
                         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                           <tr>
                             <td style="font-size: 16px; line-height: 2; color: #ffffff; font-family: Arial, sans-serif; text-align: left; padding: 0 20px;">
-                              ✅ Follow us on <strong>Instagram</strong> @3rdeyeadvisors<br>
-                              ✅ Follow us on <strong>X</strong> @3rdeyeadvisors<br>
+                              ✅ Follow us on <strong>Instagram</strong> @sentineldefi<br>
+                              ✅ Follow us on <strong>X</strong> @sentineldefi<br>
                               ✅ Subscribe to the newsletter (you're already in! 🎉)<br>
                               ✅ Complete the <strong>DeFi Foundations</strong> and <strong>Staying Safe with DeFi</strong> courses<br>
                               ✅ Rate the courses and join the discussion
@@ -112,7 +112,7 @@ export function EmailCenter() {
                   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                     <tr>
                       <td align="center" style="padding: 40px 0;">
-                        <a href="https://the3rdeyeadvisors.com/raffles" style="display: inline-block; background: #3B82F6; color: #ffffff; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 18px; font-family: Arial, sans-serif;">
+                        <a href="https://www.sentineldefi.com/raffles" style="display: inline-block; background: #3B82F6; color: #ffffff; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 18px; font-family: Arial, sans-serif;">
                           Join the Raffle Now →
                         </a>
                       </td>
@@ -130,7 +130,7 @@ export function EmailCenter() {
                           Awareness is advantage.
                         </p>
                         <p style="font-size: 14px; color: #666666; margin: 0; font-family: Arial, sans-serif;">
-                         : 3rdeyeadvisors
+                         : Sentinel DeFi
                         </p>
                       </td>
                     </tr>
