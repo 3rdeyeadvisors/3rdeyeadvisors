@@ -30,7 +30,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     let subject = "Your Cognitive Lab Performance Report 🧠";
     let title = "Performance Report";
-    let bodyContent = `You recently completed the ${game_type} exercise in the 3rdeyeadvisors Cognitive Lab.`;
+    let bodyContent = `You recently completed the ${game_type} exercise in the Sentinel DeFi Cognitive Lab.`;
 
     if (game_type === 'IQ Assessment') {
       subject = `Your IQ Assessment Result: ${iq_score} 🏆`;
@@ -39,7 +39,7 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     const emailResponse = await resend.emails.send({
-      from: "3rdeyeadvisors <info@the3rdeyeadvisors.com>",
+      from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
       to: [email],
       subject: subject,
       html: `
@@ -53,7 +53,7 @@ const handler = async (req: Request): Promise<Response> => {
                 <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;background:linear-gradient(135deg,#1a1f2e,#0f1419);border-radius:12px;border:1px solid #2a3441">
                   <tr>
                     <td style="text-align:center;padding:48px 24px">
-                      <h1 style="color:#60a5fa;font-size:32px;margin:0 0 8px 0;font-weight:700">3rdeyeadvisors</h1>
+                      <h1 style="color:#60a5fa;font-size:32px;margin:0 0 8px 0;font-weight:700">Sentinel DeFi</h1>
                       <p style="color:#c084fc;font-size:16px;margin:0 uppercase;letter-spacing:1px">${title}</p>
                     </td>
                   </tr>
@@ -75,12 +75,12 @@ const handler = async (req: Request): Promise<Response> => {
                       ${description ? `<p style="color:#94a3b8;font-size:15px;line-height:1.6;margin-bottom:32px;text-align:center;font-style:italic">"${description}"</p>` : ''}
 
                       <div style="text-align:center">
-                        <a href="https://the3rdeyeadvisors.com/mini-games" style="background:#60a5fa;color:#030717;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:700;font-size:16px;display:inline-block">Continue Training</a>
+                        <a href="https://sentineldefi.com/mini-games" style="background:#60a5fa;color:#030717;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:700;font-size:16px;display:inline-block">Continue Training</a>
                       </div>
 
                       <p style="text-align:center;font-size:14px;color:#64748b;margin-top:40px;padding-top:24px;border-top:1px solid #2a3441">
                         Awareness is advantage. Keep pushing your limits.<br>
-                        — The 3rdeyeadvisors Team
+                        — The Sentinel DeFi Team
                       </p>
                     </td>
                   </tr>

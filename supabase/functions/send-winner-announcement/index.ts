@@ -71,7 +71,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Send winner notification email
     if (winnerEmail) {
       await resend.emails.send({
-        from: "3rdeyeadvisors <info@the3rdeyeadvisors.com>",
+        from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
         to: [winnerEmail],
         subject: `🎉 Congratulations! You Won the ${raffle.title}!`,
         html: `
@@ -156,7 +156,7 @@ const handler = async (req: Request): Promise<Response> => {
                                 Awareness is advantage.
                               </p>
                               <p style="font-size: 14px; color: hsl(0, 0%, 50%); margin: 0;">
-                                — The 3rdeyeadvisors Team
+                                — The Sentinel DeFi Team
                               </p>
                             </td>
                           </tr>
@@ -178,7 +178,7 @@ const handler = async (req: Request): Promise<Response> => {
     
     const emailPromises = otherParticipants.map((participant: any) => 
       resend.emails.send({
-        from: "3rdeyeadvisors <info@the3rdeyeadvisors.com>",
+        from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
         to: [participant.email],
         subject: `🏆 ${raffle.title} Winner Announced!`,
         html: `
@@ -253,7 +253,7 @@ const handler = async (req: Request): Promise<Response> => {
                               <p style="font-size: 16px; line-height: 1.8; margin: 0; color: hsl(0, 0%, 83%);">
                                 🎟 More Learn-to-Earn raffles are coming<br>
                                 📚 Keep learning and earning entries<br>
-                                🔔 Follow us on <a href="https://instagram.com/3rdeyeadvisors" style="color: hsl(217, 91%, 60%); text-decoration: none; font-weight: 600;">Instagram</a> and <a href="https://x.com/3rdeyeadvisors" style="color: hsl(217, 91%, 60%); text-decoration: none; font-weight: 600;">X</a>
+                                🔔 Follow us on <a href="https://instagram.com/sentineldefi" style="color: hsl(217, 91%, 60%); text-decoration: none; font-weight: 600;">Instagram</a> and <a href="https://x.com/sentineldefi" style="color: hsl(217, 91%, 60%); text-decoration: none; font-weight: 600;">X</a>
                               </p>
                             </td>
                           </tr>
@@ -263,7 +263,7 @@ const handler = async (req: Request): Promise<Response> => {
                         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                           <tr>
                             <td align="center" style="padding: 24px 0 32px 0;">
-                              <a href="https://the3rdeyeadvisors.com/courses" class="cta-button" style="display: inline-block; background: linear-gradient(45deg, hsl(217, 91%, 60%), hsl(271, 91%, 65%)); color: #ffffff; padding: 18px 40px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 18px; min-height: 44px; box-sizing: border-box;">
+                              <a href="https://sentineldefi.com/courses" class="cta-button" style="display: inline-block; background: linear-gradient(45deg, hsl(217, 91%, 60%), hsl(271, 91%, 65%)); color: #ffffff; padding: 18px 40px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 18px; min-height: 44px; box-sizing: border-box;">
                                 Continue Learning →
                               </a>
                             </td>
@@ -278,7 +278,7 @@ const handler = async (req: Request): Promise<Response> => {
                                 Awareness is advantage.
                               </p>
                               <p style="font-size: 14px; color: hsl(0, 0%, 50%); margin: 0;">
-                                — The 3rdeyeadvisors Team
+                                — The Sentinel DeFi Team
                               </p>
                             </td>
                           </tr>
@@ -289,7 +289,7 @@ const handler = async (req: Request): Promise<Response> => {
                           <tr>
                             <td style="padding: 16px; text-align: center;">
                               <p style="font-size: 14px; color: hsl(0, 0%, 60%); margin: 0;">
-                                View all past winners on our <a href="https://the3rdeyeadvisors.com/raffle-history" style="color: hsl(217, 91%, 60%); text-decoration: none; font-weight: 600;">Raffle History</a> page.
+                                View all past winners on our <a href="https://sentineldefi.com/raffle-history" style="color: hsl(217, 91%, 60%); text-decoration: none; font-weight: 600;">Raffle History</a> page.
                               </p>
                             </td>
                           </tr>

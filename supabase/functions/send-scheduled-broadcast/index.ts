@@ -96,7 +96,7 @@ const handler = async (req: Request): Promise<Response> => {
 
         marketBlockContent = `<h3 style="color: #e5e7eb; margin-top: 0; margin-bottom: 15px;">Top Movers</h3><ul style="margin: 0; padding-left: 20px;"><li style="color: #e5e7eb; margin-bottom: 10px;"><strong style="color: #f3f4f6;">Ethereum (ETH)</strong>: <span style="color: #e5e7eb;">$${prices.ethereum.usd.toLocaleString()}</span> ${formatChange(prices.ethereum.usd_24h_change)}</li><li style="color: #e5e7eb; margin-bottom: 10px;"><strong style="color: #f3f4f6;">Uniswap (UNI)</strong>: <span style="color: #e5e7eb;">$${prices.uniswap.usd.toFixed(2)}</span> ${formatChange(prices.uniswap.usd_24h_change)}</li><li style="color: #e5e7eb; margin-bottom: 10px;"><strong style="color: #f3f4f6;">Aave (AAVE)</strong>: <span style="color: #e5e7eb;">$${prices.aave.usd.toFixed(2)}</span> ${formatChange(prices.aave.usd_24h_change)}</li></ul>`;
         
-        subjectLine = '3EA Market Pulse: Top Movers';
+        subjectLine = 'Sentinel DeFi Market Pulse: Top Movers';
         introText = "Here are this week's top-performing DeFi tokens and their 24-hour performance metrics.";
       } catch (error) {
         console.error('Error fetching crypto prices:', error);
@@ -125,7 +125,7 @@ const handler = async (req: Request): Promise<Response> => {
         if (aiResponse.ok) {
           const aiData = await aiResponse.json();
           marketBlockContent = aiData.choices[0].message.content;
-          subjectLine = '3EA DeFi Trends: What\'s Moving This Week';
+          subjectLine = 'Sentinel DeFi Trends: What\'s Moving This Week';
           introText = 'Key trends shaping DeFi markets this week.';
           console.log('Generated Wednesday trends:', marketBlockContent);
         } else {
@@ -158,7 +158,7 @@ const handler = async (req: Request): Promise<Response> => {
         if (aiResponse.ok) {
           const aiData = await aiResponse.json();
           marketBlockContent = aiData.choices[0].message.content;
-          subjectLine = '3EA Learning Drop: DeFi Education';
+          subjectLine = 'Sentinel DeFi Learning Drop: DeFi Education';
           introText = 'This week\'s DeFi education highlight you need to know.';
           console.log('Generated Friday education:', marketBlockContent);
         } else {
@@ -282,7 +282,7 @@ const handler = async (req: Request): Promise<Response> => {
 <body>
   <div class="container">
     <div class="header">
-      <h1>3rdeyeadvisors</h1>
+      <h1>Sentinel DeFi</h1>
       <p style="margin: 5px 0 0 0; opacity: 0.9;">DeFi Education & Insights</p>
     </div>
     
@@ -296,15 +296,15 @@ const handler = async (req: Request): Promise<Response> => {
       </div>
       
       <div class="cta">
-        <a href="${broadcast.cta_link}">Learn More on 3rdeyeadvisors</a>
+        <a href="${broadcast.cta_link}">Learn More on Sentinel DeFi</a>
       </div>
     </div>
     
     <div class="footer">
-      <p><strong>3rdeyeadvisors</strong> | DeFi Education Platform</p>
+      <p><strong>Sentinel DeFi</strong> | DeFi Education Platform</p>
       <p>
-        <a href="https://the3rdeyeadvisors.com">Visit Website</a> | 
-        <a href="https://the3rdeyeadvisors.com/courses">View Courses</a>
+        <a href="https://sentineldefi.com">Visit Website</a> |
+        <a href="https://sentineldefi.com/courses">View Courses</a>
       </p>
       <p class="disclaimer">
         Educational purposes only. Not financial advice.
@@ -322,7 +322,7 @@ const handler = async (req: Request): Promise<Response> => {
     for (const subscriber of subscribers) {
       try {
         const { error: sendError } = await resend.emails.send({
-          from: '3rdeyeadvisors <info@the3rdeyeadvisors.com>',
+          from: 'Sentinel DeFi <info@the3rdeyeadvisors.com>',
           to: [subscriber.email],
           subject: subjectLine,
           html: emailHtml,

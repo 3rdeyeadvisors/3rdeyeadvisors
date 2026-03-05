@@ -51,7 +51,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     const displayName = profile?.display_name || "there";
     const platform = 'Instagram';
-    const platformHandle = taskType === 'instagram' ? '@3rdeyeadvisors' : '@3rdeyeadvisors';
+    const platformHandle = taskType === 'instagram' ? '@sentineldefi' : '@sentineldefi';
 
     const emailHtml = `
       <!DOCTYPE html>
@@ -89,7 +89,7 @@ const handler = async (req: Request): Promise<Response> => {
             </div>
             
             <div style="text-align: center; margin: 30px 0;">
-              <a href="https://the3rdeyeadvisors.com/raffles" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 40px; text-decoration: none; border-radius: 25px; font-weight: bold; font-size: 16px;">
+              <a href="https://sentineldefi.com/raffles" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 40px; text-decoration: none; border-radius: 25px; font-weight: bold; font-size: 16px;">
                 View My Entries
               </a>
             </div>
@@ -99,7 +99,7 @@ const handler = async (req: Request): Promise<Response> => {
             </p>
             
             <p style="font-size: 14px; color: #666; margin: 10px 0 0 0;">
-              <strong>3rdeyeadvisors</strong><br>
+              <strong>Sentinel DeFi</strong><br>
               <em>Awareness = Advantage</em>
             </p>
           </div>
@@ -108,7 +108,7 @@ const handler = async (req: Request): Promise<Response> => {
     `;
 
     const emailResponse = await resend.emails.send({
-      from: "3rdeyeadvisors <info@the3rdeyeadvisors.com>",
+      from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
       to: [user.email],
       subject: `✅ Your ${platform} Handle Has Been Verified!`,
       html: emailHtml,

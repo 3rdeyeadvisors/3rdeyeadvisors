@@ -33,7 +33,7 @@ const handler = async (req: Request): Promise<Response> => {
     const adminEmail = "info@the3rdeyeadvisors.com";
 
     const adminEmailResponse = await resend.emails.send({
-      from: "3rdeyeadvisors <info@the3rdeyeadvisors.com>",
+      from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
       to: [adminEmail],
       subject: `🔍 New ${platform} Username Submitted - ${raffle_title}`,
       html: `
@@ -44,7 +44,7 @@ const handler = async (req: Request): Promise<Response> => {
         <table width="100%" cellpadding="0" cellspacing="0" style="background:#030717"><tr><td align="center" style="padding:32px 20px">
         <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;background:linear-gradient(135deg,#1a1f2e,#0f1419);border-radius:12px;border:1px solid #2a3441">
         <tr><td style="text-align:center;padding:48px 24px">
-        <h1 style="color:#60a5fa;font-size:32px;margin:0 0 8px 0;font-weight:700">3rdeyeadvisors</h1>
+        <h1 style="color:#60a5fa;font-size:32px;margin:0 0 8px 0;font-weight:700">Sentinel DeFi</h1>
         <p style="color:#c084fc;font-size:16px;margin:0">Username Verification</p>
         </td></tr>
         <tr><td style="padding:0 32px 32px">
@@ -61,9 +61,9 @@ const handler = async (req: Request): Promise<Response> => {
         <p style="color:#f5f5f5;margin:8px 0 0;font-size:14px">Verify this username in the Admin dashboard.</p>
         </div>
         <table width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:24px 0">
-        <a href="https://the3rdeyeadvisors.com/admin" style="display:inline-block;background:linear-gradient(45deg,#3b82f6,#8b5cf6);color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:700">Go to Admin Dashboard</a>
+        <a href="https://sentineldefi.com/admin" style="display:inline-block;background:linear-gradient(45deg,#3b82f6,#8b5cf6);color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:700">Go to Admin Dashboard</a>
         </td></tr></table>
-        <p style="text-align:center;color:#64748b;font-size:12px;margin:20px 0 0;border-top:1px solid #334155;padding-top:20px">Automated notification from 3rdeyeadvisors</p>
+        <p style="text-align:center;color:#64748b;font-size:12px;margin:20px 0 0;border-top:1px solid #334155;padding-top:20px">Automated notification from Sentinel DeFi</p>
         </td></tr>
         </table>
         </td></tr></table>

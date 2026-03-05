@@ -60,7 +60,7 @@ const handler = async (req: Request): Promise<Response> => {
     // First, try to find or create the audience
     let audienceId = '';
     
-    // Get all audiences to find '3rdeyeadvisors Subscribers'
+    // Get all audiences to find 'Sentinel DeFi Subscribers'
     const audiencesResponse = await fetch(`${baseUrl}/lists`, {
       method: 'GET',
       headers: {
@@ -78,7 +78,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Look for existing audience
     const existingAudience = audiencesData.lists?.find((list: any) => 
-      list.name === '3rdeyeadvisors Subscribers'
+      list.name === 'Sentinel DeFi Subscribers'
     );
 
     if (existingAudience) {
@@ -86,7 +86,7 @@ const handler = async (req: Request): Promise<Response> => {
       console.log('Using existing audience:', audienceId);
     } else {
       // Create new audience
-      console.log('Creating new audience: 3rdeyeadvisors Subscribers');
+      console.log('Creating new audience: Sentinel DeFi Subscribers');
       const createAudienceResponse = await fetch(`${baseUrl}/lists`, {
         method: 'POST',
         headers: {
@@ -94,18 +94,18 @@ const handler = async (req: Request): Promise<Response> => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          name: '3rdeyeadvisors Subscribers',
+          name: 'Sentinel DeFi Subscribers',
           contact: {
-            company: '3rdeyeadvisors',
+            company: 'Sentinel DeFi',
             address1: '123 Main Street',
             city: 'New York',
             state: 'NY',
             zip: '10001',
             country: 'US'
           },
-          permission_reminder: 'You signed up for updates from 3rdeyeadvisors',
+          permission_reminder: 'You signed up for updates from Sentinel DeFi',
           campaign_defaults: {
-            from_name: '3rdeyeadvisors',
+            from_name: 'Sentinel DeFi',
             from_email: 'info@3rdeyeadvisors.com',
             subject: '',
             language: 'en'

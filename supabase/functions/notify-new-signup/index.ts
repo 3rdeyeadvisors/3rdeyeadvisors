@@ -85,18 +85,18 @@ const handler = async (req: Request): Promise<Response> => {
     
     // Send notification email
     const emailResponse = await resend.emails.send({
-      from: "3rdeyeadvisors <info@the3rdeyeadvisors.com>",
+      from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
       to: ["info@the3rdeyeadvisors.com"],
-      subject: `New ${signupType === 'subscriber' ? 'Subscriber' : 'Signup'} - 3rdeyeadvisors Platform`,
+      subject: `New ${signupType === 'subscriber' ? 'Subscriber' : 'Signup'} - Sentinel DeFi Platform`,
       html: `
         <div style="max-width: 600px; margin: 0 auto; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: hsl(222, 84%, 4.9%); color: #fff; padding: 20px; border-radius: 12px;">
           <div style="text-align: center; padding: 30px 20px; background: linear-gradient(135deg, hsl(217, 32%, 8%), hsl(217, 32%, 6%)); border-radius: 12px; margin-bottom: 24px; border: 1px solid hsl(217, 32%, 15%);">
-            <h1 style="color: hsl(217, 91%, 60%); font-size: 28px; margin: 0 0 8px 0; font-weight: bold;">3rdeyeadvisors</h1>
+            <h1 style="color: hsl(217, 91%, 60%); font-size: 28px; margin: 0 0 8px 0; font-weight: bold;">Sentinel DeFi</h1>
             <h2 style="color: hsl(271, 91%, 75%); font-size: 20px; margin: 0;">New ${signupType === 'subscriber' ? 'Subscriber' : 'User Signup'} Alert</h2>
           </div>
           
           <p style="color: hsl(0, 0%, 90%); font-size: 16px; margin: 0 0 24px 0; line-height: 1.6;">
-            A new ${signupType} has joined the 3rdeyeadvisors community! 🚀
+            A new ${signupType} has joined the Sentinel DeFi community! 🚀
           </p>
           
           <div style="background: linear-gradient(135deg, hsl(217, 32%, 10%), hsl(217, 32%, 12%)); padding: 24px; border-radius: 12px; margin: 24px 0; border: 1px solid hsl(217, 32%, 15%);">
@@ -118,7 +118,7 @@ const handler = async (req: Request): Promise<Response> => {
           
           <hr style="margin: 32px 0; border: none; border-top: 1px solid hsl(217, 32%, 15%);">
           <p style="color: hsl(215, 20%, 65%); font-size: 12px; text-align: center; margin: 0;">
-            Automated notification from your 3rdeyeadvisors platform
+            Automated notification from your Sentinel DeFi platform
           </p>
         </div>
       `,

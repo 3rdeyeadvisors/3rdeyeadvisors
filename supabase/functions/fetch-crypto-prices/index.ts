@@ -9,7 +9,7 @@ const corsHeaders = {
 let cachedData: { data: any; timestamp: number } | null = null;
 const CACHE_DURATION_MS = 3 * 60 * 1000; // 3 minutes for fresher data
 
-// 3EA Recommended token IDs (CoinGecko format)
+// Sentinel DeFi Recommended token IDs (CoinGecko format)
 const RECOMMENDED_IDS = [
   'bitcoin',
   'ethereum', 

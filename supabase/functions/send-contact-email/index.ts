@@ -163,7 +163,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send email to info
     const supportEmailResponse = await resend.emails.send({
-      from: "3rdeyeadvisors <info@the3rdeyeadvisors.com>",
+      from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
       to: ["info@the3rdeyeadvisors.com"],
       subject: `Contact Form: ${sanitizedSubject}`,
       tags: [
@@ -202,7 +202,7 @@ const handler = async (req: Request): Promise<Response> => {
                         <tr>
                           <td style="padding-top: 24px;">
                             <p style="font-size: 12px; color: hsl(215, 20%, 65%); margin: 0;">
-                              This email was sent from the 3rdeyeadvisors contact form.
+                              This email was sent from the Sentinel DeFi contact form.
                             </p>
                           </td>
                         </tr>
@@ -220,7 +220,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send confirmation email to user
     const userEmailResponse = await resend.emails.send({
-      from: "3rdeyeadvisors <info@the3rdeyeadvisors.com>",
+      from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
       to: [email],
       subject: "We received your message!",
       tags: [
@@ -249,7 +249,7 @@ const handler = async (req: Request): Promise<Response> => {
                       <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background: linear-gradient(135deg, hsl(217, 32%, 8%), hsl(217, 32%, 6%)); border-radius: 12px; border: 1px solid hsl(217, 32%, 15%);">
                         <tr>
                           <td style="text-align: center; padding: 48px 24px;">
-                            <h1 style="color: hsl(217, 91%, 60%); font-size: 36px; margin: 0 0 8px 0; font-weight: 700; text-shadow: 0 0 24px hsla(217, 91%, 60%, 0.4);">3rdeyeadvisors</h1>
+                            <h1 style="color: hsl(217, 91%, 60%); font-size: 36px; margin: 0 0 8px 0; font-weight: 700; text-shadow: 0 0 24px hsla(217, 91%, 60%, 0.4);">Sentinel DeFi</h1>
                             <p style="color: hsl(271, 91%, 75%); font-size: 18px; margin: 0;">Message Received</p>
                           </td>
                         </tr>
@@ -276,7 +276,7 @@ const handler = async (req: Request): Promise<Response> => {
                             </table>
                             
                             <p style="color: #F5F5F5; margin: 24px 0 8px 0; line-height: 1.6;">Thank you for your patience as we work to support your journey toward financial consciousness.</p>
-                            <p style="color: #F5F5F5; margin: 0; line-height: 1.6;">Best regards,<br><strong style="color: hsl(217, 91%, 70%);">The 3rdeyeadvisors Team</strong></p>
+                            <p style="color: #F5F5F5; margin: 0; line-height: 1.6;">Best regards,<br><strong style="color: hsl(217, 91%, 70%);">The Sentinel DeFi Team</strong></p>
                           </td>
                         </tr>
                       </table>
@@ -289,7 +289,7 @@ const handler = async (req: Request): Promise<Response> => {
                         <tr>
                           <td style="text-align: center; padding-top: 24px;">
                             <p style="color: hsl(215, 20%, 65%); font-size: 12px; margin: 0;">
-                              This is an automated response from 3rdeyeadvisors.
+                              This is an automated response from Sentinel DeFi.
                             </p>
                           </td>
                         </tr>

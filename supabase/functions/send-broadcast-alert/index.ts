@@ -55,7 +55,7 @@ const handler = async (req: Request): Promise<Response> => {
       <body>
         <div class="container">
           <div class="header">
-            <h1>⚠️ 3EA DeFi Broadcast Issue Detected</h1>
+            <h1>⚠️ Sentinel DeFi Broadcast Issue Detected</h1>
           </div>
           <div class="content">
             <div class="alert-details">
@@ -85,12 +85,12 @@ const handler = async (req: Request): Promise<Response> => {
 
             <div class="alert-details">
               <h3>What This Means</h3>
-              <p>Your automated 3EA DeFi Broadcast encountered an issue and requires attention. Please review the details above and use the "Retry Now" button to attempt reprocessing the broadcast.</p>
-              <p>You can also view detailed logs in your <a href="https://the3rdeyeadvisors.com/admin">Lovable admin dashboard</a> under <strong>Automation Logs → 3EA Broadcast Alerts</strong>.</p>
+              <p>Your automated Sentinel DeFi Broadcast encountered an issue and requires attention. Please review the details above and use the "Retry Now" button to attempt reprocessing the broadcast.</p>
+              <p>You can also view detailed logs in your <a href="https://sentineldefi.com/admin">Lovable admin dashboard</a> under <strong>Automation Logs → Sentinel DeFi Broadcast Alerts</strong>.</p>
             </div>
           </div>
           <div class="footer">
-            <p style="font-size: 12px; color: #6b7280;">This is an automated alert from your 3EA DeFi Broadcast monitoring system.</p>
+            <p style="font-size: 12px; color: #6b7280;">This is an automated alert from your Sentinel DeFi Broadcast monitoring system.</p>
           </div>
         </div>
       </body>
@@ -99,9 +99,9 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send alert email
     const { data: emailData, error: emailError } = await resend.emails.send({
-      from: '3rdeyeadvisors Alerts <info@the3rdeyeadvisors.com>',
+      from: 'Sentinel DeFi Alerts <info@the3rdeyeadvisors.com>',
       to: ['3rdeyeadvisors@gmail.com'],
-      subject: '⚠️ 3EA DeFi Broadcast Issue Detected',
+      subject: '⚠️ Sentinel DeFi Broadcast Issue Detected',
       html: emailHtml,
     });
 

@@ -51,7 +51,7 @@ const handler = async (req: Request): Promise<Response> => {
     let htmlContent: string;
 
     if (type === 'signup') {
-      subject = 'Welcome to 3rdeyeadvisors - Your DeFi Journey Begins! 🚀';
+      subject = 'Welcome to Sentinel DeFi - Your DeFi Journey Begins! 🚀';
       htmlContent = `
         <!DOCTYPE html>
         <html>
@@ -75,7 +75,7 @@ const handler = async (req: Request): Promise<Response> => {
           <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background: linear-gradient(135deg, hsl(222, 84%, 4.9%), hsl(217, 32%, 8%)); border-radius: 12px 12px 0 0; position: relative; overflow: hidden;">
             <tr>
               <td style="text-align: center; padding: 50px 30px 40px; position: relative;">
-                <h1 style="color: hsl(217, 91%, 60%); font-size: 36px; margin: 0; font-weight: bold; text-shadow: 0 0 30px hsl(217, 91%, 60%, 0.5); position: relative; z-index: 1;">3rdeyeadvisors</h1>
+                <h1 style="color: hsl(217, 91%, 60%); font-size: 36px; margin: 0; font-weight: bold; text-shadow: 0 0 30px hsl(217, 91%, 60%, 0.5); position: relative; z-index: 1;">Sentinel DeFi</h1>
                 <p style="color: hsl(0, 0%, 95%); font-size: 20px; margin: 16px 0 0 0; opacity: 0.9; position: relative; z-index: 1;">Your DeFi Consciousness Awakening Begins</p>
               </td>
             </tr>
@@ -96,7 +96,7 @@ const handler = async (req: Request): Promise<Response> => {
                       <table width="100%" cellpadding="0" cellspacing="0" border="0">
                         <tr>
                           <td align="center" style="padding: 32px 0;">
-                            <a href="${redirect_url || 'https://the3rdeyeadvisors.com'}" 
+                            <a href="${redirect_url || 'https://sentineldefi.com'}"
                                style="background: linear-gradient(45deg, hsl(217, 91%, 60%), hsl(271, 91%, 65%)); color: hsl(222, 84%, 4.9%); padding: 18px 36px; text-decoration: none; border-radius: 12px; font-weight: bold; display: inline-block; font-size: 16px; box-shadow: 0 0 30px hsl(217, 91%, 60%, 0.4), 0 8px 20px rgba(0,0,0,0.3);">
                               🚀 Start Your Journey
                             </a>
@@ -134,7 +134,7 @@ const handler = async (req: Request): Promise<Response> => {
                   <a href="mailto:info@the3rdeyeadvisors.com" style="color: hsl(217, 91%, 70%); text-decoration: none; font-weight: 500;">info@the3rdeyeadvisors.com</a>
                 </p>
                 <p style="color: hsl(215, 20%, 50%); font-size: 12px; margin: 0;">
-                  © 2024 3rdeyeadvisors. Empowering DeFi consciousness.
+                  © 2024 Sentinel DeFi. Empowering DeFi consciousness.
                 </p>
               </td>
             </tr>
@@ -149,7 +149,7 @@ const handler = async (req: Request): Promise<Response> => {
         </html>
       `;
     } else if (type === 'recovery') {
-      subject = 'Reset Your 3rdeyeadvisors Password 🔑';
+      subject = 'Reset Your Sentinel DeFi Password 🔑';
       htmlContent = `
         <!DOCTYPE html>
         <html>
@@ -174,7 +174,7 @@ const handler = async (req: Request): Promise<Response> => {
             <tr>
               <td style="text-align: center; padding: 50px 30px 30px;">
                 <h1 style="color: hsl(217, 91%, 60%); font-size: 32px; margin: 0; font-weight: bold; text-shadow: 0 0 20px hsl(217, 91%, 60%, 0.3);">Password Reset</h1>
-                <p style="color: hsl(0, 0%, 95%); font-size: 16px; margin: 12px 0 0 0; opacity: 0.9;">3rdeyeadvisors Account Security</p>
+                <p style="color: hsl(0, 0%, 95%); font-size: 16px; margin: 12px 0 0 0; opacity: 0.9;">Sentinel DeFi Account Security</p>
               </td>
             </tr>
           </table>
@@ -188,13 +188,13 @@ const handler = async (req: Request): Promise<Response> => {
                     <td style="padding: 32px;">
                       <h2 style="color: hsl(217, 91%, 70%); margin: 0 0 20px 0; font-size: 24px; font-weight: 600;">🔑 Hello ${firstName}!</h2>
                       <p style="line-height: 1.7; margin: 0 0 24px 0; color: hsl(0, 0%, 90%); font-size: 16px;">
-                        We received a request to reset your password for your 3rdeyeadvisors account. Click the button below to create a new secure password.
+                        We received a request to reset your password for your Sentinel DeFi account. Click the button below to create a new secure password.
                       </p>
                       
                       <table width="100%" cellpadding="0" cellspacing="0" border="0">
                         <tr>
                           <td align="center" style="padding: 32px 0;">
-                            <a href="${redirect_url || 'https://the3rdeyeadvisors.com/auth?reset=true'}" 
+                            <a href="${redirect_url || 'https://sentineldefi.com/auth?reset=true'}"
                                style="background: linear-gradient(45deg, hsl(217, 91%, 60%), hsl(271, 91%, 65%)); color: hsl(222, 84%, 4.9%); padding: 18px 36px; text-decoration: none; border-radius: 12px; font-weight: bold; display: inline-block; font-size: 16px; box-shadow: 0 0 30px hsl(217, 91%, 60%, 0.4), 0 8px 20px rgba(0,0,0,0.3);">
                               🔐 Reset Password
                             </a>
@@ -232,7 +232,7 @@ const handler = async (req: Request): Promise<Response> => {
                   <a href="mailto:info@the3rdeyeadvisors.com" style="color: hsl(217, 91%, 70%); text-decoration: none; font-weight: 500;">info@the3rdeyeadvisors.com</a>
                 </p>
                 <p style="color: hsl(215, 20%, 50%); font-size: 12px; margin: 0;">
-                  © 2024 3rdeyeadvisors. Empowering DeFi consciousness.
+                  © 2024 Sentinel DeFi. Empowering DeFi consciousness.
                 </p>
               </td>
             </tr>

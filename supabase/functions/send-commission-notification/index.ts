@@ -108,7 +108,7 @@ serve(async (req) => {
       ` : ''}
       
       <p style="margin-top: 20px;">
-        <a href="https://www.the3rdeyeadvisors.com/admin" style="background: #6366f1; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; display: inline-block;">
+        <a href="https://www.sentineldefi.com/admin" style="background: #6366f1; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; display: inline-block;">
           View in Admin Dashboard
         </a>
       </p>
@@ -125,7 +125,7 @@ serve(async (req) => {
         "Authorization": `Bearer ${resendApiKey}`,
       },
       body: JSON.stringify({
-        from: "3rdeyeadvisors <noreply@the3rdeyeadvisors.com>",
+        from: "Sentinel DeFi <noreply@the3rdeyeadvisors.com>",
         to: ["info@the3rdeyeadvisors.com"],
         subject: `💰 New Commission Pending: $${commissionAmount} (${planLabel})`,
         html: emailHtml,

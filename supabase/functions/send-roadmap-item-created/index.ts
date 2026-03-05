@@ -161,7 +161,7 @@ const handler = async (req: Request): Promise<Response> => {
           <!-- CTA Button -->
           <tr>
             <td style="text-align: center; padding: 20px 0 30px 0;">
-              <a href="https://the3rdeyeadvisors.com/roadmap" 
+              <a href="https://sentineldefi.com/roadmap"
                  style="display: inline-block; background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%); color: #ffffff; text-decoration: none; padding: 16px 40px; border-radius: 8px; font-size: 16px; font-weight: 600;">
                 Vote Now →
               </a>
@@ -175,7 +175,7 @@ const handler = async (req: Request): Promise<Response> => {
                 Awareness is advantage.
               </p>
               <p style="color: #52525b; font-size: 12px; margin: 0;">
-                © 3rdeyeadvisors • <a href="https://the3rdeyeadvisors.com" style="color: #52525b;">the3rdeyeadvisors.com</a>
+                © Sentinel DeFi • <a href="https://sentineldefi.com" style="color: #52525b;">sentineldefi.com</a>
               </p>
             </td>
           </tr>
@@ -198,7 +198,7 @@ const handler = async (req: Request): Promise<Response> => {
       for (const subscriber of batch) {
         try {
           await resend.emails.send({
-            from: "3rdeyeadvisors <updates@the3rdeyeadvisors.com>",
+            from: "Sentinel DeFi <updates@the3rdeyeadvisors.com>",
             to: [subscriber.email],
             subject: `🗳️ New Feature to Vote On: ${item.title}`,
             html: emailHtml.replace("We've added", subscriber.name ? `Hi ${subscriber.name},\n\nWe've added` : "We've added"),

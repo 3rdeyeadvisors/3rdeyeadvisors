@@ -105,9 +105,9 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send winner notification
     await resend.emails.send({
-      from: "3rdeyeadvisors <info@the3rdeyeadvisors.com>",
+      from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
       to: [winnerEmail?.email || ''],
-      subject: "🎉 YOU WON! 3rdeyeadvisors Raffle Winner",
+      subject: "🎉 YOU WON! Sentinel DeFi Raffle Winner",
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
           <div style="text-align: center; margin-bottom: 30px;">
@@ -135,7 +135,7 @@ const handler = async (req: Request): Promise<Response> => {
           
           <div style="margin-top: 40px; padding: 20px; background: #f9f9f9; border-radius: 8px;">
             <p style="font-size: 14px; color: #666; margin: 0;">
-              Thank you for being part of the 3rdeyeadvisors community. Keep learning, keep growing! 🌐
+              Thank you for being part of the Sentinel DeFi community. Keep learning, keep growing! 🌐
             </p>
           </div>
           
@@ -144,7 +144,7 @@ const handler = async (req: Request): Promise<Response> => {
               Awareness is advantage.
             </p>
             <p style="font-size: 14px; color: #666;">
-              — The 3rdeyeadvisors Team
+              — The Sentinel DeFi Team
             </p>
           </div>
         </div>
@@ -159,7 +159,7 @@ const handler = async (req: Request): Promise<Response> => {
       
       if (email) {
         await resend.emails.send({
-          from: "3rdeyeadvisors <info@the3rdeyeadvisors.com>",
+          from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
           to: [email],
           subject: "Raffle Results - Thank You for Participating!",
           html: `
@@ -185,7 +185,7 @@ const handler = async (req: Request): Promise<Response> => {
               </div>
               
               <p style="font-size: 16px; line-height: 1.6;">
-                Thank you for being part of the 3rdeyeadvisors community.
+                Thank you for being part of the Sentinel DeFi community.
               </p>
               
               <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e5e5e5; text-align: center;">
@@ -193,7 +193,7 @@ const handler = async (req: Request): Promise<Response> => {
                   Keep learning. Keep growing.
                 </p>
                 <p style="font-size: 14px; color: #666;">
-                  — 3rdeyeadvisors
+                  — Sentinel DeFi
                 </p>
               </div>
             </div>

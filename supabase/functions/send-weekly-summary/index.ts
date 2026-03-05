@@ -145,7 +145,7 @@ const handler = async (req: Request): Promise<Response> => {
       <body>
         <div class="container">
           <div class="header">
-            <h1>📊 3EA DeFi Broadcast Weekly Summary</h1>
+            <h1>📊 Sentinel DeFi Broadcast Weekly Summary</h1>
             <p style="margin: 10px 0 0 0;">Week of ${weekStart.toLocaleDateString()} - ${weekEnd.toLocaleDateString()}</p>
           </div>
           <div class="content">
@@ -195,7 +195,7 @@ const handler = async (req: Request): Promise<Response> => {
               <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; margin: 15px 0;">
                 <p><strong>${alerts.length} alert(s) logged this week.</strong></p>
                 <p style="margin: 10px 0 0 0;">
-                  <a href="https://the3rdeyeadvisors.com/admin" style="color: #2563eb; text-decoration: none;">View details in Admin Dashboard →</a>
+                  <a href="https://sentineldefi.com/admin" style="color: #2563eb; text-decoration: none;">View details in Admin Dashboard →</a>
                 </p>
               </div>
             ` : ''}
@@ -211,7 +211,7 @@ const handler = async (req: Request): Promise<Response> => {
             </div>
           </div>
           <div class="footer">
-            <p style="font-size: 14px; color: #6b7280; margin: 0;">3EA DeFi Broadcast Automation System</p>
+            <p style="font-size: 14px; color: #6b7280; margin: 0;">Sentinel DeFi Broadcast Automation System</p>
             <p style="font-size: 12px; color: #9ca3af; margin: 10px 0 0 0;">Sent every Friday at 9:10 AM CST</p>
           </div>
         </div>
@@ -221,9 +221,9 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send summary email
     const { data: emailData, error: emailError } = await resend.emails.send({
-      from: '3rdeyeadvisors Reports <info@the3rdeyeadvisors.com>',
+      from: 'Sentinel DeFi Reports <info@the3rdeyeadvisors.com>',
       to: ['3rdeyeadvisors@gmail.com'],
-      subject: `📊 3EA DeFi Broadcast Weekly Summary - ${successRate}% Success Rate`,
+      subject: `📊 Sentinel DeFi Broadcast Weekly Summary - ${successRate}% Success Rate`,
       html: emailHtml,
     });
 

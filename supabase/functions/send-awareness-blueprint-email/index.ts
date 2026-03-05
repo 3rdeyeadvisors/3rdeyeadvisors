@@ -24,7 +24,7 @@ const handler = async (req: Request): Promise<Response> => {
     console.log("Sending Awareness Blueprint email to:", email);
 
     const emailResponse = await resend.emails.send({
-      from: "3rdeyeadvisors <info@the3rdeyeadvisors.com>",
+      from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
       to: [email],
       subject: "Your Awareness Blueprint (Download Inside)",
       html: `
@@ -36,7 +36,7 @@ const handler = async (req: Request): Promise<Response> => {
           </p>
           
           <div style="margin: 30px 0;">
-            <a href="https://the3rdeyeadvisors.com/resources/Awareness_Blueprint_Clean.pdf" 
+            <a href="https://sentineldefi.com/resources/Awareness_Blueprint_Clean.pdf"
                style="display: inline-block; background-color: #000; color: #fff; padding: 14px 28px; text-decoration: none; border-radius: 6px; font-weight: 600;">
               Download Your Blueprint
             </a>
@@ -58,8 +58,8 @@ const handler = async (req: Request): Promise<Response> => {
           <hr style="border: none; border-top: 1px solid #eee; margin: 32px 0;" />
           
           <p style="color: #999; font-size: 12px; line-height: 1.4;">
-            3rdeyeadvisors<br/>
-            <a href="https://the3rdeyeadvisors.com" style="color: #999;">the3rdeyeadvisors.com</a>
+            Sentinel DeFi<br/>
+            <a href="https://sentineldefi.com" style="color: #999;">sentineldefi.com</a>
           </p>
         </div>
       `,

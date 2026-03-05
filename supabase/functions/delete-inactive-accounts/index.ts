@@ -18,7 +18,7 @@ function generateDeletionEmail(userName: string): string {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Account Removed - 3rdeyeadvisors</title>
+  <title>Account Removed - Sentinel DeFi</title>
 </head>
 <body style="margin: 0; padding: 0; background-color: #0a0a0f; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;">
   <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #0a0a0f;">
@@ -30,7 +30,7 @@ function generateDeletionEmail(userName: string): string {
           <tr>
             <td style="padding: 40px 40px 20px 40px; text-align: center; border-bottom: 1px solid rgba(139, 92, 246, 0.2);">
               <h1 style="margin: 0; font-size: 28px; font-weight: 700; color: #ffffff; letter-spacing: -0.5px;">
-                3rdeyeadvisors
+                Sentinel DeFi
               </h1>
               <p style="margin: 8px 0 0 0; font-size: 14px; color: rgba(139, 92, 246, 0.8); text-transform: uppercase; letter-spacing: 2px;">
                 DeFi Education Platform
@@ -46,7 +46,7 @@ function generateDeletionEmail(userName: string): string {
               </h2>
               
               <p style="margin: 0 0 20px 0; font-size: 16px; line-height: 1.6; color: #e2e8f0;">
-                We're reaching out to let you know that your 3rdeyeadvisors account has been removed due to inactivity (30+ days without signing in).
+                We're reaching out to let you know that your Sentinel DeFi account has been removed due to inactivity (30+ days without signing in).
               </p>
               
               <div style="background: rgba(139, 92, 246, 0.1); border-left: 4px solid #8b5cf6; padding: 20px; border-radius: 0 8px 8px 0; margin: 24px 0;">
@@ -64,7 +64,7 @@ function generateDeletionEmail(userName: string): string {
               <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0;">
                 <tr>
                   <td align="center">
-                    <a href="https://the3rdeyeadvisors.com/auth" style="display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%); color: #ffffff; text-decoration: none; font-size: 16px; font-weight: 600; border-radius: 8px; box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4);">
+                    <a href="https://sentineldefi.com/auth" style="display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%); color: #ffffff; text-decoration: none; font-size: 16px; font-weight: 600; border-radius: 8px; box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4);">
                       Create New Account
                     </a>
                   </td>
@@ -82,11 +82,11 @@ function generateDeletionEmail(userName: string): string {
           <tr>
             <td style="padding: 30px 40px; background: rgba(0, 0, 0, 0.3); border-top: 1px solid rgba(139, 92, 246, 0.2);">
               <p style="margin: 0 0 12px 0; font-size: 14px; color: #94a3b8; text-align: center;">
-                Thank you for being part of the 3rdeyeadvisors community.
+                Thank you for being part of the Sentinel DeFi community.
               </p>
               <p style="margin: 0; font-size: 12px; color: #64748b; text-align: center;">
-                © ${new Date().getFullYear()} 3rdeyeadvisors. All rights reserved.<br>
-                <a href="https://the3rdeyeadvisors.com" style="color: #8b5cf6; text-decoration: none;">the3rdeyeadvisors.com</a>
+                © ${new Date().getFullYear()} Sentinel DeFi. All rights reserved.<br>
+                <a href="https://sentineldefi.com" style="color: #8b5cf6; text-decoration: none;">sentineldefi.com</a>
               </p>
             </td>
           </tr>
@@ -184,9 +184,9 @@ const handler = async (req: Request): Promise<Response> => {
         const emailHtml = generateDeletionEmail(userName);
 
         const { error: emailError } = await resend.emails.send({
-          from: "3rdeyeadvisors <noreply@the3rdeyeadvisors.com>",
+          from: "Sentinel DeFi <noreply@the3rdeyeadvisors.com>",
           to: [userEmail],
-          subject: "Your 3rdeyeadvisors Account Has Been Removed",
+          subject: "Your Sentinel DeFi Account Has Been Removed",
           html: emailHtml,
         });
 

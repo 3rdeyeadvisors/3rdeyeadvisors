@@ -72,7 +72,7 @@ const handler = async (req: Request): Promise<Response> => {
     for (const subscriber of subscribers) {
       try {
         const result = await resend.emails.send({
-        from: "3rdeyeadvisors <info@the3rdeyeadvisors.com>",
+        from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
         to: [subscriber.email],
         subject: "🎟 Learn to Earn — Join Our $50 Bitcoin Raffle Now",
         html: `
@@ -105,7 +105,7 @@ const handler = async (req: Request): Promise<Response> => {
                         </p>
                         
                         <p style="font-size: 16px; line-height: 1.6; margin: 0 0 32px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; color: #1f2937;">
-                          <strong style="color: #3B82F6;">3rdeyeadvisors</strong> has officially launched the <strong>Learn-to-Earn Raffle</strong>, rewarding our community for learning and engaging in DeFi education.
+                          <strong style="color: #3B82F6;">Sentinel DeFi</strong> has officially launched the <strong>Learn-to-Earn Raffle</strong>, rewarding our community for learning and engaging in DeFi education.
                         </p>
                         
                         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #3B82F6; border-radius: 12px; margin: 30px 0;">
@@ -117,7 +117,7 @@ const handler = async (req: Request): Promise<Response> => {
                               
                               <div style="text-align: left; margin: 0 0 30px 0;">
                                 <p style="font-size: 16px; line-height: 2; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; margin: 8px 0;">
-                                  ✅ <strong>Follow us on Instagram</strong> @3rdeyeadvisors
+                                  ✅ <strong>Follow us on Instagram</strong> @sentineldefi
                                 </p>
                                 <p style="font-size: 16px; line-height: 2; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; margin: 8px 0;">
                                 </p>
@@ -158,7 +158,7 @@ const handler = async (req: Request): Promise<Response> => {
                         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                           <tr>
                             <td align="center" style="padding: 40px 0 30px 0;">
-                              <a href="https://the3rdeyeadvisors.com/raffles" style="display: inline-block; background-color: #3B82F6; color: #ffffff; padding: 18px 40px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 18px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
+                              <a href="https://sentineldefi.com/raffles" style="display: inline-block; background-color: #3B82F6; color: #ffffff; padding: 18px 40px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 18px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
                                 Join the Raffle Now →
               </a>
             </td>
@@ -176,7 +176,7 @@ const handler = async (req: Request): Promise<Response> => {
                 Awareness is advantage.
               </p>
               <p style="font-size: 14px; color: #6b7280; margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
-                — 3rdeyeadvisors
+                — Sentinel DeFi
               </p>
             </td>
           </tr>

@@ -97,7 +97,7 @@ const handler = async (req: Request): Promise<Response> => {
         subject_line: payload.subject_line,
         intro_text: payload.intro_text,
         market_block: payload.market_block,
-        cta_link: payload.cta_link || 'https://the3rdeyeadvisors.com',
+        cta_link: payload.cta_link || 'https://sentineldefi.com',
         scheduled_for: scheduledDate.toISOString().split('T')[0],
       })
       .select()

@@ -39,9 +39,9 @@ const handler = async (req: Request): Promise<Response> => {
     const firstName = profile?.display_name?.split(' ')[0] || 'there';
 
     const emailResponse = await resend.emails.send({
-      from: "3rdeyeadvisors <info@the3rdeyeadvisors.com>",
+      from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
       to: [email],
-      subject: "Reset Your Password - 3rdeyeadvisors",
+      subject: "Reset Your Password - Sentinel DeFi",
       tags: [
         { name: 'category', value: 'password_reset' }
       ],
@@ -68,7 +68,7 @@ const handler = async (req: Request): Promise<Response> => {
                       <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background: linear-gradient(135deg, hsl(217, 32%, 8%), hsl(217, 32%, 6%)); border-radius: 12px; border: 1px solid hsl(217, 32%, 15%);">
                         <tr>
                           <td style="text-align: center; padding: 48px 24px;">
-                            <h1 style="color: hsl(217, 91%, 60%); font-size: 36px; margin: 0 0 8px 0; font-weight: 700; text-shadow: 0 0 24px hsla(217, 91%, 60%, 0.4);">3rdeyeadvisors</h1>
+                            <h1 style="color: hsl(217, 91%, 60%); font-size: 36px; margin: 0 0 8px 0; font-weight: 700; text-shadow: 0 0 24px hsla(217, 91%, 60%, 0.4);">Sentinel DeFi</h1>
                             <p style="color: hsl(0, 0%, 95%); font-size: 18px; margin: 0; opacity: 0.9;">Secure Password Reset</p>
                           </td>
                         </tr>
@@ -84,7 +84,7 @@ const handler = async (req: Request): Promise<Response> => {
                             <h2 style="color: hsl(217, 91%, 70%); font-size: 24px; margin: 0 0 24px 0; font-weight: 600;">Hello ${firstName}!</h2>
                             
                             <p style="color: #F5F5F5; font-size: 16px; margin: 0 0 28px 0; line-height: 1.6;">
-                              We received a request to reset the password for your 3rdeyeadvisors account. Click the button below to create a new secure password and continue your DeFi journey.
+                              We received a request to reset the password for your Sentinel DeFi account. Click the button below to create a new secure password and continue your DeFi journey.
                             </p>
 
                             <!-- Reset Button -->
@@ -134,7 +134,7 @@ const handler = async (req: Request): Promise<Response> => {
                               <a href="mailto:info@the3rdeyeadvisors.com" style="color: hsl(217, 91%, 70%); text-decoration: none; font-weight: 500;">info@the3rdeyeadvisors.com</a>
                             </p>
                             <p style="color: hsl(215, 20%, 50%); font-size: 12px; margin: 0;">
-                              © 2024 3rdeyeadvisors. Empowering DeFi consciousness.
+                              © 2024 Sentinel DeFi. Empowering DeFi consciousness.
                             </p>
                           </td>
                         </tr>

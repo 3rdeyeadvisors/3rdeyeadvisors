@@ -90,7 +90,7 @@ const handler = async (req: Request): Promise<Response> => {
           ` : ''}
 
           <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb; color: #6b7280; font-size: 12px;">
-            <p>This is an automated notification from your 3rdeyeadvisors store.</p>
+            <p>This is an automated notification from your Sentinel DeFi store.</p>
           </div>
         </div>
       </body>
@@ -98,7 +98,7 @@ const handler = async (req: Request): Promise<Response> => {
     `;
 
     const emailResponse = await resend.emails.send({
-      from: "3rdeyeadvisors Store <info@the3rdeyeadvisors.com>",
+      from: "Sentinel DeFi Store <info@the3rdeyeadvisors.com>",
       reply_to: customer_email,
       to: ["info@the3rdeyeadvisors.com"],
       subject: `🛒 New order #${order_id} — $${(total / 100).toFixed(2)}`,

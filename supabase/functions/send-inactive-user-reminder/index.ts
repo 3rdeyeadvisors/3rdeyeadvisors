@@ -107,13 +107,13 @@ const handler = async (req: Request): Promise<Response> => {
       
       try {
         const emailResponse = await resend.emails.send({
-          from: "3rdeyeadvisors <info@the3rdeyeadvisors.com>",
+          from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
           to: [user.email],
           subject: "We miss you! Continue your DeFi journey 🚀",
           html: `
             <div style="max-width: 600px; margin: 0 auto; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #020817; color: #fff; padding: 20px; border-radius: 12px;">
               <div style="text-align: center; padding: 30px 20px; background: linear-gradient(135deg, #0f172a, #1e1b4b); border-radius: 12px; margin-bottom: 24px; border: 1px solid #1e293b;">
-                <h1 style="color: #3b82f6; font-size: 28px; margin: 0 0 8px 0; font-weight: bold;">3rdeyeadvisors</h1>
+                <h1 style="color: #3b82f6; font-size: 28px; margin: 0 0 8px 0; font-weight: bold;">Sentinel DeFi</h1>
                 <h2 style="color: #a78bfa; font-size: 20px; margin: 0;">Your Learning Journey Awaits</h2>
               </div>
               
@@ -140,7 +140,7 @@ const handler = async (req: Request): Promise<Response> => {
               </p>
               
               <div style="text-align: center; margin: 32px 0;">
-                <a href="https://the3rdeyeadvisors.com/courses" style="background: linear-gradient(45deg, #3b82f6, #8b5cf6); color: #ffffff; padding: 14px 32px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; font-size: 16px;">
+                <a href="https://sentineldefi.com/courses" style="background: linear-gradient(45deg, #3b82f6, #8b5cf6); color: #ffffff; padding: 14px 32px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; font-size: 16px;">
                   Continue Learning
                 </a>
               </div>
@@ -151,7 +151,7 @@ const handler = async (req: Request): Promise<Response> => {
               
               <hr style="margin: 32px 0; border: none; border-top: 1px solid #1e293b;">
               <p style="color: #6b7280; font-size: 12px; text-align: center; margin: 0;">
-                You're receiving this because you have an account at 3rdeyeadvisors.com
+                You're receiving this because you have an account at sentineldefi.com
               </p>
             </div>
           `,

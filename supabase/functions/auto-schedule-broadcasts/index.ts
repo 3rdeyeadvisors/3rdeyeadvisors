@@ -68,16 +68,16 @@ const handler = async (req: Request): Promise<Response> => {
         .insert({
           day_type,
           scheduled_for: scheduledFor,
-          subject_line: day_type === 'monday' ? '3EA Market Pulse: Top Movers' :
-                       day_type === 'wednesday' ? '3EA DeFi Trends: What\'s Moving This Week' :
-                       '3EA Learning Drop: DeFi Education',
+          subject_line: day_type === 'monday' ? 'Sentinel DeFi Market Pulse: Top Movers' :
+                       day_type === 'wednesday' ? 'Sentinel DeFi Trends: What\'s Moving This Week' :
+                       'Sentinel DeFi Learning Drop: DeFi Education',
           intro_text: day_type === 'monday' ? 'Top-performing DeFi tokens and their 24-hour metrics.' :
                       day_type === 'wednesday' ? 'Key trends shaping DeFi markets this week.' :
                       'This week\'s DeFi education highlight.',
           market_block: 'Live content will be generated at send time',
-          cta_link: day_type === 'friday' ? 'https://the3rdeyeadvisors.com/courses/defi-mastery' :
-                    day_type === 'wednesday' ? 'https://the3rdeyeadvisors.com/blog' :
-                    'https://the3rdeyeadvisors.com/courses'
+          cta_link: day_type === 'friday' ? 'https://sentineldefi.com/courses/defi-mastery' :
+                    day_type === 'wednesday' ? 'https://sentineldefi.com/blog' :
+                    'https://sentineldefi.com/courses'
         });
 
       if (insertError) {

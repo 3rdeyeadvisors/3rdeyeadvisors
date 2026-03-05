@@ -101,13 +101,13 @@ const handler = async (req: Request): Promise<Response> => {
       
       try {
         const emailResponse = await resend.emails.send({
-          from: "3rdeyeadvisors <info@the3rdeyeadvisors.com>",
+          from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
           to: [email],
           subject: "Ready to start your DeFi journey? 🚀",
           html: `
             <div style="max-width: 600px; margin: 0 auto; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: hsl(222, 84%, 4.9%); color: #fff; padding: 20px; border-radius: 12px;">
               <div style="text-align: center; padding: 30px 20px; background: linear-gradient(135deg, hsl(217, 32%, 8%), hsl(217, 32%, 6%)); border-radius: 12px; margin-bottom: 24px; border: 1px solid hsl(217, 32%, 15%);">
-                <h1 style="color: hsl(217, 91%, 60%); font-size: 28px; margin: 0 0 8px 0; font-weight: bold;">3rdeyeadvisors</h1>
+                <h1 style="color: hsl(217, 91%, 60%); font-size: 28px; margin: 0 0 8px 0; font-weight: bold;">Sentinel DeFi</h1>
                 <h2 style="color: hsl(271, 91%, 75%); font-size: 20px; margin: 0;">Your DeFi Education Awaits</h2>
               </div>
               
@@ -133,7 +133,7 @@ const handler = async (req: Request): Promise<Response> => {
               </p>
               
               <div style="text-align: center; margin: 32px 0;">
-                <a href="https://the3rdeyeadvisors.com/courses" style="background: linear-gradient(45deg, #3b82f6, #8b5cf6); color: #ffffff; padding: 14px 32px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; font-size: 16px;">
+                <a href="https://sentineldefi.com/courses" style="background: linear-gradient(45deg, #3b82f6, #8b5cf6); color: #ffffff; padding: 14px 32px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; font-size: 16px;">
                   Start Learning Now
                 </a>
               </div>
@@ -144,7 +144,7 @@ const handler = async (req: Request): Promise<Response> => {
               
               <hr style="margin: 32px 0; border: none; border-top: 1px solid hsl(217, 32%, 15%);">
               <p style="color: hsl(215, 20%, 65%); font-size: 12px; text-align: center; margin: 0;">
-                You're receiving this because you signed up at 3rdeyeadvisors.com
+                You're receiving this because you signed up at sentineldefi.com
               </p>
             </div>
           `,
