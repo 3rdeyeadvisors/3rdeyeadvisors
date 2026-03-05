@@ -113,6 +113,7 @@ export function EmailCenter() {
                     <tr>
                       <td align="center" style="padding: 40px 0;">
                         <a href="https://sentineldefi.com/raffles" style="display: inline-block; background: #3B82F6; color: #ffffff; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 18px; font-family: Arial, sans-serif;">
+                        <a href="https://www.sentineldefi.com/raffles" style="display: inline-block; background: #3B82F6; color: #ffffff; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 18px; font-family: Arial, sans-serif;">
                           Join the Raffle Now →
                         </a>
                       </td>

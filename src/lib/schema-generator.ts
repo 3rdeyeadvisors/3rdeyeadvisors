@@ -46,6 +46,7 @@ function generateArticleSchema(content: PageContent): SchemaConfig {
          logo: {
            '@type': 'ImageObject',
            url: 'https://www.sentineldefi.com/favicon-3ea-new.png'
+           url: 'https://www.sentineldefi.com/favicon-sentinel-defi.png'
          }
       },
       datePublished: content.publishedDate || new Date().toISOString(),
@@ -253,6 +254,7 @@ export function generateSchema(content: PageContent): {
           name: 'Sentinel DeFi',
            url: 'https://www.sentineldefi.com',
            logo: 'https://www.sentineldefi.com/favicon-3ea-new.png',
+           logo: 'https://www.sentineldefi.com/favicon-sentinel-defi.png',
           description: 'DeFi education platform for financial consciousness and decentralized finance mastery',
           foundingDate: '2024',
           sameAs: [
