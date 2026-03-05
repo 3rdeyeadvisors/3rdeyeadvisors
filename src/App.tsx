@@ -234,9 +234,16 @@ const App = () => {
     const search = window.location.search;
     const hash = window.location.hash;
     
-    // Redirect Sentinel DeFi.com (without "the") to sentineldefi.com
-    if (hostname === 'sentineldefi.com' || hostname === 'www.sentineldefi.com') {
-      const redirectUrl = `https://sentineldefi.com${pathname}${search}${hash}`;
+    // Redirect sentineldefi.com (without www) to www.sentineldefi.com
+    if (hostname === 'sentineldefi.com') {
+      const redirectUrl = `https://www.sentineldefi.com${pathname}${search}${hash}`;
+      window.location.replace(redirectUrl);
+      return;
+    }
+
+    // Redirect legacy domains to www.sentineldefi.com
+    if (hostname.includes('the3rdeyeadvisors.com')) {
+      const redirectUrl = `https://www.sentineldefi.com${pathname}${search}${hash}`;
       window.location.replace(redirectUrl);
       return;
     }

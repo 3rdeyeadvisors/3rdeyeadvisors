@@ -193,8 +193,8 @@ const ReferralTerms = () => {
                 </CardHeader>
                 <p className="text-white/80 leading-relaxed">
                   If you have a dispute regarding the Program, commissions, or these terms, please contact us 
-                  at <a href="mailto:info@sentineldefi.com" className="text-primary hover:underline">
-                  info@sentineldefi.com</a>. We will work in good faith to resolve disputes within 30
+                  at <a href="mailto:info@the3rdeyeadvisors.com" className="text-primary hover:underline">
+                  info@the3rdeyeadvisors.com</a>. We will work in good faith to resolve disputes within 30
                   days. Any disputes that cannot be resolved will be subject to binding arbitration in accordance 
                   with our <Link to="/terms" className="text-primary hover:underline">Terms of Service</Link>.
                 </p>
@@ -217,8 +217,8 @@ const ReferralTerms = () => {
               <section className="border-t border-white/8 pt-6">
                 <p className="text-white/80">
                   For questions about the Referral Program, please contact us at{" "}
-                  <a href="mailto:info@sentineldefi.com" className="text-primary hover:underline">
-                    info@sentineldefi.com
+                  <a href="mailto:info@the3rdeyeadvisors.com" className="text-primary hover:underline">
+                    info@the3rdeyeadvisors.com
                   </a>
                 </p>
               </section>

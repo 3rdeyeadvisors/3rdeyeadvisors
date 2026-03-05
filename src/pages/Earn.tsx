@@ -565,8 +565,8 @@ const Earn = () => {
 
                   <p className="font-body text-xs text-white/40 text-center">
                     Questions about payouts? Contact{" "}
-                    <a href="mailto:info@sentineldefi.com" className="text-violet-400 hover:underline">
-                      info@sentineldefi.com
+                    <a href="mailto:info@the3rdeyeadvisors.com" className="text-violet-400 hover:underline">
+                      info@the3rdeyeadvisors.com
                     </a>
                   </p>
                 </CardContent>

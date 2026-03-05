@@ -29,8 +29,8 @@ export default defineConfig(({ mode }) => ({
         'android-chrome-512x512.png'
       ],
       manifest: {
-        name: '3rdeyeadvisors - DeFi Education',
-        short_name: '3EA DeFi',
+        name: 'Sentinel DeFi - DeFi Education',
+        short_name: 'Sentinel DeFi',
         description: 'DeFi Education & Digital Ownership Tools',
         theme_color: '#0A1628',
         background_color: '#0A1628',

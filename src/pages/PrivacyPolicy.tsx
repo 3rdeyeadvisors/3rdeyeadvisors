@@ -118,7 +118,7 @@ const PrivacyPolicy = () => {
                 If you have any questions about this Privacy Policy, please contact us at:
               </p>
               <p className="mt-2">
-                <strong>Email:</strong> info@sentineldefi.com
+                <strong>Email:</strong> info@the3rdeyeadvisors.com
               </p>
             </section>
 

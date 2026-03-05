@@ -1,4 +1,4 @@
-# Supabase Email Templates for 3rdeyeadvisors
+# Supabase Email Templates for Sentinel DeFi
 ## Custom Branded Authentication Email Templates
 
 These templates are designed to match your cosmic consciousness brand identity and provide a professional user experience.
@@ -61,11 +61,11 @@ These templates are designed to match your cosmic consciousness brand identity a
 After applying templates, verify these settings in Supabase:
 
 ### Authentication → URL Configuration
-- **Site URL:** `https://the3rdeyeadvisors.com`
+- **Site URL:** `https://sentineldefi.com`
 - **Redirect URLs:** 
-  - `https://the3rdeyeadvisors.com`
-  - `https://www.the3rdeyeadvisors.com`
-  - `https://the3rdeyeadvisors.com/auth?verified=true`
+  - `https://sentineldefi.com`
+  - `https://www.sentineldefi.com`
+  - `https://sentineldefi.com/auth?verified=true`
 
 ### Authentication → Email Auth
 - ✅ Enable email confirmations (if you want users to verify email)
@@ -168,6 +168,6 @@ All templates are designed to:
 
 ---
 
-*Templates created for 3rdeyeadvisors.com*
+*Templates created for sentineldefi.com*
 *Compatible with Supabase Auth v2*
 *Last updated: 2025-01-08*

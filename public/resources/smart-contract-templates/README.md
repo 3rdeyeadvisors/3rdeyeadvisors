@@ -204,6 +204,7 @@ Modify staking to distribute multiple reward tokens simultaneously.
 
 For questions, tutorials, and advanced implementations:
 - Website: https://sentineldefi.com
+- Email: support@the3rdeyeadvisors.com
 - Email: support@3rdeyeadvisors.com
 - Discord: Join our community
 - Twitter: @sentineldefi

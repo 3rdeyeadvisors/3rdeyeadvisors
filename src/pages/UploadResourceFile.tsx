@@ -16,7 +16,7 @@ const UploadResourceFile = () => {
 
     try {
       // Fetch the PDF file
-      const response = await fetch("/resources/3EA_Awareness_Mini_Guide.pdf");
+      const response = await fetch("/resources/Sentinel_DeFi_Awareness_Mini_Guide.pdf");
       if (!response.ok) {
         throw new Error("Failed to fetch the PDF file");
       }
@@ -36,7 +36,7 @@ const UploadResourceFile = () => {
       // Call the edge function to upload to Supabase storage
       const { data, error } = await supabase.functions.invoke("upload-resource-file", {
         body: {
-          fileName: "3EA_Awareness_Mini_Guide.pdf",
+          fileName: "Sentinel_DeFi_Awareness_Mini_Guide.pdf",
           fileData: base64Data,
         },
       });
@@ -63,13 +63,13 @@ const UploadResourceFile = () => {
         <CardHeader>
           <CardTitle>Upload Resource File to Supabase</CardTitle>
           <CardDescription>
-            Upload 3EA_Awareness_Mini_Guide.pdf to Supabase storage and generate a permanent public URL
+            Upload Sentinel_DeFi_Awareness_Mini_Guide.pdf to Supabase storage and generate a permanent public URL
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <Alert>
             <AlertDescription>
-              File: <strong>3EA_Awareness_Mini_Guide.pdf</strong>
+              File: <strong>Sentinel_DeFi_Awareness_Mini_Guide.pdf</strong>
               <br />
               Destination: Supabase Storage (resources bucket)
               <br />

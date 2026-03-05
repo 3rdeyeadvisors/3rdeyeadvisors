@@ -258,10 +258,10 @@ const Contact = () => {
                   <div>
                     <p className="font-body text-xs uppercase tracking-widest text-white/40 mb-1">Email Support</p>
                     <a
-                      href="mailto:info@sentineldefi.com"
+                      href="mailto:info@the3rdeyeadvisors.com"
                       className="font-consciousness text-sm font-medium text-white hover:text-violet-400 transition-colors"
                     >
-                      info@sentineldefi.com
+                      info@the3rdeyeadvisors.com
                     </a>
                   </div>
 

@@ -34,8 +34,8 @@ const CheckoutCancel = () => {
               <HelpCircle className="w-5 h-5 text-violet-400 flex-shrink-0 mt-0.5" />
               <p className="font-body text-sm text-white/50">
                 If something went wrong during checkout or you have a question about membership, reach out to us at{' '}
-                <a href="mailto:info@sentineldefi.com" className="text-violet-400 hover:text-violet-300 transition-colors">
-                  info@sentineldefi.com
+                <a href="mailto:info@the3rdeyeadvisors.com" className="text-violet-400 hover:text-violet-300 transition-colors">
+                  info@the3rdeyeadvisors.com
                 </a>
               </p>
             </div>
