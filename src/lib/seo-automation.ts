@@ -1,5 +1,5 @@
 /**
- * SEO Automation System for 3rdeyeadvisors
+ * SEO Automation System for Sentinel DeFi
  * Automatically validates and optimizes SEO for all pages
  */
 
@@ -42,7 +42,7 @@ export function detectPageType(url: string, title?: string): 'article' | 'course
  */
 export function optimizeMetaDescription(description: string, keywords: string[]): string {
   if (!description) {
-    return `Discover comprehensive DeFi education and tools at 3rdeyeadvisors. Learn ${keywords.slice(0, 2).join(', ')} with expert guidance and practical strategies.`;
+    return `Discover comprehensive DeFi education and tools at Sentinel DeFi. Learn ${keywords.slice(0, 2).join(', ')} with expert guidance and practical strategies.`;
   }
 
   // Check length (140-155 characters optimal)
@@ -73,7 +73,7 @@ export function optimizeMetaDescription(description: string, keywords: string[])
  * Generate automatic keywords based on page type and content
  */
 export function generateKeywords(pageType: string, title: string, url: string): string[] {
-  const baseKeywords = ['DeFi', 'decentralized finance', 'cryptocurrency', '3rdeyeadvisors'];
+  const baseKeywords = ['DeFi', 'decentralized finance', 'cryptocurrency', 'Sentinel DeFi'];
   
   const typeKeywords = {
     article: ['DeFi blog', 'crypto insights', 'blockchain analysis', 'DeFi news'],
@@ -174,7 +174,7 @@ export function validateSEO(config: SEOConfig, htmlContent?: string): SEOValidat
   }
 
   // Validate URL structure
-  if (!config.url.includes('the3rdeyeadvisors.com')) {
+  if (!config.url.includes('sentineldefi.com')) {
     issues.push('URL should include domain for canonical reference');
     fixes.push('Ensure URL includes full domain');
   }
@@ -206,7 +206,7 @@ export function generateSEOConfig(
   );
 
   return {
-    title: title.includes('3rdeyeadvisors') ? title : `${title} | 3rdeyeadvisors`,
+    title: title.includes('Sentinel DeFi') ? title : `${title} | Sentinel DeFi`,
     description: optimizeMetaDescription(description, keywords),
     keywords: keywords.join(', '),
     url: generateCanonicalURL(url),

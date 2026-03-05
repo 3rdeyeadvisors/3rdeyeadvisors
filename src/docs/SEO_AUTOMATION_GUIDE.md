@@ -15,7 +15,7 @@ const MyBlogPost = () => (
     <BlogSEOAutomation
       title="Advanced DeFi Strategies"
       excerpt="Learn cutting-edge yield farming techniques..."
-      author="3rdeyeadvisors Team"
+      author="Sentinel DeFi Team"
       publishedDate="2025-07-26"
       category="DeFi Strategies"
       tags={["yield farming", "DeFi", "cryptocurrency"]}
@@ -247,7 +247,7 @@ The system automatically detects page types based on:
      title="My Blog Post"
      description="Description..."
      keywords="keyword1, keyword2"
-     url="https://3rdeyeadvisors.com/blog/post"
+     url="https://sentineldefi.com/blog/post"
    />
    
    // New (automatic optimization)
