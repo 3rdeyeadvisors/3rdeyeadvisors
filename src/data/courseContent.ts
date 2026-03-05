@@ -7162,7 +7162,7 @@ The Sentinel DeFi Vault is a managed investment vault on the Enzyme Finance prot
 [COMPONENT:KEY_TAKEAWAY]
 {
   "title": "What Makes This Vault Different",
-  "content": "• **Curated Strategy**: Active management by experienced DeFi professionals\n• **Transparent Execution**: Every trade and position is visible on-chain\n• **NFT Access**: Membership via 3EA Earth Access NFT\n• **Enzyme Infrastructure**: Built on battle-tested asset management protocol"
+  "content": "• **Curated Strategy**: Active management by experienced DeFi professionals\n• **Transparent Execution**: Every trade and position is visible on-chain\n• **NFT Access**: Membership via Sentinel Earth Access NFT\n• **Enzyme Infrastructure**: Built on battle-tested asset management protocol"
 }
 [/COMPONENT]
 
@@ -7172,7 +7172,7 @@ Unlike open vaults where anyone can deposit, the Sentinel DeFi Vault uses a **wh
 
 ### The NFT Access Model
 
-**Step 1: Acquire the 3EA Earth Access NFT**
+**Step 1: Acquire the Sentinel Earth Access NFT**
 • The NFT serves as your membership credential
 • Purchase available through the official link
 • One NFT = one wallet whitelisted for vault access
@@ -7202,7 +7202,7 @@ Unlike open vaults where anyone can deposit, the Sentinel DeFi Vault uses a **wh
   "steps": [
     "Prepare an Ethereum wallet (MetaMask, hardware wallet, etc.)",
     "Ensure you have ETH for the NFT purchase and gas fees",
-    "Visit the official 3EA Earth Access NFT page",
+    "Visit the official Sentinel Earth Access NFT page",
     "Connect your wallet and complete the purchase",
     "Wait up to 7 days for whitelist processing",
     "Once whitelisted, access the vault through Enzyme Finance",
@@ -7290,7 +7290,7 @@ Ready to explore vault access? Here are your next steps:
 
 1. **Learn More**: Visit the Vault Access page for current details
 2. **Prepare**: Set up your Ethereum wallet and acquire ETH
-3. **Purchase**: Acquire the 3EA Earth Access NFT
+3. **Purchase**: Acquire the Sentinel Earth Access NFT
 4. **Wait**: Allow up to 7 days for whitelist processing
 5. **Access**: Connect to Enzyme once whitelisted
 
@@ -7316,12 +7316,12 @@ Ready to explore vault access? Here are your next steps:
                 type: "single",
                 options: [
                   "Just an Ethereum wallet",
-                  "The 3EA Earth Access NFT and wallet whitelisting",
+                  "The Sentinel Earth Access NFT and wallet whitelisting",
                   "A monthly subscription payment",
                   "KYC verification documents"
                 ],
                 correctAnswers: [1],
-                explanation: "Access to the Sentinel DeFi vault requires purchasing the 3EA Earth Access NFT and waiting for your wallet to be whitelisted (up to 7 days).",
+                explanation: "Access to the Sentinel DeFi vault requires purchasing the Sentinel Earth Access NFT and waiting for your wallet to be whitelisted (up to 7 days).",
                 points: 10
               },
               {

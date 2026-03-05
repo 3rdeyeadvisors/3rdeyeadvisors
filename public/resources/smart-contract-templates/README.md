@@ -1,5 +1,5 @@
 # Smart Contract Templates
-### By 3rdeyeadvisors
+### By Sentinel DeFi
 
 This package contains production-ready Solidity smart contract templates for common DeFi use cases. All contracts follow best security practices and include comprehensive documentation.
 
@@ -169,7 +169,7 @@ describe("Token Tests", function() {
 - **OpenZeppelin Docs**: https://docs.openzeppelin.com/
 - **Hardhat Documentation**: https://hardhat.org/
 - **Solidity Docs**: https://docs.soliditylang.org/
-- **3rdeyeadvisors Courses**: https://3rdeyeadvisors.com/courses
+- **Sentinel DeFi Courses**: https://sentineldefi.com/courses
 
 ## 🛡️ Security Checklist
 
@@ -203,10 +203,10 @@ Modify staking to distribute multiple reward tokens simultaneously.
 ## 📞 Support
 
 For questions, tutorials, and advanced implementations:
-- Website: https://3rdeyeadvisors.com
+- Website: https://sentineldefi.com
 - Email: support@3rdeyeadvisors.com
 - Discord: Join our community
-- Twitter: @3rdeyeadvisors
+- Twitter: @sentineldefi
 
 ## 📄 License
 
@@ -214,7 +214,7 @@ MIT License - Feel free to use and modify for your projects.
 
 ---
 
-**Disclaimer**: These templates are provided for educational purposes. Always conduct thorough testing and security audits before using in production. 3rdeyeadvisors is not responsible for any losses incurred from using these contracts.
+**Disclaimer**: These templates are provided for educational purposes. Always conduct thorough testing and security audits before using in production. Sentinel DeFi is not responsible for any losses incurred from using these contracts.
 
 **Version**: 1.0.0  
 **Last Updated**: 2025  

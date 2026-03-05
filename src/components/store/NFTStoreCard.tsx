@@ -71,7 +71,7 @@ export const NFTStoreCard = () => {
       <div className="aspect-square relative bg-black overflow-hidden">
         <img 
           src={nftImage} 
-          alt="3EA Earth Access NFT"
+          alt="Sentinel Earth Access NFT"
           loading="lazy"
           width={400}
           height={400}
@@ -88,7 +88,7 @@ export const NFTStoreCard = () => {
       <div className="p-5 flex flex-col flex-1">
         <div className="mb-4">
           <h3 className="font-consciousness text-base font-bold text-white group-hover:text-violet-300 transition-colors">
-            3EA Earth Access NFT
+            Sentinel Earth Access NFT
           </h3>
           <p className="font-body text-xs text-white/40 mt-1 uppercase tracking-widest">
             Vault Membership Key
