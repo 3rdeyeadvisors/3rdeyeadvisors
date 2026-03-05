@@ -19,7 +19,6 @@ const AdLanding = () => {
     <>
       <SEO
         title="Start Your Financial Awareness Journey | Sentinel DeFi"
-        title="| Sentinel DeFi"
         description="Learn how money, markets, and decentralized systems are shifting. Understand the new financial system with clarity instead of confusion."
         keywords="financial education, DeFi learning, cryptocurrency education, awareness movement, decentralized finance"
       />

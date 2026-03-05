@@ -120,11 +120,11 @@ export const SocialBannerGenerator = () => {
       // Convert to File and upload to Supabase Storage (keeps previous path)
       const res = await fetch(dataUrl);
       const blob = await res.blob();
-      const file = new File([blob], '3ea-social-banner.webp', { type: 'image/webp' });
+      const file = new File([blob], 'sentinel-social-banner.webp', { type: 'image/webp' });
 
       const { error: uploadError } = await supabase.storage
         .from('social-banners')
-        .upload('3ea-social-banner.webp', file, { upsert: true });
+        .upload('sentinel-social-banner.webp', file, { upsert: true });
 
       if (uploadError) {
         console.error('Upload error:', uploadError);
@@ -151,7 +151,7 @@ export const SocialBannerGenerator = () => {
     
     const link = document.createElement('a');
     link.href = generatedImage;
-    link.download = '3ea-social-banner.webp';
+    link.download = 'sentinel-social-banner.webp';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

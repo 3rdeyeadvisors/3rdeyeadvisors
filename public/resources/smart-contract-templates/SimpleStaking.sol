@@ -10,7 +10,7 @@ import "@openzeppelin/contracts/security/Pausable.sol";
 /**
  * @title SimpleStaking
  * @dev A simple staking contract that distributes rewards over time
- * @custom:security-contact security@3rdeyeadvisors.com
+ * @custom:security-contact security@the3rdeyeadvisors.com
  */
 contract SimpleStaking is ReentrancyGuard, Ownable, Pausable {
     using SafeERC20 for IERC20;

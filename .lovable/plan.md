@@ -1,6 +1,6 @@
 
 
-# Replace Favicon with New 3EA Icons
+# Replace Favicon with New Sentinel DeFi Icons
 
 ## What Will Be Done
 

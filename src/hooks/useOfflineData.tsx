@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
 
-const DB_NAME = '3ea-offline-data';
+const DB_NAME = 'sentinel-offline-data';
 const DB_VERSION = 1;
 const STORE_NAMES = {
   courses: 'courses',

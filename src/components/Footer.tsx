@@ -24,7 +24,7 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Mail, href: 'mailto:info@sentineldefi.com', label: 'Email' },
+    { icon: Mail, href: 'mailto:info@the3rdeyeadvisors.com', label: 'Email' },
     { icon: Mail, href: 'mailto:info@the3rdeyeadvisors.com', label: 'Email' },
     { icon: Instagram, href: 'https://instagram.com/sentineldefi', label: 'Instagram' },
   ];

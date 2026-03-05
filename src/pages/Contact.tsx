@@ -103,7 +103,6 @@ const Contact = () => {
         description="Contact Sentinel DeFi for DeFi education inquiries and support. Connect with our team to join the mission of financial awakening and consciousness."
         keywords="contact Sentinel DeFi, DeFi education support, financial consciousness contact, crypto education inquiry"
         url="https://www.sentineldefi.com/contact"
-        url="https://www.the3rdeyeadvisors.com/contact"
       />
       <div className="min-h-screen bg-transparent overflow-hidden relative">
         {/* Nebula Glow */}
@@ -259,10 +258,10 @@ const Contact = () => {
                   <div>
                     <p className="font-body text-xs uppercase tracking-widest text-white/40 mb-1">Email Support</p>
                     <a
-                      href="mailto:info@sentineldefi.com"
+                      href="mailto:info@the3rdeyeadvisors.com"
                       className="font-consciousness text-sm font-medium text-white hover:text-violet-400 transition-colors"
                     >
-                      info@sentineldefi.com
+                      info@the3rdeyeadvisors.com
                     </a>
                   </div>
 
