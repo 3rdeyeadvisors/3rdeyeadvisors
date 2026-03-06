@@ -39,7 +39,7 @@ const handler = async (req: Request): Promise<Response> => {
     const firstName = profile?.display_name?.split(' ')[0] || 'there';
 
     const emailResponse = await resend.emails.send({
-      from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
+      from: "Sentinel DeFi <info@sentineldefi.online>",
       to: [email],
       subject: "Reset Your Password - Sentinel DeFi",
       tags: [
