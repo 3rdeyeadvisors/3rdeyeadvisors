@@ -174,7 +174,7 @@ const RaffleHistory = () => {
         title="Raffle Winners History | Sentinel DeFi"
         description="See past raffle winners and prize distributions in the Sentinel DeFi community."
         keywords="DeFi raffle winners, crypto giveaway history, community rewards"
-        url="https://www.sentineldefi.com/raffle-history"
+        url="https://www.sentineldefi.online/raffle-history"
       />
 
       <div className="min-h-screen bg-transparent pb-20">

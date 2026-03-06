@@ -75,9 +75,9 @@ const handler = async (req: Request): Promise<Response> => {
                       day_type === 'wednesday' ? 'Key trends shaping DeFi markets this week.' :
                       'This week\'s DeFi education highlight.',
           market_block: 'Live content will be generated at send time',
-          cta_link: day_type === 'friday' ? 'https://sentineldefi.com/courses/defi-mastery' :
-                    day_type === 'wednesday' ? 'https://sentineldefi.com/blog' :
-                    'https://sentineldefi.com/courses'
+          cta_link: day_type === 'friday' ? 'https://sentineldefi.online/courses/defi-mastery' :
+                    day_type === 'wednesday' ? 'https://sentineldefi.online/blog' :
+                    'https://sentineldefi.online/courses'
         });
 
       if (insertError) {

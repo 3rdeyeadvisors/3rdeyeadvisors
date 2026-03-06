@@ -130,7 +130,7 @@ serve(async (req) => {
 
     <!-- CTA Button -->
     <div style="text-align: center; margin-bottom: 30px;">
-      <a href="https://sentineldefi.com/courses"
+      <a href="https://sentineldefi.online/courses"
          style="display: inline-block; background: linear-gradient(135deg, #f59e0b, #d97706); color: #000000; text-decoration: none; padding: 16px 40px; border-radius: 12px; font-weight: 600; font-size: 16px;">
         Start Exploring Your Courses →
       </a>

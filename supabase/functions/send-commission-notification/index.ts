@@ -108,7 +108,7 @@ serve(async (req) => {
       ` : ''}
       
       <p style="margin-top: 20px;">
-        <a href="https://www.sentineldefi.com/admin" style="background: #6366f1; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; display: inline-block;">
+        <a href="https://www.sentineldefi.online/admin" style="background: #6366f1; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; display: inline-block;">
           View in Admin Dashboard
         </a>
       </p>

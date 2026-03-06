@@ -20,7 +20,7 @@ const Index = () => {
         title="Everything Your Financial Advisor Won't Tell You"
         description="Sentinel DeFi teaches complete beginners how to understand and use decentralized finance. Plain language. No hype. No gatekeeping. Used by individuals, families, financial advisors, and law firms."
         keywords="DeFi education, crypto for beginners, decentralized finance, blockchain basics, financial advisor crypto, cryptocurrency learning"
-        url="https://www.sentineldefi.com/"
+        url="https://www.sentineldefi.online/"
         type="website"
         schema={{
           type: "Organization",
@@ -28,7 +28,7 @@ const Index = () => {
             "@type": "Organization",
             "name": "Sentinel DeFi",
             "description": "Expert DeFi education and cryptocurrency training platform",
-            "url": "https://www.sentineldefi.com",
+            "url": "https://www.sentineldefi.online",
             "sameAs": [
               "https://twitter.com/sentineldefi"
             ]

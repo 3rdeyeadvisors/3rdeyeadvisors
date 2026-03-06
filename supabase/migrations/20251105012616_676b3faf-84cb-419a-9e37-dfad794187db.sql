@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS public.broadcast_email_queue (
   subject_line TEXT NOT NULL,
   intro_text TEXT NOT NULL,
   market_block TEXT NOT NULL,
-  cta_link TEXT NOT NULL DEFAULT 'https://sentineldefi.com',
+  cta_link TEXT NOT NULL DEFAULT 'https://sentineldefi.online',
   scheduled_for DATE NOT NULL,
   sent_at TIMESTAMP WITH TIME ZONE,
   created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(),

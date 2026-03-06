@@ -55,7 +55,7 @@ const handler = async (req: Request): Promise<Response> => {
         <p style="font-size:14px;margin:12px 0 0;color:#e9d5ff">⏰ Ends: ${new Date(end_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' })}</p>
         </div>
         <div style="background:#1e293b;padding:16px;border-radius:8px;border:1px solid #334155;margin:20px 0;text-align:center">
-        <p style="font-size:14px;color:#f5f5f5;margin:0">Want more entries? Share your referral link from your <a href="https://sentineldefi.com/raffles" style="color:#60a5fa;text-decoration:underline">raffle dashboard</a>.</p>
+        <p style="font-size:14px;color:#f5f5f5;margin:0">Want more entries? Share your referral link from your <a href="https://sentineldefi.online/raffles" style="color:#60a5fa;text-decoration:underline">raffle dashboard</a>.</p>
         </div>
         <p style="text-align:center;font-size:16px;font-weight:700;color:#60a5fa;margin:24px 0 8px;border-top:1px solid #334155;padding-top:20px">Awareness is advantage.</p>
         <p style="text-align:center;font-size:14px;color:#64748b;margin:0">— The Sentinel DeFi Team</p>

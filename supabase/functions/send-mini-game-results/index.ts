@@ -75,7 +75,7 @@ const handler = async (req: Request): Promise<Response> => {
                       ${description ? `<p style="color:#94a3b8;font-size:15px;line-height:1.6;margin-bottom:32px;text-align:center;font-style:italic">"${description}"</p>` : ''}
 
                       <div style="text-align:center">
-                        <a href="https://sentineldefi.com/mini-games" style="background:#60a5fa;color:#030717;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:700;font-size:16px;display:inline-block">Continue Training</a>
+                        <a href="https://sentineldefi.online/mini-games" style="background:#60a5fa;color:#030717;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:700;font-size:16px;display:inline-block">Continue Training</a>
                       </div>
 
                       <p style="text-align:center;font-size:14px;color:#64748b;margin-top:40px;padding-top:24px;border-top:1px solid #2a3441">

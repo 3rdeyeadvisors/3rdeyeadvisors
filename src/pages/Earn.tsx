@@ -220,7 +220,7 @@ const Earn = () => {
         title="Earn While You Learn DeFi | Sentinel DeFi"
         description="Earn points, unlock rewards, and earn referral commissions by learning DeFi. Monthly subscribers earn 50%, annual subscribers earn 60%, Founding 33 members earn 70%."
         keywords="earn crypto education, DeFi referral program, learn to earn, crypto commissions, DeFi rewards"
-        url="https://www.sentineldefi.com/earn"
+        url="https://www.sentineldefi.online/earn"
       />
 
       <div className="min-h-screen bg-transparent relative overflow-hidden">

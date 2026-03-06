@@ -271,14 +271,14 @@ const Courses = () => {
         title="DeFi Courses & Cryptocurrency Education: Learn Blockchain Investing"
         description="Comprehensive DeFi courses from beginner to advanced. Learn yield farming, staking, DeFi protocols, and passive income strategies. Free and paid courses available for cryptocurrency education."
         keywords="DeFi courses, cryptocurrency education, blockchain courses, yield farming course, DeFi beginner guide, crypto passive income, DeFi training, blockchain investing course"
-        url="https://www.sentineldefi.com/courses"
+        url="https://www.sentineldefi.online/courses"
         schema={{
           type: 'Course',
           data: {
             provider: {
               "@type": "Organization",
                name: "Sentinel DeFi",
-               url: "https://www.sentineldefi.com"
+               url: "https://www.sentineldefi.online"
             },
             educationalLevel: "Beginner to Advanced",
             teaches: [

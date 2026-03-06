@@ -86,7 +86,7 @@ const handler = async (req: Request): Promise<Response> => {
             <div class="alert-details">
               <h3>What This Means</h3>
               <p>Your automated Sentinel DeFi Broadcast encountered an issue and requires attention. Please review the details above and use the "Retry Now" button to attempt reprocessing the broadcast.</p>
-              <p>You can also view detailed logs in your <a href="https://sentineldefi.com/admin">Lovable admin dashboard</a> under <strong>Automation Logs → Sentinel DeFi Broadcast Alerts</strong>.</p>
+              <p>You can also view detailed logs in your <a href="https://sentineldefi.online/admin">Lovable admin dashboard</a> under <strong>Automation Logs → Sentinel DeFi Broadcast Alerts</strong>.</p>
             </div>
           </div>
           <div class="footer">

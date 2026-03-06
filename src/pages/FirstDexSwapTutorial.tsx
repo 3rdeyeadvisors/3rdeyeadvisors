@@ -457,7 +457,7 @@ const FirstDexSwapTutorial = () => {
         title="First DEX Swap Tutorial: Uniswap Trading Guide"
         description="Complete beginner's guide to your first decentralized exchange swap. Learn to trade safely on Uniswap with step-by-step instructions for DeFi trading."
         keywords="DEX swap tutorial, Uniswap guide, decentralized exchange trading, DeFi trading tutorial, first crypto swap, Polygon DEX tutorial"
-        url="https://www.sentineldefi.com/tutorials/first-dex-swap"
+        url="https://www.sentineldefi.online/tutorials/first-dex-swap"
         schema={{
           type: 'Course',
           data: {

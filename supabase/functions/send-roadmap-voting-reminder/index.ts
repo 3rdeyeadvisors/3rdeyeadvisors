@@ -185,7 +185,7 @@ const handler = async (req: Request): Promise<Response> => {
           <!-- CTA Button -->
           <tr>
             <td style="text-align: center; padding: 30px 0;">
-              <a href="https://sentineldefi.com/roadmap"
+              <a href="https://sentineldefi.online/roadmap"
                  style="display: inline-block; background: linear-gradient(135deg, ${reminder_type === "24-hour" ? "#dc2626, #b91c1c" : "#f59e0b, #d97706"}); color: #ffffff; text-decoration: none; padding: 16px 40px; border-radius: 8px; font-size: 16px; font-weight: 600;">
                 Vote Now Before It's Too Late →
               </a>
@@ -208,7 +208,7 @@ const handler = async (req: Request): Promise<Response> => {
                 Awareness is advantage.
               </p>
               <p style="color: #52525b; font-size: 12px; margin: 0;">
-                © Sentinel DeFi • <a href="https://sentineldefi.com" style="color: #52525b;">sentineldefi.com</a>
+                © Sentinel DeFi • <a href="https://sentineldefi.online" style="color: #52525b;">sentineldefi.online</a>
               </p>
             </td>
           </tr>

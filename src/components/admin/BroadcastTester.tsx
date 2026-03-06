@@ -13,8 +13,7 @@ const BroadcastTester = () => {
   "subject_line": "Sentinel DeFi Market Pulse: Top Movers",
   "intro_text": "Here's this week's top-performing DeFi tokens.",
   "market_block": "<h3>Top Movers</h3><ul><li><strong>ETH</strong>: $2,450 <span style='color: #10b981;'>+5.2%</span></li><li><strong>UNI</strong>: $8.75 <span style='color: #10b981;'>+12.4%</span></li></ul>",
-  "cta_link": "https://sentineldefi.com"
-  "cta_link": "https://www.sentineldefi.com"
+  "cta_link": "https://www.sentineldefi.online"
 }`);
   const [isLoading, setIsLoading] = useState(false);
   const [lastResponse, setLastResponse] = useState<any>(null);
@@ -104,30 +103,21 @@ const BroadcastTester = () => {
         subject_line: "Sentinel DeFi Market Pulse: Top Movers",
         intro_text: "Here are this week's top-performing DeFi tokens and their 24-hour performance metrics.",
         market_block: "<h3>Top Movers</h3><ul><li><strong>Ethereum (ETH)</strong>: $2,450 <span style='color: #10b981;'>+5.2%</span></li><li><strong>Uniswap (UNI)</strong>: $8.75 <span style='color: #10b981;'>+12.4%</span></li><li><strong>Aave (AAVE)</strong>: $95.30 <span style='color: #ef4444;'>-2.1%</span></li></ul>",
-        cta_link: "https://sentineldefi.com/courses"
-      },
-      wednesday: {
-        day_type: "wednesday",
-        subject_line: "Sentinel DeFi DeFi Trends: What's Moving This Week",
-        intro_text: "Key trends shaping DeFi markets this week.",
-        market_block: "<h3>This Week's Trends</h3><p>🔥 <strong>Liquid Staking Dominance:</strong> LSTs now represent over $40B in TVL across major protocols.</p><p>📊 <strong>Cross-chain Activity:</strong> Bridge volume up 28% week-over-week.</p><p>⚡ <strong>Gas Optimizations:</strong> Layer 2 adoption continues accelerating with record-low fees.</p>",
-        cta_link: "https://sentineldefi.com/blog"
-        cta_link: "https://www.sentineldefi.com/courses"
+        cta_link: "https://www.sentineldefi.online"
       },
       wednesday: {
         day_type: "wednesday",
         subject_line: "Sentinel DeFi Trends: What's Moving This Week",
         intro_text: "Key trends shaping DeFi markets this week.",
         market_block: "<h3>This Week's Trends</h3><p>🔥 <strong>Liquid Staking Dominance:</strong> LSTs now represent over $40B in TVL across major protocols.</p><p>📊 <strong>Cross-chain Activity:</strong> Bridge volume up 28% week-over-week.</p><p>⚡ <strong>Gas Optimizations:</strong> Layer 2 adoption continues accelerating with record-low fees.</p>",
-        cta_link: "https://www.sentineldefi.com/blog"
+        cta_link: "https://www.sentineldefi.online/blog"
       },
       friday: {
         day_type: "friday",
         subject_line: "Sentinel DeFi Learning Drop (DeFi Education)",
         intro_text: "This week's DeFi education highlight: Understanding Impermanent Loss",
         market_block: "<h3>📚 Understanding Impermanent Loss</h3><p><strong>What is it?</strong> Impermanent loss occurs when providing liquidity to automated market makers (AMMs). It represents the difference between holding tokens vs. providing liquidity.</p><p><strong>Key Takeaway:</strong> IL is temporary if token prices return to their original ratio. However, fees earned can offset the loss.</p><p><strong>Pro Tip:</strong> Use stable pairs (USDC/USDT) to minimize IL risk while earning fees.</p>",
-        cta_link: "https://sentineldefi.com/courses/defi-mastery"
-        cta_link: "https://www.sentineldefi.com/courses/defi-mastery"
+        cta_link: "https://www.sentineldefi.online/courses/defi-mastery"
       }
     };
 
@@ -142,7 +132,6 @@ const BroadcastTester = () => {
           <div>
             <h2 className="text-xl font-semibold">Broadcast Webhook Tester</h2>
             <p className="text-sm text-muted-foreground">
-              Test the Sentinel DeFi DeFi Broadcast automation webhook
               Test the Sentinel DeFi Broadcast automation webhook
             </p>
           </div>

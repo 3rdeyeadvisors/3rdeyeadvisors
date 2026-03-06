@@ -196,7 +196,7 @@ const handler = async (req: Request): Promise<Response> => {
                           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                             <tr>
                               <td align="center" style="padding: 24px 0;">
-                                <a href="https://sentineldefi.com/auth" class="cta-button" style="display: inline-block; background: linear-gradient(45deg, hsl(217, 91%, 60%), hsl(271, 91%, 65%)); color: #ffffff; padding: 18px 40px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 18px; min-height: 44px; box-sizing: border-box;">
+                                <a href="https://sentineldefi.online/auth" class="cta-button" style="display: inline-block; background: linear-gradient(45deg, hsl(217, 91%, 60%), hsl(271, 91%, 65%)); color: #ffffff; padding: 18px 40px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 18px; min-height: 44px; box-sizing: border-box;">
                                   Create Free Account
                                 </a>
                               </td>
@@ -212,7 +212,7 @@ const handler = async (req: Request): Promise<Response> => {
                             <tr>
                               <td align="center">
                                 <p style="color: hsl(0, 0%, 45%); font-size: 12px; margin: 0;">
-                                  You're receiving this because you subscribed at sentineldefi.com
+                                  You're receiving this because you subscribed at sentineldefi.online
                                 </p>
                               </td>
                             </tr>

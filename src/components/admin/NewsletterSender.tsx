@@ -66,7 +66,7 @@ const NewsletterSender = () => {
   const handleQuickFillLatest = () => {
     setBlogTitle("On-Chain ETFs: How Tokenized Funds Are Bridging DeFi and Traditional Finance in 2025");
     setBlogExcerpt("Explore how tokenized ETFs are building bridges between decentralized finance and traditional markets, introducing billions in institutional capital to blockchain infrastructure.");
-    setBlogUrl("https://www.sentineldefi.com/blog/on-chain-etfs-2025");
+    setBlogUrl("https://www.sentineldefi.online/blog/on-chain-etfs-2025");
   };
 
   return (
@@ -107,7 +107,7 @@ const NewsletterSender = () => {
           <Label htmlFor="blogUrl">Blog URL</Label>
           <Input
             id="blogUrl"
-            placeholder="https://www.sentineldefi.com/blog/..."
+            placeholder="https://www.sentineldefi.online/blog/..."
             value={blogUrl}
             onChange={(e) => setBlogUrl(e.target.value)}
           />

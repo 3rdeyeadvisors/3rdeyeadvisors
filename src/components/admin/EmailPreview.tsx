@@ -103,9 +103,7 @@ const EmailPreview = () => {
                       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                         <tr>
                           <td align="center" style="padding: 40px 0 30px 0;">
-                            <a href="https://sentineldefi.com/raffles" style="display: inline-block; background-color: #3B82F6; color: #ffffff; padding: 18px 40px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 18px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
-                              Join the Raffle Now →
-                            </a>
+                            <a href="https://www.sentineldefi.online/raffles" style="display: inline-block; background-color: #3B82F6; color: #ffffff; padding: 18px 36px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 18px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">Enter Raffle Now</a>
                           </td>
                         </tr>
                       </table>
@@ -182,7 +180,7 @@ const EmailPreview = () => {
           
           <div style="margin-top: 30px; padding: 20px; background: #f9f9f9; border-radius: 8px; text-align: center;">
             <p style="font-size: 14px; color: #666; margin: 0;">
-              Want more entries? Share your referral link from your <a href="https://sentineldefi.com/raffles" style="color: #3B82F6; text-decoration: none;">raffle dashboard</a>.
+              Want more entries? Share your referral link from your <a href="https://www.sentineldefi.online/dashboard" style="color: #3B82F6; text-decoration: none;">Dashboard</a>.
             </p>
           </div>
         </div>
@@ -217,7 +215,7 @@ const EmailPreview = () => {
             <p style="font-size: 16px; line-height: 1.6; margin-bottom: 0;">
               🎯 We're currently verifying all entries and selecting the winner<br>
               📧 The winner will be announced via email soon<br>
-              🌐 All results will be visible on our <a href="https://sentineldefi.com/raffle-history" style="color: #3B82F6; text-decoration: none;">Raffle History</a> page
+              🌐 All results will be visible on our <a href="https://sentineldefi.online/raffle-history" style="color: #3B82F6; text-decoration: none;">Raffle History</a> page
             </p>
           </div>
           
@@ -226,7 +224,7 @@ const EmailPreview = () => {
           </p>
           
           <div style="text-align: center; margin: 40px 0;">
-            <a href="https://sentineldefi.com/courses" style="display: inline-block; background: #3B82F6; color: white; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 18px;">
+            <a href="https://sentineldefi.online/courses" style="display: inline-block; background: #3B82F6; color: white; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 18px;">
               Continue Learning →
             </a>
           </div>
@@ -324,7 +322,7 @@ const EmailPreview = () => {
           </div>
           
           <div style="text-align: center; margin: 40px 0;">
-            <a href="https://sentineldefi.com/courses" style="display: inline-block; background: #3B82F6; color: white; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 18px;">
+            <a href="https://sentineldefi.online/courses" style="display: inline-block; background: #3B82F6; color: white; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 18px;">
               Continue Learning →
             </a>
           </div>
@@ -340,7 +338,7 @@ const EmailPreview = () => {
           
           <div style="margin-top: 30px; padding: 20px; background: #f9f9f9; border-radius: 8px; text-align: center;">
             <p style="font-size: 14px; color: #666; margin: 0;">
-              View all past winners on our <a href="https://sentineldefi.com/raffle-history" style="color: #3B82F6; text-decoration: none;">Raffle History</a> page.
+              View all past winners on our <a href="https://sentineldefi.online/raffle-history" style="color: #3B82F6; text-decoration: none;">Raffle History</a> page.
             </p>
           </div>
         </div>

@@ -38,7 +38,7 @@ const PredictionMarketsDeFi2025 = () => {
       <SEO
         title="Prediction Markets in DeFi 2025: The Next Big Primitive | Sentinel DeFi"
         description="On-chain prediction markets are exploding in 2025. Here is how they work and why they matter for DeFi."
-        url="https://www.sentineldefi.com/blog/prediction-markets-defi-2025"
+        url="https://www.sentineldefi.online/blog/prediction-markets-defi-2025"
       />
 
       <div className="min-h-screen py-20">

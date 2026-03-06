@@ -22,7 +22,7 @@ const LiquidStakingTokens2025 = () => {
       <SEO
         title="Liquid Staking Tokens in 2025: The Definitive Guide | Sentinel DeFi"
         description="Everything you need to know about liquid staking tokens, how they work, the top protocols, and the risks to understand."
-        url="https://www.sentineldefi.com/blog/liquid-staking-tokens-2025"
+        url="https://www.sentineldefi.online/blog/liquid-staking-tokens-2025"
       />
 
       <div className="min-h-screen py-20">

@@ -8,7 +8,7 @@ const TermsOfService = () => {
       <SEO
         title="Terms of Service | Sentinel DeFi"
         description="Terms of service for the Sentinel DeFi DeFi education platform."
-        url="https://www.sentineldefi.com/terms"
+        url="https://www.sentineldefi.online/terms"
       />
     <div className="min-h-screen py-20 bg-transparent">
       <div className="container mx-auto px-4 max-w-4xl mobile-typography-center">

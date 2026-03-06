@@ -169,7 +169,7 @@ describe("Token Tests", function() {
 - **OpenZeppelin Docs**: https://docs.openzeppelin.com/
 - **Hardhat Documentation**: https://hardhat.org/
 - **Solidity Docs**: https://docs.soliditylang.org/
-- **Sentinel DeFi Courses**: https://sentineldefi.com/courses
+- **Sentinel DeFi Courses**: https://sentineldefi.online/courses
 
 ## 🛡️ Security Checklist
 
@@ -203,9 +203,8 @@ Modify staking to distribute multiple reward tokens simultaneously.
 ## 📞 Support
 
 For questions, tutorials, and advanced implementations:
-- Website: https://sentineldefi.com
-- Email: support@the3rdeyeadvisors.com
-- Email: support@3rdeyeadvisors.com
+- Website: https://sentineldefi.online
+- Email: info@the3rdeyeadvisors.com
 - Discord: Join our community
 - Twitter: @sentineldefi
 

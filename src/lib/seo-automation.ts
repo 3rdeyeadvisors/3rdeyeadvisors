@@ -174,7 +174,7 @@ export function validateSEO(config: SEOConfig, htmlContent?: string): SEOValidat
   }
 
   // Validate URL structure
-  if (!config.url.includes('sentineldefi.com')) {
+  if (!config.url.includes('sentineldefi.online')) {
     issues.push('URL should include domain for canonical reference');
     fixes.push('Ensure URL includes full domain');
   }

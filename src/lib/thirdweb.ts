@@ -30,10 +30,10 @@ export const thirdwebClient = createThirdwebClient({
 export const appMetadata = {
   name: "Sentinel DeFi",
   description: "DeFi Education & NFT-Gated Vault Access",
-  url: typeof window !== "undefined" ? window.location.origin : "https://sentineldefi.com",
-  logoUrl: "https://sentineldefi.com/android-chrome-192x192.png",
+  url: typeof window !== "undefined" ? window.location.origin : "https://sentineldefi.online",
+  logoUrl: "https://sentineldefi.online/android-chrome-192x192.png",
   // Additional fields for better wallet UX
-  icons: ["https://sentineldefi.com/android-chrome-192x192.png"],
+  icons: ["https://sentineldefi.online/android-chrome-192x192.png"],
 };
 
 // Ethereum Mainnet chain

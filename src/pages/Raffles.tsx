@@ -600,7 +600,7 @@ const Raffles = () => {
         title="Community Raffles | Sentinel DeFi"
         description="Enter to win by completing DeFi education tasks. Raffles reward active learners in the Sentinel DeFi community."
         keywords="DeFi raffle, crypto giveaway, learn to earn raffle, DeFi community rewards"
-        url="https://www.sentineldefi.com/raffles"
+        url="https://www.sentineldefi.online/raffles"
       />
 
       <div className="min-h-screen bg-transparent relative overflow-hidden">

@@ -247,7 +247,7 @@ The system automatically detects page types based on:
      title="My Blog Post"
      description="Description..."
      keywords="keyword1, keyword2"
-     url="https://sentineldefi.com/blog/post"
+     url="https://sentineldefi.online/blog/post"
    />
    
    // New (automatic optimization)

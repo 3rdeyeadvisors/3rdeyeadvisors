@@ -36,7 +36,7 @@ const handler = async (req: Request): Promise<Response> => {
           </p>
           
           <div style="margin: 30px 0;">
-            <a href="https://sentineldefi.com/resources/Awareness_Blueprint_Clean.pdf"
+            <a href="https://sentineldefi.online/resources/Awareness_Blueprint_Clean.pdf"
                style="display: inline-block; background-color: #000; color: #fff; padding: 14px 28px; text-decoration: none; border-radius: 6px; font-weight: 600;">
               Download Your Blueprint
             </a>
@@ -59,7 +59,7 @@ const handler = async (req: Request): Promise<Response> => {
           
           <p style="color: #999; font-size: 12px; line-height: 1.4;">
             Sentinel DeFi<br/>
-            <a href="https://sentineldefi.com" style="color: #999;">sentineldefi.com</a>
+            <a href="https://sentineldefi.online" style="color: #999;">sentineldefi.online</a>
           </p>
         </div>
       `,

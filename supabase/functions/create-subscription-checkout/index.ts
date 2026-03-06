@@ -93,7 +93,7 @@ serve(async (req) => {
       logStep("Previous Stripe subscription check", { hasHadStripeSubscription, totalPreviousSubs: allSubscriptions.data.length });
     }
 
-    const origin = req.headers.get("origin") || "https://sentineldefi.com";
+    const origin = req.headers.get("origin") || "https://sentineldefi.online";
 
     // Build subscription data - NO additional Stripe trial since they already had database trial
     const subscriptionData: Stripe.Checkout.SessionCreateParams['subscription_data'] = {

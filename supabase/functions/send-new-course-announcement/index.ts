@@ -188,7 +188,7 @@ serve(async (req) => {
 
     <!-- CTA Button -->
     <div style="text-align: center; margin-bottom: 30px;">
-      <a href="https://sentineldefi.com/courses/${course_id}"
+      <a href="https://sentineldefi.online/courses/${course_id}"
          style="display: inline-block; ${tierBadge} color: ${recipient.tier === 'founding' ? '#000000' : '#ffffff'}; text-decoration: none; padding: 18px 50px; border-radius: 12px; font-weight: 700; font-size: 18px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
         Start Learning Now →
       </a>

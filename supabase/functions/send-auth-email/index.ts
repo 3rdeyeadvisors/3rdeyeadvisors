@@ -96,7 +96,7 @@ const handler = async (req: Request): Promise<Response> => {
                       <table width="100%" cellpadding="0" cellspacing="0" border="0">
                         <tr>
                           <td align="center" style="padding: 32px 0;">
-                            <a href="${redirect_url || 'https://sentineldefi.com'}"
+                            <a href="${redirect_url || 'https://sentineldefi.online'}"
                                style="background: linear-gradient(45deg, hsl(217, 91%, 60%), hsl(271, 91%, 65%)); color: hsl(222, 84%, 4.9%); padding: 18px 36px; text-decoration: none; border-radius: 12px; font-weight: bold; display: inline-block; font-size: 16px; box-shadow: 0 0 30px hsl(217, 91%, 60%, 0.4), 0 8px 20px rgba(0,0,0,0.3);">
                               🚀 Start Your Journey
                             </a>
@@ -194,7 +194,7 @@ const handler = async (req: Request): Promise<Response> => {
                       <table width="100%" cellpadding="0" cellspacing="0" border="0">
                         <tr>
                           <td align="center" style="padding: 32px 0;">
-                            <a href="${redirect_url || 'https://sentineldefi.com/auth?reset=true'}"
+                            <a href="${redirect_url || 'https://sentineldefi.online/auth?reset=true'}"
                                style="background: linear-gradient(45deg, hsl(217, 91%, 60%), hsl(271, 91%, 65%)); color: hsl(222, 84%, 4.9%); padding: 18px 36px; text-decoration: none; border-radius: 12px; font-weight: bold; display: inline-block; font-size: 16px; box-shadow: 0 0 30px hsl(217, 91%, 60%, 0.4), 0 8px 20px rgba(0,0,0,0.3);">
                               🔐 Reset Password
                             </a>

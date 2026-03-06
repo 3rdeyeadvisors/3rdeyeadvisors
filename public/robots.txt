@@ -15,4 +15,4 @@ Disallow: /admin/upload-resource
 Disallow: /social-banner
 
 # Sitemap
-Sitemap: https://www.sentineldefi.com/sitemap.xml
+Sitemap: https://www.sentineldefi.online/sitemap.xml

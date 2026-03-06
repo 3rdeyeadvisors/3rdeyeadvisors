@@ -172,7 +172,7 @@ const Store = () => {
         title="Store | Sentinel DeFi"
         description="Consciousness-inspired merchandise and premium apparel. Support your journey with Sentinel DeFi branded products."
         keywords="consciousness merchandise, spiritual apparel, Sentinel DeFi store"
-        url="https://www.sentineldefi.com/store"
+        url="https://www.sentineldefi.online/store"
         type="website"
       />
       <PullToRefreshIndicator 

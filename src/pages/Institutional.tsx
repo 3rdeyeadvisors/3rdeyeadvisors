@@ -11,7 +11,7 @@ const Institutional = () => {
         title="DeFi Education for Financial Professionals | Sentinel DeFi"
         description="Help your clients navigate crypto with confidence. White-label DeFi education for financial advisors, law firms, accountants, and educational institutions."
         keywords="DeFi education financial advisors, crypto education professionals, institutional DeFi training, blockchain education firms"
-        url="https://www.sentineldefi.com/institutional"
+        url="https://www.sentineldefi.online/institutional"
       />
 
       <div className="min-h-screen bg-transparent relative">

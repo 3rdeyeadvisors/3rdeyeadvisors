@@ -73,7 +73,7 @@ const handler = async (req: Request): Promise<Response> => {
             <h1>❌ Retry Failed</h1>
             <p><strong>Error:</strong> ${retryError.message}</p>
             <p>The broadcast could not be retried at this time. Please check the admin dashboard for more details.</p>
-            <a href="https://sentineldefi.com/admin" class="button">View Admin Dashboard</a>
+            <a href="https://sentineldefi.online/admin" class="button">View Admin Dashboard</a>
           </div>
         </body>
         </html>`,
@@ -108,7 +108,7 @@ const handler = async (req: Request): Promise<Response> => {
           <h1>✅ Broadcast Retried Successfully</h1>
           <p>The broadcast has been successfully queued and will be sent at the scheduled time.</p>
           <p><strong>Scheduled for:</strong> ${retryData.scheduled_for}</p>
-          <a href="https://sentineldefi.com/admin" class="button">View Admin Dashboard</a>
+          <a href="https://sentineldefi.online/admin" class="button">View Admin Dashboard</a>
         </div>
       </body>
       </html>`,

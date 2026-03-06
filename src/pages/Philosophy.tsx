@@ -28,7 +28,7 @@ const Philosophy = () => {
         title="Financial Consciousness & DeFi Philosophy: Money Awakening"
         description="Transform your relationship with money through financial consciousness and DeFi education. Break free from traditional banking and discover financial sovereignty through decentralized finance."
         keywords="financial consciousness, DeFi philosophy, financial sovereignty, money consciousness, decentralized finance mindset, financial awakening, crypto philosophy, financial freedom"
-        url="https://www.sentineldefi.com/philosophy"
+        url="https://www.sentineldefi.online/philosophy"
         schema={{
           type: 'WebPage',
           data: {

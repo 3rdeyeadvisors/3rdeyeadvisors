@@ -28,7 +28,7 @@ const WhyMostPeopleLoseCrypto = () => {
       <SEO
         title="Why Most People Lose Money in Crypto (And How to Not Be One of Them) | Sentinel DeFi"
         description="The real reasons most crypto investors lose money and the specific habits that separate the ones who do not."
-        url="https://www.sentineldefi.com/blog/why-most-people-lose-crypto"
+        url="https://www.sentineldefi.online/blog/why-most-people-lose-crypto"
       />
 
       <div className="min-h-screen py-20">

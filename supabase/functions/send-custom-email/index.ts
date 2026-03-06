@@ -121,7 +121,7 @@ const handler = async (req: Request): Promise<Response> => {
                           <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                             <tr>
                               <td style="border-radius: 6px; background: #8B5CF6; box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);">
-                                <a href="https://sentineldefi.com" style="display: inline-block; padding: 14px 32px; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 15px; letter-spacing: 0.3px;">Visit Sentinel DeFi</a>
+                                <a href="https://sentineldefi.online" style="display: inline-block; padding: 14px 32px; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 15px; letter-spacing: 0.3px;">Visit Sentinel DeFi</a>
                               </td>
                             </tr>
                           </table>
@@ -135,9 +135,9 @@ const handler = async (req: Request): Promise<Response> => {
                             You're receiving this because you're part of the Sentinel DeFi community.
                           </p>
                           <p style="margin: 0; text-align: center;">
-                            <a href="https://sentineldefi.com" style="color: #8B5CF6; text-decoration: none; font-size: 12px; font-weight: 600;">Visit Website</a>
+                            <a href="https://sentineldefi.online" style="color: #8B5CF6; text-decoration: none; font-size: 12px; font-weight: 600;">Visit Website</a>
                             <span style="color: #D1D5DB; margin: 0 8px;">|</span>
-                            <a href="https://sentineldefi.com/contact" style="color: #8B5CF6; text-decoration: none; font-size: 12px; font-weight: 600;">Contact Us</a>
+                            <a href="https://sentineldefi.online/contact" style="color: #8B5CF6; text-decoration: none; font-size: 12px; font-weight: 600;">Contact Us</a>
                           </p>
                         </td>
                       </tr>

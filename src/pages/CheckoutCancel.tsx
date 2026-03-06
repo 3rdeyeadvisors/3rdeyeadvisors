@@ -9,7 +9,7 @@ const CheckoutCancel = () => {
       <SEO
         title="Checkout Canceled"
         description="Your checkout was canceled. Your spot is still available."
-        url="https://www.sentineldefi.com/checkout/cancel"
+        url="https://www.sentineldefi.online/checkout/cancel"
       />
       <div className="min-h-screen bg-transparent flex items-center justify-center px-6">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-white/2 rounded-full blur-[100px] pointer-events-none" />

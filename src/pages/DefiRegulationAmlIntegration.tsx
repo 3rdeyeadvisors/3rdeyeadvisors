@@ -69,7 +69,7 @@ const DefiRegulationAmlIntegration = () => {
       <SEO
         title="DeFi Regulation and AML Integration: What It Means For Users | Sentinel DeFi"
         description="Regulators are moving into DeFi. Here is what AML integration means for everyday users, protocols, and self-custody."
-        url="https://www.sentineldefi.com/blog/defi-regulation-aml-integration"
+        url="https://www.sentineldefi.online/blog/defi-regulation-aml-integration"
       />
       
       <div className="min-h-screen bg-gradient-to-br from-black via-black/95 to-primary/5">

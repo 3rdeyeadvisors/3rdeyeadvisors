@@ -133,7 +133,7 @@ const handler = async (req: Request): Promise<Response> => {
               </p>
               
               <div style="text-align: center; margin: 32px 0;">
-                <a href="https://sentineldefi.com/courses" style="background: linear-gradient(45deg, #3b82f6, #8b5cf6); color: #ffffff; padding: 14px 32px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; font-size: 16px;">
+                <a href="https://sentineldefi.online/courses" style="background: linear-gradient(45deg, #3b82f6, #8b5cf6); color: #ffffff; padding: 14px 32px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; font-size: 16px;">
                   Start Learning Now
                 </a>
               </div>
@@ -144,7 +144,7 @@ const handler = async (req: Request): Promise<Response> => {
               
               <hr style="margin: 32px 0; border: none; border-top: 1px solid hsl(217, 32%, 15%);">
               <p style="color: hsl(215, 20%, 65%); font-size: 12px; text-align: center; margin: 0;">
-                You're receiving this because you signed up at sentineldefi.com
+                You're receiving this because you signed up at sentineldefi.online
               </p>
             </div>
           `,

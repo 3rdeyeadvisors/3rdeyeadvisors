@@ -24,7 +24,7 @@ const DefiMatured2025 = () => {
       <SEO
         title="DeFi Has Matured: What Changed and What It Means For You | Sentinel DeFi"
         description="DeFi in 2025 looks nothing like 2020. Here is what matured, what disappeared, and what that means for everyday users."
-        url="https://www.sentineldefi.com/blog/defi-matured-2025"
+        url="https://www.sentineldefi.online/blog/defi-matured-2025"
       />
     <div className="min-h-screen py-20">
       

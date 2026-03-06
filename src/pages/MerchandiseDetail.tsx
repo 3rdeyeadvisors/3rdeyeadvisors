@@ -242,7 +242,7 @@ export default function MerchandiseDetail() {
         title={`${product.title} | Sentinel DeFi Store`}
         description={productDescription.replace(/<[^>]*>/g, '') || `Premium merchandise: ${product.title}`}
         keywords={`${product.title}, DeFi merchandise, crypto apparel, blockchain clothing`}
-        url={`https://www.sentineldefi.com/store/merchandise/${productId}`}
+        url={`https://www.sentineldefi.online/store/merchandise/${productId}`}
         type="product"
         image={productImages[0]?.src}
       />

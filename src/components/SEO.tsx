@@ -32,7 +32,7 @@ const SEO = ({
   description = "Transform your financial future with comprehensive DeFi education. Learn decentralized finance, yield farming, blockchain investing, and cryptocurrency strategies from beginner to advanced levels.",
   keywords = "DeFi education, decentralized finance, yield farming, blockchain investing, cryptocurrency courses, financial consciousness, DeFi beginner guide, crypto education, smart contracts, liquidity pools",
   image = `${window.location.origin}/social-share-sentinel-defi.jpg`,
-  url = "https://www.sentineldefi.com",
+  url = "https://www.sentineldefi.online",
   type = "website",
   article,
   schema,
@@ -55,10 +55,10 @@ const SEO = ({
       publisher: {
         "@type": "Organization",
         name: "Sentinel DeFi",
-        url: "https://www.sentineldefi.com",
+        url: "https://www.sentineldefi.online",
         logo: {
           "@type": "ImageObject",
-          url: "https://www.sentineldefi.com/favicon-sentinel-defi.png"
+          url: "https://www.sentineldefi.online/favicon-sentinel-defi.png"
         }
       },
       ...schema.data
@@ -78,7 +78,7 @@ const SEO = ({
           seller: {
             "@type": "Organization",
             name: "Sentinel DeFi",
-            url: "https://www.sentineldefi.com"
+            url: "https://www.sentineldefi.online"
           }
         };
       }

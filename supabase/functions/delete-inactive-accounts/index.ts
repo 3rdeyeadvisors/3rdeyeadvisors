@@ -64,7 +64,7 @@ function generateDeletionEmail(userName: string): string {
               <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0;">
                 <tr>
                   <td align="center">
-                    <a href="https://sentineldefi.com/auth" style="display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%); color: #ffffff; text-decoration: none; font-size: 16px; font-weight: 600; border-radius: 8px; box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4);">
+                    <a href="https://sentineldefi.online/auth" style="display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%); color: #ffffff; text-decoration: none; font-size: 16px; font-weight: 600; border-radius: 8px; box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4);">
                       Create New Account
                     </a>
                   </td>
@@ -73,7 +73,7 @@ function generateDeletionEmail(userName: string): string {
               
               <p style="margin: 20px 0 0 0; font-size: 14px; line-height: 1.6; color: #94a3b8;">
                 If you have any questions or need assistance, feel free to reach out to us at 
-                <a href="mailto:support@the3rdeyeadvisors.com" style="color: #a78bfa; text-decoration: none;">support@the3rdeyeadvisors.com</a>
+                <a href="mailto:info@the3rdeyeadvisors.com" style="color: #a78bfa; text-decoration: none;">info@the3rdeyeadvisors.com</a>
               </p>
             </td>
           </tr>
@@ -86,7 +86,7 @@ function generateDeletionEmail(userName: string): string {
               </p>
               <p style="margin: 0; font-size: 12px; color: #64748b; text-align: center;">
                 © ${new Date().getFullYear()} Sentinel DeFi. All rights reserved.<br>
-                <a href="https://sentineldefi.com" style="color: #8b5cf6; text-decoration: none;">sentineldefi.com</a>
+                <a href="https://sentineldefi.online" style="color: #8b5cf6; text-decoration: none;">sentineldefi.online</a>
               </p>
             </td>
           </tr>

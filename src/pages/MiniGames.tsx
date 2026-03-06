@@ -166,7 +166,7 @@ const MiniGames = () => {
         title="DeFi Brain Games | Sentinel DeFi"
         description="Sharpen your DeFi knowledge with interactive brain games and cognitive challenges. Learn crypto concepts through play."
         keywords="DeFi games, crypto learning games, blockchain education games, DeFi quiz games"
-        url="https://www.sentineldefi.com/mini-games"
+        url="https://www.sentineldefi.online/mini-games"
       />
 
     <div className="min-h-screen bg-transparent relative overflow-hidden">

@@ -61,7 +61,7 @@ const handler = async (req: Request): Promise<Response> => {
         <p style="color:#f5f5f5;margin:8px 0 0;font-size:14px">Verify this username in the Admin dashboard.</p>
         </div>
         <table width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:24px 0">
-        <a href="https://sentineldefi.com/admin" style="display:inline-block;background:linear-gradient(45deg,#3b82f6,#8b5cf6);color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:700">Go to Admin Dashboard</a>
+        <a href="https://sentineldefi.online/admin" style="display:inline-block;background:linear-gradient(45deg,#3b82f6,#8b5cf6);color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:700">Go to Admin Dashboard</a>
         </td></tr></table>
         <p style="text-align:center;color:#64748b;font-size:12px;margin:20px 0 0;border-top:1px solid #334155;padding-top:20px">Automated notification from Sentinel DeFi</p>
         </td></tr>

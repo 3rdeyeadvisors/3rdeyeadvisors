@@ -22,7 +22,7 @@ const StablecoinsDefiInfrastructure2025 = () => {
       <SEO
         title="Stablecoins as DeFi Infrastructure in 2025 | Sentinel DeFi"
         description="Stablecoins are no longer just for trading. Here is how they power the entire DeFi ecosystem in 2025."
-        url="https://www.sentineldefi.com/blog/stablecoins-defi-infrastructure-2025"
+        url="https://www.sentineldefi.online/blog/stablecoins-defi-infrastructure-2025"
       />
 
       <div className="min-h-screen py-20">

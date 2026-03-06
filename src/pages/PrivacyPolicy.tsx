@@ -8,7 +8,7 @@ const PrivacyPolicy = () => {
       <SEO
         title="Privacy Policy | Sentinel DeFi"
         description="Privacy policy for Sentinel DeFi DeFi education platform. How we collect, use, and protect your data."
-        url="https://www.sentineldefi.com/privacy"
+        url="https://www.sentineldefi.online/privacy"
       />
     <div className="min-h-screen py-20 bg-transparent">
       <div className="container mx-auto px-4 max-w-4xl mobile-typography-center">

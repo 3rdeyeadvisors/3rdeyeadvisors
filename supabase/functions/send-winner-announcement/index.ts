@@ -263,7 +263,7 @@ const handler = async (req: Request): Promise<Response> => {
                         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                           <tr>
                             <td align="center" style="padding: 24px 0 32px 0;">
-                              <a href="https://sentineldefi.com/courses" class="cta-button" style="display: inline-block; background: linear-gradient(45deg, hsl(217, 91%, 60%), hsl(271, 91%, 65%)); color: #ffffff; padding: 18px 40px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 18px; min-height: 44px; box-sizing: border-box;">
+                              <a href="https://sentineldefi.online/courses" class="cta-button" style="display: inline-block; background: linear-gradient(45deg, hsl(217, 91%, 60%), hsl(271, 91%, 65%)); color: #ffffff; padding: 18px 40px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 18px; min-height: 44px; box-sizing: border-box;">
                                 Continue Learning →
                               </a>
                             </td>
@@ -289,7 +289,7 @@ const handler = async (req: Request): Promise<Response> => {
                           <tr>
                             <td style="padding: 16px; text-align: center;">
                               <p style="font-size: 14px; color: hsl(0, 0%, 60%); margin: 0;">
-                                View all past winners on our <a href="https://sentineldefi.com/raffle-history" style="color: hsl(217, 91%, 60%); text-decoration: none; font-weight: 600;">Raffle History</a> page.
+                                View all past winners on our <a href="https://sentineldefi.online/raffle-history" style="color: hsl(217, 91%, 60%); text-decoration: none; font-weight: 600;">Raffle History</a> page.
                               </p>
                             </td>
                           </tr>

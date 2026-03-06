@@ -124,7 +124,7 @@ serve(async (req) => {
     }
 
     // Get origin for redirect URLs
-    const origin = req.headers.get("origin") || "https://sentineldefi.com";
+    const origin = req.headers.get("origin") || "https://sentineldefi.online";
 
     // Create Stripe Checkout session
     const session = await stripe.checkout.sessions.create({

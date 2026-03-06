@@ -195,7 +195,7 @@ const handler = async (req: Request): Promise<Response> => {
               <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; margin: 15px 0;">
                 <p><strong>${alerts.length} alert(s) logged this week.</strong></p>
                 <p style="margin: 10px 0 0 0;">
-                  <a href="https://sentineldefi.com/admin" style="color: #2563eb; text-decoration: none;">View details in Admin Dashboard →</a>
+                  <a href="https://sentineldefi.online/admin" style="color: #2563eb; text-decoration: none;">View details in Admin Dashboard →</a>
                 </p>
               </div>
             ` : ''}

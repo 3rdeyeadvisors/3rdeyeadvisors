@@ -56,8 +56,8 @@ const Layout = ({ children }: LayoutProps) => {
   // Generate canonical URL - normalize path and ensure proper domain
   // Keep trailing slash only for homepage, remove for all other pages
   const canonicalUrl = location.pathname === '/' 
-    ? 'https://www.sentineldefi.com/'
-    : `https://www.sentineldefi.com${location.pathname}`.replace(/\/$/, '');
+    ? 'https://www.sentineldefi.online/'
+    : `https://www.sentineldefi.online${location.pathname}`.replace(/\/$/, '');
 
   return (
     <>

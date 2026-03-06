@@ -61,11 +61,11 @@ These templates are designed to match your cosmic consciousness brand identity a
 After applying templates, verify these settings in Supabase:
 
 ### Authentication → URL Configuration
-- **Site URL:** `https://sentineldefi.com`
+- **Site URL:** `https://sentineldefi.online`
 - **Redirect URLs:** 
-  - `https://sentineldefi.com`
-  - `https://www.sentineldefi.com`
-  - `https://sentineldefi.com/auth?verified=true`
+  - `https://sentineldefi.online`
+  - `https://www.sentineldefi.online`
+  - `https://sentineldefi.online/auth?verified=true`
 
 ### Authentication → Email Auth
 - ✅ Enable email confirmations (if you want users to verify email)
@@ -168,6 +168,6 @@ All templates are designed to:
 
 ---
 
-*Templates created for sentineldefi.com*
+*Templates created for sentineldefi.online*
 *Compatible with Supabase Auth v2*
 *Last updated: 2025-01-08*

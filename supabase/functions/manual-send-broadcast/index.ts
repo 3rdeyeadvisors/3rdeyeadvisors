@@ -203,8 +203,8 @@ const handler = async (req: Request): Promise<Response> => {
     <div class="footer">
       <p><strong>Sentinel DeFi</strong> | DeFi Education Platform</p>
       <p>
-        <a href="https://sentineldefi.com">Visit Website</a> |
-        <a href="https://sentineldefi.com/courses">View Courses</a>
+        <a href="https://sentineldefi.online">Visit Website</a> |
+        <a href="https://sentineldefi.online/courses">View Courses</a>
       </p>
       <p class="disclaimer">
         Educational purposes only. Not financial advice.

@@ -246,10 +246,8 @@ export function BroadcastPreview() {
         <div class="footer">
           <p><strong>Sentinel DeFi</strong> | DeFi Education Platform</p>
           <p>
-            <a href="https://sentineldefi.com">Visit Website</a> |
-            <a href="https://sentineldefi.com/courses">View Courses</a>
-            <a href="https://www.sentineldefi.com">Visit Website</a> |
-            <a href="https://www.sentineldefi.com/courses">View Courses</a>
+            <a href="https://www.sentineldefi.online">Visit Website</a> |
+            <a href="https://www.sentineldefi.online/courses">View Courses</a>
           </p>
           <p class="disclaimer">
             Educational purposes only. Not financial advice.

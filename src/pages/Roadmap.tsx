@@ -57,7 +57,7 @@ const Roadmap = () => {
         title="Platform Roadmap | Sentinel DeFi"
         description="Vote on upcoming features and see what is being built next on the Sentinel DeFi DeFi education platform."
         keywords="DeFi platform roadmap, crypto education features, community voting, DeFi tools upcoming"
-        url="https://www.sentineldefi.com/roadmap"
+        url="https://www.sentineldefi.online/roadmap"
       />
 
       <div className="min-h-screen bg-transparent overflow-hidden relative">

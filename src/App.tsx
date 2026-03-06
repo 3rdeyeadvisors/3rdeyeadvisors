@@ -234,22 +234,22 @@ const App = () => {
     const search = window.location.search;
     const hash = window.location.hash;
     
-    // Redirect sentineldefi.com (without www) to www.sentineldefi.com
-    if (hostname === 'sentineldefi.com') {
-      const redirectUrl = `https://www.sentineldefi.com${pathname}${search}${hash}`;
+    // Redirect sentineldefi.online (without www) to www.sentineldefi.online
+    if (hostname === 'sentineldefi.online') {
+      const redirectUrl = `https://www.sentineldefi.online${pathname}${search}${hash}`;
       window.location.replace(redirectUrl);
       return;
     }
 
-    // Redirect legacy domains to www.sentineldefi.com
+    // Redirect legacy domains to www.sentineldefi.online
     if (hostname.includes('the3rdeyeadvisors.com')) {
-      const redirectUrl = `https://www.sentineldefi.com${pathname}${search}${hash}`;
+      const redirectUrl = `https://www.sentineldefi.online${pathname}${search}${hash}`;
       window.location.replace(redirectUrl);
       return;
     }
     
-    // Ensure HTTPS on sentineldefi.com domain
-    if (hostname.endsWith('sentineldefi.com') && protocol === 'http:') {
+    // Ensure HTTPS on sentineldefi.online domain
+    if (hostname.endsWith('sentineldefi.online') && protocol === 'http:') {
       const redirectUrl = `https://${hostname}${pathname}${search}${hash}`;
       window.location.replace(redirectUrl);
     }

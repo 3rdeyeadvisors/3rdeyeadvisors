@@ -219,7 +219,7 @@ Whether you're a gamer looking to monetize your skills, an investor seeking new 
       <SEO
         title="Web3 Gaming Meets DeFi: The 2025 Convergence | Sentinel DeFi"
         description="How gaming and decentralized finance are merging in 2025 to create new economic models for players and creators."
-        url="https://www.sentineldefi.com/blog/web3-gaming-defi-convergence-2025"
+        url="https://www.sentineldefi.online/blog/web3-gaming-defi-convergence-2025"
       />
 
       <div className="min-h-screen py-20">

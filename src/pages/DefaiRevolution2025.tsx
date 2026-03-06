@@ -348,7 +348,7 @@ const DefaiRevolution2025 = () => {
       <SEO
         title="The DeFAI Revolution 2025: AI Meets Decentralized Finance | Sentinel DeFi"
         description="How artificial intelligence is transforming DeFi protocols, yield strategies, and on-chain decision making in 2025."
-        url="https://www.sentineldefi.com/blog/defai-revolution-2025"
+        url="https://www.sentineldefi.online/blog/defai-revolution-2025"
       />
 
       <div className="min-h-screen py-20">

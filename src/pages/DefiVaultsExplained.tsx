@@ -28,7 +28,7 @@ const DefiVaultsExplained = () => {
       <SEO
         title="DeFi Vaults Explained: How Yield Automation Works | Sentinel DeFi"
         description="A plain English breakdown of how DeFi vaults automate yield farming, compound returns, and manage risk on your behalf."
-        url="https://www.sentineldefi.com/blog/defi-vaults-explained"
+        url="https://www.sentineldefi.online/blog/defi-vaults-explained"
       />
 
       <div className="min-h-screen py-20">

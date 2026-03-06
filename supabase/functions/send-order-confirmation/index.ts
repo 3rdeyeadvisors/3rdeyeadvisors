@@ -223,7 +223,7 @@ const handler = async (req: Request): Promise<Response> => {
                             Sentinel DeFi - DeFi Education
                           </p>
                           <p style="margin: 0;">
-                            <a href="https://sentineldefi.com" style="color: hsl(215, 20%, 65%); text-decoration: underline; font-size: 12px;">Visit Website</a>
+                            <a href="https://sentineldefi.online" style="color: hsl(215, 20%, 65%); text-decoration: underline; font-size: 12px;">Visit Website</a>
                           </p>
                         </td>
                       </tr>
