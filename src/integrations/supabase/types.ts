@@ -1613,6 +1613,51 @@ export type Database = {
         }
         Relationships: []
       }
+      site_settings: {
+        Row: {
+          default_meta_description: string
+          default_meta_keywords: string
+          default_meta_title: string
+          google_site_verification: string | null
+          id: string
+          og_image_url: string
+          robots_default: string
+          site_name: string
+          site_tagline: string
+          twitter_handle: string
+          updated_at: string
+          updated_by: string | null
+        }
+        Insert: {
+          default_meta_description?: string
+          default_meta_keywords?: string
+          default_meta_title?: string
+          google_site_verification?: string | null
+          id?: string
+          og_image_url?: string
+          robots_default?: string
+          site_name?: string
+          site_tagline?: string
+          twitter_handle?: string
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Update: {
+          default_meta_description?: string
+          default_meta_keywords?: string
+          default_meta_title?: string
+          google_site_verification?: string | null
+          id?: string
+          og_image_url?: string
+          robots_default?: string
+          site_name?: string
+          site_tagline?: string
+          twitter_handle?: string
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Relationships: []
+      }
       subscribers: {
         Row: {
           created_at: string
