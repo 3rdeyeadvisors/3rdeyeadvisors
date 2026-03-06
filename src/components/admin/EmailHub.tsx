@@ -138,7 +138,7 @@ const EmailTemplates = () => {
                                 Prize: ${sampleData.prize}
                               </p>
                               <p style="font-size: 16px; margin: 8px 0; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
-                                🕒 Active Period: November 10 to 23, 2025
+                                🕒 Active Period: ${new Date(sampleData.end_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
                               </p>
                             </div>
                           </td>
@@ -718,7 +718,7 @@ export function EmailHub() {
                           Awareness is advantage.
                         </p>
                         <p style="font-size: 14px; color: #666666; margin: 0; font-family: Arial, sans-serif;">
-                         : Sentinel DeFi
+                         Sentinel DeFi
                         </p>
                       </td>
                     </tr>
