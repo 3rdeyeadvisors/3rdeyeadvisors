@@ -217,8 +217,8 @@ const ReferralTerms = () => {
               <section className="border-t border-white/8 pt-6">
                 <p className="text-white/80">
                   For questions about the Referral Program, please contact us at{" "}
-                  <a href="mailto:info@the3rdeyeadvisors.com" className="text-primary hover:underline">
-                    info@the3rdeyeadvisors.com
+                  <a href="mailto:info@sentineldefi.online" className="text-primary hover:underline">
+                    info@sentineldefi.online
                   </a>
                 </p>
               </section>
