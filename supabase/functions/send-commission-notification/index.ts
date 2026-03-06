@@ -125,8 +125,8 @@ serve(async (req) => {
         "Authorization": `Bearer ${resendApiKey}`,
       },
       body: JSON.stringify({
-        from: "Sentinel DeFi <noreply@the3rdeyeadvisors.com>",
-        to: ["info@the3rdeyeadvisors.com"],
+        from: "Sentinel DeFi <noreply@sentineldefi.online>",
+        to: ["info@sentineldefi.online"],
         subject: `💰 New Commission Pending: $${commissionAmount} (${planLabel})`,
         html: emailHtml,
       }),
