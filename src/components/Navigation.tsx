@@ -12,9 +12,11 @@ import { useToast } from "@/hooks/use-toast";
 import { useCart } from "@/contexts/CartContext";
 import { supabase } from "@/integrations/supabase/client";
 import { isAdminEmail } from "@/lib/admin";
+import { usePageVisibility } from "@/hooks/usePageVisibility";
 
 const Navigation = () => {
   const { itemCount } = useCart();
+  const { isPageVisible } = usePageVisibility();
   const [isOpen, setIsOpen] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const location = useLocation();
@@ -82,7 +84,7 @@ const Navigation = () => {
         { path: "/blog", label: "Blog", description: "Research, insights, and market analysis" },
         { path: "/resources", label: "Resources", description: "PDFs, tools, and reference materials" },
         { path: "/mini-games", label: "Brain Games", description: "Sharpen your thinking with cognitive challenges" },
-      ]
+      ].filter(child => isPageVisible(child.path))
     },
     {
       label: "Community",
@@ -93,7 +95,7 @@ const Navigation = () => {
         { path: "/raffle-history", label: "Raffle History", description: "Past winners and prize distributions" },
         { path: "/leaderboard", label: "Leaderboard", description: "Community rankings and point leaders" },
         { path: "/analytics", label: "Analytics", description: "Platform data and market insights" },
-      ]
+      ].filter(child => isPageVisible(child.path))
     },
     { label: "Vault", path: "/vault-access" },
     { label: "Store", path: "/store" },
@@ -226,22 +228,21 @@ const Navigation = () => {
           )}
 
           <div className="grid grid-cols-2 gap-3 p-4 mb-4">
-            <Link to="/courses" className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-violet-600/20 border border-violet-500/30 hover:bg-violet-600/30 transition-all active:scale-95 min-w-0">
-              <BookOpen className="w-6 h-6 text-violet-400" />
-              <span className="font-body text-sm text-white font-medium truncate w-full text-center px-1">Courses</span>
-            </Link>
-            <Link to="/tutorials" className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/8 transition-all active:scale-95 min-w-0">
-              <GraduationCap className="w-6 h-6 text-white/60" />
-              <span className="font-body text-sm text-white/80 font-medium truncate w-full text-center px-1">Tutorials</span>
-            </Link>
-            <Link to="/vault-access" className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/8 transition-all active:scale-95 min-w-0">
-              <Vault className="w-6 h-6 text-white/60" />
-              <span className="font-body text-sm text-white/80 font-medium truncate w-full text-center px-1">Vault</span>
-            </Link>
-            <Link to="/store" className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/8 transition-all active:scale-95 min-w-0">
-              <Package className="w-6 h-6 text-white/60" />
-              <span className="font-body text-sm text-white/80 font-medium truncate w-full text-center px-1">Store</span>
-            </Link>
+            {[
+              { path: "/courses", label: "Courses", icon: BookOpen, iconColor: "text-violet-400", bgColor: "bg-violet-600/20", borderColor: "border-violet-500/30" },
+              { path: "/tutorials", label: "Tutorials", icon: GraduationCap, iconColor: "text-white/60", bgColor: "bg-white/5", borderColor: "border-white/10" },
+              { path: "/vault-access", label: "Vault", icon: Vault, iconColor: "text-white/60", bgColor: "bg-white/5", borderColor: "border-white/10", isTopLevel: true },
+              { path: "/store", label: "Store", icon: Package, iconColor: "text-white/60", bgColor: "bg-white/5", borderColor: "border-white/10", isTopLevel: true },
+            ].filter(item => item.isTopLevel || isPageVisible(item.path)).map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`flex flex-col items-center gap-2 p-4 rounded-2xl ${item.bgColor} border ${item.borderColor} hover:opacity-80 transition-all active:scale-95 min-w-0`}
+              >
+                <item.icon className={`w-6 h-6 ${item.iconColor}`} />
+                <span className="font-body text-sm text-white font-medium truncate w-full text-center px-1">{item.label}</span>
+              </Link>
+            ))}
           </div>
 
           <div className="px-4 space-y-1">
@@ -254,10 +255,10 @@ const Navigation = () => {
               { path: "/roadmap", label: "Roadmap", icon: Map },
               { path: "/leaderboard", label: "Leaderboard", icon: Trophy },
               { path: "/analytics", label: "Analytics", icon: BarChart3 },
-              { path: "/philosophy", label: "Philosophy", icon: Lightbulb },
-              { path: "/institutional", label: "For Professionals", icon: Building },
+              { path: "/philosophy", label: "Philosophy", icon: Lightbulb, isTopLevel: true },
+              { path: "/institutional", label: "For Professionals", icon: Building, isTopLevel: true },
               { path: "/contact", label: "Contact", icon: Mail },
-            ].map((item) => (
+            ].filter(item => item.isTopLevel || isPageVisible(item.path)).map((item) => (
               <Link
                 key={item.path}
                 to={item.path}

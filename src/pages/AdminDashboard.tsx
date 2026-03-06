@@ -16,6 +16,7 @@ import { TutorialCourseParticipation } from "@/components/admin/TutorialCoursePa
 import CommissionsManager from "@/components/admin/CommissionsManager";
 import RoadmapManager from "@/components/admin/RoadmapManager";
 import { SEOSettingsManager } from "@/components/admin/SEOSettingsManager";
+import { SiteControlsManager } from "@/components/admin/SiteControlsManager";
 import { isAdminEmail } from "@/lib/admin";
 
 const AdminDashboard = () => {
@@ -100,6 +101,8 @@ const AdminDashboard = () => {
         return <RoadmapManager />;
       case "seo":
         return <SEOSettingsManager />;
+      case "site-controls":
+        return <SiteControlsManager />;
       default:
         return <OverviewPanel />;
     }

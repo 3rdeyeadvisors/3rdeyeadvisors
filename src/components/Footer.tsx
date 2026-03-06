@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
-import { Mail, Instagram } from 'lucide-react';
+import { Mail, Instagram, Twitter, Youtube, Link as LinkIcon } from 'lucide-react';
+import { useSocialLinks } from '@/hooks/useSocialLinks';
 
 const Footer = () => {
+  const { links } = useSocialLinks();
+
   const currentYear = new Date().getFullYear();
 
   const learnLinks = [
@@ -23,10 +26,17 @@ const Footer = () => {
     { label: 'Terms of Service', href: '/terms' },
   ];
 
-  const socialLinks = [
-    { icon: Mail, href: 'mailto:info@sentineldefi.online', label: 'Email' },
-    { icon: Instagram, href: 'https://instagram.com/sentineldefi', label: 'Instagram' },
-  ];
+  const getIcon = (iconName: string) => {
+    switch (iconName) {
+      case 'Mail': return Mail;
+      case 'Instagram': return Instagram;
+      case 'Twitter': return Twitter;
+      case 'Youtube': return Youtube;
+      default: return LinkIcon;
+    }
+  };
+
+  const activeLinks = links?.filter(link => link.is_active) || [];
 
   return (
     <footer className="relative border-t border-white/8 bg-white/3 backdrop-blur-sm">
@@ -99,18 +109,21 @@ const Footer = () => {
               Connect
             </h3>
             <div className="flex items-center gap-2">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target={social.href.startsWith('mailto') ? undefined : '_blank'}
-                  rel={social.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
-                  className="w-11 h-11 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center text-white/50 hover:text-primary hover:border-primary/30 transition-all duration-300"
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-4 h-4" />
-                </a>
-              ))}
+              {activeLinks.map((social) => {
+                const Icon = getIcon(social.icon);
+                return (
+                  <a
+                    key={social.id}
+                    href={social.url}
+                    target={social.url.startsWith('mailto') ? undefined : '_blank'}
+                    rel={social.url.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+                    className="w-11 h-11 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center text-white/50 hover:text-primary hover:border-primary/30 transition-all duration-300"
+                    aria-label={social.label}
+                  >
+                    <Icon className="w-4 h-4" />
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
