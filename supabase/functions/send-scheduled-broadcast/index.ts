@@ -176,7 +176,7 @@ const handler = async (req: Request): Promise<Response> => {
     const { data: subscribers, error: subscribersError } = await supabase
       .from('subscribers')
       .select('email, name')
-      .not('email', 'ilike', 'bot-%@internal.3rdeyeadvisors.com');
+      .not('email', 'ilike', 'bot-%@internal.sentineldefi.online');
 
     if (subscribersError) {
       console.error('Error fetching subscribers:', subscribersError);
