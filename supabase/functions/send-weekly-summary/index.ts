@@ -222,7 +222,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Send summary email
     const { data: emailData, error: emailError } = await resend.emails.send({
       from: 'Sentinel DeFi Reports <info@the3rdeyeadvisors.com>',
-      to: ['3rdeyeadvisors@gmail.com'],
+      to: ['info@the3rdeyeadvisors.com'],
       subject: `📊 Sentinel DeFi Broadcast Weekly Summary - ${successRate}% Success Rate`,
       html: emailHtml,
     });
@@ -248,7 +248,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Log to email_logs
     await supabase.from('email_logs').insert({
       email_type: 'weekly_summary',
-      recipient_email: '3rdeyeadvisors@gmail.com',
+      recipient_email: 'info@the3rdeyeadvisors.com',
       edge_function_name: 'send-weekly-summary',
       status: 'sent',
       metadata: {

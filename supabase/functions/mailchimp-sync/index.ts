@@ -106,7 +106,7 @@ const handler = async (req: Request): Promise<Response> => {
           permission_reminder: 'You signed up for updates from Sentinel DeFi',
           campaign_defaults: {
             from_name: 'Sentinel DeFi',
-            from_email: 'info@3rdeyeadvisors.com',
+            from_email: 'info@the3rdeyeadvisors.com',
             subject: '',
             language: 'en'
           },

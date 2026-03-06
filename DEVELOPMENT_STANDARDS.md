@@ -1,4 +1,4 @@
-# 3rdEyeAdvisors Development Standards
+# Sentinel DeFi Development Standards
 
 ## Purpose
 This document establishes the systematic workflow for all feature development and bug fixes to ensure:
