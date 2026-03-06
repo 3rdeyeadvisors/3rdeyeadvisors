@@ -10,7 +10,7 @@ const corsHeaders = {
 };
 
 interface CustomEmailRequest {
-  recipients: string[];
+  recipients: string | string[];
   subject: string;
   body: string;
 }
@@ -51,9 +51,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     const { recipients, subject, body }: CustomEmailRequest = await req.json();
 
-    console.log(`Sending custom email from ${user.email} to:`, recipients.length, "recipients");
-
-    if (!recipients || recipients.length === 0) {
+    if (!recipients) {
       throw new Error("No recipients provided");
     }
 
@@ -62,11 +60,63 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     const supabase = supabaseAdmin;
+    let recipientList: string[] = [];
+
+    if (typeof recipients === "string") {
+      if (recipients === "all") {
+        const { data, error } = await supabase
+          .from("subscribers")
+          .select("email")
+          .eq("status", "active");
+        if (error) throw error;
+        recipientList = data.map(s => s.email);
+      } else if (recipients === "premium") {
+        const { data: purchaseData, error: purchaseError } = await supabase
+          .from("user_purchases")
+          .select("user_id");
+        if (purchaseError) throw purchaseError;
+        const premiumUserIds = [...new Set(purchaseData.map(p => p.user_id))];
+
+        const { data: allProfiles, error: profilesError } = await supabase
+          .from("profiles")
+          .select("id, email");
+        if (profilesError) throw profilesError;
+
+        recipientList = allProfiles
+          .filter(p => premiumUserIds.includes(p.id))
+          .map(p => p.email)
+          .filter(Boolean);
+      } else if (recipients === "free") {
+        const { data: premiumData, error: premiumError } = await supabase
+          .from("user_purchases")
+          .select("user_id");
+        if (premiumError) throw premiumError;
+        const premiumUserIds = [...new Set(premiumData.map(p => p.user_id))];
+
+        const { data: allProfiles, error: profilesError } = await supabase
+          .from("profiles")
+          .select("id, email");
+        if (profilesError) throw profilesError;
+
+        recipientList = allProfiles
+          .filter(p => !premiumUserIds.includes(p.id))
+          .map(p => p.email)
+          .filter(Boolean);
+      }
+    } else {
+      recipientList = recipients;
+    }
+
+    console.log(`Sending custom email from ${user.email} to:`, recipientList.length, "recipients");
+
+    if (recipientList.length === 0) {
+      throw new Error("Recipient list is empty");
+    }
 
     const results = [];
 
     // Send emails to all recipients
-    for (const recipient of recipients) {
+    for (const recipient of recipientList) {
       try {
         const emailResponse = await resend.emails.send({
           from: "Sentinel DeFi <info@sentineldefi.online>",
@@ -90,9 +140,9 @@ const handler = async (req: Request): Promise<Response> => {
                       
                       <!-- Header -->
                       <tr>
-                        <td style="padding: 48px 40px 32px 40px; text-align: center;">
-                          <h1 style="color: #8B5CF6; font-size: 28px; margin: 0 0 8px 0; font-weight: 700;">Sentinel DeFi</h1>
-                          <p style="color: #9CA3AF; font-size: 14px; margin: 0; font-weight: 500; letter-spacing: 0.5px;">CONSCIOUS DEFI EDUCATION</p>
+                        <td style="padding: 48px 40px; text-align: center; background-color: #8B5CF6; border-radius: 8px 8px 0 0;">
+                          <h1 style="color: #ffffff; font-size: 28px; margin: 0 0 8px 0; font-weight: 700;">Sentinel DeFi</h1>
+                          <p style="color: rgba(255,255,255,0.8); font-size: 14px; margin: 0; font-weight: 500; letter-spacing: 0.5px;">CONSCIOUS DEFI EDUCATION</p>
                         </td>
                       </tr>
 
@@ -166,7 +216,8 @@ const handler = async (req: Request): Promise<Response> => {
         });
 
         results.push({ email: recipient, status: 'sent', id: emailResponse.data?.id });
-      } catch (error: any) {
+      } catch (error) {
+        const errorMsg = error instanceof Error ? error.message : "Unknown error";
         console.error("Failed to send to:", recipient, error);
 
         // Log failed email
@@ -174,14 +225,14 @@ const handler = async (req: Request): Promise<Response> => {
           email_type: 'custom',
           recipient_email: recipient,
           status: 'failed',
-          error_message: error.message,
+          error_message: errorMsg,
           edge_function_name: 'send-custom-email',
           metadata: {
             subject: subject
           }
         });
 
-        results.push({ email: recipient, status: 'failed', error: error.message });
+        results.push({ email: recipient, status: 'failed', error: errorMsg });
       }
     }
 
@@ -197,10 +248,11 @@ const handler = async (req: Request): Promise<Response> => {
         headers: { "Content-Type": "application/json", ...corsHeaders },
       }
     );
-  } catch (error: any) {
+  } catch (error) {
+    const errorMsg = error instanceof Error ? error.message : "Unknown error";
     console.error("Error in send-custom-email function:", error);
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ error: errorMsg }),
       {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },

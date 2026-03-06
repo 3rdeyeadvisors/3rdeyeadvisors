@@ -32,8 +32,7 @@ const menuItems = [
   { id: "participation", title: "Tutorial/Course Participation", icon: Activity },
   { id: "roadmap", title: "Roadmap Manager", icon: Map },
   { id: "seo", title: "SEO Settings", icon: Search },
-  { id: "email", title: "Email Center", icon: Mail },
-  { id: "email-preview", title: "Email Preview", icon: Eye },
+  { id: "email", title: "Email Hub", icon: Mail },
   { id: "users", title: "User Management", icon: Users },
   { id: "products", title: "Products & Courses", icon: Package },
 ];

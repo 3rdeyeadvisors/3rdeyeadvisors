@@ -8,11 +8,10 @@ import { AdminSidebar } from "@/components/admin/AdminSidebar";
 import { AICommandBar } from "@/components/admin/AICommandBar";
 import { OverviewPanel } from "@/components/admin/OverviewPanel";
 import { OrdersManager } from "@/components/admin/OrdersManager";
-import { EmailCenter } from "@/components/admin/EmailCenter";
+import EmailHub from "@/components/admin/EmailHub";
 import { UserManager } from "@/components/admin/UserManager";
 import { ProductManager } from "@/components/admin/ProductManager";
 import RaffleManager from "@/components/admin/RaffleManager";
-import EmailPreview from "@/components/admin/EmailPreview";
 import { TutorialCourseParticipation } from "@/components/admin/TutorialCourseParticipation";
 import CommissionsManager from "@/components/admin/CommissionsManager";
 import RoadmapManager from "@/components/admin/RoadmapManager";
@@ -90,9 +89,7 @@ const AdminDashboard = () => {
       case "commissions":
         return <CommissionsManager />;
       case "email":
-        return <EmailCenter />;
-      case "email-preview":
-        return <EmailPreview />;
+        return <EmailHub />;
       case "users":
         return <UserManager />;
       case "products":
