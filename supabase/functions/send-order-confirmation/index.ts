@@ -208,7 +208,7 @@ const handler = async (req: Request): Promise<Response> => {
                           <p style="color: #F5F5F5; font-size: 14px; margin: 0 0 8px 0;">
                             Questions about your order?
                           </p>
-                          <a href="mailto:info@the3rdeyeadvisors.com" style="color: hsl(217, 91%, 70%); text-decoration: underline;">info@the3rdeyeadvisors.com</a>
+                          <a href="mailto:info@sentineldefi.online" style="color: hsl(217, 91%, 70%); text-decoration: underline;">info@sentineldefi.online</a>
                         </td>
                       </tr>
                     </table>
