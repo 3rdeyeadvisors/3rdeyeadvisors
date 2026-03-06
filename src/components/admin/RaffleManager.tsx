@@ -58,7 +58,7 @@ interface VerificationTask {
   verified_at?: string;
 }
 
-const RaffleManager = () => {
+export const RaffleManager = () => {
   const { toast } = useToast();
   const [raffles, setRaffles] = useState<Raffle[]>([]);
   const [participants, setParticipants] = useState<Participant[]>([]);
@@ -1257,4 +1257,3 @@ const RaffleManager = () => {
   );
 };
 
-export default RaffleManager;
