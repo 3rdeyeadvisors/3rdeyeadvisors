@@ -248,7 +248,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Log to email_logs
     await supabase.from('email_logs').insert({
       email_type: 'weekly_summary',
-      recipient_email: 'info@the3rdeyeadvisors.com',
+      recipient_email: 'info@sentineldefi.online',
       edge_function_name: 'send-weekly-summary',
       status: 'sent',
       metadata: {

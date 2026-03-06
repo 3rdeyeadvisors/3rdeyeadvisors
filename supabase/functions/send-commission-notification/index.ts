@@ -141,7 +141,7 @@ serve(async (req) => {
 
     // Log the email
     await supabaseClient.from("email_logs").insert({
-      recipient_email: "info@the3rdeyeadvisors.com",
+      recipient_email: "info@sentineldefi.online",
       email_type: "commission_notification",
       edge_function_name: "send-commission-notification",
       status: "sent",

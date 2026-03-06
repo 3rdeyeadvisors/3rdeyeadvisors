@@ -69,7 +69,7 @@ const handler = async (req: Request): Promise<Response> => {
     for (const recipient of recipients) {
       try {
         const emailResponse = await resend.emails.send({
-          from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
+          from: "Sentinel DeFi <info@sentineldefi.online>",
           to: [recipient],
           subject: subject,
           tags: [

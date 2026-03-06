@@ -216,7 +216,7 @@ serve(async (req) => {
 
       try {
         await resend.emails.send({
-          from: "Sentinel DeFi <courses@the3rdeyeadvisors.com>",
+          from: "Sentinel DeFi <courses@sentineldefi.online>",
           to: [recipient.email],
           subject: `🎓 New Course Available: ${course_title} — You Have Early Access!`,
           html: emailHtml,

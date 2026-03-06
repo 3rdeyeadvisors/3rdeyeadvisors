@@ -147,7 +147,7 @@ const handler = async (req: Request): Promise<Response> => {
     try {
       await supabase.from('email_logs').insert({
         email_type: 'notification',
-        recipient_email: 'info@the3rdeyeadvisors.com',
+        recipient_email: 'info@sentineldefi.online',
         status: 'failed',
         edge_function_name: 'notify-new-signup',
         error_message: error.message

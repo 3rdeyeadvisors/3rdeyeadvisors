@@ -72,7 +72,7 @@ const handler = async (req: Request): Promise<Response> => {
     for (const subscriber of subscribers) {
       try {
         const result = await resend.emails.send({
-        from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
+        from: "Sentinel DeFi <info@sentineldefi.online>",
         to: [subscriber.email],
         subject: "🎟 Learn to Earn — Join Our $50 Bitcoin Raffle Now",
         html: `

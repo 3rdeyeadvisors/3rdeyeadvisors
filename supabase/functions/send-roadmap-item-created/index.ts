@@ -198,7 +198,7 @@ const handler = async (req: Request): Promise<Response> => {
       for (const subscriber of batch) {
         try {
           await resend.emails.send({
-            from: "Sentinel DeFi <updates@the3rdeyeadvisors.com>",
+            from: "Sentinel DeFi <updates@sentineldefi.online>",
             to: [subscriber.email],
             subject: `🗳️ New Feature to Vote On: ${item.title}`,
             html: emailHtml.replace("We've added", subscriber.name ? `Hi ${subscriber.name},\n\nWe've added` : "We've added"),

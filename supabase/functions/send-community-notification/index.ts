@@ -173,7 +173,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     await supabase.from('email_logs').insert({
       email_type: 'community_notification',
-      recipient_email: 'info@the3rdeyeadvisors.com',
+      recipient_email: 'info@sentineldefi.online',
       status: 'sent',
       edge_function_name: 'send-community-notification',
       metadata: {

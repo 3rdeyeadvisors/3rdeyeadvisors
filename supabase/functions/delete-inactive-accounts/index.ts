@@ -184,7 +184,7 @@ const handler = async (req: Request): Promise<Response> => {
         const emailHtml = generateDeletionEmail(userName);
 
         const { error: emailError } = await resend.emails.send({
-          from: "Sentinel DeFi <noreply@the3rdeyeadvisors.com>",
+          from: "Sentinel DeFi <noreply@sentineldefi.online>",
           to: [userEmail],
           subject: "Your Sentinel DeFi Account Has Been Removed",
           html: emailHtml,

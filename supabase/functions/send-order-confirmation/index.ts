@@ -239,8 +239,8 @@ const handler = async (req: Request): Promise<Response> => {
     `;
 
     const emailResponse = await resend.emails.send({
-      from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
-      reply_to: "info@the3rdeyeadvisors.com",
+      from: "Sentinel DeFi <info@sentineldefi.online>",
+      reply_to: "info@sentineldefi.online",
       to: [customer_email],
       subject: `✅ Thanks! Order #${order_id} confirmed - $${(total / 100).toFixed(2)}`,
       html: emailHtml,

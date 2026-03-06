@@ -222,7 +222,7 @@ const handler = async (req: Request): Promise<Response> => {
     for (const subscriber of subscribers) {
       try {
         const { error: sendError } = await resend.emails.send({
-          from: 'Sentinel DeFi <info@the3rdeyeadvisors.com>',
+          from: 'Sentinel DeFi <info@sentineldefi.online>',
           to: [subscriber.email],
           subject: broadcast.subject_line,
           html: emailHtml,

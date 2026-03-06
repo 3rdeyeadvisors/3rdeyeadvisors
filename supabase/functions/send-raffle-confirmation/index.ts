@@ -29,7 +29,7 @@ const handler = async (req: Request): Promise<Response> => {
     console.log("Sending raffle confirmation email to:", email);
 
     const emailResponse = await resend.emails.send({
-      from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
+      from: "Sentinel DeFi <info@sentineldefi.online>",
       to: [email],
       subject: "You're officially entered — Sentinel DeFi Learn-to-Earn Raffle 🎟",
       html: `

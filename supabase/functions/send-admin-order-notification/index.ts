@@ -110,7 +110,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     await supabase.from('email_logs').insert({
       email_type: 'admin_notification',
-      recipient_email: 'info@the3rdeyeadvisors.com',
+      recipient_email: 'info@sentineldefi.online',
       status: 'sent',
       edge_function_name: 'send-admin-order-notification',
       metadata: {

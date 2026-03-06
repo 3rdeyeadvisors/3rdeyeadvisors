@@ -231,7 +231,7 @@ const handler = async (req: Request): Promise<Response> => {
         for (const subscriber of batch) {
           try {
             await resend.emails.send({
-              from: "Sentinel DeFi <updates@the3rdeyeadvisors.com>",
+              from: "Sentinel DeFi <updates@sentineldefi.online>",
               to: [subscriber.email],
               subject: subjectLine,
               html: emailHtml,

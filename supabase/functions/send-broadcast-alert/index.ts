@@ -128,7 +128,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Log to email_logs
     await supabase.from('email_logs').insert({
       email_type: 'broadcast_alert',
-      recipient_email: 'info@the3rdeyeadvisors.com',
+      recipient_email: 'info@sentineldefi.online',
       edge_function_name: 'send-broadcast-alert',
       status: 'sent',
       related_id: payload.alert_id,

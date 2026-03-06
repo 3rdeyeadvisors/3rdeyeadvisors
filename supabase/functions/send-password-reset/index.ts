@@ -131,7 +131,7 @@ const handler = async (req: Request): Promise<Response> => {
                           <td style="text-align: center; padding: 24px 0;">
                             <p style="color: hsl(215, 20%, 65%); font-size: 14px; margin: 0 0 12px 0; line-height: 1.5;">
                               Need help? Contact our support team at 
-                              <a href="mailto:info@the3rdeyeadvisors.com" style="color: hsl(217, 91%, 70%); text-decoration: none; font-weight: 500;">info@the3rdeyeadvisors.com</a>
+                              <a href="mailto:info@sentineldefi.online" style="color: hsl(217, 91%, 70%); text-decoration: none; font-weight: 500;">info@sentineldefi.online</a>
                             </p>
                             <p style="color: hsl(215, 20%, 50%); font-size: 12px; margin: 0;">
                               © 2024 Sentinel DeFi. Empowering DeFi consciousness.

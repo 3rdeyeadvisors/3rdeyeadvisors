@@ -108,7 +108,7 @@ const handler = async (req: Request): Promise<Response> => {
     `;
 
     const emailResponse = await resend.emails.send({
-      from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
+      from: "Sentinel DeFi <info@sentineldefi.online>",
       to: [user.email],
       subject: `✅ Your ${platform} Handle Has Been Verified!`,
       html: emailHtml,
