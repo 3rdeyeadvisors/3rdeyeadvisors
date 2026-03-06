@@ -259,7 +259,7 @@ export const SiteControlsManager = () => {
 
           <div className="grid gap-3">
             {pages?.map((page) => (
-              <div key={page.id} className="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 group hover:border-white/20 transition-all">
+              <div key={page.path} className="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 group hover:border-white/20 transition-all">
                 <div className="flex flex-col">
                   <span className="text-sm font-medium text-white capitalize">
                     {page.path.replace(/^\//, '').replace(/-/g, ' ') || 'Home'}

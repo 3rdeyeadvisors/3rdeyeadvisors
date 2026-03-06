@@ -3,8 +3,9 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 
 export interface PageVisibility {
-  id: string;
+  id?: number;
   path: string;
+  label?: string;
   is_visible: boolean;
   updated_at: string;
 }
