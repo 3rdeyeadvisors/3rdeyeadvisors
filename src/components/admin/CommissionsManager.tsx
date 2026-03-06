@@ -48,7 +48,7 @@ interface EmailMap {
   [userId: string]: string;
 }
 
-const CommissionsManager = () => {
+export const CommissionsManager = () => {
   const [commissions, setCommissions] = useState<Commission[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
@@ -452,4 +452,3 @@ const CommissionsManager = () => {
   );
 };
 
-export default CommissionsManager;

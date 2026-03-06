@@ -458,7 +458,7 @@ interface ActiveRaffle {
   end_date: string;
 }
 
-export default function EmailHub() {
+export function EmailHub() {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("compose");

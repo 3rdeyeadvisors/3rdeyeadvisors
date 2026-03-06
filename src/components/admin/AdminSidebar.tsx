@@ -13,17 +13,17 @@ import {
 } from "@/components/ui/sidebar";
 
 const menuItems = [
-  { id: "overview", title: "Overview", icon: LayoutDashboard },
-  { id: "orders", title: "Orders & Customers", icon: ShoppingCart },
-  { id: "raffles", title: "Raffle Manager", icon: Gift },
-  { id: "commissions", title: "Commissions", icon: DollarSign },
-  { id: "participation", title: "Tutorial/Course Participation", icon: Activity },
-  { id: "roadmap", title: "Roadmap Manager", icon: Map },
-  { id: "seo", title: "SEO Settings", icon: Search },
-  { id: "site-controls", title: "Site Controls", icon: Settings },
-  { id: "email", title: "Email Hub", icon: Mail },
-  { id: "users", title: "User Management", icon: Users },
-  { id: "products", title: "Products & Courses", icon: Package },
+ { id: "overview",  title: "Overview",          icon: LayoutDashboard },
+ { id: "email",     title: "Email Hub",         icon: Mail },
+ { id: "users",     title: "Users",             icon: Users },
+ { id: "orders",    title: "Orders",            icon: ShoppingCart },
+ { id: "products",  title: "Products",          icon: Package },
+ { id: "raffles",   title: "Raffles",           icon: Gift },
+ { id: "commissions", title: "Commissions",     icon: DollarSign },
+ { id: "participation", title: "Participation", icon: Activity },
+ { id: "roadmap",   title: "Roadmap",           icon: Map },
+ { id: "seo",       title: "SEO Settings",      icon: Search },
+ { id: "site",      title: "Site Controls",     icon: Settings },
 ];
 
 interface AdminSidebarProps {

@@ -294,4 +294,3 @@ export const RoadmapManager = () => {
   );
 };
 
-export default RoadmapManager;
