@@ -161,9 +161,9 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     const emailResponse = await resend.emails.send({
-      from: "Sentinel DeFi Community <notifications@the3rdeyeadvisors.com>",
+      from: "Sentinel DeFi Community <notifications@sentineldefi.online>",
       reply_to: user_email,
-      to: ["info@the3rdeyeadvisors.com"],
+      to: ["info@sentineldefi.online"],
       subject: subject,
       html: emailHtml,
       tags: [{ name: 'category', value: 'community_notification' }],
