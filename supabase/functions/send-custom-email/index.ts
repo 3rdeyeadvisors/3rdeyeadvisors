@@ -64,43 +64,44 @@ const handler = async (req: Request): Promise<Response> => {
 
     if (typeof recipients === "string") {
       if (recipients === "all") {
+        // Fetch all real subscribers — exclude internal bot test emails
         const { data, error } = await supabase
           .from("subscribers")
           .select("email")
-          .eq("status", "active");
+          .not("email", "ilike", "bot-%@internal.sentineldefi.online");
         if (error) throw error;
-        recipientList = data.map(s => s.email);
+        recipientList = (data || []).map(s => s.email).filter(Boolean);
+
       } else if (recipients === "premium") {
+        // Get user_ids of everyone who has made a purchase
         const { data: purchaseData, error: purchaseError } = await supabase
           .from("user_purchases")
           .select("user_id");
         if (purchaseError) throw purchaseError;
-        const premiumUserIds = [...new Set(purchaseData.map(p => p.user_id))];
+        const premiumUserIds = [...new Set((purchaseData || []).map((p: any) => p.user_id))];
 
-        const { data: allProfiles, error: profilesError } = await supabase
-          .from("profiles")
-          .select("id, email");
-        if (profilesError) throw profilesError;
-
-        recipientList = allProfiles
-          .filter(p => premiumUserIds.includes(p.id))
-          .map(p => p.email)
+        // Use the RPC function that joins auth.users to get emails
+        const { data: emailData, error: emailError } = await supabase
+          .rpc("get_user_emails_with_profiles");
+        if (emailError) throw emailError;
+        recipientList = (emailData || [])
+          .filter((u: any) => premiumUserIds.includes(u.user_id))
+          .map((u: any) => u.email)
           .filter(Boolean);
+
       } else if (recipients === "free") {
-        const { data: premiumData, error: premiumError } = await supabase
+        const { data: purchaseData, error: purchaseError } = await supabase
           .from("user_purchases")
           .select("user_id");
-        if (premiumError) throw premiumError;
-        const premiumUserIds = [...new Set(premiumData.map(p => p.user_id))];
+        if (purchaseError) throw purchaseError;
+        const premiumUserIds = [...new Set((purchaseData || []).map((p: any) => p.user_id))];
 
-        const { data: allProfiles, error: profilesError } = await supabase
-          .from("profiles")
-          .select("id, email");
-        if (profilesError) throw profilesError;
-
-        recipientList = allProfiles
-          .filter(p => !premiumUserIds.includes(p.id))
-          .map(p => p.email)
+        const { data: emailData, error: emailError } = await supabase
+          .rpc("get_user_emails_with_profiles");
+        if (emailError) throw emailError;
+        recipientList = (emailData || [])
+          .filter((u: any) => !premiumUserIds.includes(u.user_id))
+          .map((u: any) => u.email)
           .filter(Boolean);
       }
     } else {
