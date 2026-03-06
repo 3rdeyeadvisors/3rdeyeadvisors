@@ -221,8 +221,8 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send summary email
     const { data: emailData, error: emailError } = await resend.emails.send({
-      from: 'Sentinel DeFi Reports <info@the3rdeyeadvisors.com>',
-      to: ['info@the3rdeyeadvisors.com'],
+      from: 'Sentinel DeFi Reports <info@sentineldefi.online>',
+      to: ['info@sentineldefi.online'],
       subject: `📊 Sentinel DeFi Broadcast Weekly Summary - ${successRate}% Success Rate`,
       html: emailHtml,
     });
