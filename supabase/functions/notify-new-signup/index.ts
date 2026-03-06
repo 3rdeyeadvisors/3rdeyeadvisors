@@ -85,8 +85,8 @@ const handler = async (req: Request): Promise<Response> => {
     
     // Send notification email
     const emailResponse = await resend.emails.send({
-      from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
-      to: ["info@the3rdeyeadvisors.com"],
+      from: "Sentinel DeFi <info@sentineldefi.online>",
+      to: ["info@sentineldefi.online"],
       subject: `New ${signupType === 'subscriber' ? 'Subscriber' : 'Signup'} - Sentinel DeFi Platform`,
       html: `
         <div style="max-width: 600px; margin: 0 auto; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: hsl(222, 84%, 4.9%); color: #fff; padding: 20px; border-radius: 12px;">
@@ -147,7 +147,7 @@ const handler = async (req: Request): Promise<Response> => {
     try {
       await supabase.from('email_logs').insert({
         email_type: 'notification',
-        recipient_email: 'info@the3rdeyeadvisors.com',
+        recipient_email: 'info@sentineldefi.online',
         status: 'failed',
         edge_function_name: 'notify-new-signup',
         error_message: error.message

@@ -98,9 +98,9 @@ const handler = async (req: Request): Promise<Response> => {
     `;
 
     const emailResponse = await resend.emails.send({
-      from: "Sentinel DeFi Store <info@the3rdeyeadvisors.com>",
+      from: "Sentinel DeFi Store <info@sentineldefi.online>",
       reply_to: customer_email,
-      to: ["info@the3rdeyeadvisors.com"],
+      to: ["info@sentineldefi.online"],
       subject: `🛒 New order #${order_id} — $${(total / 100).toFixed(2)}`,
       html: emailHtml,
       tags: [{ name: 'category', value: 'admin_notification' }],
@@ -110,7 +110,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     await supabase.from('email_logs').insert({
       email_type: 'admin_notification',
-      recipient_email: 'info@the3rdeyeadvisors.com',
+      recipient_email: 'info@sentineldefi.online',
       status: 'sent',
       edge_function_name: 'send-admin-order-notification',
       metadata: {

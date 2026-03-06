@@ -51,7 +51,7 @@ const handler = async (req: Request): Promise<Response> => {
     const { data: subscribers, error } = await supabase
       .from('subscribers')
       .select('email, name')
-      .not('email', 'ilike', 'bot-%@internal.3rdeyeadvisors.com');
+      .not('email', 'ilike', 'bot-%@internal.sentineldefi.online');
 
     if (error) throw error;
 
@@ -72,7 +72,7 @@ const handler = async (req: Request): Promise<Response> => {
     for (const subscriber of subscribers) {
       try {
         const result = await resend.emails.send({
-        from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
+        from: "Sentinel DeFi <info@sentineldefi.online>",
         to: [subscriber.email],
         subject: "🎟 Learn to Earn — Join Our $50 Bitcoin Raffle Now",
         html: `

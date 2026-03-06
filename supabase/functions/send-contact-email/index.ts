@@ -163,8 +163,8 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send email to info
     const supportEmailResponse = await resend.emails.send({
-      from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
-      to: ["info@the3rdeyeadvisors.com"],
+      from: "Sentinel DeFi <info@sentineldefi.online>",
+      to: ["info@sentineldefi.online"],
       subject: `Contact Form: ${sanitizedSubject}`,
       tags: [
         { name: 'category', value: 'contact_form' }
@@ -220,7 +220,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send confirmation email to user
     const userEmailResponse = await resend.emails.send({
-      from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
+      from: "Sentinel DeFi <info@sentineldefi.online>",
       to: [email],
       subject: "We received your message!",
       tags: [

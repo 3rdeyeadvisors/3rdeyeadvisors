@@ -138,7 +138,7 @@ const handler = async (req: Request): Promise<Response> => {
                           <p style="color: #F5F5F5; font-size: 14px; margin: 0 0 8px 0;">
                             Questions about your shipment?
                           </p>
-                          <a href="mailto:info@the3rdeyeadvisors.com" style="color: hsl(217, 91%, 70%); text-decoration: underline;">info@the3rdeyeadvisors.com</a>
+                          <a href="mailto:info@sentineldefi.online" style="color: hsl(217, 91%, 70%); text-decoration: underline;">info@sentineldefi.online</a>
                         </td>
                       </tr>
                     </table>
@@ -169,8 +169,8 @@ const handler = async (req: Request): Promise<Response> => {
     `;
 
     const emailResponse = await resend.emails.send({
-      from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
-      reply_to: "info@the3rdeyeadvisors.com",
+      from: "Sentinel DeFi <info@sentineldefi.online>",
+      reply_to: "info@sentineldefi.online",
       to: [customer_email],
       subject: `🚀 Your order #${order_id} has shipped!`,
       html: emailHtml,

@@ -30,10 +30,10 @@ const handler = async (req: Request): Promise<Response> => {
     const username = instagram_username || x_username;
 
     // Send notification to admin only
-    const adminEmail = "info@the3rdeyeadvisors.com";
+    const adminEmail = "info@sentineldefi.online";
 
     const adminEmailResponse = await resend.emails.send({
-      from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
+      from: "Sentinel DeFi <info@sentineldefi.online>",
       to: [adminEmail],
       subject: `🔍 New ${platform} Username Submitted - ${raffle_title}`,
       html: `

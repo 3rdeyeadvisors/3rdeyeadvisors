@@ -97,7 +97,7 @@ serve(async (req) => {
       try {
         // Create a unique email for the bot
         const sanitizedName = bot.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-        const botEmail = `bot-${sanitizedName}@internal.3rdeyeadvisors.com`;
+        const botEmail = `bot-${sanitizedName}@internal.sentineldefi.online`;
         
         // Check if bot already exists
         const { data: existingProfile } = await supabaseAdmin

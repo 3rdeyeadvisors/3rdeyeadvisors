@@ -125,8 +125,8 @@ serve(async (req) => {
         "Authorization": `Bearer ${resendApiKey}`,
       },
       body: JSON.stringify({
-        from: "Sentinel DeFi <noreply@the3rdeyeadvisors.com>",
-        to: ["info@the3rdeyeadvisors.com"],
+        from: "Sentinel DeFi <noreply@sentineldefi.online>",
+        to: ["info@sentineldefi.online"],
         subject: `💰 New Commission Pending: $${commissionAmount} (${planLabel})`,
         html: emailHtml,
       }),
@@ -141,7 +141,7 @@ serve(async (req) => {
 
     // Log the email
     await supabaseClient.from("email_logs").insert({
-      recipient_email: "info@the3rdeyeadvisors.com",
+      recipient_email: "info@sentineldefi.online",
       email_type: "commission_notification",
       edge_function_name: "send-commission-notification",
       status: "sent",

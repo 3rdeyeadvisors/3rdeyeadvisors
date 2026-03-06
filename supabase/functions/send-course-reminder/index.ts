@@ -101,7 +101,7 @@ const handler = async (req: Request): Promise<Response> => {
       
       try {
         const emailResponse = await resend.emails.send({
-          from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
+          from: "Sentinel DeFi <info@sentineldefi.online>",
           to: [email],
           subject: "Ready to start your DeFi journey? 🚀",
           html: `

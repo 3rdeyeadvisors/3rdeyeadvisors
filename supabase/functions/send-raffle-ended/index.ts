@@ -70,7 +70,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Send emails in batches
     const emailPromises = participants.map((participant: any) => 
       resend.emails.send({
-        from: "Sentinel DeFi <info@the3rdeyeadvisors.com>",
+        from: "Sentinel DeFi <info@sentineldefi.online>",
         to: [participant.email],
         subject: `⏰ ${raffle.title} Has Ended — Winner Coming Soon!`,
         html: `

@@ -9,7 +9,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 /**
  * @title StandardERC20Token
  * @dev Implementation of a standard ERC20 token with additional security features
- * @custom:security-contact security@the3rdeyeadvisors.com
+ * @custom:security-contact security@sentineldefi.online
  */
 contract StandardERC20Token is ERC20, ERC20Burnable, Pausable, Ownable {
     uint8 private _decimals;

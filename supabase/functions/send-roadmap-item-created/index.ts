@@ -70,7 +70,7 @@ const handler = async (req: Request): Promise<Response> => {
     const { data: subscribers, error: subsError } = await supabase
       .from("subscribers")
       .select("email, name")
-      .not("email", "ilike", "bot-%@internal.3rdeyeadvisors.com");
+      .not("email", "ilike", "bot-%@internal.sentineldefi.online");
 
     if (subsError) {
       console.error("Error fetching subscribers:", subsError);
@@ -198,7 +198,7 @@ const handler = async (req: Request): Promise<Response> => {
       for (const subscriber of batch) {
         try {
           await resend.emails.send({
-            from: "Sentinel DeFi <updates@the3rdeyeadvisors.com>",
+            from: "Sentinel DeFi <updates@sentineldefi.online>",
             to: [subscriber.email],
             subject: `🗳️ New Feature to Vote On: ${item.title}`,
             html: emailHtml.replace("We've added", subscriber.name ? `Hi ${subscriber.name},\n\nWe've added` : "We've added"),

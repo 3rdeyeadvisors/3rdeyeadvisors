@@ -168,7 +168,7 @@ serve(async (req) => {
     `;
 
     const { data, error } = await resend.emails.send({
-      from: "Sentinel DeFi <founder@the3rdeyeadvisors.com>",
+      from: "Sentinel DeFi <founder@sentineldefi.online>",
       to: [customer_email],
       subject: `🎉 Welcome to the Founding 33 – Seat #${seat_number} is Yours!`,
       html: emailHtml,
