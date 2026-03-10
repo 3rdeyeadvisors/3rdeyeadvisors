@@ -378,16 +378,12 @@ export const EnhancedContentPlayer = ({
         description: `You scored ${score}%. Module complete!`,
       });
       handleComplete(); // auto mark complete when quiz is passed
-      // Switch back to content tab to show the completed state
-      setActiveTab('content');
     } else {
       toast({
         title: "Not quite",
         description: `You scored ${score}%. Review the content and try again.`,
         variant: "destructive",
       });
-      // Switch back to content for review
-      setActiveTab('content');
     }
   };
 

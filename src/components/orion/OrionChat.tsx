@@ -64,7 +64,7 @@ const OrionChat = () => {
   };
 
   return (
-    <div className="fixed bottom-[calc(1rem+env(safe-area-inset-bottom))] right-[calc(1rem+env(safe-area-inset-right))] z-50 md:bottom-6 md:right-6">
+    <div className="fixed bottom-[calc(1rem+env(safe-area-inset-bottom))] right-[calc(1rem+env(safe-area-inset-right))] z-40 md:bottom-6 md:right-6">
       {/* Greeting Bubble */}
       <AnimatePresence>
         {showGreeting && !isOpen && (
