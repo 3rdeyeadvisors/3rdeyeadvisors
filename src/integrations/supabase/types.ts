@@ -892,6 +892,30 @@ export type Database = {
         }
         Relationships: []
       }
+      page_visibility: {
+        Row: {
+          id: number
+          is_visible: boolean | null
+          label: string
+          path: string
+          updated_at: string | null
+        }
+        Insert: {
+          id?: number
+          is_visible?: boolean | null
+          label: string
+          path: string
+          updated_at?: string | null
+        }
+        Update: {
+          id?: number
+          is_visible?: boolean | null
+          label?: string
+          path?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       premium_content_announcements: {
         Row: {
           announcement_sent_at: string | null
@@ -1655,6 +1679,39 @@ export type Database = {
           twitter_handle?: string
           updated_at?: string
           updated_by?: string | null
+        }
+        Relationships: []
+      }
+      social_links: {
+        Row: {
+          icon: string
+          id: number
+          is_active: boolean | null
+          label: string
+          platform: string
+          sort_order: number | null
+          updated_at: string | null
+          url: string
+        }
+        Insert: {
+          icon: string
+          id?: number
+          is_active?: boolean | null
+          label: string
+          platform: string
+          sort_order?: number | null
+          updated_at?: string | null
+          url: string
+        }
+        Update: {
+          icon?: string
+          id?: number
+          is_active?: boolean | null
+          label?: string
+          platform?: string
+          sort_order?: number | null
+          updated_at?: string | null
+          url?: string
         }
         Relationships: []
       }
