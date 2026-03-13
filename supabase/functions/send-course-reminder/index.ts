@@ -85,7 +85,7 @@ const handler = async (req: Request): Promise<Response> => {
       throw emailError;
     }
     
-    const emailMap = new Map(userEmails?.map(u => [u.user_id, u.email]) || []);
+    const emailMap = new Map(userEmails?.map((u: any) => [u.user_id, u.email]) || []);
     
     let emailsSent = 0;
     const errors: string[] = [];
