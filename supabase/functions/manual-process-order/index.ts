@@ -33,7 +33,7 @@ serve(async (req) => {
     // If it's a payment intent ID
     if (paymentId.startsWith("pi_") || paymentId.startsWith("pm_")) {
       const charges = await stripe.charges.list({ limit: 100 });
-      const charge = charges.data.find(c => 
+      const charge = charges.data.find((c: any) => 
         c.payment_intent?.toString().includes(paymentId) || 
         c.payment_method?.toString() === paymentId
       );
@@ -47,7 +47,7 @@ serve(async (req) => {
       
       // Find the session
       const sessions = await stripe.checkout.sessions.list({ limit: 100 });
-      session = sessions.data.find(s => s.payment_intent === paymentIntent.id);
+      session = sessions.data.find((s: any) => s.payment_intent === paymentIntent.id);
     } else if (paymentId.startsWith("cs_")) {
       session = await stripe.checkout.sessions.retrieve(paymentId);
     }
@@ -165,10 +165,11 @@ serve(async (req) => {
         status: 200,
       }
     );
-  } catch (error) {
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Unknown error';
     console.error("Error processing order:", error);
     return new Response(
-      JSON.stringify({ error: error.message, details: error }),
+      JSON.stringify({ error: message, details: String(error) }),
       {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
         status: 500,

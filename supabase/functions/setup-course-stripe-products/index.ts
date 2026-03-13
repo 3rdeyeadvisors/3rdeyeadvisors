@@ -131,11 +131,12 @@ serve(async (req) => {
         status: 200,
       }
     );
-  } catch (error) {
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Unknown error';
     console.error("Stripe setup error:", error);
     return new Response(
       JSON.stringify({
-        error: error.message,
+        error: message,
         details: "Failed to setup Stripe course products",
       }),
       {

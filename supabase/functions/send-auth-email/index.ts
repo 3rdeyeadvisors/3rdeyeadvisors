@@ -29,12 +29,13 @@ const handler = async (req: Request): Promise<Response> => {
     // Get user's name for personalization
     let firstName = 'there';
     try {
-      const { data: user } = await supabase.auth.admin.getUserByEmail(email);
-      if (user.user) {
+      const { data: { users } } = await supabase.auth.admin.listUsers();
+      const matchedUser = users.find((u: any) => u.email === email);
+      if (matchedUser) {
         const { data: profile } = await supabase
           .from('profiles')
           .select('display_name')
-          .eq('user_id', user.user.id)
+          .eq('user_id', matchedUser.id)
           .single();
         
         firstName = profile?.display_name?.split(' ')[0] || 

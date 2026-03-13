@@ -174,9 +174,9 @@ serve(async (req) => {
           console.error(`Failed to register ${topic}:`, errorText);
           errors.push({ topic, error: errorText });
         }
-      } catch (err) {
+      } catch (err: unknown) {
         console.error(`Error registering ${topic}:`, err);
-        errors.push({ topic, error: err.message });
+        errors.push({ topic, error: err instanceof Error ? err.message : 'Unknown error' });
       }
     }
 

@@ -33,7 +33,7 @@ const handler = async (req: Request): Promise<Response> => {
     const { data: profile } = await supabase
       .from('profiles')
       .select('display_name')
-      .eq('user_id', (await supabase.auth.admin.getUserByEmail(email)).data.user?.id)
+      .eq('user_id', await (async () => { const { data: { users } } = await supabase.auth.admin.listUsers(); return users.find((u: any) => u.email === email)?.id || ''; })())
       .single();
 
     const firstName = profile?.display_name?.split(' ')[0] || 'there';

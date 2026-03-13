@@ -52,7 +52,7 @@ const handler = async (req: Request): Promise<Response> => {
       throw authError;
     }
     
-    const registeredEmails = new Set(authUsers?.map(u => u.email.toLowerCase()) || []);
+    const registeredEmails = new Set(authUsers?.map((u: any) => u.email.toLowerCase()) || []);
     
     // Filter subscribers who don't have accounts
     let subscribersWithoutAccounts = subscribers.filter(
@@ -85,7 +85,7 @@ const handler = async (req: Request): Promise<Response> => {
       console.error('Error fetching email logs:', logsError);
     }
     
-    const alreadySent = new Set(sentEmails?.map(e => e.recipient_email.toLowerCase()) || []);
+    const alreadySent = new Set(sentEmails?.map((e: any) => e.recipient_email.toLowerCase()) || []);
     
     // Filter out subscribers who already received this email
     subscribersWithoutAccounts = subscribersWithoutAccounts.filter(

@@ -85,7 +85,7 @@ const handler = async (req: Request): Promise<Response> => {
       throw emailError;
     }
     
-    const emailMap = new Map(userEmails?.map(u => [u.user_id, u.email]) || []);
+    const emailMap = new Map(userEmails?.map((u: any) => [u.user_id, u.email]) || []);
     
     let emailsSent = 0;
     const errors: string[] = [];
@@ -102,7 +102,7 @@ const handler = async (req: Request): Promise<Response> => {
       try {
         const emailResponse = await resend.emails.send({
           from: "Sentinel DeFi <info@sentineldefi.online>",
-          to: [email],
+          to: [email as string],
           subject: "Ready to start your DeFi journey? 🚀",
           html: `
             <div style="max-width: 600px; margin: 0 auto; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: hsl(222, 84%, 4.9%); color: #fff; padding: 20px; border-radius: 12px;">

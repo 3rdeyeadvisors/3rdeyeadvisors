@@ -260,11 +260,11 @@ serve(async (req) => {
         } else {
           // Dynamic price
           return {
-            name: item.price_data.product_data.name,
-            unit_price_cents: item.price_data.unit_amount,
-            unit_price_dollars: (item.price_data.unit_amount / 100).toFixed(2),
+            name: item.price_data?.product_data?.name,
+            unit_price_cents: item.price_data?.unit_amount,
+            unit_price_dollars: ((item.price_data?.unit_amount || 0) / 100).toFixed(2),
             quantity: item.quantity,
-            total_cents: item.price_data.unit_amount * item.quantity
+            total_cents: (item.price_data?.unit_amount || 0) * item.quantity
           };
         }
       })
@@ -283,9 +283,9 @@ serve(async (req) => {
         })
         .single();
 
-      if (discountResult && discountResult.is_valid) {
-        discountId = discountResult.discount_id;
-        discountAmount = discountResult.discount_amount * 100;
+      if ((discountResult as any)?.is_valid) {
+        discountId = (discountResult as any).discount_id;
+        discountAmount = (discountResult as any).discount_amount * 100;
         console.log('Discount applied:', { discountId, discountAmount });
       }
     }
@@ -344,9 +344,10 @@ serve(async (req) => {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
       status: 200,
     });
-  } catch (error) {
+  } catch (error: unknown) {
+    const errMsg = error instanceof Error ? error.message : 'Unknown error';
     console.error("Error creating cart checkout session:", error);
-    return new Response(JSON.stringify({ error: error.message }), {
+    return new Response(JSON.stringify({ error: errMsg }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
       status: 500,
     });

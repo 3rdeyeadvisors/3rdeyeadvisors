@@ -25,7 +25,7 @@ serve(async (req) => {
     console.log(`Found ${products.data.length} active Stripe products`);
 
     // Filter to only Printify products
-    const printifyProducts = products.data.filter(p => 
+    const printifyProducts = products.data.filter((p: any) =>
       p.metadata?.type === 'printify' || p.metadata?.printify_product_id
     );
 
@@ -34,7 +34,7 @@ serve(async (req) => {
     return new Response(
       JSON.stringify({ 
         success: true,
-        products: printifyProducts.map(p => ({
+        products: printifyProducts.map((p: any) => ({
           id: p.id,
           name: p.name,
           metadata: p.metadata
@@ -45,10 +45,11 @@ serve(async (req) => {
         status: 200,
       }
     );
-  } catch (error) {
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Unknown error';
     console.error("Error checking sync:", error);
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ error: message }),
       {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
         status: 500,
