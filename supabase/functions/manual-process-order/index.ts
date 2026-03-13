@@ -47,7 +47,7 @@ serve(async (req) => {
       
       // Find the session
       const sessions = await stripe.checkout.sessions.list({ limit: 100 });
-      session = sessions.data.find(s => s.payment_intent === paymentIntent.id);
+      session = sessions.data.find((s: any) => s.payment_intent === paymentIntent.id);
     } else if (paymentId.startsWith("cs_")) {
       session = await stripe.checkout.sessions.retrieve(paymentId);
     }
