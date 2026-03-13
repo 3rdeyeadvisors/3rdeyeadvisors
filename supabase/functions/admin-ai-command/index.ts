@@ -274,12 +274,13 @@ serve(async (req) => {
       status: 200,
     });
 
-  } catch (error) {
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Unknown error';
     console.error("Error processing admin command:", error);
     return new Response(
       JSON.stringify({ 
-        error: error.message,
-        message: `Failed to process command: ${error.message}`
+        error: message,
+        message: `Failed to process command: ${message}`
       }),
       {
         headers: { ...corsHeaders, "Content-Type": "application/json" },

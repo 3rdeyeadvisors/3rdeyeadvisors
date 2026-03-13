@@ -35,7 +35,7 @@ const handler = async (req: Request): Promise<Response> => {
         const { data: profile } = await supabase
           .from('profiles')
           .select('display_name')
-          .eq('user_id', user.user.id)
+          .eq('user_id', matchedUser.id)
           .single();
         
         firstName = profile?.display_name?.split(' ')[0] || 

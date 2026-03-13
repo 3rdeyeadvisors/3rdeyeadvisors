@@ -37,7 +37,7 @@ const handler = async (req: Request): Promise<Response> => {
     payload = await req.json();
     console.log('Received Mailchimp sync payload:', payload);
 
-    const { table, record } = payload;
+    const { table, record } = payload!;
     const email = record.email;
     const name = record.name || record.display_name || '';
     

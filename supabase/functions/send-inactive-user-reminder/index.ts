@@ -108,7 +108,7 @@ const handler = async (req: Request): Promise<Response> => {
       try {
         const emailResponse = await resend.emails.send({
           from: "Sentinel DeFi <info@sentineldefi.online>",
-          to: [user.email],
+          to: [user.email!],
           subject: "We miss you! Continue your DeFi journey 🚀",
           html: `
             <div style="max-width: 600px; margin: 0 auto; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #020817; color: #fff; padding: 20px; border-radius: 12px;">

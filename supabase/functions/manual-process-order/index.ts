@@ -165,10 +165,11 @@ serve(async (req) => {
         status: 200,
       }
     );
-  } catch (error) {
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Unknown error';
     console.error("Error processing order:", error);
     return new Response(
-      JSON.stringify({ error: error.message, details: error }),
+      JSON.stringify({ error: message, details: String(error) }),
       {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
         status: 500,
