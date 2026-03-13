@@ -52,7 +52,7 @@ const handler = async (req: Request): Promise<Response> => {
       throw authError;
     }
     
-    const registeredEmails = new Set(authUsers?.map(u => u.email.toLowerCase()) || []);
+    const registeredEmails = new Set(authUsers?.map((u: any) => u.email.toLowerCase()) || []);
     
     // Filter subscribers who don't have accounts
     let subscribersWithoutAccounts = subscribers.filter(
