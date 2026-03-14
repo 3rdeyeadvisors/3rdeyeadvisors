@@ -305,6 +305,28 @@ export const QuizComponent = ({ courseId, moduleId, quiz, onComplete }: QuizComp
     }
   }, [user, quiz, answers, timeLeft, courseId, moduleId, toast, awardPoints, awardBadge, onComplete, playQuizPass, attempts.length, localAttemptCount, calculateScore]);
 
+  useEffect(() => {
+    if (user) {
+      loadAttempts();
+      setLocalAttemptCount(0);
+    }
+  }, [user, quiz.id, loadAttempts]);
+
+  useEffect(() => {
+    if (quizStarted && timeLeft !== null && timeLeft > 0 && !showResults) {
+      const timer = setInterval(() => {
+        setTimeLeft(prev => {
+          if (prev && prev <= 1) {
+            handleSubmitQuiz();
+            return 0;
+          }
+          return prev ? prev - 1 : null;
+        });
+      }, 1000);
+      return () => clearInterval(timer);
+    }
+  }, [quizStarted, timeLeft, showResults, handleSubmitQuiz]);
+
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
