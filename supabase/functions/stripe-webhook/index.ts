@@ -343,7 +343,7 @@ serve(async (req) => {
       }
       // ============ END FOUNDING 33 HANDLING ============
 
-      let session = event.data.object as Stripe.Checkout.Session;
+      let cartSession = event.data.object as Stripe.Checkout.Session;
       
       // Retrieve full session with line items and shipping details
       session = await stripe.checkout.sessions.retrieve(session.id, {
