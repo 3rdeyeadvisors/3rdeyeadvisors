@@ -102,7 +102,11 @@ const Navigation = () => {
     { label: "Store", path: "/store" },
     { label: "Philosophy", path: "/philosophy" },
     { label: "For Professionals", path: "/institutional" },
-  ];
+  ].filter(item => {
+    if (item.path) return isPageVisible(item.path);
+    if (item.children) return item.children.length > 0;
+    return true;
+  });
 
   return (
     <>
