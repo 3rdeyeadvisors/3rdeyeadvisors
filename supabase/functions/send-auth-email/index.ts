@@ -39,8 +39,8 @@ const handler = async (req: Request): Promise<Response> => {
           .single();
         
         firstName = profile?.display_name?.split(' ')[0] || 
-                   user.user.user_metadata?.first_name || 
-                   user.user.user_metadata?.display_name?.split(' ')[0] || 
+                   matchedUser.user_metadata?.first_name || 
+                   matchedUser.user_metadata?.display_name?.split(' ')[0] || 
                    'there';
       }
     } catch (error) {

@@ -182,13 +182,13 @@ serve(async (req) => {
             prices_created: stripePrices.length,
           });
         }
-      } catch (productError) {
+      } catch (productError: unknown) {
         console.error(`Error processing product ${product.printify_id}:`, productError);
         results.push({
           printify_id: product.printify_id,
           title: product.title,
           success: false,
-          error: productError.message,
+          error: productError instanceof Error ? productError.message : 'Unknown error',
         });
       }
     }

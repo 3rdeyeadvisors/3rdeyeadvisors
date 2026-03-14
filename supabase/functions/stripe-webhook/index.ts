@@ -687,7 +687,7 @@ serve(async (req) => {
   };
 
   // Start background work without blocking response
-  EdgeRuntime.waitUntil(backgroundWork());
+  (globalThis as any).EdgeRuntime?.waitUntil?.(backgroundWork()) ?? backgroundWork();
 
   return responsePromise;
 });
