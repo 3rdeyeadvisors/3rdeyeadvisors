@@ -166,9 +166,9 @@ serve(async (req) => {
                       }
                     }
                   }
-                } catch (lookupError) {
+                } catch (lookupError: unknown) {
                   logStep("Error checking referrer subscription, using default 50% rate", { 
-                    error: lookupError.message 
+                    error: lookupError instanceof Error ? lookupError.message : 'Unknown error'
                   });
                 }
 
