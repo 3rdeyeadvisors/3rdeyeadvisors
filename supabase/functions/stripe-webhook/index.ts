@@ -588,7 +588,7 @@ serve(async (req) => {
       }
 
       // Prepare email items
-      const emailItems = lineItems.data.map(item => {
+      const emailItems = lineItems.data.map((item: any) => {
         const product = item.price?.product as Stripe.Product;
         const isPrintify = product.metadata?.printify_id || product.metadata?.printify_product_id;
         
