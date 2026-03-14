@@ -111,39 +111,6 @@ const Profile = () => {
     }
   }, [user, loading, navigate, isOwnProfile]);
 
-  const loadProfile = useCallback(async () => {
-    if (!targetUserId) return;
-
-    try {
-      const { data, error } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('user_id', targetUserId)
-        .single();
-
-      if (error && error.code !== 'PGRST116') { // PGRST116 is "not found"
-        console.error('Error loading profile:', error);
-        return;
-      }
-
-      if (data) {
-        setProfile(data);
-        setEditForm({
-          display_name: data.display_name || "",
-          bio: data.bio || "",
-          avatar_url: data.avatar_url || ""
-        });
-      } else {
-        // Create profile if it doesn't exist
-        await createProfile();
-      }
-    } catch (error) {
-      console.error('Error loading profile:', error);
-    } finally {
-      setProfileLoading(false);
-    }
-  }, [targetUserId, user, createProfile]);
-
   const createProfile = useCallback(async () => {
     if (!user) return;
 
@@ -171,6 +138,38 @@ const Profile = () => {
       console.error('Error creating profile:', error);
     }
   }, [user]);
+
+  const loadProfile = useCallback(async () => {
+    if (!targetUserId) return;
+
+    try {
+      const { data, error } = await supabase
+        .from('profiles')
+        .select('*')
+        .eq('user_id', targetUserId)
+        .single();
+
+      if (error && error.code !== 'PGRST116') {
+        console.error('Error loading profile:', error);
+        return;
+      }
+
+      if (data) {
+        setProfile(data);
+        setEditForm({
+          display_name: data.display_name || "",
+          bio: data.bio || "",
+          avatar_url: data.avatar_url || ""
+        });
+      } else {
+        await createProfile();
+      }
+    } catch (error) {
+      console.error('Error loading profile:', error);
+    } finally {
+      setProfileLoading(false);
+    }
+  }, [targetUserId, user, createProfile]);
 
   const loadCourseNotes = useCallback(async () => {
     if (!user) return;
