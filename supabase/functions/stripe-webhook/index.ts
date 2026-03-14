@@ -336,8 +336,8 @@ serve(async (req) => {
 
           logStep("Founding 33 purchase completed successfully", { seatNumber, userId });
           return;
-        } catch (founding33Error) {
-          logStep("ERROR processing Founding 33 purchase", { error: founding33Error.message });
+        } catch (founding33Error: unknown) {
+          logStep("ERROR processing Founding 33 purchase", { error: founding33Error instanceof Error ? founding33Error.message : 'Unknown error' });
           return;
         }
       }
