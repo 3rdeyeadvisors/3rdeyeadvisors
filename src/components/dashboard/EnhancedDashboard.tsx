@@ -129,16 +129,6 @@ export const EnhancedDashboard = () => {
     }
   }, [user, navigate]);
 
-  // Load quiz statistics
-  useEffect(() => {
-    if (user) {
-      loadQuizStats();
-      loadRecentActivity();
-      loadWeeklyProgress();
-      loadAnalyticsStats();
-    }
-  }, [user, loadQuizStats, loadRecentActivity, loadWeeklyProgress, loadAnalyticsStats]);
-
   const loadQuizStats = useCallback(async () => {
     if (!user) return;
 
