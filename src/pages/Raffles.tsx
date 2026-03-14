@@ -336,15 +336,12 @@ const Raffles = () => {
 
       // CRITICAL FIX: Create entry first, then ticket
       // Entry must exist before trigger can update it
-      // Check if user is Founding 33 member (highest tier) or annual subscriber for bonus tickets
-      const isFounder = subscription?.plan === 'founding_33' || subscription?.isFounder;
+      // Check if user is annual subscriber for bonus tickets
       const isAnnualSubscriber = subscription?.plan === 'annual';
       
-      // Founding 33 gets 10 bonus, Annual gets 5, others get 0
+      // Annual gets 5, others get 0
       let bonusTickets = 0;
-      if (isFounder) {
-        bonusTickets = FOUNDING33_BENEFITS.bonusRaffleTickets; // 10
-      } else if (isAnnualSubscriber) {
+      if (isAnnualSubscriber) {
         bonusTickets = ANNUAL_BENEFITS.bonusRaffleTickets; // 5
       }
       
@@ -412,9 +409,7 @@ const Raffles = () => {
 
       toast({
         title: "✅ You've joined the raffle!",
-        description: isFounder 
-          ? `You start with ${initialEntryCount} entries (${bonusTickets} bonus for Founding 33 members)!`
-          : isAnnualSubscriber 
+        description: isAnnualSubscriber
             ? `You start with ${initialEntryCount} entries (${bonusTickets} bonus for annual members)!`
             : "You now have 1 entry. Complete tasks to earn more!",
       });
@@ -822,7 +817,7 @@ const Raffles = () => {
             </div>
 
             {/* Bonus Status for Premium Members */}
-            {user && (subscription?.plan === 'founding_33' || subscription?.plan === 'annual') && (
+            {user && subscription?.plan === 'annual' && (
               <div className="bg-amber-500/5 border border-amber-500/20 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-4 text-center md:text-left">
                   <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 shrink-0">
@@ -831,15 +826,12 @@ const Raffles = () => {
                   <div>
                     <h4 className="font-consciousness text-lg font-bold text-white">Premium Bonus Active</h4>
                     <p className="font-body text-sm text-white/50">
-                      {subscription?.plan === 'founding_33'
-                        ? `Founding 33 members receive +${FOUNDING33_BENEFITS.bonusRaffleTickets} bonus entries automatically.`
-                        : `Annual subscribers receive +${ANNUAL_BENEFITS.bonusRaffleTickets} bonus entries automatically.`
-                      }
+                      Annual subscribers receive +${ANNUAL_BENEFITS.bonusRaffleTickets} bonus entries automatically.
                     </p>
                   </div>
                 </div>
                 <div className="font-consciousness text-2xl font-bold text-amber-400">
-                  +{subscription?.plan === 'founding_33' ? FOUNDING33_BENEFITS.bonusRaffleTickets : ANNUAL_BENEFITS.bonusRaffleTickets} PTS
+                  +{ANNUAL_BENEFITS.bonusRaffleTickets} PTS
                 </div>
               </div>
             )}

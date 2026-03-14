@@ -218,7 +218,7 @@ const Earn = () => {
     <>
       <SEO
         title="Earn While You Learn DeFi | Sentinel DeFi"
-        description="Earn points, unlock rewards, and earn referral commissions by learning DeFi. Monthly subscribers earn 50%, annual subscribers earn 60%, Founding 33 members earn 70%."
+        description="Earn points, unlock rewards, and earn referral commissions by learning DeFi. Monthly subscribers earn 50%, annual subscribers earn 60%."
         keywords="earn crypto education, DeFi referral program, learn to earn, crypto commissions, DeFi rewards"
         url="https://www.sentineldefi.online/earn"
       />
@@ -404,11 +404,10 @@ const Earn = () => {
                   </div>
 
                   {/* Commission rates */}
-                  <div className="grid grid-cols-3 gap-3 mb-6">
+                  <div className="grid grid-cols-2 gap-3 mb-6">
                     {[
                       { tier: "Monthly Member", rate: `${COMMISSION_RATES.monthly * 100}%`, color: "text-white/60" },
                       { tier: "Annual Member", rate: `${COMMISSION_RATES.annual * 100}%`, color: "text-violet-400" },
-                      { tier: "Founding 33", rate: `${COMMISSION_RATES.founding_33 * 100}%`, color: "text-amber-400" },
                     ].map((item) => (
                       <div key={item.tier} className="text-center p-3 bg-white/3 rounded-xl border border-white/8">
                         <p className={`font-consciousness text-xl sm:text-2xl font-bold ${item.color} mb-1`}>{item.rate}</p>

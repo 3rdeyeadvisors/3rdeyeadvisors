@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { usePoints } from '@/hooks/usePoints';
 import { useAuth } from '@/components/auth/AuthProvider';
+import { useProfile } from '@/hooks/useProfile';
 import { Trophy, Medal, Award, Crown } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -17,6 +18,7 @@ interface LeaderboardEntry {
 
 const Leaderboard = () => {
   const { user } = useAuth();
+  const { displayName: ownDisplayName, avatarUrl: ownAvatarUrl } = useProfile();
   const { getLeaderboard, rank: userRank, leaderboardLoading } = usePoints();
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
   const [period, setPeriod] = useState<'weekly' | 'monthly' | 'all-time'>('monthly');
@@ -69,21 +71,23 @@ const Leaderboard = () => {
         />
 
         <div className="max-w-5xl mx-auto px-6">
-          {/* Time Period Tabs */}
-          <div className="flex justify-center gap-3 mb-12">
-            {periods.map((p) => (
-              <button
-                key={p.id}
-                onClick={() => setPeriod(p.id)}
-                className={`font-body text-xs uppercase tracking-widest px-6 py-2.5 rounded-full border transition-all ${
-                  period === p.id
-                    ? "bg-violet-600 border-violet-600 text-white"
-                    : "border-white/15 text-white/50 hover:border-violet-500/30 hover:text-white/80 bg-transparent"
-                }`}
-              >
-                {p.label}
-              </button>
-            ))}
+          {/* Time Period Tabs - Responsive Container */}
+          <div className="flex justify-center mb-12">
+            <div className="inline-flex p-1.5 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full gap-1 overflow-x-auto no-scrollbar max-w-full">
+              {periods.map((p) => (
+                <button
+                  key={p.id}
+                  onClick={() => setPeriod(p.id)}
+                  className={`font-body text-[10px] sm:text-xs uppercase tracking-widest px-4 sm:px-8 py-2 sm:py-2.5 rounded-full transition-all whitespace-nowrap ${
+                    period === p.id
+                      ? "bg-violet-600 text-white shadow-lg shadow-violet-600/20"
+                      : "text-white/40 hover:text-white/80 hover:bg-white/5"
+                  }`}
+                >
+                  {p.label}
+                </button>
+              ))}
+            </div>
           </div>
 
           {leaderboardLoading ? (
@@ -286,21 +290,22 @@ const Leaderboard = () => {
                   <p className="font-body text-[10px] uppercase tracking-widest text-white/40 mb-4 text-center">Your Position</p>
                   <div
                     onClick={() => navigate(`/profile/${user?.id}`)}
-                    className="flex items-center gap-4 px-4 py-3 rounded-xl border border-violet-500/30 bg-violet-500/5 cursor-pointer transition-all"
+                    className="flex items-center gap-4 px-4 py-3 rounded-xl border border-violet-500/40 bg-violet-500/10 cursor-pointer transition-all hover:bg-violet-500/15 group"
                   >
-                    <span className="font-consciousness text-sm font-bold text-white/40 w-8">
+                    <span className="font-consciousness text-sm font-bold text-violet-400/60 w-8">
                       {userRank.rank}
                     </span>
-                    <Avatar className="w-10 h-10 border border-violet-500/20">
-                      <AvatarFallback className="bg-violet-500/10 text-violet-400 text-sm font-consciousness">
-                        You
+                    <Avatar className="w-10 h-10 border-2 border-violet-500/30 group-hover:border-violet-500/50 transition-all">
+                      <AvatarImage src={ownAvatarUrl || ""} />
+                      <AvatarFallback className="bg-violet-500/20 text-violet-400 text-sm font-consciousness">
+                        {ownDisplayName.charAt(0).toUpperCase()}
                       </AvatarFallback>
                     </Avatar>
-                    <span className="font-consciousness text-sm font-medium flex-1 text-violet-400">
-                      {user?.email?.split('@')[0]}
+                    <span className="font-consciousness text-sm font-bold flex-1 text-white">
+                      {ownDisplayName} <span className="text-violet-400/60 font-medium ml-1">(You)</span>
                     </span>
-                    <span className="font-consciousness text-sm font-bold text-violet-400">
-                      {userRank.total_points.toLocaleString()}
+                    <span className="font-consciousness text-base font-bold text-violet-400">
+                      {userRank.total_points.toLocaleString()} pts
                     </span>
                   </div>
                 </div>

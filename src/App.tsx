@@ -67,7 +67,6 @@ const LiquidStakingTokens2025 = lazy(() => import("./pages/LiquidStakingTokens20
 const StablecoinsDefiInfrastructure2025 = lazy(() => import("./pages/StablecoinsDefiInfrastructure2025"));
 const WhyMostPeopleLoseCrypto = lazy(() => import("./pages/WhyMostPeopleLoseCrypto"));
 const DefiMatured2025 = lazy(() => import("./pages/DefiMatured2025"));
-const DefiVaultsExplained = lazy(() => import("./pages/DefiVaultsExplained"));
 const PredictionMarketsDeFi2025 = lazy(() => import("./pages/PredictionMarketsDeFi2025"));
 const RwaOvertakesDex2025 = lazy(() => import("./pages/RwaOvertakesDex2025"));
 const AdminStoreDashboard = lazy(() => import("./pages/AdminStoreDashboard"));
@@ -77,9 +76,6 @@ const RaffleHistory = lazy(() => import("./pages/RaffleHistory"));
 const AwarenessBlueprintLanding = lazy(() => import("./pages/AwarenessBlueprintLanding"));
 const AdLanding = lazy(() => import("./pages/AdLanding"));
 const UploadResourceFile = lazy(() => import("./pages/UploadResourceFile"));
-const VaultAccess = lazy(() => import("./pages/VaultAccess"));
-const VaultDepositTutorial = lazy(() => import("./pages/VaultDepositTutorial"));
-const VaultWithdrawalTutorial = lazy(() => import("./pages/VaultWithdrawalTutorial"));
 const Earn = lazy(() => import("./pages/Earn"));
 const ReferralTerms = lazy(() => import("./pages/ReferralTerms"));
 const Roadmap = lazy(() => import("./pages/Roadmap"));
@@ -137,7 +133,6 @@ const AnimatedRoutes = () => {
         <Route path="/blog/stablecoins-defi-infrastructure-2025" element={<PageTransition><StablecoinsDefiInfrastructure2025 /></PageTransition>} />
         <Route path="/blog/why-most-people-lose-crypto" element={<PageTransition><WhyMostPeopleLoseCrypto /></PageTransition>} />
         <Route path="/blog/defi-matured-2025" element={<PageTransition><DefiMatured2025 /></PageTransition>} />
-        <Route path="/blog/defi-vaults-explained" element={<PageTransition><DefiVaultsExplained /></PageTransition>} />
         <Route path="/blog/prediction-markets-defi-2025" element={<PageTransition><PredictionMarketsDeFi2025 /></PageTransition>} />
         <Route path="/blog/rwa-overtakes-dex-2025" element={<PageTransition><RwaOvertakesDex2025 /></PageTransition>} />
         <Route path="/blog/:slug" element={<PageTransition><BlogPost /></PageTransition>} />
@@ -212,9 +207,6 @@ const AnimatedRoutes = () => {
         <Route path="/referral-terms" element={<PageTransition><ReferralTerms /></PageTransition>} />
         <Route path="/roadmap" element={<PageTransition><Roadmap /></PageTransition>} />
         <Route path="/mini-games" element={<PageTransition><MiniGames /></PageTransition>} />
-        <Route path="/vault-access" element={<PageTransition><VaultAccess /></PageTransition>} />
-        <Route path="/vault-deposit-guide" element={<PageTransition><VaultDepositTutorial /></PageTransition>} />
-        <Route path="/vault-withdrawal-guide" element={<PageTransition><VaultWithdrawalTutorial /></PageTransition>} />
         <Route path="/checkout/success" element={<PageTransition><CheckoutSuccess /></PageTransition>} />
         <Route path="/checkout/cancel" element={<PageTransition><CheckoutCancel /></PageTransition>} />
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />

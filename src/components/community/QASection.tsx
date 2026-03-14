@@ -7,6 +7,7 @@ import { Avatar } from "@/components/ui/avatar";
 import { AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { useAuth } from "@/components/auth/AuthProvider";
+import { useProfile } from "@/hooks/useProfile";
 import { supabase } from "@/integrations/supabase/client";
 import { HelpCircle, MessageSquare, CheckCircle, ThumbsUp, Trash2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
@@ -42,6 +43,7 @@ interface QASectionProps {
 }
 
 export const QASection = ({ courseId, moduleId }: QASectionProps) => {
+  const { displayName, avatarUrl } = useProfile();
   const [questions, setQuestions] = useState<QAItem[]>([]);
   const [newQuestionTitle, setNewQuestionTitle] = useState("");
   const [newQuestionContent, setNewQuestionContent] = useState("");
@@ -74,11 +76,7 @@ export const QASection = ({ courseId, moduleId }: QASectionProps) => {
     return hoursSinceCreation < 24;
   };
 
-  useEffect(() => {
-    fetchQuestions();
-  }, [courseId, moduleId]);
-
-  const fetchQuestions = async () => {
+  const fetchQuestions = useCallback(async () => {
     try {
       const contentId = moduleId || `course-${courseId}`;
       const contentType = moduleId ? 'module' : 'course';
@@ -142,7 +140,11 @@ export const QASection = ({ courseId, moduleId }: QASectionProps) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [courseId, moduleId]);
+
+  useEffect(() => {
+    fetchQuestions();
+  }, [fetchQuestions]);
 
   const handleSubmitQuestion = async () => {
     if (!user) {
@@ -476,19 +478,29 @@ export const QASection = ({ courseId, moduleId }: QASectionProps) => {
         {/* New Question Form */}
         {showNewQuestion && user && (
           <Card className="p-3 sm:p-4 bg-violet-500/5 border-violet-500/20">
+            <div className="flex gap-3 mb-3">
+              <Avatar className="w-10 h-10 flex-shrink-0">
+                <AvatarImage src={avatarUrl || ""} />
+                <AvatarFallback className="bg-violet-500/10 text-violet-400">
+                  {displayName.charAt(0).toUpperCase()}
+                </AvatarFallback>
+              </Avatar>
+              <div className="flex-1 min-w-0 space-y-3">
+                <Input
+                  placeholder="Question title..."
+                  value={newQuestionTitle}
+                  onChange={(e) => setNewQuestionTitle(e.target.value)}
+                  className="font-body text-sm bg-white/5 border-white/10 rounded-xl px-4 py-3 text-white"
+                />
+                <Textarea
+                  placeholder="Describe your question in detail..."
+                  value={newQuestionContent}
+                  onChange={(e) => setNewQuestionContent(e.target.value)}
+                  className="font-body text-sm bg-white/5 border-white/10 rounded-xl px-4 py-3 text-white min-h-[100px]"
+                />
+              </div>
+            </div>
             <div className="space-y-3">
-              <Input
-                placeholder="Question title..."
-                value={newQuestionTitle}
-                onChange={(e) => setNewQuestionTitle(e.target.value)}
-                className="font-body text-sm bg-white/5 border-white/10 rounded-xl px-4 py-3 text-white"
-              />
-              <Textarea
-                placeholder="Describe your question in detail..."
-                value={newQuestionContent}
-                onChange={(e) => setNewQuestionContent(e.target.value)}
-                className="font-body text-sm bg-white/5 border-white/10 rounded-xl px-4 py-3 text-white min-h-[100px]"
-              />
               <div className="flex gap-2 justify-end">
                 <Button
                   variant="outline"
@@ -523,7 +535,8 @@ export const QASection = ({ courseId, moduleId }: QASectionProps) => {
             <Card key={question.id} className="p-4 bg-white/3 border-white/8">
               <div className="flex items-start gap-3 mb-4">
                 <Avatar className="w-8 h-8">
-                  <AvatarFallback className="text-xs">
+                  <AvatarImage src={(question as any).profiles?.avatar_url || ""} />
+                  <AvatarFallback className="bg-violet-500/10 text-violet-400 text-xs">
                     {question.profiles?.display_name?.charAt(0).toUpperCase() || "U"}
                   </AvatarFallback>
                 </Avatar>
@@ -640,7 +653,8 @@ export const QASection = ({ courseId, moduleId }: QASectionProps) => {
                     >
                       <div className="flex items-start gap-2">
                         <Avatar className="w-6 h-6">
-                          <AvatarFallback className="text-xs">
+                          <AvatarImage src={(reply as any).profiles?.avatar_url || ""} />
+                          <AvatarFallback className="bg-violet-500/10 text-violet-400 text-xs">
                             {reply.profiles?.display_name?.charAt(0).toUpperCase() || "U"}
                           </AvatarFallback>
                         </Avatar>
@@ -731,15 +745,23 @@ export const QASection = ({ courseId, moduleId }: QASectionProps) => {
               {/* Reply Form */}
               {user && (
                 <div className="ml-11 space-y-2">
-                  <Textarea
-                    placeholder="Write your reply..."
-                    value={replyContent[question.id] || ""}
-                    onChange={(e) => setReplyContent(prev => ({ 
-                      ...prev, 
-                      [question.id]: e.target.value 
-                    }))}
-                    className="min-h-[60px] text-sm"
-                  />
+                  <div className="flex gap-3">
+                    <Avatar className="w-8 h-8 flex-shrink-0">
+                      <AvatarImage src={avatarUrl || ""} />
+                      <AvatarFallback className="bg-violet-500/10 text-violet-400 text-xs">
+                        {displayName.charAt(0).toUpperCase()}
+                      </AvatarFallback>
+                    </Avatar>
+                    <Textarea
+                      placeholder="Write your reply..."
+                      value={replyContent[question.id] || ""}
+                      onChange={(e) => setReplyContent(prev => ({
+                        ...prev,
+                        [question.id]: e.target.value
+                      }))}
+                      className="min-h-[60px] text-sm flex-1"
+                    />
+                  </div>
                   <div className="flex gap-2 justify-end">
                     <Button
                       size="sm"

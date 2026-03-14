@@ -39,7 +39,8 @@ export const useSocialLinks = () => {
           schema: 'public',
           table: 'social_links',
         },
-        () => {
+        (payload) => {
+          console.log('[useSocialLinks] Real-time update received:', payload);
           queryClient.invalidateQueries({ queryKey: ['social-links'] });
         }
       )

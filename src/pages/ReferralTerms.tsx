@@ -62,11 +62,6 @@ const ReferralTerms = () => {
                     subscription amount (${(PRICING.monthly.amount * COMMISSION_RATES.annual).toFixed(2)} per monthly referral, 
                     ${(PRICING.annual.amount * COMMISSION_RATES.annual).toFixed(2)} per annual referral)
                   </li>
-                  <li>
-                    <strong>Founding 33 Members (Highest Rate):</strong> {Math.round(COMMISSION_RATES.founding_33 * 100)}% of the 
-                    subscription amount (${(PRICING.monthly.amount * COMMISSION_RATES.founding_33).toFixed(2)} per monthly referral, 
-                    ${(PRICING.annual.amount * COMMISSION_RATES.founding_33).toFixed(2)} per annual referral)
-                  </li>
                 </ul>
                 <p className="text-white/80 leading-relaxed mt-4">
                   Commissions are calculated on the net subscription amount after payment processor fees are deducted. 

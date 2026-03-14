@@ -5,12 +5,10 @@ import {
   HeroSection,
   FeaturesSection,
   AboutSection,
-  VaultSection,
   PricingSection,
   CTASection,
   WhoIsThisForSection,
   InstitutionalSection,
-  Founding33Section,
 } from "@/components/landing";
 
 const Index = () => {
@@ -42,10 +40,8 @@ const Index = () => {
           <HeroSection />
           <FeaturesSection />
           <WhoIsThisForSection />
-          <VaultSection />
           <AboutSection />
           <PricingSection />
-          <Founding33Section />
           <InstitutionalSection />
           <CTASection />
           

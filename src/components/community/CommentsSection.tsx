@@ -6,6 +6,7 @@ import { Avatar } from "@/components/ui/avatar";
 import { AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { useAuth } from "@/components/auth/AuthProvider";
+import { useProfile } from "@/hooks/useProfile";
 import { supabase } from "@/integrations/supabase/client";
 import { MessageCircle, ThumbsUp, Send, Trash2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
@@ -28,6 +29,7 @@ interface CommentsSectionProps {
 }
 
 export const CommentsSection = ({ courseId, moduleId }: CommentsSectionProps) => {
+  const { displayName, avatarUrl } = useProfile();
   const [comments, setComments] = useState<Comment[]>([]);
   const [newComment, setNewComment] = useState("");
   const [editingCommentId, setEditingCommentId] = useState<string | null>(null);
@@ -42,11 +44,7 @@ export const CommentsSection = ({ courseId, moduleId }: CommentsSectionProps) =>
     return hoursSinceCreation < 24;
   };
 
-  useEffect(() => {
-    fetchComments();
-  }, [courseId, moduleId]);
-
-  const fetchComments = async () => {
+  const fetchComments = useCallback(async () => {
     try {
       const contentId = moduleId || `course-${courseId}`;
       const contentType = moduleId ? 'module' : 'course';
@@ -94,7 +92,11 @@ export const CommentsSection = ({ courseId, moduleId }: CommentsSectionProps) =>
     } finally {
       setLoading(false);
     }
-  };
+  }, [courseId, moduleId, toast]);
+
+  useEffect(() => {
+    fetchComments();
+  }, [fetchComments]);
 
   const handleSubmitComment = async () => {
     if (!user) {
@@ -323,12 +325,22 @@ export const CommentsSection = ({ courseId, moduleId }: CommentsSectionProps) =>
         {/* Add Comment */}
         {user && (
           <div className="space-y-3">
-            <Textarea
-              placeholder="Share your thoughts or ask a question..."
-              value={newComment}
-              onChange={(e) => setNewComment(e.target.value)}
-              className="min-h-[100px] text-sm"
-            />
+            <div className="flex gap-3">
+              <Avatar className="w-10 h-10 flex-shrink-0">
+                <AvatarImage src={avatarUrl || ""} />
+                <AvatarFallback className="bg-violet-500/10 text-violet-400">
+                  {displayName.charAt(0).toUpperCase()}
+                </AvatarFallback>
+              </Avatar>
+              <div className="flex-1 min-w-0">
+                <Textarea
+                  placeholder="Share your thoughts or ask a question..."
+                  value={newComment}
+                  onChange={(e) => setNewComment(e.target.value)}
+                  className="min-h-[100px] text-sm"
+                />
+              </div>
+            </div>
             <div className="flex justify-center">
               <Button
                 onClick={handleSubmitComment}
@@ -354,7 +366,8 @@ export const CommentsSection = ({ courseId, moduleId }: CommentsSectionProps) =>
             <Card key={comment.id} className="p-3 sm:p-4 bg-white/5">
               <div className="flex items-start gap-2 sm:gap-3">
                 <Avatar className="w-8 h-8 flex-shrink-0">
-                  <AvatarFallback className="text-xs">
+                  <AvatarImage src={(comment as any).profiles?.avatar_url || ""} />
+                  <AvatarFallback className="bg-violet-500/10 text-violet-400 text-xs">
                     {comment.profiles?.display_name?.charAt(0).toUpperCase() || "U"}
                   </AvatarFallback>
                 </Avatar>

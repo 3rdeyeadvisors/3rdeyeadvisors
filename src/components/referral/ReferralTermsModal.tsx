@@ -81,8 +81,7 @@ export const ReferralTermsModal = ({ open, onOpenChange, onAccepted }: ReferralT
               <ul className="list-disc pl-5 space-y-1">
                 <li>Non-subscribers & monthly subscribers: {Math.round(COMMISSION_RATES.monthly * 100)}% commission</li>
                 <li>Annual subscribers: {Math.round(COMMISSION_RATES.annual * 100)}% commission (premium rate)</li>
-                <li>Founding 33 members: {Math.round(COMMISSION_RATES.founding_33 * 100)}% commission (highest tier)</li>
-                <li>Earn ${(PRICING.monthly.amount * COMMISSION_RATES.monthly).toFixed(2)} to ${(PRICING.annual.amount * COMMISSION_RATES.founding_33).toFixed(2)} per referral</li>
+                <li>Earn up to ${(PRICING.annual.amount * COMMISSION_RATES.annual).toFixed(2)} per referral</li>
               </ul>
             </div>
 

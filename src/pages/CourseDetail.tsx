@@ -42,7 +42,6 @@ const CourseDetail = () => {
 
   const isPremiumMember = 
     subscription?.plan === 'annual' || 
-    subscription?.plan === 'founding_33' ||
     subscription?.isFounder ||
     subscription?.isAdmin ||
     subscription?.isGrandfathered;

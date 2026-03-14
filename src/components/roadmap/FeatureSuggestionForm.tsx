@@ -59,7 +59,7 @@ export const FeatureSuggestionForm = ({
           </div>
           <h3 className="text-base font-consciousness font-medium mb-1">Premium Feature</h3>
           <p className="text-sm text-white/50 mb-4 max-w-sm">
-            Annual and Founding 33 members can submit feature ideas for consideration.
+            Annual members can submit feature ideas for consideration.
           </p>
           <Button asChild variant="outline" size="sm">
             <Link to="/subscription">

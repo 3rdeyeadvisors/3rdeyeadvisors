@@ -27,7 +27,6 @@ const Courses = () => {
 
   const isPremiumMember = 
     subscription?.plan === 'annual' || 
-    subscription?.plan === 'founding_33' ||
     subscription?.isFounder ||
     subscription?.isAdmin ||
     subscription?.isGrandfathered;
@@ -134,7 +133,7 @@ const Courses = () => {
     {
       id: 5,
       title: "Understanding DeFi Vaults: Your Complete Guide to Managed Investing",
-      description: "Access professional-grade investment strategies through DeFi vaults while maintaining full custody of your assets. Understand how vaults automate complex strategies, evaluate vault protocols like Enzyme and Yearn, and learn the security considerations before depositing. Includes a step-by-step guide to accessing the Sentinel DeFi Vault.",
+      description: "Learn how to access professional-grade investment strategies through DeFi vaults while maintaining full custody of your assets. Understand how vaults automate complex strategies, evaluate major vault protocols, and learn the essential security considerations before interacting with them.",
       category: "free",
       type: "course",
       duration: "2.5 hours",
@@ -143,10 +142,9 @@ const Courses = () => {
       students: 412,
       modules: [
         "What Are DeFi Vaults? (Core Concepts and Key Terms)",
-        "Major Vault Protocols Explained (Enzyme, Yearn, and More)",
+        "Major Vault Protocols Explained",
         "Staying Safe with Vaults (Security and Red Flags)",
-        "How to Choose the Right Vault for You",
-        "Getting Access to the Sentinel DeFi Vault (Step-by-Step Guide)"
+        "How to Choose the Right Vault for You"
       ],
       icon: BookOpen,
       early_access_date: null,

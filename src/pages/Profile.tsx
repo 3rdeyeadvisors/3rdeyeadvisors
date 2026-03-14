@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useAuth } from "@/components/auth/AuthProvider";
+import { useProfile } from "@/hooks/useProfile";
 import { useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
@@ -70,6 +71,7 @@ interface UserStats {
 
 const Profile = () => {
   const { user, loading } = useAuth();
+  const { refetch: refetchOwnProfile } = useProfile();
   const { userId: viewUserId } = useParams<{ userId?: string }>();
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -119,9 +121,9 @@ const Profile = () => {
         loadCourseNotes();
       }
     }
-  }, [targetUserId, user, isOwnProfile]);
+  }, [targetUserId, user, isOwnProfile, loadProfile, loadUserStats, loadCourseNotes]);
 
-  const loadProfile = async () => {
+  const loadProfile = useCallback(async () => {
     if (!targetUserId) return;
 
     try {
@@ -152,9 +154,9 @@ const Profile = () => {
     } finally {
       setProfileLoading(false);
     }
-  };
+  }, [targetUserId, user, createProfile]);
 
-  const createProfile = async () => {
+  const createProfile = useCallback(async () => {
     if (!user) return;
 
     try {
@@ -180,9 +182,9 @@ const Profile = () => {
     } catch (error) {
       console.error('Error creating profile:', error);
     }
-  };
+  }, [user]);
 
-  const loadCourseNotes = async () => {
+  const loadCourseNotes = useCallback(async () => {
     if (!user) return;
 
     try {
@@ -209,9 +211,9 @@ const Profile = () => {
     } catch (error) {
       console.error('Error loading course notes:', error);
     }
-  };
+  }, [user]);
 
-  const loadUserStats = async () => {
+  const loadUserStats = useCallback(async () => {
     if (!user) return;
 
     try {
@@ -273,7 +275,7 @@ const Profile = () => {
     } catch (error) {
       console.error('Error loading user stats:', error);
     }
-  };
+  }, [user]);
 
   // Compress image before upload for faster uploads and smaller storage
   const compressImage = async (file: File): Promise<Blob> => {
@@ -467,6 +469,11 @@ const Profile = () => {
       setProfile(data);
       setIsEditing(false);
       
+      // Update the global profile state if it's the current user
+      if (isOwnProfile) {
+        refetchOwnProfile();
+      }
+
       toast({
         title: "Profile updated",
         description: "Your profile has been successfully updated.",

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/components/auth/AuthProvider";
+import { useProfile } from "@/hooks/useProfile";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -43,6 +44,7 @@ interface CommentsProps {
 
 export const OptimizedComments = ({ contentType, contentId, title }: CommentsProps) => {
   const { user } = useAuth();
+  const { displayName, avatarUrl } = useProfile();
   const { toast } = useToast();
   const navigate = useNavigate();
   
@@ -63,11 +65,7 @@ export const OptimizedComments = ({ contentType, contentId, title }: CommentsPro
   )];
   const { profiles } = useBatchProfiles(userIds);
 
-  useEffect(() => {
-    loadComments();
-  }, [contentType, contentId]);
-
-  const loadComments = async () => {
+  const loadComments = useCallback(async () => {
     try {
       // Load all comments first
       const { data: allComments, error } = await supabase
@@ -110,7 +108,11 @@ export const OptimizedComments = ({ contentType, contentId, title }: CommentsPro
     } finally {
       setLoading(false);
     }
-  };
+  }, [contentType, contentId, user, toast]);
+
+  useEffect(() => {
+    loadComments();
+  }, [loadComments]);
 
   const organizeComments = (allComments: any[]): Comment[] => {
     const commentMap = new Map();
@@ -433,9 +435,9 @@ export const OptimizedComments = ({ contentType, contentId, title }: CommentsPro
             <CardContent className="p-4">
               <div className="flex items-start gap-3">
                 <Avatar className="w-8 h-8">
-                  <AvatarImage src="" />
+                  <AvatarImage src={avatarUrl || ""} />
                   <AvatarFallback className="bg-primary/10 text-primary text-sm">
-                    {user.email?.charAt(0).toUpperCase()}
+                    {displayName.charAt(0).toUpperCase()}
                   </AvatarFallback>
                 </Avatar>
                 <div className="flex-1">

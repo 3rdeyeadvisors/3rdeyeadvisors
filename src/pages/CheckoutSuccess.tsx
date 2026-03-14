@@ -42,14 +42,11 @@ const CheckoutSuccess = () => {
 
           {/* Heading */}
           <h1 className="font-consciousness text-3xl md:text-4xl font-bold text-white mb-4">
-            {isFounding33 ? "Welcome to the Founding 33." : "You Are In."}
+            You Are In.
           </h1>
 
           <p className="font-body text-lg text-white/60 mb-8 leading-relaxed">
-            {isFounding33
-              ? "Your lifetime access is confirmed. You are one of 33 people who helped build the foundation of this platform."
-              : `Your ${plan === 'annual' ? 'annual' : 'monthly'} membership is active. Your 14 day free trial starts now.`
-            }
+            Your {plan === 'annual' ? 'annual' : 'monthly'} membership is active. Your 14 day free trial starts now.
           </p>
 
           {/* What to do next */}

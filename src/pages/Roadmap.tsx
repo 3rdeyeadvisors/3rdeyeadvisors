@@ -76,10 +76,6 @@ const Roadmap = () => {
             <div className="max-w-3xl mx-auto text-center space-y-4">
               {/* Voting Power Explainer */}
               <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400">
-                  <Crown className="w-4 h-4" />
-                  <span className="font-body text-[10px] uppercase tracking-widest font-bold">Founding 33 = 3x Power</span>
-                </div>
                 <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/30 text-violet-400">
                   <Star className="w-4 h-4" />
                   <span className="font-body text-[10px] uppercase tracking-widest font-bold">Annual = 1x Power</span>
@@ -102,7 +98,7 @@ const Roadmap = () => {
               ) : !canVote ? (
                 <div className="pt-2">
                   <p className="font-body text-xs sm:text-sm text-white/50 mb-2">
-                    Upgrade to Annual or join Founding 33 to unlock voting
+                    Upgrade to Annual to unlock voting
                   </p>
                   <Button asChild variant="outline" size="sm">
                     <Link to="/subscription">

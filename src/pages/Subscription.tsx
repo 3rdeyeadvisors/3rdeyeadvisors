@@ -319,7 +319,7 @@ const Subscription = () => {
                     'Community access',
                     'Early access to new courses',
                     `${ANNUAL_BENEFITS.bonusRaffleTickets} bonus raffle entries per raffle`,
-                    'Early access to new vaults',
+                    'Priority educational support',
                     `${Math.round(COMMISSION_RATES.annual * 100)}% referral commission`,
                     'Input on platform direction',
                   ].map((feature) => (

@@ -1012,7 +1012,7 @@ Prove your expertise in DeFi vaults and managed investing.
               { id: "q5-e19", question: "What is 'Liquidity Risk'?", type: "single", options: ["Risk of too much water", "Risk of not being able to withdraw assets due to low pool liquidity", "Risk of price going up", "Risk of low gas fees"], correctAnswers: [1], points: 3 },
               { id: "q5-e20", question: "Which vault would be best for someone who wants exposure to ETH yield?", type: "single", options: ["USDC vault", "ETH yield vault", "BTC vault", "Stablecoin vault"], correctAnswers: [1], points: 3 },
               { id: "q5-e21", question: "What is a 'Stablecoin'?", type: "single", options: ["A volatile asset", "An asset pegged to a stable value like $1 USD", "A fast token", "A mining token"], correctAnswers: [1], points: 3 },
-              { id: "q5-e22", question: "True or False: Sentinel DeFi offers a managed vault solution.", type: "true-false", options: ["True", "False"], correctAnswers: [0], points: 3 },
+              { id: "q5-e22", question: "True or False: DeFi vaults can offer managed investment strategies.", type: "true-false", options: ["True", "False"], correctAnswers: [0], points: 3 },
               { id: "q5-e23", question: "What is the role of a 'Governance Token' in a vault protocol?", type: "single", options: ["Paying for gas", "Voting on protocol changes and strategies", "Mining", "Storing data"], correctAnswers: [1], points: 3 },
               { id: "q5-e24", question: "What is 'Slippage'?", type: "single", options: ["A wallet error", "The difference between expected and actual price in a trade", "A type of vault", "A gas refund"], correctAnswers: [1], points: 3 },
               { id: "q5-e25", question: "What should you do if a vault has no audit?", type: "single", options: ["Invest everything", "Approach with extreme caution or avoid", "Assume it's safe", "Tell all your friends to invest"], correctAnswers: [1], points: 3 },
@@ -6063,7 +6063,7 @@ Demonstrate your ability to manage and grow a DeFi portfolio.
   {
     id: 5,
     title: "Understanding DeFi Vaults: Your Complete Guide to Managed Investing",
-    description: "Learn what DeFi vaults are, how they work, and how to choose the right vault for your investment goals. Includes access guidance for the Sentinel DeFi managed vault.",
+    description: "Learn what DeFi vaults are, how they work, and how to choose the right vault for your investment goals.",
     category: "free",
     difficulty: "Intermediate",
     estimatedTime: "2.5 hours",
@@ -6155,7 +6155,6 @@ Some vaults require you to keep funds deposited for a minimum time. Not all vaul
 ### 4. Managed Strategy Vaults
 • **Purpose**: Follow curated investment strategies
 • **Strategy**: Active management by experienced strategists
-• **Example**: Enzyme Finance vaults, Sentinel DeFi Vault
 • **Risk Level**: Varies by strategy
 
 ### 5. Delta-Neutral Vaults
@@ -6297,7 +6296,7 @@ Some vaults require you to keep funds deposited for a minimum time. Not all vaul
       },
       {
         id: "5-2",
-        title: "Major Vault Protocols Explained (Enzyme, Yearn, and More)",
+        title: "Major Vault Protocols Explained (Yearn, Beefy, and More)",
         type: "text",
         duration: 35,
         content: {
@@ -6312,56 +6311,22 @@ Now that you understand what vaults are, let's explore the most important protoc
   "title": "Major Vault Protocols at a Glance",
   "items": [
     {
-      "traditional": "Enzyme Finance: Customizable managed vaults with transparent on-chain strategies",
-      "defi": "Best for: Following specific strategists and active management"
-    },
-    {
       "traditional": "Yearn Finance: Automated yield optimization across DeFi",
       "defi": "Best for: Passive yield farming with battle-tested strategies"
     },
     {
       "traditional": "Beefy Finance: Multi-chain auto-compounding vaults",
       "defi": "Best for: Cross-chain yield optimization"
+    },
+    {
+      "traditional": "Aave: The foundation for many yield-bearing strategies",
+      "defi": "Best for: Low-risk lending and collateral management"
     }
   ]
 }
 [/COMPONENT]
 
-## 1. Enzyme Finance 🧪
-
-### What It Is
-Enzyme is an **asset management infrastructure** that allows anyone to create, manage, and invest in on-chain investment vaults. Think of it as the platform that powers managed investment funds in DeFi.
-
-### How It Works
-• **Vault Managers** create vaults with specific strategies
-• **Investors** deposit assets into vaults they trust
-• **All actions** are transparent and verifiable on-chain
-• **Smart contracts** enforce rules and protect investors
-
-### Key Features
-• **Customizable Strategies**: Managers can trade, lend, stake, and more
-• **Investor Protections**: Built-in safeguards and transparency
-• **Real-Time Tracking**: See exactly what the vault is doing
-• **Multiple Asset Types**: Support for diverse crypto assets
-
-### Fee Structure
-• **Management fees**: Set by vault manager (typically 0 to 2%)
-• **Performance fees**: Set by vault manager (typically 10 to 20%)
-• **Protocol fees**: Small fee to Enzyme protocol
-
-[COMPONENT:DID_YOU_KNOW]
-{
-  "fact": "Enzyme Finance has been operating since 2017, making it one of the longest-running DeFi asset management protocols. The platform has undergone multiple security audits and manages significant assets."
-}
-[/COMPONENT]
-
-### Best For
-✅ Investors who want to follow specific strategists
-✅ Those who value transparency in investment decisions
-✅ Users seeking actively managed strategies
-✅ People who want professional DeFi exposure
-
-## 2. Yearn Finance 🏦
+## 1. Yearn Finance 🏦
 
 ### What It Is
 Yearn is a **yield aggregator** that automatically moves your funds to the highest-yielding opportunities. It pioneered the "vault" concept in DeFi.
@@ -6465,7 +6430,7 @@ A **multi-chain yield optimizer** that auto-compounds your DeFi earnings across 
 [COMPONENT:KEY_TAKEAWAY]
 {
   "title": "Protocol Selection Summary",
-  "content": "• **Enzyme**: Best for following trusted strategists with active management\n• **Yearn**: Best for passive, automated yield optimization on Ethereum\n• **Beefy**: Best for multi-chain exposure and LP auto-compounding\n\nNo single protocol is 'best': choose based on your goals, risk tolerance, and preferred blockchain."
+  "content": "• **Yearn**: Best for passive, automated yield optimization on Ethereum\n• **Beefy**: Best for multi-chain exposure and LP auto-compounding\n• **Aave**: Best for core lending strategies\n\nNo single protocol is 'best': choose based on your goals, risk tolerance, and preferred blockchain."
 }
 [/COMPONENT]
 
@@ -6478,7 +6443,6 @@ Every protocol has smart contract risk. Even audited contracts can have vulnerab
 Different strategies have different risk profiles. Understand what the vault is doing with your funds.
 
 ### Protocol-Specific Risks
-• **Enzyme**: Dependent on vault manager competence
 • **Yearn**: Complex multi-strategy risks
 • **Beefy**: Third-party protocol dependencies
 
@@ -6500,24 +6464,10 @@ Different strategies have different risk profiles. Understand what the vault is 
             questions: [
               {
                 id: "q5-2-1",
-                question: "What is Enzyme Finance primarily used for?",
-                type: "single",
-                options: [
-                  "Automated yield farming only",
-                  "Creating and managing customizable on-chain investment vaults",
-                  "NFT trading",
-                  "Cross-chain token swaps"
-                ],
-                correctAnswers: [1],
-                explanation: "Enzyme Finance is an asset management infrastructure that allows anyone to create, manage, and invest in customizable on-chain investment vaults with transparent strategies.",
-                points: 10
-              },
-              {
-                id: "q5-2-2",
                 question: "Which protocol pioneered the 'vault' concept in DeFi?",
                 type: "single",
                 options: [
-                  "Enzyme Finance",
+                  "Aave",
                   "Beefy Finance",
                   "Yearn Finance",
                   "Convex Finance"
@@ -6527,11 +6477,11 @@ Different strategies have different risk profiles. Understand what the vault is 
                 points: 10
               },
               {
-                id: "q5-2-3",
+                id: "q5-2-2",
                 question: "Which protocol is known for being multi-chain and operating on 20+ blockchains?",
                 type: "single",
                 options: [
-                  "Enzyme Finance",
+                  "Uniswap",
                   "Yearn Finance",
                   "Beefy Finance",
                   "Aave"
@@ -6556,22 +6506,17 @@ Different strategies have different risk profiles. Understand what the vault is 
               },
               {
                 id: "q5-2-5",
-                question: "True or False: Enzyme Finance vaults have all actions transparent and verifiable on-chain.",
+                question: "True or False: Most DeFi vaults have all actions transparent and verifiable on-chain.",
                 type: "true-false",
                 options: ["True", "False"],
                 correctAnswers: [0],
-                explanation: "True. One of Enzyme's key features is complete transparency: all vault actions are recorded on-chain and can be verified by anyone.",
+                explanation: "True. One of the key features of decentralized vaults is transparency: all vault actions are recorded on-chain and can be verified by anyone.",
                 points: 10
               }
             ]
           }
         },
         resources: [
-          {
-            title: "Enzyme Finance Official Site",
-            url: "https://enzyme.finance",
-            type: "link"
-          },
           {
             title: "Yearn Finance Documentation",
             url: "https://docs.yearn.fi",
@@ -7048,7 +6993,7 @@ Choosing a vault isn't just about finding the highest APY. It's about finding th
 }
 [/COMPONENT]
 
-*Next module: Getting access to the Sentinel DeFi managed vault: step by step.*`,
+*Next module: Final Course Knowledge Check.*`,
           quiz: {
             id: "quiz-5-4",
             title: "Choosing the Right Vault: Knowledge Check",
@@ -7135,264 +7080,6 @@ Choosing a vault isn't just about finding the highest APY. It's about finding th
             title: "Risk Assessment Checklist",
             url: "/resources/risk-checklist.pdf",
             type: "pdf"
-          }
-        ]
-      },
-      {
-        id: "5-5",
-        title: "Getting Access to the Sentinel DeFi Vault (Step-by-Step Guide)",
-        type: "text",
-        duration: 25,
-        content: {
-          text: `# Getting Access to the Sentinel DeFi Vault
-
-This module provides a step-by-step guide to understanding and accessing the Sentinel DeFi managed vault on Enzyme Finance.
-
-## About the Sentinel DeFi Vault 🏦
-
-The Sentinel DeFi Vault is a managed investment vault on the Enzyme Finance protocol, providing curated DeFi strategy exposure with transparent, on-chain execution.
-
-### Key Features
-• **Platform**: Enzyme Finance (established 2017)
-• **Network**: Ethereum Mainnet
-• **Strategy**: Professionally managed DeFi allocation
-• **Transparency**: All actions verifiable on-chain
-• **Access**: NFT-gated for whitelisted investors
-
-[COMPONENT:KEY_TAKEAWAY]
-{
-  "title": "What Makes This Vault Different",
-  "content": "• **Curated Strategy**: Active management by experienced DeFi professionals\n• **Transparent Execution**: Every trade and position is visible on-chain\n• **NFT Access**: Membership via Sentinel Earth Access NFT\n• **Enzyme Infrastructure**: Built on battle-tested asset management protocol"
-}
-[/COMPONENT]
-
-## How Access Works 🔑
-
-Unlike open vaults where anyone can deposit, the Sentinel DeFi Vault uses a **whitelisting system** to manage access. Here's how it works:
-
-### The NFT Access Model
-
-**Step 1: Acquire the Sentinel Earth Access NFT**
-• The NFT serves as your membership credential
-• Purchase available through the official link
-• One NFT = one wallet whitelisted for vault access
-
-**Step 2: Whitelist Processing**
-• After purchasing your NFT, your wallet address is queued for whitelisting
-• **Please allow up to 7 days** for your wallet to be added to the vault whitelist
-• This manual verification ensures security and proper onboarding
-
-**Step 3: Vault Access**
-• Once whitelisted, you can deposit into the vault via Enzyme Finance
-• Your NFT ownership is verified
-• You can participate in the vault's strategy
-
-[COMPONENT:ALERT]
-{
-  "type": "info",
-  "message": "After purchasing your NFT, please allow up to 7 days for your wallet to be whitelisted on the vault. This is a manual verification process to ensure security."
-}
-[/COMPONENT]
-
-## Step-by-Step Access Guide 📋
-
-[COMPONENT:STEP_BLOCK]
-{
-  "title": "How to Get Vault Access",
-  "steps": [
-    "Prepare an Ethereum wallet (MetaMask, hardware wallet, etc.)",
-    "Ensure you have ETH for the NFT purchase and gas fees",
-    "Visit the official Sentinel Earth Access NFT page",
-    "Connect your wallet and complete the purchase",
-    "Wait up to 7 days for whitelist processing",
-    "Once whitelisted, access the vault through Enzyme Finance",
-    "Connect your whitelisted wallet to deposit"
-  ]
-}
-[/COMPONENT]
-
-## Understanding the Vault Structure
-
-### What Happens When You Deposit
-1. You send assets to the vault smart contract
-2. You receive vault shares representing your ownership
-3. The strategist manages positions using your deposited assets
-4. As the vault generates returns, your shares increase in value
-5. When you withdraw, you exchange shares for proportional assets
-
-### Fee Structure
-All fees are transparent and enforced by smart contracts:
-• **Management Fee**: Annual fee for vault operation
-• **Performance Fee**: Percentage of profits for the strategist
-
-*Specific fee rates are visible on the Enzyme vault page before you deposit.*
-
-## What You Get with Vault Access ✅
-
-### Exclusive Vault Access Membership
-• Access to the managed vault strategy
-• Transparent, on-chain portfolio management
-• Professional DeFi exposure
-• No need to manage positions yourself
-
-### What's NOT Included
-• This is NOT financial advice
-• No guaranteed returns
-• Past performance doesn't guarantee future results
-• You maintain custody of the decision to deposit/withdraw
-
-## Important Considerations ⚠️
-
-### Before You Proceed
-
-**Understand the Risks**
-• All DeFi investments carry risk of loss
-• Smart contract vulnerabilities exist in all protocols
-• Market conditions can cause losses regardless of strategy
-• Only invest what you can afford to lose completely
-
-**Technical Requirements**
-• Ethereum-compatible wallet (MetaMask recommended)
-• ETH for gas fees (Ethereum network fees apply)
-• Understanding of basic DeFi transactions
-
-**Investment Minimums**
-• Check the Enzyme vault page for any minimum deposit requirements
-• Factor in gas costs when deciding deposit amounts
-
-[COMPONENT:ALERT]
-{
-  "type": "warning",
-  "message": "This educational content is for informational purposes only. It does not constitute financial, investment, or legal advice. All investments involve risk, including potential loss of principal. Conduct your own research and consider consulting qualified advisors before making investment decisions."
-}
-[/COMPONENT]
-
-## Frequently Asked Questions ❓
-
-**Q: How long until my wallet is whitelisted?**
-A: Please allow up to 7 days after NFT purchase for whitelist processing.
-
-**Q: Can I withdraw at any time?**
-A: Vault liquidity and withdrawal options depend on Enzyme protocol mechanics. Check the vault page for current status.
-
-**Q: What blockchain is the vault on?**
-A: The vault operates on Ethereum Mainnet.
-
-**Q: Is my NFT tied to one wallet?**
-A: Yes, the wallet that holds the NFT is the one that gets whitelisted.
-
-**Q: What if I sell my NFT?**
-A: Access rights follow the NFT. If you transfer or sell, the new holder would need to go through the whitelist process.
-
-## Getting Started 🚀
-
-Ready to explore vault access? Here are your next steps:
-
-1. **Learn More**: Visit the Vault Access page for current details
-2. **Prepare**: Set up your Ethereum wallet and acquire ETH
-3. **Purchase**: Acquire the Sentinel Earth Access NFT
-4. **Wait**: Allow up to 7 days for whitelist processing
-5. **Access**: Connect to Enzyme once whitelisted
-
-[COMPONENT:KEY_TAKEAWAY]
-{
-  "title": "Course Complete!",
-  "content": "Congratulations on completing the DeFi Vaults course! You now understand:\n\n• What vaults are and how they work\n• Major protocols and their differences\n• How to stay safe and identify red flags\n• How to choose the right vault for your goals\n• How to access the Sentinel DeFi managed vault\n\nRemember: Education is ongoing. Stay curious, stay safe, and never stop learning."
-}
-[/COMPONENT]
-
-*Ready to explore? Visit the Vault Access page to learn more about membership options.*`,
-          quiz: {
-            id: "quiz-5-5",
-            title: "Sentinel DeFi Vault Access: Knowledge Check",
-            description: "Test your understanding of the Sentinel DeFi vault access process and requirements.",
-            passingScore: 70,
-            timeLimit: 10,
-            maxAttempts: 3,
-            questions: [
-              {
-                id: "q5-5-1",
-                question: "What is required to access the Sentinel DeFi managed vault?",
-                type: "single",
-                options: [
-                  "Just an Ethereum wallet",
-                  "The Sentinel Earth Access NFT and wallet whitelisting",
-                  "A monthly subscription payment",
-                  "KYC verification documents"
-                ],
-                correctAnswers: [1],
-                explanation: "Access to the Sentinel DeFi vault requires purchasing the Sentinel Earth Access NFT and waiting for your wallet to be whitelisted (up to 7 days).",
-                points: 10
-              },
-              {
-                id: "q5-5-2",
-                question: "How long should you expect to wait for wallet whitelisting after purchasing the NFT?",
-                type: "single",
-                options: [
-                  "Instant access",
-                  "24 hours",
-                  "Up to 7 days",
-                  "30 days minimum"
-                ],
-                correctAnswers: [2],
-                explanation: "After purchasing your NFT, please allow up to 7 days for your wallet to be whitelisted on the vault. This is a manual verification process.",
-                points: 10
-              },
-              {
-                id: "q5-5-3",
-                question: "Which platform hosts the Sentinel DeFi managed vault?",
-                type: "single",
-                options: [
-                  "Yearn Finance",
-                  "Beefy Finance",
-                  "Enzyme Finance",
-                  "Aave"
-                ],
-                correctAnswers: [2],
-                explanation: "The Sentinel DeFi Vault operates on Enzyme Finance, an established asset management protocol that has been operating since 2017.",
-                points: 10
-              },
-              {
-                id: "q5-5-4",
-                question: "Which of the following are true about the Sentinel DeFi vault? (Select all that apply)",
-                type: "multiple",
-                options: [
-                  "All actions are verifiable on-chain",
-                  "Returns are guaranteed",
-                  "It operates on Ethereum Mainnet",
-                  "It uses transparent, on-chain execution"
-                ],
-                correctAnswers: [0, 2, 3],
-                explanation: "The vault offers on-chain transparency and operates on Ethereum. However, NO returns are guaranteed in DeFi: all investments carry risk.",
-                points: 15
-              },
-              {
-                id: "q5-5-5",
-                question: "True or False: The educational content in this course constitutes financial advice.",
-                type: "true-false",
-                options: ["True", "False"],
-                correctAnswers: [1],
-                explanation: "False. This educational content is for informational purposes only and does not constitute financial, investment, or legal advice. Always conduct your own research.",
-                points: 10
-              }
-            ]
-          }
-        },
-        resources: [
-          {
-            title: "Sentinel DeFi Vault Access Page",
-            url: "/vault-access",
-            type: "link"
-          },
-          {
-            title: "Enzyme Finance Platform",
-            url: "https://enzyme.finance",
-            type: "link"
-          },
-          {
-            title: "MetaMask Setup Guide",
-            url: "/tutorials/wallet-setup",
-            type: "link"
           }
         ]
       }

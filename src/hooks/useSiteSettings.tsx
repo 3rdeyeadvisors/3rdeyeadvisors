@@ -45,7 +45,8 @@ export const useSiteSettings = () => {
           table: 'site_settings',
           filter: "id=eq.default",
         },
-        () => {
+        (payload) => {
+          console.log('[useSiteSettings] Real-time update received:', payload);
           queryClient.invalidateQueries({ queryKey: ['site-settings'] });
         }
       )

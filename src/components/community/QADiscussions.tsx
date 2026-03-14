@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/components/auth/AuthProvider";
+import { useProfile } from "@/hooks/useProfile";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -52,6 +53,7 @@ interface QADiscussionsProps {
 
 export const QADiscussions = ({ contentType, contentId, title }: QADiscussionsProps) => {
   const { user } = useAuth();
+  const { displayName, avatarUrl } = useProfile();
   const { toast } = useToast();
   const navigate = useNavigate();
   
@@ -74,11 +76,7 @@ export const QADiscussions = ({ contentType, contentId, title }: QADiscussionsPr
   const allUserIds = [...new Set([...discussionUserIds, ...replyUserIds])];
   const { profiles } = useBatchProfiles(allUserIds);
 
-  useEffect(() => {
-    loadDiscussions();
-  }, [contentType, contentId]);
-
-  const loadDiscussions = async () => {
+  const loadDiscussions = useCallback(async () => {
     try {
       let query = supabase
         .from('discussions')
@@ -106,7 +104,11 @@ export const QADiscussions = ({ contentType, contentId, title }: QADiscussionsPr
     } finally {
       setLoading(false);
     }
-  };
+  }, [contentType, contentId, toast]);
+
+  useEffect(() => {
+    loadDiscussions();
+  }, [loadDiscussions]);
 
   const loadReplies = async (discussionId: string) => {
     try {
@@ -521,9 +523,9 @@ export const QADiscussions = ({ contentType, contentId, title }: QADiscussionsPr
               <CardContent className="p-4">
                 <div className="flex items-start gap-3">
                   <Avatar className="w-8 h-8">
-                    <AvatarImage src="" />
+                    <AvatarImage src={avatarUrl || ""} />
                     <AvatarFallback className="bg-primary/10 text-primary text-sm">
-                      {user.email?.charAt(0).toUpperCase()}
+                      {displayName.charAt(0).toUpperCase()}
                     </AvatarFallback>
                   </Avatar>
                   <div className="flex-1">

@@ -32,22 +32,10 @@ export const PRICING = {
  * Commission rates for referrals
  * - Monthly subscribers: 50% commission
  * - Annual subscribers: 60% commission (premium benefit)
- * - Founding 33 members: 70% commission (highest tier)
  */
 export const COMMISSION_RATES = {
   monthly: 0.5,
   annual: 0.6,
-  founding_33: 0.7,
-};
-
-/**
- * Founding 33 Genesis Pass premium benefits
- * The highest tier benefits for lifetime members
- */
-export const FOUNDING33_BENEFITS = {
-  bonusRaffleTickets: 10,
-  commissionRate: 0.7, // 70% commission
-  lifetimeAccess: true,
 };
 
 /**

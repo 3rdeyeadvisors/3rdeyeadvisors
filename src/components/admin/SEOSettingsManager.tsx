@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { useQueryClient } from "@tanstack/react-query";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -17,6 +18,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export const SEOSettingsManager = () => {
   const { toast } = useToast();
+  const queryClient = useQueryClient();
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [fields, setFields] = useState({
@@ -87,6 +89,9 @@ export const SEOSettingsManager = () => {
         .eq("id", "default");
 
       if (error) throw error;
+
+      // Invalidate and refetch site settings
+      queryClient.invalidateQueries({ queryKey: ["site-settings"] });
 
       toast({
         title: "Success",

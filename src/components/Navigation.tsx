@@ -4,10 +4,11 @@ import { Button } from "@/components/ui/button";
 import { 
   Menu, X, LogIn, LogOut, User, ShoppingCart, ChevronDown, 
   BookOpen, BarChart3, Package, Gift,
-  Lightbulb, Vault, GraduationCap, Newspaper, FolderOpen,
+  Lightbulb, GraduationCap, Newspaper, FolderOpen,
   Mail, Map, Brain, Zap, Trophy, Building
 } from "lucide-react";
 import { useAuth } from "@/components/auth/AuthProvider";
+import { useProfile } from "@/hooks/useProfile";
 import { useToast } from "@/hooks/use-toast";
 import { useCart } from "@/contexts/CartContext";
 import { supabase } from "@/integrations/supabase/client";
@@ -21,6 +22,7 @@ const Navigation = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const location = useLocation();
   const { user, signOut, session } = useAuth();
+  const { displayName, avatarUrl } = useProfile();
   const { toast } = useToast();
 
   useEffect(() => {
@@ -97,7 +99,6 @@ const Navigation = () => {
         { path: "/analytics", label: "Analytics", description: "Platform data and market insights" },
       ].filter(child => isPageVisible(child.path))
     },
-    { label: "Vault", path: "/vault-access" },
     { label: "Store", path: "/store" },
     { label: "Philosophy", path: "/philosophy" },
     { label: "For Professionals", path: "/institutional" },
@@ -217,12 +218,16 @@ const Navigation = () => {
         <div className="h-full overflow-y-auto flex flex-col">
           {user && (
             <div className="flex items-center gap-3 p-4 mb-2 border-b border-white/8">
-              <div className="w-10 h-10 rounded-full bg-violet-500/20 border border-violet-500/30 flex items-center justify-center">
-                <User className="w-5 h-5 text-violet-400" />
+              <div className="w-10 h-10 rounded-full bg-violet-500/20 border border-violet-500/30 flex items-center justify-center overflow-hidden">
+                {avatarUrl ? (
+                  <img src={avatarUrl} alt={displayName} className="w-full h-full object-cover" />
+                ) : (
+                  <User className="w-5 h-5 text-violet-400" />
+                )}
               </div>
-              <div>
-                <p className="font-body text-sm text-white">{user.email}</p>
-                <p className="font-body text-xs text-white/40">Member</p>
+              <div className="flex-1 min-w-0">
+                <p className="font-body text-sm text-white truncate">{displayName}</p>
+                <p className="font-body text-[10px] text-white/40 uppercase tracking-widest truncate">{user.email}</p>
               </div>
             </div>
           )}
@@ -231,7 +236,6 @@ const Navigation = () => {
             {[
               { path: "/courses", label: "Courses", icon: BookOpen, iconColor: "text-violet-400", bgColor: "bg-violet-600/20", borderColor: "border-violet-500/30" },
               { path: "/tutorials", label: "Tutorials", icon: GraduationCap, iconColor: "text-white/60", bgColor: "bg-white/5", borderColor: "border-white/10" },
-              { path: "/vault-access", label: "Vault", icon: Vault, iconColor: "text-white/60", bgColor: "bg-white/5", borderColor: "border-white/10", isTopLevel: true },
               { path: "/store", label: "Store", icon: Package, iconColor: "text-white/60", bgColor: "bg-white/5", borderColor: "border-white/10", isTopLevel: true },
             ].filter(item => item.isTopLevel || isPageVisible(item.path)).map((item) => (
               <Link

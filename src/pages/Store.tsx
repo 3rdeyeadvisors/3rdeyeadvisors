@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Package, CheckCircle, X, RefreshCw, Shield, Sparkles } from "lucide-react";
+import { Package, CheckCircle, X, RefreshCw, Shield } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useState, useEffect, useCallback } from "react";
 import { toast } from "sonner";
@@ -8,13 +8,10 @@ import { useAuth } from "@/components/auth/AuthProvider";
 import { useCart } from "@/contexts/CartContext";
 import SEO from "@/components/SEO";
 import { MerchandiseCard } from "@/components/store/MerchandiseCard";
-import { NFTStoreCard } from "@/components/store/NFTStoreCard";
 import { usePullToRefresh } from "@/hooks/usePullToRefresh";
 import PageHero from "@/components/PageHero";
 import { PullToRefreshIndicator } from "@/components/ui/pull-to-refresh";
 import { isAdminEmail } from "@/lib/admin";
-
-type StoreCategory = 'merchandise' | 'digital';
 
 const Store = () => {
   const { addItem, items, clearCart } = useCart();
@@ -24,7 +21,7 @@ const Store = () => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [printifyProducts, setPrintifyProducts] = useState<any[]>([]);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [activeCategory, setActiveCategory] = useState<StoreCategory>('merchandise');
+  const activeCategory = 'merchandise';
 
   const handleAddToCart = (product: any) => {
     
@@ -199,26 +196,6 @@ const Store = () => {
             </div>
           </div>
 
-          {/* Category Toggle Buttons */}
-          <div className="flex justify-center gap-3 mb-16">
-            {[
-              { id: 'merchandise', label: 'Physical Products', icon: Package },
-              { id: 'digital', label: 'Digital Collectibles', icon: Sparkles },
-            ].map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id as any)}
-                className={`font-body text-xs uppercase tracking-widest px-8 py-3 rounded-full border transition-all flex items-center gap-2 ${
-                  activeCategory === cat.id
-                    ? "bg-violet-600 border-violet-600 text-white shadow-lg shadow-violet-900/20"
-                    : "border-white/15 text-white/50 hover:border-violet-500/30 hover:text-white/80 bg-transparent"
-                }`}
-              >
-                <cat.icon className="w-4 h-4" />
-                {cat.label}
-              </button>
-            ))}
-          </div>
 
           {/* Success Message */}
           {showSuccessMessage && (
@@ -334,28 +311,6 @@ const Store = () => {
             </section>
           )}
 
-          {/* Digital Collectibles / NFT Section */}
-          {activeCategory === 'digital' && (
-            <section aria-labelledby="nft-heading">
-              <div className="flex items-center justify-center gap-3 mb-8">
-                <Sparkles className="h-6 w-6 text-primary" aria-hidden="true" />
-                <h2 id="nft-heading" className="text-2xl font-consciousness font-bold text-white">
-                  Digital Collectibles
-                </h2>
-              </div>
-              
-              {/* Single NFT - centered with max width for professional look */}
-              <div className="flex justify-center">
-                <div className="w-full max-w-sm">
-                  <NFTStoreCard />
-                </div>
-              </div>
-              
-              <p className="text-sm text-white/50 font-consciousness mt-6 text-center">
-                Complete your purchase on Thirdweb with your wallet.
-              </p>
-            </section>
-          )}
 
           <Card className="mt-12 md:mt-16 p-6 md:p-8 bg-secondary/40 border-white/8" role="region" aria-label="Payment information">
             <div className="flex flex-col md:flex-row items-center md:items-start gap-4 text-center md:text-left">

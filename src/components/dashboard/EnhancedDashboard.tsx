@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "@/components/auth/AuthProvider";
+import { useProfile } from "@/hooks/useProfile";
 import { useProgress } from "@/components/progress/ProgressProvider";
 import { useSubscription } from "@/hooks/useSubscription";
 import { useAchievementSounds } from "@/hooks/useAchievementSounds";
@@ -79,6 +80,7 @@ interface DetailedQuiz {
 
 export const EnhancedDashboard = () => {
   const { user } = useAuth();
+  const { displayName, avatarUrl } = useProfile();
   const { courseProgress } = useProgress();
   const { subscription, loading: subLoading, hasAccess, isTrialing, checkSubscription } = useSubscription();
   const { soundEnabled, toggleSound } = useAchievementSounds();
@@ -135,13 +137,13 @@ export const EnhancedDashboard = () => {
       loadWeeklyProgress();
       loadAnalyticsStats();
     }
-  }, [user]);
+  }, [user, loadQuizStats, loadRecentActivity, loadWeeklyProgress, loadAnalyticsStats]);
 
-  const loadQuizStats = async () => {
+  const loadQuizStats = useCallback(async () => {
     if (!user) return;
 
     try {
-      // Fetch detailed quiz data for the sheet views
+      // Fetch detailed quiz data from quiz_attempts
       const { data: attempts, error } = await supabase
         .from('quiz_attempts')
         .select('id, score, passed, quiz_id, created_at, time_taken, quizzes(title, course_id, module_id)')
@@ -150,32 +152,71 @@ export const EnhancedDashboard = () => {
 
       if (error) throw error;
 
-      // Store detailed quiz data
-      setDetailedQuizzes(attempts as DetailedQuiz[] || []);
+      // Also fetch quiz data from user_presence (for built-in quizzes with non-UUID IDs)
+      const { data: presenceData, error: presenceError } = await supabase
+        .from('user_presence')
+        .select('id, content_id, metadata, created_at, last_seen')
+        .eq('user_id', user.id)
+        .eq('content_type', 'quiz_attempt');
 
-      const uniqueQuizzes = new Set(attempts?.map(a => a.quiz_id) || []);
-      const completedQuizzes = uniqueQuizzes.size;
-      const passedQuizzes = attempts?.filter(a => a.passed).length || 0;
-      const averageScore = attempts?.length 
-        ? Math.round(attempts.reduce((sum, a) => sum + a.score, 0) / attempts.length)
+      if (presenceError) throw presenceError;
+
+      // Combine and format
+      const dbQuizzes: DetailedQuiz[] = (attempts as DetailedQuiz[] || []);
+      const builtInQuizzes: DetailedQuiz[] = (presenceData || []).map(p => {
+        const metadata = p.metadata as Record<string, any> | null;
+        return {
+          id: p.id,
+          score: metadata?.score || 0,
+          passed: metadata?.passed || false,
+          created_at: p.created_at || p.last_seen || new Date().toISOString(),
+          time_taken: metadata?.timeTaken || null,
+          quizzes: {
+            title: metadata?.quizTitle || 'Quiz',
+            course_id: metadata?.courseId || 0,
+            module_id: p.content_id
+          }
+        };
+      });
+
+      // Combine both sources, prioritizing quiz_attempts if both exist for same quiz
+      // Actually, since quiz_attempts only stores UUIDs, they won't overlap with string IDs from courseContent
+      const allDetailedQuizzes = [...dbQuizzes, ...builtInQuizzes].sort(
+        (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+      );
+
+      // Store detailed quiz data
+      setDetailedQuizzes(allDetailedQuizzes);
+
+      // Calculate unique quizzes completed
+      const uniqueQuizIds = new Set([
+        ...(attempts?.map(a => a.quiz_id) || []),
+        ...(presenceData?.map(p => p.content_id) || [])
+      ]);
+
+      const completedQuizzesCount = uniqueQuizIds.size;
+      const passedQuizzesCount = allDetailedQuizzes.filter(q => q.passed).length;
+
+      const averageScore = allDetailedQuizzes.length
+        ? Math.round(allDetailedQuizzes.reduce((sum, q) => sum + q.score, 0) / allDetailedQuizzes.length)
         : 0;
 
       setQuizStats({
-        totalQuizzes: completedQuizzes,
-        completedQuizzes,
+        totalQuizzes: completedQuizzesCount,
+        completedQuizzes: completedQuizzesCount,
         averageScore,
-        passedQuizzes
+        passedQuizzes: passedQuizzesCount
       });
     } catch (error) {
       console.error('Error loading quiz stats:', error);
     }
-  };
+  }, [user]);
 
-  const loadRecentActivity = async () => {
+  const loadRecentActivity = useCallback(async () => {
     if (!user) return;
 
     try {
-      // Fetch quiz attempts
+      // Fetch quiz attempts from DB
       const { data: attempts, error: quizError } = await supabase
         .from('quiz_attempts')
         .select('*, quizzes(title, course_id, module_id)')
@@ -184,6 +225,15 @@ export const EnhancedDashboard = () => {
         .limit(10);
 
       if (quizError) throw quizError;
+
+      // Fetch quiz attempts from presence (built-in quizzes)
+      const { data: presenceQuizzes } = await supabase
+        .from('user_presence')
+        .select('*')
+        .eq('user_id', user.id)
+        .eq('content_type', 'quiz_attempt')
+        .order('last_seen', { ascending: false })
+        .limit(10);
 
       // Fetch significant point earnings (module/course completions)
       const { data: points, error: pointsError } = await supabase
@@ -206,6 +256,17 @@ export const EnhancedDashboard = () => {
           passed: a.passed,
           created_at: a.created_at
         })) || []),
+        ...(presenceQuizzes?.map(p => {
+          const metadata = p.metadata as Record<string, any> | null;
+          return {
+            id: p.id,
+            type: 'quiz',
+            title: metadata?.quizTitle || 'Quiz',
+            score: metadata?.score || 0,
+            passed: metadata?.passed || false,
+            created_at: p.created_at || p.last_seen
+          };
+        }) || []),
         ...(points?.filter(p => p.action_type !== 'quiz_passed').map(p => ({
           id: p.id,
           type: 'points',
@@ -221,9 +282,9 @@ export const EnhancedDashboard = () => {
     } catch (error) {
       console.error('Error loading recent activity:', error);
     }
-  };
+  }, [user]);
 
-  const loadWeeklyProgress = async () => {
+  const loadWeeklyProgress = useCallback(async () => {
     if (!user) return;
 
     try {
@@ -300,9 +361,9 @@ export const EnhancedDashboard = () => {
         { day: 'Sun', modules: 0, quizzes: 0 },
       ]);
     }
-  };
+  }, [user]);
 
-  const loadAnalyticsStats = async () => {
+  const loadAnalyticsStats = useCallback(async () => {
     if (!user) return;
     
     try {
@@ -381,11 +442,26 @@ export const EnhancedDashboard = () => {
     } catch (error) {
       console.error('Error loading analytics:', error);
     }
+  }, [user, courseProgress]);
+
+  // currentStreak is now calculated in useEffect above
+
+  const getCategoryColor = (category: string) => {
+    switch (category) {
+      case "free": return "bg-awareness/20 text-awareness border-awareness/30";
+      case "paid": return "bg-primary/20 text-primary border-primary/30";
+      default: return "bg-white/3 text-white/50 border-white/8";
+    }
   };
 
-  if (!user) {
-    return null;
-  }
+  const getDifficultyColor = (difficulty: string) => {
+    switch (difficulty) {
+      case "Beginner": return "text-awareness";
+      case "Intermediate": return "text-accent";
+      case "Advanced": return "text-destructive";
+      default: return "text-white/50";
+    }
+  };
 
   // Get real courses from courseContent
   const courses = courseContent.map(course => ({
@@ -420,6 +496,12 @@ export const EnhancedDashboard = () => {
           .eq('user_id', user.id)
           .order('created_at', { ascending: false });
 
+        const { data: presenceQuizzes } = await supabase
+          .from('user_presence')
+          .select('created_at, last_seen')
+          .eq('user_id', user.id)
+          .eq('content_type', 'quiz_attempt');
+
         const { data: progressUpdates } = await supabase
           .from('course_progress')
           .select('updated_at')
@@ -429,6 +511,7 @@ export const EnhancedDashboard = () => {
         // Combine and sort all activity dates
         const allDates = new Set<string>();
         quizAttempts?.forEach(a => allDates.add(new Date(a.created_at).toDateString()));
+        presenceQuizzes?.forEach(p => allDates.add(new Date(p.created_at || p.last_seen!).toDateString()));
         progressUpdates?.forEach(p => allDates.add(new Date(p.updated_at).toDateString()));
 
         // Calculate streak
@@ -457,6 +540,10 @@ export const EnhancedDashboard = () => {
 
     calculateStreak();
   }, [user]);
+
+  if (!user) {
+    return null;
+  }
 
   const getAchievements = () => {
     const allBadges = getAllBadgesWithStatus();
@@ -493,24 +580,6 @@ export const EnhancedDashboard = () => {
 
   const { inProgress, completed, notStarted } = getCoursesByProgress();
   const achievements = getAchievements();
-  // currentStreak is now calculated in useEffect above
-
-  const getCategoryColor = (category: string) => {
-    switch (category) {
-      case "free": return "bg-awareness/20 text-awareness border-awareness/30";
-      case "paid": return "bg-primary/20 text-primary border-primary/30";
-      default: return "bg-white/3 text-white/50 border-white/8";
-    }
-  };
-
-  const getDifficultyColor = (difficulty: string) => {
-    switch (difficulty) {
-      case "Beginner": return "text-awareness";
-      case "Intermediate": return "text-accent";
-      case "Advanced": return "text-destructive";
-      default: return "text-white/50";
-    }
-  };
 
   return (
     <div className="min-h-screen bg-black pt-20 pb-20 w-full overflow-x-hidden relative">
@@ -524,15 +593,15 @@ export const EnhancedDashboard = () => {
           <div className="relative">
             <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 to-blue-600 rounded-full blur opacity-25" />
             <Avatar className="w-20 h-20 border-2 border-white/10 relative">
-              <AvatarImage src="" />
+              <AvatarImage src={avatarUrl || ""} />
               <AvatarFallback className="bg-violet-500/10 text-violet-400 text-2xl font-consciousness">
-                {user.email?.charAt(0).toUpperCase()}
+                {displayName.charAt(0).toUpperCase()}
               </AvatarFallback>
             </Avatar>
           </div>
         <div className="flex-1 text-center sm:text-left w-full">
           <h1 className="text-2xl md:text-5xl font-consciousness font-bold text-white mb-2">
-              Welcome back, {user.email?.split('@')[0]}
+              Welcome back, {displayName}
             </h1>
             <p className="text-white/50 font-body text-lg">
               Continue your DeFi learning journey

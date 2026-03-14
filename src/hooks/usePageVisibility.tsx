@@ -35,7 +35,8 @@ export const usePageVisibility = () => {
           schema: 'public',
           table: 'page_visibility',
         },
-        () => {
+        (payload) => {
+          console.log('[usePageVisibility] Real-time update received:', payload);
           queryClient.invalidateQueries({ queryKey: ['page-visibility'] });
         }
       )

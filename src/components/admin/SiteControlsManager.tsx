@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { useQueryClient } from "@tanstack/react-query";
 import { useSocialLinks, SocialLink } from "@/hooks/useSocialLinks";
 import { usePageVisibility, PageVisibility } from "@/hooks/usePageVisibility";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -23,6 +24,7 @@ import {
 
 export const SiteControlsManager = () => {
   const { toast } = useToast();
+  const queryClient = useQueryClient();
   const { links: initialLinks, loading: linksLoading } = useSocialLinks();
   const { pages, loading: pagesLoading } = usePageVisibility();
 
@@ -95,6 +97,9 @@ export const SiteControlsManager = () => {
         if (upsertError) throw upsertError;
       }
 
+      // Invalidate and refetch social links
+      queryClient.invalidateQueries({ queryKey: ["social-links"] });
+
       toast({
         title: "Success",
         description: "Social links saved",
@@ -119,6 +124,9 @@ export const SiteControlsManager = () => {
         .eq("path", path);
 
       if (error) throw error;
+
+      // Invalidate and refetch page visibility
+      queryClient.invalidateQueries({ queryKey: ["page-visibility"] });
 
       setPageStatus({ ...pageStatus, [path]: 'success' });
       setTimeout(() => {

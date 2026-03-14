@@ -72,7 +72,7 @@ export const QuizComponent = ({ courseId, moduleId, quiz, onComplete }: QuizComp
       loadAttempts();
       setLocalAttemptCount(0);
     }
-  }, [user, quiz.id]);
+  }, [user, quiz.id, loadAttempts]);
 
   // Timer
   useEffect(() => {
@@ -89,9 +89,9 @@ export const QuizComponent = ({ courseId, moduleId, quiz, onComplete }: QuizComp
 
       return () => clearInterval(timer);
     }
-  }, [quizStarted, timeLeft, showResults]);
+  }, [quizStarted, timeLeft, showResults, handleSubmitQuiz]);
 
-  const loadAttempts = async () => {
+  const loadAttempts = useCallback(async () => {
     if (!user) return;
 
     try {
@@ -107,7 +107,7 @@ export const QuizComponent = ({ courseId, moduleId, quiz, onComplete }: QuizComp
     } catch (error) {
       console.error('Error loading attempts:', error);
     }
-  };
+  }, [user, quiz.id]);
 
   const canTakeQuiz = () => {
     return (attempts.length + localAttemptCount) < quiz.maxAttempts;
@@ -159,7 +159,7 @@ export const QuizComponent = ({ courseId, moduleId, quiz, onComplete }: QuizComp
     }
   };
 
-  const calculateScore = () => {
+  const calculateScore = useCallback(() => {
     let totalPoints = 0;
     let earnedPoints = 0;
 
@@ -191,9 +191,9 @@ export const QuizComponent = ({ courseId, moduleId, quiz, onComplete }: QuizComp
     });
 
     return totalPoints > 0 ? Math.round((earnedPoints / totalPoints) * 100) : 0;
-  };
+  }, [answers, quiz.questions]);
 
-  const handleSubmitQuiz = async () => {
+  const handleSubmitQuiz = useCallback(async () => {
     if (!user) {
       toast({
         title: "Authentication Required",
@@ -213,7 +213,7 @@ export const QuizComponent = ({ courseId, moduleId, quiz, onComplete }: QuizComp
 
       // Try to save to database, but don't fail if it doesn't work (for courseContent quizzes)
       try {
-        const { error } = await supabase
+        const { error: dbError } = await supabase
           .from('quiz_attempts')
           .insert({
             user_id: user.id,
@@ -225,11 +225,37 @@ export const QuizComponent = ({ courseId, moduleId, quiz, onComplete }: QuizComp
             completed_at: new Date().toISOString()
           });
 
-        if (error) {
-          // Could not save quiz to database (this is OK for courseContent quizzes)
+        if (dbError) {
+          console.debug('Database quiz_attempts save skipped or failed:', dbError.message);
         }
-      } catch (dbError) {
-        // Database save skipped for courseContent quiz
+      } catch (err) {
+        // Ignored for non-UUID quiz IDs
+      }
+
+      // Also save to user_presence for robust tracking of all quiz types (built-in and DB)
+      // This ensures built-in quizzes with string IDs are still tracked in the dashboard
+      try {
+        await supabase
+          .from('user_presence')
+          .upsert({
+            user_id: user.id,
+            content_type: 'quiz_attempt',
+            content_id: quiz.id,
+            metadata: {
+              courseId,
+              moduleId,
+              score: finalScore,
+              passed,
+              timeTaken,
+              quizTitle: quiz.title,
+              lastAttemptAt: new Date().toISOString()
+            },
+            last_seen: new Date().toISOString(),
+          }, {
+            onConflict: 'user_id,content_type,content_id'
+          });
+      } catch (presenceError) {
+        console.error('Error saving quiz attempt to presence:', presenceError);
       }
 
       // Set results state - this should always happen
@@ -301,7 +327,7 @@ export const QuizComponent = ({ courseId, moduleId, quiz, onComplete }: QuizComp
     } finally {
       setLoading(false);
     }
-  };
+  }, [user, quiz, answers, timeLeft, courseId, moduleId, toast, awardPoints, awardBadge, onComplete, playQuizPass, attempts.length, localAttemptCount, calculateScore]);
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);

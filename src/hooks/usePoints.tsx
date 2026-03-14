@@ -30,7 +30,6 @@ export const POINT_VALUES = {
   referral_signup: 50,
   referral_monthly_conversion: 150,
   referral_annual_conversion: 300,
-  referral_founding33_conversion: 500,
 } as const;
 
 export type PointActionType = keyof typeof POINT_VALUES;
@@ -256,7 +255,6 @@ export const usePoints = () => {
       referral_signup: 'Referral Signup',
       referral_monthly_conversion: 'Referral Subscribed (Monthly)',
       referral_annual_conversion: 'Referral Subscribed (Annual)',
-      referral_founding33_conversion: 'Founding 33 Referral',
     };
     return displayNames[actionType] || actionType;
   };

@@ -116,10 +116,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const signOut = async () => {
-    // Clear vault state on explicit logout
-    sessionStorage.removeItem('vault_step');
-    sessionStorage.removeItem('vault_auth_redirect');
-    
     const result = await supabase.auth.signOut();
     return result;
   };

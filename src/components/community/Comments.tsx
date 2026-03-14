@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/components/auth/AuthProvider";
+import { useProfile } from "@/hooks/useProfile";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -49,6 +50,7 @@ interface CommentsProps {
 
 export const Comments = ({ contentType, contentId, title }: CommentsProps) => {
   const { user } = useAuth();
+  const { displayName, avatarUrl } = useProfile();
   const { toast } = useToast();
   const navigate = useNavigate();
   const { awardBadge, hasBadge } = useBadges();
@@ -460,9 +462,9 @@ export const Comments = ({ contentType, contentId, title }: CommentsProps) => {
             <CardContent className="p-4">
               <div className="flex items-start gap-3">
                 <Avatar className="w-8 h-8">
-                  <AvatarImage src="" />
+                  <AvatarImage src={avatarUrl || ""} />
                   <AvatarFallback className="bg-violet-500/10 text-violet-400 text-sm font-body">
-                    {user.email?.charAt(0).toUpperCase()}
+                    {displayName.charAt(0).toUpperCase()}
                   </AvatarFallback>
                 </Avatar>
                 <div className="flex-1">

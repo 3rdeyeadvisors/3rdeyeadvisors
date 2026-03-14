@@ -132,12 +132,12 @@ const TermsOfService = () => {
                 </ul>
               </div>
               <div className="bg-amber-500/10 border border-amber-500/20 p-6 rounded-lg">
-                <p className="font-semibold mb-2">ENZYME VAULT: THIRD-PARTY SERVICE:</p>
+                <p className="font-semibold mb-2">THIRD-PARTY SERVICES:</p>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li>The Enzyme Vault is operated by Enzyme Finance, an independent third-party DeFi protocol.</li>
-                  <li>Sentinel DeFi does not custody your funds: deposits and withdrawals occur on Enzyme's external platform.</li>
-                  <li>Smart contract risks exist with any DeFi protocol; always verify you're on the official Enzyme Finance website.</li>
-                  <li>Past vault performance does not guarantee future results.</li>
+                  <li>Interactions with third-party DeFi protocols are conducted at your own risk.</li>
+                  <li>Sentinel DeFi does not custody your funds: you maintain full control of your assets.</li>
+                  <li>Smart contract risks exist with any DeFi protocol; always verify you are interacting with official protocol addresses.</li>
+                  <li>Past performance of any protocol does not guarantee future results.</li>
                 </ul>
               </div>
             </section>

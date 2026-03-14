@@ -29,7 +29,7 @@ export const thirdwebClient = createThirdwebClient({
 // This helps users identify your app when connecting from their wallet
 export const appMetadata = {
   name: "Sentinel DeFi",
-  description: "DeFi Education & NFT-Gated Vault Access",
+  description: "DeFi Education & Research",
   url: typeof window !== "undefined" ? window.location.origin : "https://sentineldefi.online",
   logoUrl: "https://sentineldefi.online/android-chrome-192x192.png",
   // Additional fields for better wallet UX
@@ -42,24 +42,12 @@ export const ethereum = defineChain(1);
 // NFT Contract Address (Sentinel DeFi Access NFT)
 export const NFT_CONTRACT_ADDRESS = "0x91AE8ec3d88E871679F826c1D6c5B008f105506c";
 
-// Enzyme Vault ComptrollerProxy Address
-export const ENZYME_VAULT_ADDRESS = "0x8b668add6fba7c01444353c0dfdef222a816cd9f";
-
 // Get NFT Contract instance
 export const getNFTContract = () => {
   return getContract({
     client: thirdwebClient,
     chain: ethereum,
     address: NFT_CONTRACT_ADDRESS,
-  });
-};
-
-// Get Enzyme Vault Contract instance
-export const getEnzymeVaultContract = () => {
-  return getContract({
-    client: thirdwebClient,
-    chain: ethereum,
-    address: ENZYME_VAULT_ADDRESS,
   });
 };
 
