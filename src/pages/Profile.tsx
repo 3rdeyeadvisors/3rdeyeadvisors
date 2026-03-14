@@ -265,6 +265,18 @@ const Profile = () => {
     }
   }, [user]);
 
+  // Load user profile and stats
+  useEffect(() => {
+    if (targetUserId) {
+      loadProfile();
+      if (isOwnProfile && user) {
+        loadUserStats();
+        loadCourseNotes();
+      }
+    }
+  }, [targetUserId, user, isOwnProfile, loadProfile, loadUserStats, loadCourseNotes]);
+
+
   // Compress image before upload for faster uploads and smaller storage
   const compressImage = async (file: File): Promise<Blob> => {
     return new Promise((resolve, reject) => {
